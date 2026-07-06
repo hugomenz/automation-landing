@@ -1,0 +1,26 @@
+<section class="section help" id="help" aria-labelledby="help-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">{{ content().eyebrow }}</p>
+      <h2 id="help-title">{{ content().title }}</h2>
+      <p class="section-intro">{{ content().intro }}</p>
+    </header>
+
+    <ul class="issue-list">
+      @for (row of content().rows; track row.text) {
+        <li class="issue-row">
+          <span class="issue-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor">
+              <path
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0Z"
+              />
+              <circle cx="8" cy="8" r="3.25" />
+            </svg>
+          </span>
+          <span class="issue-text">{{ row.text }}</span>
+          <span class="issue-tag mono">{{ row.marker }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

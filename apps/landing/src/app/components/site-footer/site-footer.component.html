@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-primary">
+      <strong>{{ content().left }}</strong>
+      <span>{{ content().right }}</span>
+    </div>
+
+    <div class="footer-meta">
+      <nav class="footer-links" [attr.aria-label]="content().contactLabel">
+        <a [href]="contactHref()">{{ email }}</a>
+        @for (link of socialLinks; track link.label) {
+          <a [href]="link.href" rel="noreferrer" target="_blank">{{ link.label }}</a>
+        }
+      </nav>
+      <span class="footer-built mono">{{ content().builtWith }}</span>
+    </div>
+  </div>
+</footer>

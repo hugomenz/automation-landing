@@ -1,0 +1,4 @@
+apps/landing/node_modules/
+apps/landing/dist/
+apps/landing/.angular/
+apps/landing/.landing-dev*.log

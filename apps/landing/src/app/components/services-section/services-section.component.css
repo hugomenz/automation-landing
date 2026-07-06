@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.build-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 44px;
+}
+
+.build-item {
+  display: flex;
+  gap: 14px;
+  padding: 20px 2px;
+  border-top: 1px solid var(--border-muted);
+}
+
+.build-marker {
+  color: var(--accent-bright);
+  font-size: 1rem;
+  line-height: 1.65;
+  flex-shrink: 0;
+}
+
+.build-copy h3 {
+  color: var(--text);
+  font-size: 1.04rem;
+  margin-bottom: 6px;
+}
+
+.build-copy p {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .build-list {
+    grid-template-columns: 1fr;
+  }
+}

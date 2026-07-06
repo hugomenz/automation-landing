@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.trust-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 44px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.trust-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .trust-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

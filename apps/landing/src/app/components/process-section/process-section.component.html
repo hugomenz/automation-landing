@@ -1,0 +1,19 @@
+<section class="section process" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">{{ content().eyebrow }}</p>
+      <h2 id="process-title">{{ content().title }}</h2>
+      <p class="section-intro">{{ content().intro }}</p>
+    </header>
+
+    <ol class="steps">
+      @for (step of content().steps; track step.number) {
+        <li class="step">
+          <span class="step-num mono">{{ step.number }}</span>
+          <h3 class="step-title">{{ step.title }}</h3>
+          <p class="step-body">{{ step.body }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

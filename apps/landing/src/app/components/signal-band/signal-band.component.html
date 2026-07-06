@@ -1,0 +1,25 @@
+<section class="ich-baue" [attr.aria-label]="prefix()">
+  <div class="container ib-inner">
+    <span class="ib-prefix mono">{{ prefix() }}</span>
+
+    <span class="ib-rotator">
+      @for (item of items(); track $index) {
+        <span
+          class="ib-case"
+          [class.is-active]="$index === activeIndex()"
+          [attr.aria-hidden]="$index === activeIndex() ? null : 'true'"
+        >
+          <span class="ib-copy">
+            <span class="ib-flow">{{ item.label }}</span>
+            @if (item.detail) {
+              <span class="ib-detail">{{ item.detail }}</span>
+            }
+          </span>
+          @if (item.pill) {
+            <span class="ib-pill mono">{{ item.pill }}</span>
+          }
+        </span>
+      }
+    </span>
+  </div>
+</section>

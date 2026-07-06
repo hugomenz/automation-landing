@@ -1,0 +1,39 @@
+<section class="section final" id="contact" aria-labelledby="contact-title">
+  <div class="container final-grid">
+    <div class="final-copy">
+      <p class="eyebrow">{{ content().eyebrow }}</p>
+      <h2 id="contact-title">{{ content().title }}</h2>
+      <p class="final-body">{{ content().body }}</p>
+
+      <div class="final-actions">
+        <a class="btn btn-primary" [href]="contactHref()">{{ content().button }}</a>
+      </div>
+
+      <p class="final-email-line">
+        {{ content().emailLabel }}:
+        <a class="final-email mono" [href]="contactHref()">{{ email }}</a>
+      </p>
+
+      <p class="final-note mono">
+        <span class="final-note-dot" aria-hidden="true"></span>
+        {{ content().note }}
+      </p>
+    </div>
+
+    <figure class="final-person">
+      <img
+        class="final-photo"
+        [src]="portraitSrc"
+        [alt]="portraitAlt"
+        width="320"
+        height="320"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="final-person-meta">
+        <strong>{{ content().personName }}</strong>
+        <span class="mono">{{ content().personRole }}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>

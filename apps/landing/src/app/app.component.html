@@ -1,0 +1,27 @@
+<div class="app-shell" id="top">
+  <app-header [content]="content()" />
+
+  <main id="content">
+    <app-hero [content]="content()" [diagram]="activeDiagram()" />
+
+    <app-signal-band
+      [items]="content().banner.cases"
+      [prefix]="content().banner.prefix"
+      [activeIndex]="activeCaseIndex()"
+    />
+
+    <app-problem-section [content]="content().help" appReveal />
+
+    <app-process-section [content]="content().process" appReveal />
+
+    <app-services-section [content]="content().build" appReveal />
+
+    <app-cases-section [content]="content().outcome" appReveal />
+
+    <app-certificates-section [content]="content().trust" appReveal />
+
+    <app-final-cta [content]="content().cta" appReveal />
+  </main>
+
+  <app-site-footer [content]="content().footer" />
+</div>

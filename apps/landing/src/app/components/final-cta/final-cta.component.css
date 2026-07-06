@@ -1,0 +1,120 @@
+:host {
+  display: block;
+}
+
+.final {
+  background:
+    radial-gradient(760px 360px at 82% 20%, rgba(46, 160, 67, 0.07), transparent 62%),
+    transparent;
+}
+
+.final-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(36px, 6vw, 76px);
+  align-items: center;
+}
+
+.final-copy {
+  max-width: 40rem;
+}
+
+.final h2 {
+  margin-top: 14px;
+  max-width: 20ch;
+}
+
+.final-body {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-top: 20px;
+  max-width: 34rem;
+}
+
+.final-actions {
+  margin-top: 30px;
+}
+
+.final-email-line {
+  margin-top: 18px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.final-email {
+  color: var(--accent-bright);
+  border-bottom: 1px solid var(--accent-border);
+  padding-bottom: 1px;
+  transition: border-color 140ms ease;
+}
+
+.final-email:hover,
+.final-email:focus-visible {
+  border-color: var(--accent-bright);
+}
+
+.final-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 28px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.final-note-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.final-person {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.final-photo {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.final-person-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.final-person-meta strong {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.final-person-meta span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 820px) {
+  .final-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .final-photo {
+    max-width: 240px;
+  }
+}
