@@ -13,6 +13,7 @@ import {
 import { MAKE_WEBHOOK_URL } from '../../contact-form.config';
 import { LandingContent } from '../../content';
 import { ContactDialogService } from '../../contact-dialog.service';
+import { ContactFormRateLimiterService } from '../../contact-form-rate-limiter.service';
 import { LanguageService } from '../../language.service';
 import { SnackbarService } from '../../snackbar.service';
 
@@ -99,6 +100,7 @@ export class ContactDialogComponent implements OnDestroy {
   private readonly document = inject(DOCUMENT);
   private readonly languageService = inject(LanguageService);
   private readonly snackbarService = inject(SnackbarService);
+  private readonly rateLimiter = inject(ContactFormRateLimiterService);
 
   protected readonly contactDialog = inject(ContactDialogService);
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
@@ -163,6 +165,13 @@ export class ContactDialogComponent implements OnDestroy {
       return;
     }
 
+    // Check rate limit
+    const rateLimitCheck = this.rateLimiter.canSubmit();
+    if (!rateLimitCheck.allowed) {
+      this.snackbarService.show('error', rateLimitCheck.reason || 'Rate limit exceeded.');
+      return;
+    }
+
     if (!MAKE_WEBHOOK_URL.trim()) {
       this.snackbarService.show('error', this.copy().missingWebhook);
       return;
@@ -191,6 +200,9 @@ export class ContactDialogComponent implements OnDestroy {
       if (!response.ok) {
         throw new Error(`Make webhook returned ${response.status}`);
       }
+
+      // Record successful submission for rate limiting
+      this.rateLimiter.recordSubmission();
 
       this.snackbarService.show('success', this.copy().success);
       this.submitted.set(false);
