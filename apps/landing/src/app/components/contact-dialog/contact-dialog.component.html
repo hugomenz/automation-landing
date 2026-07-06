@@ -1,0 +1,95 @@
+@if (contactDialog.isOpen()) {
+  <div class="contact-dialog-backdrop" (click)="close()">
+    <section
+      class="contact-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-dialog-title"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        type="button"
+        class="contact-dialog-close"
+        [attr.aria-label]="copy().closeLabel"
+        (click)="close()"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <p class="eyebrow">{{ copy().eyebrow }}</p>
+      <h2 id="contact-dialog-title">{{ copy().title }}</h2>
+      <p class="contact-dialog-body">{{ copy().body }}</p>
+
+      <form class="contact-form" novalidate (ngSubmit)="submit()" (submit)="submit()">
+        <label class="contact-field">
+          <span class="contact-label mono">{{ copy().name }}</span>
+          <input
+            #nameInput
+            type="text"
+            class="contact-input"
+            [value]="form().name"
+            (input)="updateField('name', $any($event.target).value)"
+            autocomplete="name"
+          />
+        </label>
+
+        <label class="contact-field">
+          <span class="contact-label mono">{{ copy().email }}</span>
+          <input
+            type="email"
+            class="contact-input"
+            [attr.aria-invalid]="emailError()"
+            [value]="form().email"
+            (input)="updateField('email', $any($event.target).value)"
+            autocomplete="email"
+          />
+          @if (emailError()) {
+            <span class="contact-error">{{ copy().emailRequired }}</span>
+          }
+        </label>
+
+        <label class="contact-field">
+          <span class="contact-label mono">{{ copy().phone }}</span>
+          <input
+            type="tel"
+            class="contact-input"
+            [value]="form().phone"
+            (input)="updateField('phone', $any($event.target).value)"
+            autocomplete="tel"
+          />
+        </label>
+
+        <label class="contact-field contact-field-full">
+          <span class="contact-label mono">{{ copy().message }}</span>
+          <textarea
+            class="contact-input contact-textarea"
+            [attr.aria-invalid]="messageError()"
+            [value]="form().message"
+            (input)="updateField('message', $any($event.target).value)"
+            rows="6"
+          ></textarea>
+          @if (messageError()) {
+            <span class="contact-error">{{ copy().messageRequired }}</span>
+          }
+        </label>
+
+        <div class="contact-actions contact-field-full">
+          <button type="submit" class="btn btn-primary" [disabled]="!canSubmit()">
+            {{ isSending() ? copy().sending : copy().submit }}
+          </button>
+          <p class="contact-powered mono">{{ copy().poweredBy }}</p>
+        </div>
+
+        @if (feedback()) {
+          <p
+            class="contact-status contact-field-full"
+            [class.is-success]="status() === 'success'"
+            [class.is-error]="status() === 'error'"
+          >
+            {{ feedback() }}
+          </p>
+        }
+      </form>
+    </section>
+  </div>
+}
