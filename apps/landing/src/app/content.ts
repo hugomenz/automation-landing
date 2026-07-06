@@ -105,7 +105,6 @@ export interface LandingContent {
     note: string;
     personName: string;
     personRole: string;
-    emailLabel: string;
   };
   footer: {
     left: string;
@@ -391,7 +390,6 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
       note: 'Kein Sales-Theater. Erst prüfen wir, ob der Prozess sinnvoll automatisierbar ist.',
       personName: siteConfig.name,
       personRole: 'Prozessautomatisierung · Deutschland',
-      emailLabel: 'Oder direkt per E-Mail',
     },
     footer: {
       left: siteConfig.name,
@@ -675,7 +673,6 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
       note: 'No sales theatre. First we check whether the process makes sense to automate.',
       personName: siteConfig.name,
       personRole: 'Process automation · Germany',
-      emailLabel: 'Or email directly',
     },
     footer: {
       left: siteConfig.name,

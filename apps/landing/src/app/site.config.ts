@@ -3,7 +3,6 @@ export type SupportedLanguage = 'de' | 'en';
 export const siteConfig = {
   name: 'Hugo Martin Menz',
   brandName: 'Prozessautomatisierung für Unternehmen',
-  email: 'hugomartin.menz@gmail.com',
   founder: {
     portraitSrc: 'hugo.jfif',
     portraitAlt: 'Hugo Martin Menz',
@@ -27,36 +26,24 @@ export const siteConfig = {
     // TODO: replace with the real public profile URL before launch.
     github: '',
   },
-  contactLinks: {
-    email: 'mailto:hugomartin.menz@gmail.com',
-    linkedin: '',
-    github: '',
-  },
-  contactSubjects: {
-    de: 'Prozess besprechen',
-    en: 'Discuss a process',
-  },
   seo: {
-    title:
-      'Prozessautomatisierung für Unternehmen in Deutschland | Hugo Martin Menz',
+    title: 'Prozessautomatisierung | Hugo Menz',
     description:
       'Ich automatisiere manuelle Prozesse: Tools verbinden, Leads ins CRM schicken, Reports erstellen, Daten bereinigen. Sie zeigen mir den Prozess, ich baue die Automatisierung.',
     localized: {
       de: {
-        title:
-          'Prozessautomatisierung für Unternehmen in Deutschland | Hugo Martin Menz',
+        title: 'Prozessautomatisierung | Hugo Menz',
         description:
           'Ich automatisiere manuelle Prozesse: Tools verbinden, Leads ins CRM schicken, Reports erstellen, Daten bereinigen. Sie zeigen mir den Prozess, ich baue die Automatisierung.',
       },
       en: {
-        title:
-          'Process Automation for Companies in Germany | Hugo Martin Menz',
+        title: 'Process Automation | Hugo Menz',
         description:
           'I automate manual processes: connect tools, send leads to your CRM, build reports, clean up data. You show me the process, I build the automation.',
       },
     },
-    ogImage: 'og-preview.jpg',
-    twitterImage: 'og-preview.jpg',
+    ogImage: 'og-preview.png',
+    twitterImage: 'og-preview.png',
     ogImageAlt:
       'Prozessautomatisierung für Unternehmen in Deutschland – Hugo Martin Menz',
     ogImageWidth: 1200,
@@ -124,12 +111,6 @@ export function resolveAbsoluteUrl(pathOrUrl: string, currentBase?: string): str
   }
 
   return new URL(pathOrUrl, `${resolveBaseUrl(currentBase)}/`).toString();
-}
-
-export function getContactHref(language: SupportedLanguage): string {
-  const subject = siteConfig.contactSubjects[language];
-
-  return `${siteConfig.contactLinks.email}?subject=${encodeURIComponent(subject)}`;
 }
 
 export function getSocialLinks(): string[] {

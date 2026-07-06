@@ -184,7 +184,6 @@ export class LanguageService {
       '@id': personId,
       name: siteConfig.name,
       url: canonicalUrl,
-      email: siteConfig.email,
       sameAs: getSocialLinks(),
       knowsAbout: [...siteConfig.schema.knowsAbout],
       jobTitle: siteConfig.schema.jobTitle,
@@ -200,7 +199,6 @@ export class LanguageService {
       '@id': `${canonicalUrl}#professional-service`,
       name: siteConfig.brandName,
       url: canonicalUrl,
-      email: siteConfig.email,
       priceRange: siteConfig.schema.priceRange,
       areaServed: siteConfig.schema.areaServed,
       provider: {
