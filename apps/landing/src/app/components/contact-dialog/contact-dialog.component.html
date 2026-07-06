@@ -20,15 +20,14 @@
       <h2 id="contact-dialog-title">{{ copy().title }}</h2>
       <p class="contact-dialog-body">{{ copy().body }}</p>
 
-      <form class="contact-form" novalidate (ngSubmit)="submit()" (submit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
         <label class="contact-field">
           <span class="contact-label mono">{{ copy().name }}</span>
           <input
             #nameInput
             type="text"
             class="contact-input"
-            [value]="form().name"
-            (input)="updateField('name', $any($event.target).value)"
+            formControlName="name"
             autocomplete="name"
           />
         </label>
@@ -38,18 +37,12 @@
           <input
             type="email"
             class="contact-input"
-            [attr.aria-invalid]="emailError()"
-            [value]="form().email"
-            (input)="updateField('email', $any($event.target).value)"
+            formControlName="email"
+            [class.contact-input-error]="
+              submitted() && form.get('email')?.invalid
+            "
             autocomplete="email"
           />
-          @if (submitted() && emailError()) {
-            @if (!form().email.trim()) {
-              <span class="contact-error">{{ copy().emailRequired }}</span>
-            } @else {
-              <span class="contact-error">{{ copy().emailInvalid }}</span>
-            }
-          }
         </label>
 
         <label class="contact-field">
@@ -57,45 +50,48 @@
           <input
             type="tel"
             class="contact-input"
-            [attr.aria-invalid]="phoneError()"
-            [value]="form().phone"
-            (input)="updateField('phone', $any($event.target).value)"
+            formControlName="phone"
+            [class.contact-input-error]="
+              submitted() && form.get('phone')?.invalid
+            "
             autocomplete="tel"
           />
-          @if (phoneError()) {
-            <span class="contact-error">{{ copy().phoneInvalid }}</span>
-          }
         </label>
 
         <label class="contact-field contact-field-full">
           <span class="contact-label mono">{{ copy().message }}</span>
           <textarea
             class="contact-input contact-textarea"
-            [attr.aria-invalid]="messageError()"
-            [value]="form().message"
-            (input)="updateField('message', $any($event.target).value)"
+            formControlName="message"
+            [class.contact-input-error]="
+              submitted() && form.get('message')?.invalid
+            "
             rows="6"
           ></textarea>
           <div class="contact-field-footer">
-            <div class="contact-error-container">
-              @if (submitted() && messageError()) {
-                @if (!form().message.trim()) {
-                  <span class="contact-error">{{ copy().messageRequired }}</span>
-                } @else if (messageLength() < 20) {
-                  <span class="contact-error">{{ copy().messageTooShort }}</span>
-                } @else {
-                  <span class="contact-error">{{ copy().messageTooLong }}</span>
-                }
-              }
-            </div>
             <span class="contact-character-count"
               >{{ messageLength() }}/1000 {{ copy().messageHint }}</span
             >
           </div>
         </label>
 
+        @if (errors().length > 0) {
+          <div class="contact-errors contact-field-full" role="alert">
+            <p class="contact-errors-title">Por favor corrige los siguientes errores:</p>
+            <ul class="contact-errors-list">
+              @for (error of errors(); track error) {
+                <li>{{ error }}</li>
+              }
+            </ul>
+          </div>
+        }
+
         <div class="contact-actions contact-field-full">
-          <button type="submit" class="btn btn-primary" [disabled]="!canSubmit()">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!canSubmit() || isSending()"
+          >
             {{ isSending() ? copy().sending : copy().submit }}
           </button>
           <p class="contact-powered mono">{{ copy().poweredBy }}</p>

@@ -10,6 +10,14 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { MAKE_WEBHOOK_URL } from '../../contact-form.config';
 import { LandingContent } from '../../content';
 import { ContactDialogService } from '../../contact-dialog.service';
@@ -17,14 +25,28 @@ import { ContactFormRateLimiterService } from '../../contact-form-rate-limiter.s
 import { LanguageService } from '../../language.service';
 import { SnackbarService } from '../../snackbar.service';
 
-type ContactFormValue = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
+type ContactFormStatus = 'idle' | 'success' | 'error';
+
+// Validators
+const emailValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  if (!control.value) return null;
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return EMAIL_REGEX.test(control.value) ? null : { invalidEmail: true };
 };
 
-type ContactFormStatus = 'idle' | 'success' | 'error';
+const phoneValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  if (!control.value) return null;
+  const PHONE_REGEX = /^[+\d\s\-().]{7,}$/;
+  return PHONE_REGEX.test(control.value) ? null : { invalidPhone: true };
+};
+
+const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  if (!control.value) return null;
+  const length = control.value.length;
+  if (length < 20) return { messageTooShort: true };
+  if (length > 1000) return { messageTooLong: true };
+  return null;
+};
 
 const CONTACT_DIALOG_COPY: Record<
   'de' | 'en',
@@ -107,6 +129,7 @@ const CONTACT_DIALOG_COPY: Record<
 @Component({
   selector: 'app-contact-dialog',
   standalone: true,
+  imports: [ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './contact-dialog.component.html',
   styleUrl: './contact-dialog.component.css',
@@ -120,64 +143,67 @@ export class ContactDialogComponent implements OnDestroy {
   protected readonly contactDialog = inject(ContactDialogService);
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
 
-  private readonly EMAIL_REGEX =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  private readonly PHONE_REGEX = /^[+\d\s\-().]{7,}$/;
-  private readonly MESSAGE_MIN_LENGTH = 20;
-  private readonly MESSAGE_MAX_LENGTH = 1000;
-
   readonly copy = computed(() => CONTACT_DIALOG_COPY[this.languageService.language()]);
-  readonly form = signal<ContactFormValue>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  readonly submitted = signal(false);
   readonly isSending = signal(false);
   readonly status = signal<ContactFormStatus>('idle');
-  readonly feedback = signal('');
 
-  readonly messageLength = computed(() => this.form().message.length);
-
-  readonly emailError = computed(() => {
-    if (!this.submitted()) return false;
-    const email = this.form().email.trim();
-    if (!email) return true;
-    return !this.EMAIL_REGEX.test(email);
+  readonly form = new FormGroup({
+    name: new FormControl('', { nonNullable: true }),
+    email: new FormControl('', {
+      validators: [emailValidator],
+      nonNullable: true,
+    }),
+    phone: new FormControl('', {
+      validators: [phoneValidator],
+      nonNullable: true,
+    }),
+    message: new FormControl('', {
+      validators: [messageValidator],
+      nonNullable: true,
+    }),
   });
 
-  readonly phoneError = computed(() => {
-    if (!this.submitted()) return false;
-    const phone = this.form().phone.trim();
-    if (!phone) return false; // Phone is optional
-    return !this.PHONE_REGEX.test(phone);
+  readonly submitted = signal(false);
+
+  readonly messageLength = computed(() => this.form.get('message')?.value?.length ?? 0);
+
+  readonly errors = computed(() => {
+    const errors: string[] = [];
+    if (!this.submitted()) return errors;
+
+    const nameCtrl = this.form.get('name');
+    const emailCtrl = this.form.get('email');
+    const phoneCtrl = this.form.get('phone');
+    const messageCtrl = this.form.get('message');
+
+    if (emailCtrl?.hasError('required') || (!emailCtrl?.value && this.submitted())) {
+      errors.push(this.copy().emailRequired);
+    } else if (emailCtrl?.hasError('invalidEmail')) {
+      errors.push(this.copy().emailInvalid);
+    }
+
+    if (phoneCtrl?.hasError('invalidPhone')) {
+      errors.push(this.copy().phoneInvalid);
+    }
+
+    if (!messageCtrl?.value && this.submitted()) {
+      errors.push(this.copy().messageRequired);
+    } else if (messageCtrl?.hasError('messageTooShort')) {
+      errors.push(this.copy().messageTooShort);
+    } else if (messageCtrl?.hasError('messageTooLong')) {
+      errors.push(this.copy().messageTooLong);
+    }
+
+    return errors;
   });
 
-  readonly messageError = computed(() => {
-    if (!this.submitted()) return false;
-    const message = this.form().message.trim();
-    if (!message) return true;
-    return (
-      message.length < this.MESSAGE_MIN_LENGTH ||
-      message.length > this.MESSAGE_MAX_LENGTH
-    );
-  });
-
-  readonly canSubmit = computed(() => {
-    const email = this.form().email.trim();
-    const message = this.form().message.trim();
-    const phone = this.form().phone.trim();
-
-    const emailValid = email && this.EMAIL_REGEX.test(email);
-    const phoneValid = !phone || this.PHONE_REGEX.test(phone);
-    const messageValid =
-      message &&
-      message.length >= this.MESSAGE_MIN_LENGTH &&
-      message.length <= this.MESSAGE_MAX_LENGTH;
-
-    return emailValid && phoneValid && messageValid && !this.isSending();
-  });
+  readonly canSubmit = computed(
+    () =>
+      this.form.get('email')?.valid &&
+      this.form.get('phone')?.valid &&
+      this.form.get('message')?.valid &&
+      !this.isSending(),
+  );
 
   constructor() {
     effect(() => {
@@ -199,20 +225,13 @@ export class ContactDialogComponent implements OnDestroy {
 
   close(): void {
     this.contactDialog.close();
-    this.clearFeedback();
-  }
-
-  updateField(field: keyof ContactFormValue, value: string): void {
-    this.form.update((current) => ({
-      ...current,
-      [field]: value,
-    }));
-    this.clearFeedback();
+    this.submitted.set(false);
+    this.form.reset();
+    this.status.set('idle');
   }
 
   async submit(): Promise<void> {
     this.submitted.set(true);
-    this.clearFeedback();
 
     if (!this.canSubmit()) {
       return;
@@ -230,11 +249,12 @@ export class ContactDialogComponent implements OnDestroy {
       return;
     }
 
+    const formValue = this.form.getRawValue();
     const payload = {
-      name: this.form().name.trim(),
-      email: this.form().email.trim(),
-      phone: this.form().phone.trim(),
-      message: this.form().message.trim(),
+      name: formValue.name.trim(),
+      email: formValue.email.trim(),
+      phone: formValue.phone.trim(),
+      message: formValue.message.trim(),
       page_url: window.location.href,
       source: 'website_contact_form',
     };
@@ -258,13 +278,9 @@ export class ContactDialogComponent implements OnDestroy {
       this.rateLimiter.recordSubmission();
 
       this.snackbarService.show('success', this.copy().success);
+      this.status.set('success');
       this.submitted.set(false);
-      this.form.set({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
+      this.form.reset();
 
       // Close modal after brief delay to let snackbar appear
       setTimeout(() => {
@@ -272,6 +288,7 @@ export class ContactDialogComponent implements OnDestroy {
       }, 300);
     } catch {
       this.snackbarService.show('error', this.copy().error);
+      this.status.set('error');
     } finally {
       this.isSending.set(false);
     }
@@ -279,6 +296,5 @@ export class ContactDialogComponent implements OnDestroy {
 
   private clearFeedback(): void {
     this.status.set('idle');
-    this.feedback.set('');
   }
 }
