@@ -5,12 +5,11 @@ export const siteConfig = {
   brandName: 'Prozessautomatisierung für Unternehmen',
   email: 'hugomartin.menz@gmail.com',
   founder: {
-    portraitSrc: '/hugo.jfif',
+    portraitSrc: 'hugo.jfif',
     portraitAlt: 'Hugo Martin Menz',
   },
-  // TODO: replace this fallback with the production domain once it is known.
-  baseUrl: 'https://TODO-add-real-domain.invalid',
-  canonicalUrl: 'https://TODO-add-real-domain.invalid/',
+  baseUrl: 'https://hugomenz.de/',
+  canonicalUrl: 'https://hugomenz.de/',
   locale: 'de_DE',
   language: 'de',
   localizedLocales: {
@@ -18,9 +17,9 @@ export const siteConfig = {
     en: 'en_GB',
   },
   localizedPaths: {
-    de: '/',
+    de: './',
     // TODO: enable hreflang output once a dedicated /en/ route exists.
-    en: '/en/',
+    en: 'en/',
   },
   social: {
     // TODO: replace with the real public profile URL before launch.
@@ -56,8 +55,8 @@ export const siteConfig = {
           'I automate manual processes: connect tools, send leads to your CRM, build reports, clean up data. You show me the process, I build the automation.',
       },
     },
-    ogImage: '/og-preview.jpg',
-    twitterImage: '/og-preview.jpg',
+    ogImage: 'og-preview.jpg',
+    twitterImage: 'og-preview.jpg',
     ogImageAlt:
       'Prozessautomatisierung für Unternehmen in Deutschland – Hugo Martin Menz',
     ogImageWidth: 1200,
@@ -101,26 +100,30 @@ export const siteConfig = {
       { '@type': 'Place', name: 'DACH' },
     ],
     breadcrumbs: [
-      { name: 'Start', path: '/' },
-      { name: 'Prozessautomatisierung Deutschland', path: '/' },
+      { name: 'Start', path: './' },
+      { name: 'Prozessautomatisierung Deutschland', path: './' },
     ],
   },
 } as const;
 
-export function resolveBaseUrl(currentOrigin?: string): string {
-  if (currentOrigin) {
-    return currentOrigin.replace(/\/$/, '');
+export function resolveBaseUrl(currentBase?: string): string {
+  if (currentBase) {
+    try {
+      return new URL('.', currentBase).toString().replace(/\/$/, '');
+    } catch {
+      // Fall back to the configured site URL when the runtime base is unavailable.
+    }
   }
 
   return siteConfig.baseUrl.replace(/\/$/, '');
 }
 
-export function resolveAbsoluteUrl(pathOrUrl: string, currentOrigin?: string): string {
+export function resolveAbsoluteUrl(pathOrUrl: string, currentBase?: string): string {
   if (/^https?:\/\//i.test(pathOrUrl)) {
     return pathOrUrl;
   }
 
-  return new URL(pathOrUrl, `${resolveBaseUrl(currentOrigin)}/`).toString();
+  return new URL(pathOrUrl, `${resolveBaseUrl(currentBase)}/`).toString();
 }
 
 export function getContactHref(language: SupportedLanguage): string {

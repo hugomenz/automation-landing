@@ -19,12 +19,12 @@ export class LanguageService {
     effect(() => {
       const language = this.language();
       const content = this.content();
-      const currentOrigin = this.document.location?.origin;
-      const canonicalUrl = resolveAbsoluteUrl(siteConfig.localizedPaths.de, currentOrigin);
-      const ogImageUrl = resolveAbsoluteUrl(siteConfig.seo.ogImage, currentOrigin);
+      const currentBase = this.document.baseURI ?? this.document.location?.href;
+      const canonicalUrl = resolveAbsoluteUrl(siteConfig.localizedPaths.de, currentBase);
+      const ogImageUrl = resolveAbsoluteUrl(siteConfig.seo.ogImage, currentBase);
       const twitterImageUrl = resolveAbsoluteUrl(
         siteConfig.seo.twitterImage,
-        currentOrigin,
+        currentBase,
       );
       const locale = siteConfig.localizedLocales[language];
 
@@ -110,7 +110,7 @@ export class LanguageService {
         'professional-service',
         this.buildProfessionalServiceSchema(canonicalUrl),
       );
-      this.setJsonLd('breadcrumbs', this.buildBreadcrumbSchema(currentOrigin));
+      this.setJsonLd('breadcrumbs', this.buildBreadcrumbSchema(currentBase));
     });
   }
 
@@ -220,7 +220,7 @@ export class LanguageService {
     };
   }
 
-  private buildBreadcrumbSchema(currentOrigin?: string): Record<string, unknown> {
+  private buildBreadcrumbSchema(currentBase?: string): Record<string, unknown> {
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
@@ -228,7 +228,7 @@ export class LanguageService {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        item: resolveAbsoluteUrl(item.path, currentOrigin),
+        item: resolveAbsoluteUrl(item.path, currentBase),
       })),
     };
   }
