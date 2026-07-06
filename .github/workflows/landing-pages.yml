@@ -43,8 +43,8 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Build for GitHub Pages
-        run: npm run build -- --base-href /automation-landing/
+      - name: Build for custom domain
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
