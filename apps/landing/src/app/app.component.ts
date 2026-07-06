@@ -17,6 +17,7 @@ import { ProblemSectionComponent } from './components/problem-section/problem-se
 import { ProcessSectionComponent } from './components/process-section/process-section.component';
 import { ServicesSectionComponent } from './components/services-section/services-section.component';
 import { SignalBandComponent } from './components/signal-band/signal-band.component';
+import { SnackbarContainerComponent } from './components/snackbar-container/snackbar-container.component';
 import { SiteFooterComponent } from './components/site-footer/site-footer.component';
 import { LanguageService } from './language.service';
 import { ScrollRevealDirective } from './scroll-reveal.directive';
@@ -29,6 +30,7 @@ import { ScrollRevealDirective } from './scroll-reveal.directive';
     HeaderComponent,
     HeroComponent,
     ContactDialogComponent,
+    SnackbarContainerComponent,
     SignalBandComponent,
     ProblemSectionComponent,
     ProcessSectionComponent,

@@ -79,16 +79,6 @@
           </button>
           <p class="contact-powered mono">{{ copy().poweredBy }}</p>
         </div>
-
-        @if (feedback()) {
-          <p
-            class="contact-status contact-field-full"
-            [class.is-success]="status() === 'success'"
-            [class.is-error]="status() === 'error'"
-          >
-            {{ feedback() }}
-          </p>
-        }
       </form>
     </section>
   </div>

@@ -14,6 +14,7 @@ import { MAKE_WEBHOOK_URL } from '../../contact-form.config';
 import { LandingContent } from '../../content';
 import { ContactDialogService } from '../../contact-dialog.service';
 import { LanguageService } from '../../language.service';
+import { SnackbarService } from '../../snackbar.service';
 
 type ContactFormValue = {
   name: string;
@@ -97,6 +98,7 @@ const CONTACT_DIALOG_COPY: Record<
 export class ContactDialogComponent implements OnDestroy {
   private readonly document = inject(DOCUMENT);
   private readonly languageService = inject(LanguageService);
+  private readonly snackbarService = inject(SnackbarService);
 
   protected readonly contactDialog = inject(ContactDialogService);
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
@@ -162,8 +164,7 @@ export class ContactDialogComponent implements OnDestroy {
     }
 
     if (!MAKE_WEBHOOK_URL.trim()) {
-      this.status.set('error');
-      this.feedback.set(this.copy().missingWebhook);
+      this.snackbarService.show('error', this.copy().missingWebhook);
       return;
     }
 
@@ -191,8 +192,7 @@ export class ContactDialogComponent implements OnDestroy {
         throw new Error(`Make webhook returned ${response.status}`);
       }
 
-      this.status.set('success');
-      this.feedback.set(this.copy().success);
+      this.snackbarService.show('success', this.copy().success);
       this.submitted.set(false);
       this.form.set({
         name: '',
@@ -200,9 +200,13 @@ export class ContactDialogComponent implements OnDestroy {
         phone: '',
         message: '',
       });
+
+      // Close modal after brief delay to let snackbar appear
+      setTimeout(() => {
+        this.close();
+      }, 300);
     } catch {
-      this.status.set('error');
-      this.feedback.set(this.copy().error);
+      this.snackbarService.show('error', this.copy().error);
     } finally {
       this.isSending.set(false);
     }

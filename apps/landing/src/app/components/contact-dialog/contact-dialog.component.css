@@ -144,24 +144,6 @@
   font-size: 0.78rem;
 }
 
-.contact-status {
-  padding: 13px 14px;
-  border-radius: 10px;
-  font-size: 0.94rem;
-}
-
-.contact-status.is-success {
-  border: 1px solid rgba(63, 185, 80, 0.32);
-  background: rgba(46, 160, 67, 0.12);
-  color: #d1fad8;
-}
-
-.contact-status.is-error {
-  border: 1px solid rgba(255, 144, 130, 0.3);
-  background: rgba(248, 81, 73, 0.12);
-  color: #ffd0cb;
-}
-
 @media (max-width: 640px) {
   .contact-dialog-backdrop {
     padding: 14px;
