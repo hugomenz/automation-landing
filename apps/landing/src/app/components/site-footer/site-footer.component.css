@@ -54,8 +54,21 @@
   transition: color 140ms ease;
 }
 
+.footer-link-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  transition: color 140ms ease;
+}
+
 .footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-links a:focus-visible,
+.footer-link-button:hover,
+.footer-link-button:focus-visible {
   color: var(--accent-bright);
 }
 

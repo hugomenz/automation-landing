@@ -37,7 +37,9 @@
 
       <div class="header-controls">
         <app-language-switcher />
-        <a class="nav-cta" href="#contact" (click)="closeMenu()">{{ content().navCta }}</a>
+        <button type="button" class="nav-cta" (click)="openContactDialog()">
+          {{ content().navCta }}
+        </button>
       </div>
     </div>
   </div>

@@ -6,7 +6,9 @@
       <p class="hero-lead">{{ content().hero.body }}</p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">{{ content().hero.primaryCta }}</a>
+        <button type="button" class="btn btn-primary" (click)="contactDialog.open()">
+          {{ content().hero.primaryCta }}
+        </button>
         <a class="btn btn-secondary" href="#build">{{ content().hero.secondaryCta }}</a>
       </div>
 

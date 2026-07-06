@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ContactDialogService } from '../../contact-dialog.service';
 import { HeroDiagram, LandingContent } from '../../content';
 import { WorkflowPanelComponent } from '../workflow-panel/workflow-panel.component';
 
@@ -11,6 +12,7 @@ import { WorkflowPanelComponent } from '../workflow-panel/workflow-panel.compone
   styleUrl: './hero.component.css',
 })
 export class HeroComponent {
+  readonly contactDialog = inject(ContactDialogService);
   readonly content = input.required<LandingContent>();
   readonly diagram = input.required<HeroDiagram>();
 }

@@ -7,7 +7,9 @@
 
     <div class="footer-meta">
       <nav class="footer-links" [attr.aria-label]="content().contactLabel">
-        <a [href]="contactHref()">{{ email }}</a>
+        <button type="button" class="footer-link-button" (click)="contactDialog.open()">
+          {{ content().contactLabel }}
+        </button>
         @for (link of socialLinks; track link.label) {
           <a [href]="link.href" rel="noreferrer" target="_blank">{{ link.label }}</a>
         }

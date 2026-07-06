@@ -6,13 +6,10 @@
       <p class="final-body">{{ content().body }}</p>
 
       <div class="final-actions">
-        <a class="btn btn-primary" [href]="contactHref()">{{ content().button }}</a>
+        <button type="button" class="btn btn-primary" (click)="contactDialog.open()">
+          {{ content().button }}
+        </button>
       </div>
-
-      <p class="final-email-line">
-        {{ content().emailLabel }}:
-        <a class="final-email mono" [href]="contactHref()">{{ email }}</a>
-      </p>
 
       <p class="final-note mono">
         <span class="final-note-dot" aria-hidden="true"></span>

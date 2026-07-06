@@ -143,9 +143,12 @@
 .nav-cta {
   display: inline-flex;
   align-items: center;
+  background: transparent;
   border: 1px solid var(--accent-border);
   border-radius: var(--radius-sm);
   color: var(--accent-bright);
+  cursor: pointer;
+  font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
   padding: 9px 16px;

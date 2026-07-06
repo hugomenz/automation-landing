@@ -36,24 +36,6 @@
   margin-top: 30px;
 }
 
-.final-email-line {
-  margin-top: 18px;
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-}
-
-.final-email {
-  color: var(--accent-bright);
-  border-bottom: 1px solid var(--accent-border);
-  padding-bottom: 1px;
-  transition: border-color 140ms ease;
-}
-
-.final-email:hover,
-.final-email:focus-visible {
-  border-color: var(--accent-bright);
-}
-
 .final-note {
   display: flex;
   align-items: center;

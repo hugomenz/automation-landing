@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { CasesSectionComponent } from './components/cases-section/cases-section.component';
 import { CertificatesSectionComponent } from './components/certificates-section/certificates-section.component';
+import { ContactDialogComponent } from './components/contact-dialog/contact-dialog.component';
 import { FinalCtaComponent } from './components/final-cta/final-cta.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -27,6 +28,7 @@ import { ScrollRevealDirective } from './scroll-reveal.directive';
   imports: [
     HeaderComponent,
     HeroComponent,
+    ContactDialogComponent,
     SignalBandComponent,
     ProblemSectionComponent,
     ProcessSectionComponent,

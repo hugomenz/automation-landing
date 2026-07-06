@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ContactDialogService } from '../../contact-dialog.service';
 import { LandingContent } from '../../content';
-import { LanguageService } from '../../language.service';
-import { getContactHref, siteConfig } from '../../site.config';
+import { siteConfig } from '../../site.config';
 
 @Component({
   selector: 'app-site-footer',
@@ -11,12 +11,10 @@ import { getContactHref, siteConfig } from '../../site.config';
   styleUrl: './site-footer.component.css',
 })
 export class SiteFooterComponent {
-  private readonly languageService = inject(LanguageService);
+  readonly contactDialog = inject(ContactDialogService);
 
   readonly content = input.required<LandingContent['footer']>();
 
-  readonly email = siteConfig.email;
-  readonly contactHref = computed(() => getContactHref(this.languageService.language()));
   readonly socialLinks = [
     { label: 'LinkedIn', href: siteConfig.social.linkedin },
     { label: 'GitHub', href: siteConfig.social.github },

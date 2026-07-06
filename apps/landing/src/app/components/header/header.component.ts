@@ -8,6 +8,7 @@ import {
   OnDestroy,
   signal,
 } from '@angular/core';
+import { ContactDialogService } from '../../contact-dialog.service';
 import { LandingContent } from '../../content';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 
@@ -21,6 +22,7 @@ import { LanguageSwitcherComponent } from '../language-switcher/language-switche
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   private readonly document = inject(DOCUMENT);
+  private readonly contactDialog = inject(ContactDialogService);
 
   readonly content = input.required<LandingContent>();
   readonly menuOpen = signal(false);
@@ -97,5 +99,10 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  openContactDialog(): void {
+    this.closeMenu();
+    this.contactDialog.open();
   }
 }
