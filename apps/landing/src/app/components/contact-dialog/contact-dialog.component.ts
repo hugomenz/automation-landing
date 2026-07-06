@@ -38,13 +38,18 @@ const CONTACT_DIALOG_COPY: Record<
     phone: string;
     message: string;
     emailRequired: string;
+    emailInvalid: string;
+    phoneInvalid: string;
     messageRequired: string;
+    messageTooShort: string;
+    messageTooLong: string;
     submit: string;
     sending: string;
     success: string;
     error: string;
     missingWebhook: string;
     poweredBy: string;
+    messageHint: string;
   }
 > = {
   de: {
@@ -58,7 +63,11 @@ const CONTACT_DIALOG_COPY: Record<
     phone: 'Telefon',
     message: 'Nachricht',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
+    emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
+    phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
     messageRequired: 'Bitte beschreiben Sie kurz den Prozess.',
+    messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
+    messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     submit: 'Anfrage senden',
     sending: 'Wird gesendet ...',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
@@ -66,6 +75,7 @@ const CONTACT_DIALOG_COPY: Record<
     missingWebhook:
       'Das Formular ist noch nicht konfiguriert. Hinterlegen Sie zuerst die Make-Webhook-URL.',
     poweredBy: 'Automation powered by Make',
+    messageHint: 'Zeichen',
   },
   en: {
     eyebrow: 'Contact',
@@ -78,7 +88,11 @@ const CONTACT_DIALOG_COPY: Record<
     phone: 'Phone',
     message: 'Message',
     emailRequired: 'Please enter your email.',
+    emailInvalid: 'Please enter a valid email address.',
+    phoneInvalid: 'Please enter a valid phone number.',
     messageRequired: 'Please briefly describe the process.',
+    messageTooShort: 'Minimum 20 characters required.',
+    messageTooLong: 'Maximum 1000 characters allowed.',
     submit: 'Send request',
     sending: 'Sending ...',
     success: 'Thanks. Your request has been sent.',
@@ -86,6 +100,7 @@ const CONTACT_DIALOG_COPY: Record<
     missingWebhook:
       'The form is not configured yet. Add your Make webhook URL first.',
     poweredBy: 'Automation powered by Make',
+    messageHint: 'characters',
   },
 };
 
@@ -105,6 +120,12 @@ export class ContactDialogComponent implements OnDestroy {
   protected readonly contactDialog = inject(ContactDialogService);
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
 
+  private readonly EMAIL_REGEX =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  private readonly PHONE_REGEX = /^[+\d\s\-().]{7,}$/;
+  private readonly MESSAGE_MIN_LENGTH = 20;
+  private readonly MESSAGE_MAX_LENGTH = 1000;
+
   readonly copy = computed(() => CONTACT_DIALOG_COPY[this.languageService.language()]);
   readonly form = signal<ContactFormValue>({
     name: '',
@@ -116,15 +137,47 @@ export class ContactDialogComponent implements OnDestroy {
   readonly isSending = signal(false);
   readonly status = signal<ContactFormStatus>('idle');
   readonly feedback = signal('');
-  readonly emailError = computed(
-    () => this.submitted() && !this.form().email.trim(),
-  );
-  readonly messageError = computed(
-    () => this.submitted() && !this.form().message.trim(),
-  );
-  readonly canSubmit = computed(
-    () => !!this.form().email.trim() && !!this.form().message.trim() && !this.isSending(),
-  );
+
+  readonly messageLength = computed(() => this.form().message.length);
+
+  readonly emailError = computed(() => {
+    if (!this.submitted()) return false;
+    const email = this.form().email.trim();
+    if (!email) return true;
+    return !this.EMAIL_REGEX.test(email);
+  });
+
+  readonly phoneError = computed(() => {
+    if (!this.submitted()) return false;
+    const phone = this.form().phone.trim();
+    if (!phone) return false; // Phone is optional
+    return !this.PHONE_REGEX.test(phone);
+  });
+
+  readonly messageError = computed(() => {
+    if (!this.submitted()) return false;
+    const message = this.form().message.trim();
+    if (!message) return true;
+    return (
+      message.length < this.MESSAGE_MIN_LENGTH ||
+      message.length > this.MESSAGE_MAX_LENGTH
+    );
+  });
+
+  readonly canSubmit = computed(() => {
+    const email = this.form().email.trim();
+    const message = this.form().message.trim();
+    const phone = this.form().phone.trim();
+
+    const emailValid = email && this.EMAIL_REGEX.test(email);
+    const phoneValid = !phone || this.PHONE_REGEX.test(phone);
+    const messageValid =
+      message &&
+      message.length >= this.MESSAGE_MIN_LENGTH &&
+      message.length <= this.MESSAGE_MAX_LENGTH;
+
+    return emailValid && phoneValid && messageValid && !this.isSending();
+  });
 
   constructor() {
     effect(() => {

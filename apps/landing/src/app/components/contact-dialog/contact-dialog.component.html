@@ -43,8 +43,12 @@
             (input)="updateField('email', $any($event.target).value)"
             autocomplete="email"
           />
-          @if (emailError()) {
-            <span class="contact-error">{{ copy().emailRequired }}</span>
+          @if (submitted() && emailError()) {
+            @if (!form().email.trim()) {
+              <span class="contact-error">{{ copy().emailRequired }}</span>
+            } @else {
+              <span class="contact-error">{{ copy().emailInvalid }}</span>
+            }
           }
         </label>
 
@@ -53,10 +57,14 @@
           <input
             type="tel"
             class="contact-input"
+            [attr.aria-invalid]="phoneError()"
             [value]="form().phone"
             (input)="updateField('phone', $any($event.target).value)"
             autocomplete="tel"
           />
+          @if (phoneError()) {
+            <span class="contact-error">{{ copy().phoneInvalid }}</span>
+          }
         </label>
 
         <label class="contact-field contact-field-full">
@@ -68,9 +76,22 @@
             (input)="updateField('message', $any($event.target).value)"
             rows="6"
           ></textarea>
-          @if (messageError()) {
-            <span class="contact-error">{{ copy().messageRequired }}</span>
-          }
+          <div class="contact-field-footer">
+            <div class="contact-error-container">
+              @if (submitted() && messageError()) {
+                @if (!form().message.trim()) {
+                  <span class="contact-error">{{ copy().messageRequired }}</span>
+                } @else if (messageLength() < 20) {
+                  <span class="contact-error">{{ copy().messageTooShort }}</span>
+                } @else {
+                  <span class="contact-error">{{ copy().messageTooLong }}</span>
+                }
+              }
+            </div>
+            <span class="contact-character-count"
+              >{{ messageLength() }}/1000 {{ copy().messageHint }}</span
+            >
+          </div>
         </label>
 
         <div class="contact-actions contact-field-full">

@@ -126,6 +126,25 @@
   font-size: 0.84rem;
 }
 
+.contact-field-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.84rem;
+}
+
+.contact-error-container {
+  flex: 1;
+}
+
+.contact-character-count {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .contact-actions {
   display: flex;
   flex-direction: column;
