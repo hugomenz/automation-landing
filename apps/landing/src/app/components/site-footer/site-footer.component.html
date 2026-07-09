@@ -10,6 +10,9 @@
         <button type="button" class="footer-link-button" (click)="contactDialog.open()">
           {{ content().contactLabel }}
         </button>
+        @for (link of serviceLinks; track link.href) {
+          <a [href]="link.href">{{ link.label }}</a>
+        }
         @for (link of socialLinks; track link.label) {
           <a [href]="link.href" rel="noreferrer" target="_blank">{{ link.label }}</a>
         }

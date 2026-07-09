@@ -11,8 +11,16 @@
         <li class="build-item">
           <span class="build-marker mono" aria-hidden="true">&rarr;</span>
           <div class="build-copy">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.body }}</p>
+            @if (item.href) {
+              <a class="build-link" [href]="item.href">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.body }}</p>
+                <span class="build-link-label mono">{{ item.linkLabel || 'Mehr erfahren' }}</span>
+              </a>
+            } @else {
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.body }}</p>
+            }
           </div>
         </li>
       }

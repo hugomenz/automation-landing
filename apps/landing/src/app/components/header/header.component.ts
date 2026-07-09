@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   input,
   OnDestroy,
@@ -28,6 +29,9 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   readonly menuOpen = signal(false);
   readonly compact = signal(false);
   readonly activeHref = signal('#help');
+  readonly sectionNav = computed(() =>
+    this.content().nav.filter((item) => item.href.startsWith('#')),
+  );
 
   private observer: IntersectionObserver | null = null;
   private readonly updateCompactState = () => {

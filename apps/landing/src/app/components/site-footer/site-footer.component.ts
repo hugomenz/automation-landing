@@ -19,4 +19,6 @@ export class SiteFooterComponent {
     { label: 'LinkedIn', href: siteConfig.social.linkedin },
     { label: 'GitHub', href: siteConfig.social.github },
   ].filter((link) => /^https?:\/\//i.test(link.href));
+
+  readonly serviceLinks = siteConfig.seoLandingLinks;
 }

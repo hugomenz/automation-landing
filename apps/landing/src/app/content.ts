@@ -40,6 +40,8 @@ export interface ProcessStep {
 export interface BuildItem {
   title: string;
   body: string;
+  href?: string;
+  linkLabel?: string;
 }
 
 export interface LandingContent {
@@ -124,10 +126,11 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
     },
     brand: {
       title: siteConfig.name,
-      subtitle: 'Prozessautomatisierung · Deutschland',
+      subtitle: 'n8n · Workflow Automation · Stuttgart',
     },
     nav: [
       { label: 'Wobei ich helfe', href: '#help' },
+      { label: 'n8n Stuttgart', href: './n8n-beratung-stuttgart/' },
       { label: 'Ablauf', href: '#process' },
       { label: 'Beispiele', href: '#build' },
       { label: 'Vertrauen', href: '#trust' },
@@ -135,10 +138,10 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
     ],
     navCta: 'Prozess besprechen',
     hero: {
-      kicker: 'Prozessautomatisierung für kleine und mittlere Unternehmen',
+      kicker: 'n8n und Prozessautomatisierung für KMU in Stuttgart',
       title: 'Ich automatisiere Prozesse, die jeden Tag Zeit kosten.',
       body:
-        'Sie zeigen mir, was heute manuell läuft. Ich baue daraus einen Workflow, der Tools verbindet, Aufgaben startet und sauber dokumentiert ist.',
+        'Sie zeigen mir, was heute manuell läuft. Ich baue daraus mit n8n, Make, APIs und KI einen Workflow, der Tools verbindet, Aufgaben startet und sauber dokumentiert ist.',
       primaryCta: 'Prozess besprechen',
       secondaryCta: 'Beispiele ansehen',
       techLine: 'n8n · Make · APIs · CRM · Google Sheets · Airtable · Slack · HubSpot',
@@ -307,6 +310,13 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
         'Keine abstrakten Pakete. Das sind typische Automationen, die ich für Teams umsetzen kann.',
       items: [
         {
+          title: 'n8n Beratung Stuttgart',
+          body:
+            'Lokale Landing für n8n Workshops, Umsetzung, API-Integrationen und Workflow Automation in Stuttgart.',
+          href: siteConfig.seoLandingLinks[0].href,
+          linkLabel: 'Zur n8n-Seite',
+        },
+        {
           title: 'CRM-Automationen',
           body: 'Leads, Deals, Kontakte und Follow-ups automatisch aktualisieren.',
         },
@@ -389,11 +399,11 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
       button: 'Prozess besprechen',
       note: 'Kein Sales-Theater. Erst prüfen wir, ob der Prozess sinnvoll automatisierbar ist.',
       personName: siteConfig.name,
-      personRole: 'Prozessautomatisierung · Deutschland',
+      personRole: 'AI Automation Engineer · n8n · Stuttgart',
     },
     footer: {
       left: siteConfig.name,
-      right: 'Praktische Prozessautomatisierung für Unternehmen in Deutschland.',
+      right: 'Praktische n8n- und Prozessautomatisierung für Unternehmen in Stuttgart und Deutschland.',
       contactLabel: 'Kontakt',
       builtWith: 'Gebaut mit Angular',
     },
@@ -407,10 +417,11 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
     },
     brand: {
       title: siteConfig.name,
-      subtitle: 'Process automation · Germany',
+      subtitle: 'n8n · Workflow automation · Stuttgart',
     },
     nav: [
       { label: 'What I help with', href: '#help' },
+      { label: 'n8n Stuttgart', href: './n8n-beratung-stuttgart/' },
       { label: 'Process', href: '#process' },
       { label: 'Examples', href: '#build' },
       { label: 'Trust', href: '#trust' },
@@ -418,10 +429,10 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
     ],
     navCta: 'Discuss a process',
     hero: {
-      kicker: 'Process automation for small and mid-sized companies',
+      kicker: 'n8n and process automation for SMEs in Stuttgart',
       title: 'I automate the processes that cost you time every day.',
       body:
-        'You show me what runs manually today. I turn it into a workflow that connects your tools, triggers tasks and is cleanly documented.',
+        'You show me what runs manually today. I turn it into a workflow with n8n, Make, APIs and AI that connects your tools, triggers tasks and is cleanly documented.',
       primaryCta: 'Discuss a process',
       secondaryCta: 'See examples',
       techLine: 'n8n · Make · APIs · CRM · Google Sheets · Airtable · Slack · HubSpot',
@@ -590,6 +601,13 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
         'No abstract packages. These are typical automations I can implement for teams.',
       items: [
         {
+          title: 'n8n consulting in Stuttgart',
+          body:
+            'A focused page for n8n workshops, implementation, API integrations and workflow automation in Stuttgart.',
+          href: siteConfig.seoLandingLinks[0].href,
+          linkLabel: 'Open n8n page',
+        },
+        {
           title: 'CRM automations',
           body: 'Update leads, deals, contacts and follow-ups automatically.',
         },
@@ -672,11 +690,11 @@ export const LANDING_CONTENT: Record<Language, LandingContent> = {
       button: 'Discuss a process',
       note: 'No sales theatre. First we check whether the process makes sense to automate.',
       personName: siteConfig.name,
-      personRole: 'Process automation · Germany',
+      personRole: 'AI Automation Engineer · n8n · Stuttgart',
     },
     footer: {
       left: siteConfig.name,
-      right: 'Practical process automation for companies in Germany.',
+      right: 'Practical n8n and process automation for companies in Stuttgart and Germany.',
       contactLabel: 'Contact',
       builtWith: 'Built with Angular',
     },

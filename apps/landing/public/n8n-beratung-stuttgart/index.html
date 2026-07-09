@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>n8n Beratung Stuttgart | Workflow Automation &amp; KI-Automatisierung</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="n8n Beratung in Stuttgart: Ich helfe kleinen und mittleren Unternehmen, Prozesse mit n8n, APIs, Webhooks und KI-Automatisierung zu automatisieren."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Hugo Martin Menz" />
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="canonical" href="https://hugomenz.de/n8n-beratung-stuttgart/" />
+    <link rel="sitemap" type="application/xml" href="https://hugomenz.de/sitemap.xml" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="n8n Beratung Stuttgart | Workflow Automation &amp; KI-Automatisierung"
+    />
+    <meta
+      property="og:description"
+      content="n8n Beratung in Stuttgart für KMU: Workflows, APIs, Webhooks, CRM-Automation und KI-Automatisierung mit sauberer Dokumentation."
+    />
+    <meta property="og:url" content="https://hugomenz.de/n8n-beratung-stuttgart/" />
+    <meta property="og:image" content="https://hugomenz.de/og-preview.png" />
+    <meta property="og:image:alt" content="n8n Beratung Stuttgart von Hugo Martin Menz" />
+    <meta property="og:site_name" content="Hugo Menz Automation" />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="n8n Beratung Stuttgart | Workflow Automation &amp; KI-Automatisierung"
+    />
+    <meta
+      name="twitter:description"
+      content="Workflows mit n8n, APIs, Webhooks und KI für kleine und mittlere Unternehmen in Stuttgart."
+    />
+    <meta name="twitter:image" content="https://hugomenz.de/og-preview.png" />
+    <style>
+      :root {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --surface-2: #1c2230;
+        --border: #30363d;
+        --border-muted: #21262d;
+        --text: #f0f6fc;
+        --muted: #8b949e;
+        --quiet: #6e7681;
+        --accent: #2ea043;
+        --accent-bright: #3fb950;
+        --accent-soft: rgba(46, 160, 67, 0.13);
+        --maxw: 1120px;
+        --radius: 8px;
+        --sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent-bright);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure,
+      ul {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text);
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.08;
+        text-wrap: balance;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 3vw, 2.6rem);
+      }
+
+      h3 {
+        font-size: 1.05rem;
+      }
+
+      p,
+      li {
+        overflow-wrap: anywhere;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: var(--maxw);
+        padding-inline: clamp(20px, 5vw, 40px);
+        width: 100%;
+      }
+
+      .mono {
+        font-family: var(--mono);
+      }
+
+      .skip-link {
+        background: var(--text);
+        color: var(--bg);
+        left: 16px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 12px;
+        transform: translateY(-160%);
+        z-index: 10;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        background: rgba(13, 17, 23, 0.94);
+        border-bottom: 1px solid var(--border-muted);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+
+      .header-inner {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        min-height: 74px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand strong {
+        font-size: 0.98rem;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .nav {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.82rem;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: var(--accent-bright);
+      }
+
+      .hero {
+        border-bottom: 1px solid var(--border-muted);
+        padding-block: clamp(56px, 8vw, 112px);
+      }
+
+      .hero-grid {
+        align-items: center;
+        display: grid;
+        gap: clamp(36px, 6vw, 76px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+      }
+
+      .eyebrow {
+        align-items: center;
+        color: var(--accent-bright);
+        display: inline-flex;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        gap: 8px;
+      }
+
+      .eyebrow::before {
+        background: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px var(--accent-soft);
+        content: "";
+        height: 7px;
+        width: 7px;
+      }
+
+      .hero h1 {
+        margin-top: 20px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.14rem;
+        line-height: 1.7;
+        margin-top: 22px;
+        max-width: 43rem;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .button {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        display: inline-flex;
+        font-weight: 700;
+        justify-content: center;
+        min-height: 46px;
+        padding: 11px 20px;
+      }
+
+      .button-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .button-secondary {
+        background: var(--surface);
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .keyword-row {
+        border-top: 1px solid var(--border-muted);
+        color: var(--quiet);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        font-size: 0.82rem;
+        line-height: 1.9;
+        margin-top: 30px;
+        padding-top: 22px;
+      }
+
+      .profile {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .profile img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .profile figcaption {
+        padding: 20px;
+      }
+
+      .profile strong {
+        display: block;
+      }
+
+      .profile span {
+        color: var(--muted);
+        display: block;
+        font-size: 0.82rem;
+        margin-top: 4px;
+      }
+
+      .section {
+        border-bottom: 1px solid var(--border-muted);
+        padding-block: clamp(58px, 8vw, 104px);
+      }
+
+      .section-head {
+        max-width: 47rem;
+      }
+
+      .section-head h2 {
+        margin-top: 14px;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        margin-top: 16px;
+      }
+
+      .split {
+        display: grid;
+        gap: clamp(28px, 4vw, 52px);
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      }
+
+      .list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .list li {
+        border-top: 1px solid var(--border-muted);
+        color: var(--muted);
+        padding-block: 18px;
+      }
+
+      .list strong {
+        color: var(--text);
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .service-grid {
+        display: grid;
+        gap: 0 36px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        list-style: none;
+        margin-top: 38px;
+        padding: 0;
+      }
+
+      .service-grid li {
+        border-top: 1px solid var(--border-muted);
+        padding-block: 22px;
+      }
+
+      .service-grid p,
+      .faq p {
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      .process {
+        counter-reset: step;
+        display: grid;
+        gap: 0 28px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        list-style: none;
+        margin-top: 38px;
+        padding: 0;
+      }
+
+      .process li {
+        border-top: 1px solid var(--border-muted);
+        padding-top: 18px;
+      }
+
+      .process li::before {
+        color: var(--accent-bright);
+        content: counter(step, decimal-leading-zero);
+        counter-increment: step;
+        display: block;
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        margin-bottom: 12px;
+      }
+
+      .faq {
+        display: grid;
+        gap: 24px;
+        margin-top: 38px;
+      }
+
+      .cta {
+        background: var(--surface);
+        padding-block: clamp(54px, 8vw, 92px);
+      }
+
+      .cta p {
+        color: var(--muted);
+        margin-top: 16px;
+        max-width: 42rem;
+      }
+
+      .site-footer {
+        color: var(--quiet);
+        font-size: 0.82rem;
+        padding-block: 28px;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .split,
+        .process {
+          grid-template-columns: 1fr;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://hugomenz.de/n8n-beratung-stuttgart/#professional-service",
+        "name": "Hugo Menz Automation - n8n Beratung Stuttgart",
+        "url": "https://hugomenz.de/n8n-beratung-stuttgart/",
+        "image": "https://hugomenz.de/og-preview.png",
+        "priceRange": "EUR EUR",
+        "areaServed": [
+          { "@type": "City", "name": "Stuttgart" },
+          { "@type": "AdministrativeArea", "name": "Baden-Württemberg" },
+          { "@type": "Country", "name": "Germany" }
+        ],
+        "provider": {
+          "@type": "Person",
+          "@id": "https://hugomenz.de/#person",
+          "name": "Hugo Martin Menz",
+          "jobTitle": "AI Automation Engineer",
+          "sameAs": ["https://www.linkedin.com/in/hugomartin-menz/"],
+          "knowsAbout": [
+            "n8n",
+            "Workflow Automation",
+            "API-Integrationen",
+            "Webhooks",
+            "KI-Automatisierung",
+            "CRM Automation"
+          ]
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "n8n Beratung und Workflow Automation",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "n8n Beratung Stuttgart"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "API-Integrationen und Webhooks"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "KI-Automatisierung für KMU"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Bietest du n8n Beratung in Stuttgart an?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Ich unterstütze Unternehmen in Stuttgart und Umgebung bei n8n Workshops, Workflow-Konzepten, API-Integrationen und Umsetzung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Für welche Unternehmen lohnt sich n8n?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "n8n lohnt sich vor allem für kleine und mittlere Unternehmen, wenn wiederkehrende Abläufe zwischen CRM, E-Mail, Tabellen, Ticketsystemen oder internen Tools manuell erledigt werden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kannst du auch bestehende n8n Workflows prüfen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Ich prüfe bestehende Workflows auf Fehlerlogik, Dokumentation, Wartbarkeit, Datenflüsse und sinnvolle Vereinfachungen."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Start",
+            "item": "https://hugomenz.de/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "n8n Beratung Stuttgart",
+            "item": "https://hugomenz.de/n8n-beratung-stuttgart/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../" aria-label="Hugo Menz Automation Startseite">
+          <strong>Hugo Menz Automation</strong>
+          <span>n8n · APIs · KI-Automatisierung</span>
+        </a>
+        <nav class="nav" aria-label="Seitennavigation">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#faq">FAQ</a>
+          <a href="../#contact">Kontakt</a>
+          <a href="https://www.linkedin.com/in/hugomartin-menz/" rel="noreferrer" target="_blank">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">n8n Consultant Stuttgart</p>
+            <h1>n8n Beratung in Stuttgart</h1>
+            <p class="lead">
+              Ich helfe kleinen und mittleren Unternehmen in Stuttgart und Umgebung,
+              manuelle Abläufe mit n8n, APIs, Webhooks und KI-Automatisierung zu
+              automatisieren. Der Fokus liegt auf Workflows, die echten operativen
+              Aufwand reduzieren: Leads, CRM, E-Mail, Reports, Tickets und interne
+              Prozesse.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="../#contact">Prozess besprechen</a>
+              <a
+                class="button button-secondary"
+                href="https://www.linkedin.com/in/hugomartin-menz/"
+                rel="noreferrer"
+                target="_blank"
+                >Auf LinkedIn schreiben</a
+              >
+            </div>
+            <p class="keyword-row mono">
+              <span>n8n Beratung Stuttgart</span>
+              <span>Workflow Automation Stuttgart</span>
+              <span>API-Integrationen</span>
+              <span>Webhooks</span>
+              <span>KI-Automatisierung</span>
+            </p>
+          </div>
+
+          <figure class="profile">
+            <img src="../hugo.jfif" alt="Hugo Martin Menz, AI Automation Engineer" width="640" height="480" />
+            <figcaption>
+              <strong>Hugo Martin Menz</strong>
+              <span class="mono">AI Automation Engineer · Prozessautomatisierung für KMU</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="leistungen">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Leistungen</p>
+            <h2>Workflow-Automatisierung mit n8n</h2>
+            <p>
+              n8n ist sinnvoll, wenn Prozesse über mehrere Tools laufen und klare
+              Regeln brauchen. Ich baue Workflows so, dass sie nachvollziehbar,
+              testbar und für Ihr Team wartbar bleiben.
+            </p>
+          </div>
+
+          <ul class="service-grid">
+            <li>
+              <h3>API-Integrationen und Webhooks</h3>
+              <p>
+                Tools verbinden, Daten sauber übergeben, Webhook-Trigger einrichten
+                und Fehlerfälle sichtbar machen.
+              </p>
+            </li>
+            <li>
+              <h3>Automatisierung für kleine und mittlere Unternehmen</h3>
+              <p>
+                CRM, E-Mail, Tabellen, Tickets, Reports und Backoffice-Abläufe
+                pragmatisch automatisieren.
+              </p>
+            </li>
+            <li>
+              <h3>KI-Automatisierung mit menschlicher Kontrolle</h3>
+              <p>
+                KI für Klassifizierung, Entwürfe oder Datenextraktion einsetzen,
+                aber kritische Entscheidungen bewusst beim Menschen lassen.
+              </p>
+            </li>
+            <li>
+              <h3>n8n Workshop oder Umsetzung in Stuttgart</h3>
+              <p>
+                Gemeinsamer Prozess-Workshop, technisches Konzept oder direkte
+                Umsetzung eines konkreten Workflows.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split">
+          <div class="section-head">
+            <p class="eyebrow">Einsatzfälle</p>
+            <h2>Typische n8n Workflows für KMU</h2>
+            <p>
+              Gute Automatisierung startet nicht mit einem Tool, sondern mit einem
+              wiederholbaren Ablauf. Diese Prozesse eignen sich besonders häufig.
+            </p>
+          </div>
+          <ul class="list">
+            <li>
+              <strong>Leads automatisch ins CRM bringen</strong>
+              Kontaktformulare, E-Mail-Anfragen oder LinkedIn-Leads prüfen und sauber
+              in HubSpot, Pipedrive oder ein anderes CRM übertragen.
+            </li>
+            <li>
+              <strong>Reports automatisch vorbereiten</strong>
+              Daten aus Tabellen, APIs oder CRM-Systemen sammeln und regelmäßig an
+              das richtige Team senden.
+            </li>
+            <li>
+              <strong>Support-Anfragen routen</strong>
+              Tickets klassifizieren, Priorität setzen und die zuständige Person
+              informieren.
+            </li>
+            <li>
+              <strong>Dokumente und E-Mail-Anhänge verarbeiten</strong>
+              PDFs, Rechnungen oder strukturierte Anhänge auslesen, prüfen und
+              ablegen.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="ablauf">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Ablauf</p>
+            <h2>Von Prozess-Idee zu laufendem Workflow</h2>
+            <p>
+              Ich halte die Zusammenarbeit bewusst konkret: ein Prozess, klare
+              Regeln, echte Testfälle und eine kurze Dokumentation.
+            </p>
+          </div>
+          <ol class="process">
+            <li>
+              <h3>Prozess verstehen</h3>
+              <p>Wir klären Trigger, Datenquellen, Regeln, Ausnahmen und Zielsysteme.</p>
+            </li>
+            <li>
+              <h3>Workflow skizzieren</h3>
+              <p>Ich zeige, was in n8n sinnvoll ist und wo eine andere Lösung besser wäre.</p>
+            </li>
+            <li>
+              <h3>Umsetzen und testen</h3>
+              <p>Der Workflow wird mit echten Fällen getestet, inklusive Fehlerlogik.</p>
+            </li>
+            <li>
+              <h3>Übergeben</h3>
+              <p>Sie bekommen einen dokumentierten Workflow, den Ihr Team versteht.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2>Fragen zur n8n Beratung in Stuttgart</h2>
+          </div>
+          <div class="faq">
+            <article>
+              <h3>Bietest du n8n Beratung vor Ort in Stuttgart an?</h3>
+              <p>
+                Ja. Ich arbeite remote und bei Bedarf auch im Raum Stuttgart vor Ort,
+                vor allem für Workshops, Prozessaufnahme und Übergabe.
+              </p>
+            </article>
+            <article>
+              <h3>Kannst du bestehende n8n Workflows verbessern?</h3>
+              <p>
+                Ja. Ich prüfe bestehende Workflows auf Wartbarkeit, Fehlerfälle,
+                Dokumentation, Datenqualität und unnötige Komplexität.
+              </p>
+            </article>
+            <article>
+              <h3>Ist n8n immer die richtige Lösung?</h3>
+              <p>
+                Nein. Wenn Make, eine direkte API-Integration oder ein kleines internes
+                Tool besser passt, sage ich das. Der Prozess ist wichtiger als das Tool.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="kontakt">
+        <div class="container">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Zeigen Sie mir den Prozess. Ich sage Ihnen, ob n8n sinnvoll ist.</h2>
+          <p>
+            Schicken Sie mir kurz, was heute manuell passiert, welche Tools beteiligt
+            sind und welches Ergebnis Sie brauchen. Ich gebe Ihnen eine ehrliche
+            Einschätzung zur Automatisierung.
+          </p>
+          <div class="cta-actions">
+            <a class="button button-primary" href="../#contact">Prozess besprechen</a>
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/hugomartin-menz/"
+              rel="noreferrer"
+              target="_blank"
+              >LinkedIn Profil öffnen</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>Hugo Menz Automation · n8n Beratung Stuttgart</span>
+        <a href="../">Startseite</a>
+      </div>
+    </footer>
+  </body>
+</html>

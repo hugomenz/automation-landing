@@ -50,7 +50,7 @@
   [class.is-visible]="compact()"
   [attr.aria-label]="content().languageName === 'Deutsch' ? 'Inhaltsverzeichnis' : 'On-page navigation'"
 >
-  @for (item of content().nav; track item.href) {
+  @for (item of sectionNav(); track item.href) {
     <a
       class="section-index-link"
       [class.is-active]="activeHref() === item.href"

@@ -2,7 +2,7 @@ export type SupportedLanguage = 'de' | 'en';
 
 export const siteConfig = {
   name: 'Hugo Martin Menz',
-  brandName: 'Prozessautomatisierung für Unternehmen',
+  brandName: 'Hugo Menz Automation',
   founder: {
     portraitSrc: 'hugo.jfif',
     portraitAlt: 'Hugo Martin Menz',
@@ -21,11 +21,16 @@ export const siteConfig = {
     en: 'en/',
   },
   social: {
-    // TODO: replace with the real public profile URL before launch.
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/hugomartin-menz/',
     // TODO: replace with the real public profile URL before launch.
     github: '',
   },
+  seoLandingLinks: [
+    {
+      label: 'n8n Beratung Stuttgart',
+      href: './n8n-beratung-stuttgart/',
+    },
+  ],
   seo: {
     title: 'Prozessautomatisierung | Hugo Menz',
     description:
@@ -56,22 +61,28 @@ export const siteConfig = {
     secondaryCta: 'Beispiele ansehen',
   },
   services: [
+    'n8n Beratung Stuttgart',
     'Workflow Automation',
     'n8n Automatisierung',
     'API-Integrationen',
+    'Webhooks',
+    'KI-Automatisierung',
     'Interne Tools mit Angular',
     'Support Automation',
     'AI Workflows mit Human Review',
   ],
-  areaServed: ['Deutschland', 'DACH', 'Remote'],
+  areaServed: ['Stuttgart', 'Baden-Württemberg', 'Deutschland', 'DACH', 'Remote'],
   schema: {
-    jobTitle: 'Freelancer für Prozessautomatisierung',
+    jobTitle: 'AI Automation Engineer',
     priceRange: 'EUR EUR',
     knowsAbout: [
+      'n8n Beratung Stuttgart',
       'Workflow Automation',
       'n8n',
       'Make',
       'API-Integrationen',
+      'Webhooks',
+      'KI-Automatisierung',
       'Angular',
       'Interne Tools',
       'Support Automation',
@@ -83,6 +94,8 @@ export const siteConfig = {
       'AI Workflows mit Human Review',
     ],
     areaServed: [
+      { '@type': 'City', name: 'Stuttgart' },
+      { '@type': 'AdministrativeArea', name: 'Baden-Württemberg' },
       { '@type': 'Country', name: 'Germany' },
       { '@type': 'Place', name: 'DACH' },
     ],
