@@ -36,3 +36,6 @@ jobs:
 
       - name: Build landing
         run: npm run build
+
+      - name: Verify prerendered routes
+        run: npm run verify:prerender
