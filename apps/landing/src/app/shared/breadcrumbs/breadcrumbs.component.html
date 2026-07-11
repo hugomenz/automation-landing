@@ -1,0 +1,15 @@
+<nav class="breadcrumbs" [attr.aria-label]="language() === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumbs'">
+  <div class="container">
+    <ol>
+      @for (item of items(); track $index; let last = $last) {
+        <li [attr.aria-current]="last ? 'page' : null">
+          @if (item.path && !last) {
+            <a [href]="item.path">{{ item.label }}</a>
+          } @else {
+            <span>{{ item.label }}</span>
+          }
+        </li>
+      }
+    </ol>
+  </div>
+</nav>

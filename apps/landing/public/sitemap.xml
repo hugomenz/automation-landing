@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.hugomenz.de/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/loesungen/technische-anfragequalifizierung/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/leistungen/rfq-readiness-workshop/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/leistungen/interner-rfq-copilot/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/branchen/end-of-line/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/branchen/verpackungsmaschinen/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/branchen/palettieranlagen/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/standorte/stuttgart/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/ueber-hugo-menz/</loc>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/kontakt/</loc>
+    <lastmod>2026-07-11</lastmod>
   </url>
   <url>
     <loc>https://www.hugomenz.de/n8n-beratung-stuttgart/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/en/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
   </url>
 </urlset>

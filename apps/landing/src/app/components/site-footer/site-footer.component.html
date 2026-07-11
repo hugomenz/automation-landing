@@ -1,23 +1,45 @@
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-primary">
-      <strong>{{ content().left }}</strong>
-      <span>{{ content().right }}</span>
+  <div class="container footer-grid">
+    <div class="footer-intro">
+      <strong>{{ copy().companyLabel }}</strong>
+      <p>{{ copy().description }}</p>
+      <a [href]="linkedin" rel="noreferrer" target="_blank">LinkedIn</a>
     </div>
 
-    <div class="footer-meta">
-      <nav class="footer-links" [attr.aria-label]="content().contactLabel">
-        <button type="button" class="footer-link-button" (click)="contactDialog.open()">
-          {{ content().contactLabel }}
-        </button>
-        @for (link of serviceLinks; track link.href) {
-          <a [href]="link.href">{{ link.label }}</a>
-        }
-        @for (link of socialLinks; track link.label) {
-          <a [href]="link.href" rel="noreferrer" target="_blank">{{ link.label }}</a>
-        }
-      </nav>
-      <span class="footer-built mono">{{ content().builtWith }}</span>
-    </div>
+    <nav class="footer-group" [attr.aria-label]="copy().solutionLabel">
+      <strong>{{ copy().solutionLabel }}</strong>
+      <a href="/loesungen/technische-anfragequalifizierung/" [attr.lang]="language() === 'en' ? 'de' : null">
+        Technische Anfragequalifizierung
+      </a>
+      <a href="/leistungen/rfq-readiness-workshop/" [attr.lang]="language() === 'en' ? 'de' : null">
+        RFQ Readiness Workshop
+      </a>
+      <a href="/leistungen/interner-rfq-copilot/" [attr.lang]="language() === 'en' ? 'de' : null">
+        Interner RFQ-Copilot
+      </a>
+    </nav>
+
+    <nav class="footer-group" [attr.aria-label]="copy().industriesLabel">
+      <strong>{{ copy().industriesLabel }}</strong>
+      <a href="/branchen/end-of-line/" [attr.lang]="language() === 'en' ? 'de' : null">End-of-Line</a>
+      <a href="/branchen/verpackungsmaschinen/" [attr.lang]="language() === 'en' ? 'de' : null">Verpackungsmaschinen</a>
+      <a href="/branchen/palettieranlagen/" [attr.lang]="language() === 'en' ? 'de' : null">Palettieranlagen</a>
+    </nav>
+
+    <nav class="footer-group" aria-label="Weitere Seiten">
+      <strong>{{ copy().secondaryLabel }}</strong>
+      <a href="/standorte/stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">Stuttgart</a>
+      <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">Über Hugo Menz</a>
+      <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">Kontakt</a>
+      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">n8n Beratung Stuttgart</a>
+      <a [href]="language() === 'de' ? '/en/' : '/'" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
+        {{ copy().languageLabel }}
+      </a>
+    </nav>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© {{ language() === 'de' ? 'Hugo Martin Menz' : 'Hugo Martin Menz' }}</span>
+    <span class="mono">Stuttgart · Baden-Württemberg</span>
   </div>
 </footer>

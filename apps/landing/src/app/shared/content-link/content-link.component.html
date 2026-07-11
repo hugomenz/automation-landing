@@ -1,0 +1,22 @@
+@if (opensDialog()) {
+  <button
+    type="button"
+    [class]="className()"
+    [attr.data-cta]="link().dataCta ?? null"
+    (click)="openContactForm()"
+  >
+    {{ link().label }}
+  </button>
+} @else {
+  <a
+    [class]="className()"
+    [href]="link().href"
+    [attr.lang]="link().lang ?? null"
+    [attr.hreflang]="link().lang ?? null"
+    [attr.data-cta]="link().dataCta ?? null"
+    [attr.target]="link().external ? '_blank' : null"
+    [attr.rel]="link().external ? 'noreferrer' : null"
+  >
+    {{ link().label }}
+  </a>
+}
