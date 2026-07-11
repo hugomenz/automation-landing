@@ -1,101 +1,69 @@
-import { DOCUMENT } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-  input,
-  OnDestroy,
-  signal,
-} from '@angular/core';
-import { ContactDialogService } from '../../contact-dialog.service';
-import { LandingContent } from '../../content';
-import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { PageLocaleService } from '../../core/page-locale.service';
+
+interface NavigationItem {
+  readonly label: string;
+  readonly path: string;
+  readonly lang?: 'de';
+}
+
+const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
+  de: [
+    { label: 'Lösung', path: '/loesungen/technische-anfragequalifizierung/' },
+    { label: 'Branchen', path: '/branchen/end-of-line/' },
+    { label: 'Leistungen', path: '/leistungen/rfq-readiness-workshop/' },
+    { label: 'Über Hugo', path: '/ueber-hugo-menz/' },
+    { label: 'Kontakt', path: '/kontakt/' },
+  ],
+  en: [
+    { label: 'Solution', path: '/en/#solution' },
+    { label: 'Industries', path: '/en/#industries' },
+    { label: 'Services', path: '/en/#process' },
+    { label: 'About Hugo', path: '/en/#about' },
+    { label: 'Contact', path: '/en/#contact' },
+  ],
+};
 
 @Component({
   selector: 'app-header',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LanguageSwitcherComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements AfterViewInit, OnDestroy {
-  private readonly document = inject(DOCUMENT);
-  private readonly contactDialog = inject(ContactDialogService);
+export class HeaderComponent {
+  private readonly pageLocale = inject(PageLocaleService);
 
-  readonly content = input.required<LandingContent>();
   readonly menuOpen = signal(false);
-  readonly compact = signal(false);
-  readonly activeHref = signal('#help');
-  readonly sectionNav = computed(() =>
-    this.content().nav.filter((item) => item.href.startsWith('#')),
-  );
-
-  private observer: IntersectionObserver | null = null;
-  private readonly updateCompactState = () => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    this.compact.set(window.innerWidth > 1120 && window.scrollY > 320);
-  };
-
-  ngAfterViewInit(): void {
-    this.activeHref.set(this.content().nav[0]?.href ?? '#help');
-    this.updateCompactState();
-
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    window.addEventListener('scroll', this.updateCompactState, { passive: true });
-    window.addEventListener('resize', this.updateCompactState);
-
-    if (typeof IntersectionObserver === 'undefined') {
-      return;
-    }
-
-    const sections = this.content()
-      .nav.map((item) => item.href)
-      .filter((href) => href.startsWith('#'))
-      .map((href) => this.document.querySelector<HTMLElement>(href))
-      .filter((section): section is HTMLElement => section !== null);
-
-    if (!sections.length) {
-      return;
-    }
-
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        const next = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
-
-        if (next) {
-          this.activeHref.set(`#${next.target.id}`);
+  readonly language = this.pageLocale.language;
+  readonly navigation = computed(() => NAVIGATION[this.language()]);
+  readonly copy = computed(() =>
+    this.language() === 'de'
+      ? {
+          subtitle: 'Technische Angebotsprozesse · Maschinenbau',
+          brandLabel: 'Hugo Menz Automation – Startseite',
+          navigationLabel: 'Hauptnavigation',
+          menuLabel: 'Menü umschalten',
+          languageLabel: 'English version',
+          languageText: 'EN',
+          languagePath: '/en/',
+          homePath: '/',
+          cta: 'Pilot-Eignung prüfen',
+          ctaPath: '/leistungen/rfq-readiness-workshop/',
         }
-      },
-      {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0.18, 0.4, 0.72],
-      },
-    );
-
-    for (const section of sections) {
-      this.observer.observe(section);
-    }
-  }
-
-  ngOnDestroy(): void {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.updateCompactState);
-      window.removeEventListener('resize', this.updateCompactState);
-    }
-
-    this.observer?.disconnect();
-  }
+      : {
+          subtitle: 'Technical quotation processes · Machinery',
+          brandLabel: 'Hugo Menz Automation – English home',
+          navigationLabel: 'Primary navigation',
+          menuLabel: 'Toggle menu',
+          languageLabel: 'Deutsche Version',
+          languageText: 'DE',
+          languagePath: '/',
+          homePath: '/en/',
+          cta: 'Check pilot fit',
+          ctaPath: '/en/#contact',
+        },
+  );
 
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
@@ -103,10 +71,5 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   closeMenu(): void {
     this.menuOpen.set(false);
-  }
-
-  openContactDialog(): void {
-    this.closeMenu();
-    this.contactDialog.open();
   }
 }

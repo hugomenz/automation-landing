@@ -1,0 +1,200 @@
+<article class="page" [class.page-home]="isHome">
+  @if (!isHome) {
+    <app-breadcrumbs [items]="page.breadcrumbs" [language]="page.lang" />
+  }
+
+  <header class="page-hero">
+    <div class="container" [class.hero-grid]="page.hero.diagram || page.hero.portrait">
+      <div class="hero-copy">
+        @if (page.hero.kicker) {
+          <p class="eyebrow">{{ page.hero.kicker }}</p>
+        }
+        <h1>{{ page.hero.h1 }}</h1>
+        @if (page.hero.lead) {
+          <p class="hero-lead">{{ page.hero.lead }}</p>
+        }
+        @if (page.hero.primaryCta || page.hero.secondaryCta) {
+          <div class="hero-actions">
+            @if (page.hero.primaryCta) {
+              <app-content-link [link]="page.hero.primaryCta" variant="primary" />
+            }
+            @if (page.hero.secondaryCta) {
+              <app-content-link [link]="page.hero.secondaryCta" variant="secondary" />
+            }
+          </div>
+        }
+        @if (page.hero.trustLine) {
+          <p class="trust-line mono"><span aria-hidden="true">●</span>{{ page.hero.trustLine }}</p>
+        }
+      </div>
+
+      @if (page.hero.diagram) {
+        <app-rfq-flow [diagram]="page.hero.diagram" />
+      } @else if (page.hero.portrait) {
+        <figure class="hero-portrait">
+          <img
+            [src]="page.hero.portrait.src"
+            [alt]="page.hero.portrait.alt"
+            [width]="page.hero.portrait.width"
+            [height]="page.hero.portrait.height"
+            decoding="async"
+          />
+          <figcaption class="mono">Hugo Martin Menz · Stuttgart</figcaption>
+        </figure>
+      }
+    </div>
+  </header>
+
+  @for (section of page.sections; track section.id; let sectionIndex = $index) {
+    <section
+      class="section content-section"
+      [class.section-alt]="sectionIndex % 2 === 1"
+      [class.section-profile]="section.layout === 'profile'"
+      [class.section-contact]="section.layout === 'contact'"
+      [id]="section.id"
+    >
+      <div class="container section-layout">
+        @if (section.layout === 'profile') {
+          <figure class="profile-portrait">
+            <img
+              [src]="portrait.portraitSrc"
+              [alt]="portrait.portraitAlt"
+              width="640"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="mono">Hugo Martin Menz · Stuttgart</figcaption>
+          </figure>
+        }
+
+        <div class="section-content">
+          <div class="section-head">
+            @if (section.eyebrow) {
+              <p class="eyebrow">{{ section.eyebrow }}</p>
+            }
+            <h2>{{ section.heading }}</h2>
+            @if (section.intro) {
+              <p class="section-intro">{{ section.intro }}</p>
+            }
+          </div>
+
+          @if (section.paragraphs) {
+            <div class="prose">
+              @for (paragraph of section.paragraphs; track $index) {
+                <p>{{ paragraph }}</p>
+              }
+            </div>
+          }
+
+          @if (section.points) {
+            <ul class="point-list">
+              @for (point of section.points; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          }
+
+          @if (section.columns) {
+            <div class="column-grid">
+              @for (column of section.columns; track column.heading) {
+                <div class="column-card">
+                  <h3>{{ column.heading }}</h3>
+                  @if (column.intro) {
+                    <p>{{ column.intro }}</p>
+                  }
+                  <ul>
+                    @for (point of column.points; track point) {
+                      <li>{{ point }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          }
+
+          @if (section.items) {
+            @if (section.ordered) {
+              <ol class="item-grid step-grid">
+                @for (item of section.items; track $index) {
+                  <li class="item-card">
+                    @if (item.label) { <span class="item-label mono">{{ item.label }}</span> }
+                    @if (item.title) { <h3>{{ item.title }}</h3> }
+                    @if (item.body) { <p>{{ item.body }}</p> }
+                    @if (item.points) {
+                      <ul>
+                        @for (point of item.points; track point) { <li>{{ point }}</li> }
+                      </ul>
+                    }
+                    @if (item.link) { <app-content-link [link]="item.link" /> }
+                  </li>
+                }
+              </ol>
+            } @else {
+              <div class="item-grid" [class.list-layout]="section.layout === 'list'">
+                @for (item of section.items; track $index) {
+                  <article class="item-card">
+                    @if (item.label) { <span class="item-label mono">{{ item.label }}</span> }
+                    @if (item.title) { <h3>{{ item.title }}</h3> }
+                    @if (item.body) { <p>{{ item.body }}</p> }
+                    @if (item.points) {
+                      <ul>
+                        @for (point of item.points; track point) { <li>{{ point }}</li> }
+                      </ul>
+                    }
+                    @if (item.link) { <app-content-link [link]="item.link" /> }
+                  </article>
+                }
+              </div>
+            }
+          }
+
+          @if (section.callout) {
+            <aside class="callout"><p>{{ section.callout }}</p></aside>
+          }
+
+          @if (section.links) {
+            <nav class="context-links" [attr.aria-label]="section.heading">
+              @for (link of section.links; track link.href) {
+                <app-content-link [link]="link" />
+              }
+            </nav>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (page.faq) {
+    <section class="section faq-section" [id]="page.faq.id">
+      <div class="container">
+        <div class="section-head">
+          @if (page.faq.eyebrow) { <p class="eyebrow">{{ page.faq.eyebrow }}</p> }
+          <h2>{{ page.faq.heading }}</h2>
+        </div>
+        <div class="faq-list">
+          @for (item of page.faq.items; track item.question) {
+            <details>
+              <summary>{{ item.question }}</summary>
+              <p>{{ item.answer }}</p>
+            </details>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="section final-cta" id="contact">
+    <div class="container final-cta-inner">
+      <div>
+        @if (page.finalCta.eyebrow) { <p class="eyebrow">{{ page.finalCta.eyebrow }}</p> }
+        <h2>{{ page.finalCta.heading }}</h2>
+        <p>{{ page.finalCta.body }}</p>
+      </div>
+      <div class="final-cta-action">
+        <app-content-link [link]="page.finalCta.action" variant="primary" />
+        @if (page.finalCta.note) { <p class="mono">{{ page.finalCta.note }}</p> }
+      </div>
+    </div>
+  </section>
+</article>

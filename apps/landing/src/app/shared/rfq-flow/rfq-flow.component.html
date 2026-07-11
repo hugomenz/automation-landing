@@ -1,0 +1,21 @@
+<figure class="flow-panel">
+  <figcaption>
+    <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="mono">{{ diagram().fileLabel }}</span>
+    <span class="flow-status mono">review_required</span>
+  </figcaption>
+
+  <ol class="flow-nodes">
+    @for (node of diagram().nodes; track node.stage; let last = $last) {
+      <li class="flow-node">
+        <span class="node-stage mono">{{ node.stage }}</span>
+        <strong>{{ node.label }}</strong>
+      </li>
+      @if (!last) {
+        <li class="flow-arrow" aria-hidden="true">↓</li>
+      }
+    }
+  </ol>
+
+  <p class="flow-footer mono">{{ diagram().footer }}</p>
+</figure>

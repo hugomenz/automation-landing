@@ -1,10 +1,13 @@
 @if (contactDialog.isOpen()) {
   <div class="contact-dialog-backdrop" (click)="close()">
     <section
+      #dialog
       class="contact-dialog"
       role="dialog"
+      tabindex="-1"
       aria-modal="true"
       aria-labelledby="contact-dialog-title"
+      aria-describedby="contact-dialog-description contact-dialog-confidentiality"
       (click)="$event.stopPropagation()"
     >
       <button
@@ -18,66 +21,70 @@
 
       <p class="eyebrow">{{ copy().eyebrow }}</p>
       <h2 id="contact-dialog-title">{{ copy().title }}</h2>
-      <p class="contact-dialog-body">{{ copy().body }}</p>
+      <p class="contact-dialog-body" id="contact-dialog-description">{{ copy().body }}</p>
+      <p class="contact-confidentiality" id="contact-dialog-confidentiality">
+        {{ copy().confidentiality }}
+      </p>
 
       <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
         <label class="contact-field">
-          <span class="contact-label mono">{{ copy().name }}</span>
+          <span class="contact-label mono">{{ copy().name }} *</span>
           <input
             #nameInput
             type="text"
             class="contact-input"
             formControlName="name"
             autocomplete="name"
+            required
+            [class.contact-input-error]="submitted() && form.controls.name.invalid"
+            [attr.aria-invalid]="submitted() && form.controls.name.invalid"
           />
         </label>
 
         <label class="contact-field">
-          <span class="contact-label mono">{{ copy().email }}</span>
+          <span class="contact-label mono">{{ copy().email }} *</span>
           <input
             type="email"
             class="contact-input"
             formControlName="email"
-            [class.contact-input-error]="
-              submitted() && form.get('email')?.invalid
-            "
             autocomplete="email"
+            required
+            [class.contact-input-error]="submitted() && form.controls.email.invalid"
+            [attr.aria-invalid]="submitted() && form.controls.email.invalid"
           />
         </label>
 
-        <label class="contact-field">
+        <label class="contact-field contact-field-full">
           <span class="contact-label mono">{{ copy().phone }}</span>
           <input
             type="tel"
             class="contact-input"
             formControlName="phone"
-            [class.contact-input-error]="
-              submitted() && form.get('phone')?.invalid
-            "
             autocomplete="tel"
+            [class.contact-input-error]="submitted() && form.controls.phone.invalid"
+            [attr.aria-invalid]="submitted() && form.controls.phone.invalid"
           />
         </label>
 
         <label class="contact-field contact-field-full">
-          <span class="contact-label mono">{{ copy().message }}</span>
+          <span class="contact-label mono">{{ copy().message }} *</span>
           <textarea
             class="contact-input contact-textarea"
             formControlName="message"
-            [class.contact-input-error]="
-              submitted() && form.get('message')?.invalid
-            "
-            rows="6"
+            rows="7"
+            required
+            [placeholder]="copy().messagePlaceholder"
+            [class.contact-input-error]="submitted() && form.controls.message.invalid"
+            [attr.aria-invalid]="submitted() && form.controls.message.invalid"
           ></textarea>
           <div class="contact-field-footer">
-            <span class="contact-character-count"
-              >{{ messageLength() }}/1000 {{ copy().messageHint }}</span
-            >
+            <span class="contact-character-count">{{ messageLength() }}/1000 {{ copy().messageHint }}</span>
           </div>
         </label>
 
         @if (errors().length > 0) {
           <div class="contact-errors contact-field-full" role="alert">
-            <p class="contact-errors-title">Por favor corrige los siguientes errores:</p>
+            <p class="contact-errors-title">{{ copy().errorSummary }}</p>
             <ul class="contact-errors-list">
               @for (error of errors(); track error) {
                 <li>{{ error }}</li>
@@ -87,14 +94,10 @@
         }
 
         <div class="contact-actions contact-field-full">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="!canSubmit() || isSending()"
-          >
+          <button type="submit" class="btn btn-primary" [disabled]="isSending()">
             {{ isSending() ? copy().sending : copy().submit }}
           </button>
-          <p class="contact-powered mono">{{ copy().poweredBy }}</p>
+          <p class="contact-powered mono">{{ copy().protection }}</p>
         </div>
       </form>
     </section>

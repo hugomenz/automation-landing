@@ -39,6 +39,15 @@
   max-width: 40rem;
 }
 
+.contact-confidentiality {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
 .contact-dialog-close {
   position: absolute;
   top: 14px;

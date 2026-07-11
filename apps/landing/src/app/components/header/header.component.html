@@ -1,16 +1,14 @@
 <a class="skip-link" href="#content">
-  {{ content().languageName === 'Deutsch' ? 'Zum Inhalt springen' : 'Skip to content' }}
+  {{ language() === 'de' ? 'Zum Inhalt springen' : 'Skip to content' }}
 </a>
 
 <header class="site-header" [class.is-open]="menuOpen()">
-  <div class="header-inner container">
-    <a class="brand" href="#top" aria-label="Home" (click)="closeMenu()">
-      <span class="brand-mark" aria-hidden="true">
-        <span class="brand-dot"></span>
-      </span>
+  <div class="container header-inner">
+    <a class="brand" [href]="copy().homePath" [attr.aria-label]="copy().brandLabel" (click)="closeMenu()">
+      <span class="brand-mark" aria-hidden="true"><span class="brand-dot"></span></span>
       <span class="brand-copy">
-        <strong>{{ content().brand.title }}</strong>
-        <span>{{ content().brand.subtitle }}</span>
+        <strong>Hugo Menz Automation</strong>
+        <span>{{ copy().subtitle }}</span>
       </span>
     </a>
 
@@ -19,9 +17,7 @@
       class="nav-toggle"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="primary-nav"
-      [attr.aria-label]="
-        content().languageName === 'Deutsch' ? 'Menü umschalten' : 'Toggle menu'
-      "
+      [attr.aria-label]="copy().menuLabel"
       (click)="toggleMenu()"
     >
       <span class="nav-toggle-bar"></span>
@@ -29,36 +25,31 @@
     </button>
 
     <div class="header-actions" id="primary-nav">
-      <nav class="nav-links" aria-label="Sections">
-        @for (item of content().nav; track item.href) {
-          <a [href]="item.href" (click)="closeMenu()">{{ item.label }}</a>
+      <nav class="nav-links" [attr.aria-label]="copy().navigationLabel">
+        @for (item of navigation(); track item.label) {
+          <a
+            [href]="item.path"
+            [attr.lang]="item.lang ?? null"
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
         }
       </nav>
 
       <div class="header-controls">
-        <app-language-switcher />
-        <button type="button" class="nav-cta" (click)="openContactDialog()">
-          {{ content().navCta }}
-        </button>
+        <a
+          class="language-link"
+          [href]="copy().languagePath"
+          [attr.aria-label]="copy().languageLabel"
+          hreflang="{{ language() === 'de' ? 'en' : 'de-DE' }}"
+          (click)="closeMenu()"
+        >{{ copy().languageText }}</a>
+        <a
+          class="nav-cta"
+          [href]="copy().ctaPath"
+          data-cta="readiness-header"
+          (click)="closeMenu()"
+        >{{ copy().cta }}</a>
       </div>
     </div>
   </div>
 </header>
-
-<nav
-  class="section-index"
-  [class.is-visible]="compact()"
-  [attr.aria-label]="content().languageName === 'Deutsch' ? 'Inhaltsverzeichnis' : 'On-page navigation'"
->
-  @for (item of sectionNav(); track item.href) {
-    <a
-      class="section-index-link"
-      [class.is-active]="activeHref() === item.href"
-      [attr.aria-current]="activeHref() === item.href ? 'location' : null"
-      [href]="item.href"
-    >
-      <span class="section-index-line" aria-hidden="true"></span>
-      <span class="section-index-label">{{ item.label }}</span>
-    </a>
-  }
-</nav>

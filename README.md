@@ -1,61 +1,64 @@
-# Freelance Market Validation
+# Hugo Menz Automation
 
-Este repo queda dividido en dos niveles:
+Repositorio de validación y web pública de Hugo Menz. La propuesta principal de
+`hugomenz.de` es la digitalización del proceso técnico de oferta para fabricantes
+de maquinaria: cualificación interna de RFQ para una sola familia de máquinas,
+con fuentes trazables, reglas aprobadas y revisión humana.
 
-- `brain/` contiene la validación de mercado, posicionamiento, scripts de
-  outreach, supuestos financieros y checklists de decisión.
-- `apps/landing/` contiene la landing Angular para la oferta de workflow
-  automation.
+La solución no se presenta como un wizard público, un CPQ completo ni un sistema
+autónomo de pricing o aprobación técnica. n8n, Make, APIs y webhooks permanecen
+como tecnologías de implementación secundarias.
 
-## Dirección actual
-
-El foco comercial es workflow automation para Alemania y DACH:
-
-- Workflows con n8n, Make o Power Automate.
-- Integraciones API y herramientas internas de operaciones.
-- Internal tools con Angular cuando la automatización necesita UI.
-- Workflows con IA, revisión humana, logging y handover.
-
-Angular y design systems quedan como señales de credibilidad. El mensaje de
-compra es operativo: reducir trabajo manual, hacer procesos trazables y entregar
-un workflow pequeño antes de vender una gran transformación.
-
-## Mapa del repo
+## Estructura
 
 | Ruta | Uso |
 |---|---|
-| `brain/README.md` | Hub original de validación |
-| `brain/00-resumen-ejecutivo.md` | Resumen ejecutivo |
-| `brain/01-portfolio/` | Estrategia de portfolio y mini casos |
-| `brain/02-servicios/` | Servicios, paquetes y pricing |
-| `brain/03-mercado/` | Mercado, plataformas y keywords |
-| `brain/04-leads/` | Empresas, recruiters y perfiles de leads |
-| `brain/05-outreach/` | Emails, LinkedIn y guiones de llamada |
-| `brain/06-finanzas/` | Facturación, objetivo neto y riesgos |
-| `brain/07-plan-semanal/` | Plan de validación de una semana |
-| `brain/08-checklists/` | Checklists de portfolio, outreach, calls y decisión |
-| `brain/09-decision/` | Señales de tracción y reglas de pivot |
-| `apps/landing/` | Landing pública en Angular |
+| `apps/landing/` | Sitio Angular 21 prerenderizado y publicado en GitHub Pages |
+| `brain/` | Investigación y validación histórica de mercado |
+| `docs/` | Referencias, decisiones, contenido y handoff del rebuild SEO |
 
-## Próximos retoques
+## Arquitectura de la web
 
-1. Sustituir el email placeholder en `apps/landing/src/app/content.ts`.
-2. Añadir nombre real o marca personal cuando el dominio esté decidido.
-3. Publicar la landing.
-4. Enlazarla desde LinkedIn, mensajes a recruiters y plantillas de outreach.
+- Angular 21.2.17 con componentes standalone, signals, `OnPush` y change
+  detection zoneless.
+- Angular Router con rutas explícitas.
+- Prerender estático mediante `@angular/ssr` y `outputMode: "static"`.
+- Registro tipado único para contenido, metadatos, canonical, hreflang,
+  breadcrumbs y schema.
+- Formulario existente con validaciones, feedback y rate limiting conservados.
+- Sin servidor requerido en producción.
 
-## Landing local
+El artefacto publicable permanece en:
+
+```text
+apps/landing/dist/landing/browser
+```
+
+## Rutas públicas
+
+- `/`
+- `/loesungen/technische-anfragequalifizierung/`
+- `/leistungen/rfq-readiness-workshop/`
+- `/leistungen/interner-rfq-copilot/`
+- `/branchen/end-of-line/`
+- `/branchen/verpackungsmaschinen/`
+- `/branchen/palettieranlagen/`
+- `/standorte/stuttgart/`
+- `/ueber-hugo-menz/`
+- `/kontakt/`
+- `/n8n-beratung-stuttgart/`
+- `/en/`
+
+## Desarrollo y validación
 
 ```bash
 cd apps/landing
-npm install
-npm start
-```
-
-La app queda disponible en `http://127.0.0.1:4200`.
-
-Para generar una versión publicable:
-
-```bash
+npm ci
+npm test
 npm run build
+npm run verify:prerender
 ```
+
+`verify:prerender` inspecciona el HTML publicado de cada ruta y comprueba title,
+canonical, H1 y contenido principal. Los workflows de GitHub Actions ejecutan la
+misma validación antes de publicar `dist/landing/browser` en GitHub Pages.

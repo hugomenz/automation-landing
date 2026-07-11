@@ -5,126 +5,119 @@ import {
   computed,
   effect,
   ElementRef,
+  HostListener,
   inject,
   OnDestroy,
   signal,
   viewChild,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  ValidatorFn,
-  AbstractControl,
   ValidationErrors,
+  ValidatorFn,
+  Validators,
 } from '@angular/forms';
-import { MAKE_WEBHOOK_URL } from '../../contact-form.config';
-import { LandingContent } from '../../content';
+import { CONTACT_FORM_WEBHOOK_URL } from '../../contact-form.config';
 import { ContactDialogService } from '../../contact-dialog.service';
-import { ContactFormRateLimiterService } from '../../contact-form-rate-limiter.service';
-import { LanguageService } from '../../language.service';
+import {
+  ContactFormRateLimiterService,
+  RateLimitReason,
+} from '../../contact-form-rate-limiter.service';
+import { PageLocaleService } from '../../core/page-locale.service';
 import { SnackbarService } from '../../snackbar.service';
 
 type ContactFormStatus = 'idle' | 'success' | 'error';
 
-// Validators
 const emailValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   if (!control.value) return null;
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return EMAIL_REGEX.test(control.value) ? null : { invalidEmail: true };
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(control.value)
+    ? null
+    : { invalidEmail: true };
 };
 
 const phoneValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   if (!control.value) return null;
-  const PHONE_REGEX = /^[+\d\s\-().]{7,}$/;
-  return PHONE_REGEX.test(control.value) ? null : { invalidPhone: true };
+  return /^[+\d\s\-().]{7,}$/.test(control.value) ? null : { invalidPhone: true };
 };
 
 const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   if (!control.value) return null;
-  const length = control.value.length;
+  const length = String(control.value).length;
   if (length < 20) return { messageTooShort: true };
   if (length > 1000) return { messageTooLong: true };
   return null;
 };
 
-const CONTACT_DIALOG_COPY: Record<
-  'de' | 'en',
-  {
-    eyebrow: string;
-    title: string;
-    body: string;
-    closeLabel: string;
-    name: string;
-    email: string;
-    phone: string;
-    message: string;
-    emailRequired: string;
-    emailInvalid: string;
-    phoneInvalid: string;
-    messageRequired: string;
-    messageTooShort: string;
-    messageTooLong: string;
-    submit: string;
-    sending: string;
-    success: string;
-    error: string;
-    missingWebhook: string;
-    poweredBy: string;
-    messageHint: string;
-  }
-> = {
+const CONTACT_DIALOG_COPY = {
   de: {
-    eyebrow: 'Kontakt',
-    title: 'Prozess kurz schildern',
+    eyebrow: 'Pilot-Eignung prüfen',
+    title: 'Maschinenfamilie kurz beschreiben',
     body:
-      'Schicken Sie mir die Eckdaten. Ich prüfe den Ablauf und melde mich mit einer klaren Einschätzung.',
+      'Beschreiben Sie die Maschinenfamilie und den heutigen Angebotsprozess. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist.',
+    confidentiality:
+      'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
     closeLabel: 'Kontaktformular schließen',
     name: 'Name',
     email: 'E-Mail',
-    phone: 'Telefon',
-    message: 'Nachricht',
+    phone: 'Telefon (optional)',
+    message: 'Maschinenfamilie und heutiger RFQ-Prozess',
+    messagePlaceholder:
+      'Hilfreich sind: Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen und der größte Engpass.',
+    nameRequired: 'Bitte geben Sie Ihren Namen ein.',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
     emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
     phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz den Prozess.',
+    messageRequired: 'Bitte beschreiben Sie kurz die Maschinenfamilie und den Prozess.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
-    submit: 'Anfrage senden',
-    sending: 'Wird gesendet ...',
+    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
+    submit: 'Pilot-Eignung prüfen',
+    sending: 'Wird gesendet …',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
     error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
-    missingWebhook:
-      'Das Formular ist noch nicht konfiguriert. Hinterlegen Sie zuerst die Make-Webhook-URL.',
-    poweredBy: 'Automation powered by Make',
+    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
+    rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
+    rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
+    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
     messageHint: 'Zeichen',
   },
   en: {
-    eyebrow: 'Contact',
-    title: 'Briefly describe the process',
+    eyebrow: 'Check pilot fit',
+    title: 'Briefly describe the machine family',
     body:
-      'Send me the key details. I will review the workflow and reply with a clear recommendation.',
+      'Describe the machine family and the current quotation process. I will first assess whether an RFQ readiness workshop is a sensible next step.',
+    confidentiality:
+      'Please do not send confidential specifications, drawings or customer data in this first contact. Document handling will be agreed separately before any analysis.',
     closeLabel: 'Close contact form',
     name: 'Name',
     email: 'Email',
-    phone: 'Phone',
-    message: 'Message',
+    phone: 'Phone (optional)',
+    message: 'Machine family and current RFQ process',
+    messagePlaceholder:
+      'Helpful context: machine family, approximate request volume, roles involved and the main bottleneck.',
+    nameRequired: 'Please enter your name.',
     emailRequired: 'Please enter your email.',
     emailInvalid: 'Please enter a valid email address.',
     phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the process.',
-    messageTooShort: 'Minimum 20 characters required.',
-    messageTooLong: 'Maximum 1000 characters allowed.',
-    submit: 'Send request',
-    sending: 'Sending ...',
-    success: 'Thanks. Your request has been sent.',
+    messageRequired: 'Please briefly describe the machine family and process.',
+    messageTooShort: 'At least 20 characters are required.',
+    messageTooLong: 'A maximum of 1000 characters is allowed.',
+    errorSummary: 'Please correct the following errors:',
+    submit: 'Check pilot fit',
+    sending: 'Sending …',
+    success: 'Thank you. Your request has been sent.',
     error: 'Sending failed. Please try again.',
-    missingWebhook:
-      'The form is not configured yet. Add your Make webhook URL first.',
-    poweredBy: 'Automation powered by Make',
+    missingWebhook: 'The form is not configured yet.',
+    rateMinute: 'You can send at most two messages per minute.',
+    rateSession: 'You have reached the message limit for this session.',
+    protection: 'Protected by the existing form controls',
     messageHint: 'characters',
   },
-};
+} as const;
 
 @Component({
   selector: 'app-contact-dialog',
@@ -136,21 +129,26 @@ const CONTACT_DIALOG_COPY: Record<
 })
 export class ContactDialogComponent implements OnDestroy {
   private readonly document = inject(DOCUMENT);
-  private readonly languageService = inject(LanguageService);
+  private readonly pageLocale = inject(PageLocaleService);
   private readonly snackbarService = inject(SnackbarService);
   private readonly rateLimiter = inject(ContactFormRateLimiterService);
 
   protected readonly contactDialog = inject(ContactDialogService);
+  private readonly dialog = viewChild<ElementRef<HTMLElement>>('dialog');
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
 
-  readonly copy = computed(() => CONTACT_DIALOG_COPY[this.languageService.language()]);
+  readonly copy = computed(() => CONTACT_DIALOG_COPY[this.pageLocale.language()]);
   readonly isSending = signal(false);
   readonly status = signal<ContactFormStatus>('idle');
+  readonly submitted = signal(false);
 
   readonly form = new FormGroup({
-    name: new FormControl('', { nonNullable: true }),
+    name: new FormControl('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
     email: new FormControl('', {
-      validators: [emailValidator],
+      validators: [Validators.required, emailValidator],
       nonNullable: true,
     }),
     phone: new FormControl('', {
@@ -158,69 +156,79 @@ export class ContactDialogComponent implements OnDestroy {
       nonNullable: true,
     }),
     message: new FormControl('', {
-      validators: [messageValidator],
+      validators: [Validators.required, messageValidator],
       nonNullable: true,
     }),
   });
 
-  readonly submitted = signal(false);
+  private readonly formValue = toSignal(this.form.valueChanges, {
+    initialValue: this.form.getRawValue(),
+  });
+  private readonly formStatus = toSignal(this.form.statusChanges, {
+    initialValue: this.form.status,
+  });
 
-  readonly messageLength = computed(() => this.form.get('message')?.value?.length ?? 0);
-
+  readonly messageLength = computed(() => this.formValue().message?.length ?? 0);
   readonly errors = computed(() => {
+    this.formValue();
+    this.formStatus();
+
+    if (!this.submitted()) return [];
+
     const errors: string[] = [];
-    if (!this.submitted()) return errors;
+    const name = this.form.controls.name;
+    const email = this.form.controls.email;
+    const phone = this.form.controls.phone;
+    const message = this.form.controls.message;
 
-    const nameCtrl = this.form.get('name');
-    const emailCtrl = this.form.get('email');
-    const phoneCtrl = this.form.get('phone');
-    const messageCtrl = this.form.get('message');
-
-    if (emailCtrl?.hasError('required') || (!emailCtrl?.value && this.submitted())) {
+    if (name.hasError('required')) errors.push(this.copy().nameRequired);
+    if (email.hasError('required')) {
       errors.push(this.copy().emailRequired);
-    } else if (emailCtrl?.hasError('invalidEmail')) {
+    } else if (email.hasError('invalidEmail')) {
       errors.push(this.copy().emailInvalid);
     }
-
-    if (phoneCtrl?.hasError('invalidPhone')) {
-      errors.push(this.copy().phoneInvalid);
-    }
-
-    if (!messageCtrl?.value && this.submitted()) {
+    if (phone.hasError('invalidPhone')) errors.push(this.copy().phoneInvalid);
+    if (message.hasError('required')) {
       errors.push(this.copy().messageRequired);
-    } else if (messageCtrl?.hasError('messageTooShort')) {
+    } else if (message.hasError('messageTooShort')) {
       errors.push(this.copy().messageTooShort);
-    } else if (messageCtrl?.hasError('messageTooLong')) {
+    } else if (message.hasError('messageTooLong')) {
       errors.push(this.copy().messageTooLong);
     }
 
     return errors;
   });
-
-  readonly canSubmit = computed(
-    () =>
-      this.form.get('email')?.valid &&
-      this.form.get('phone')?.valid &&
-      this.form.get('message')?.valid &&
-      !this.isSending(),
-  );
+  readonly canSubmit = computed(() => {
+    this.formStatus();
+    return this.form.valid && !this.isSending();
+  });
 
   constructor() {
     effect(() => {
       const isOpen = this.contactDialog.isOpen();
-
       this.document.body.style.overflow = isOpen ? 'hidden' : '';
 
       if (isOpen) {
-        setTimeout(() => {
-          this.nameInput()?.nativeElement.focus();
-        }, 0);
+        setTimeout(() => this.nameInput()?.nativeElement.focus(), 0);
       }
     });
   }
 
   ngOnDestroy(): void {
     this.document.body.style.overflow = '';
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleDocumentKeydown(event: KeyboardEvent): void {
+    if (!this.contactDialog.isOpen()) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      this.close();
+      return;
+    }
+
+    if (event.key === 'Tab') this.trapFocus(event);
   }
 
   close(): void {
@@ -232,19 +240,17 @@ export class ContactDialogComponent implements OnDestroy {
 
   async submit(): Promise<void> {
     this.submitted.set(true);
+    this.form.markAllAsTouched();
 
-    if (!this.canSubmit()) {
+    if (!this.canSubmit()) return;
+
+    const rateLimit = this.rateLimiter.canSubmit();
+    if (!rateLimit.allowed) {
+      this.snackbarService.show('error', this.rateLimitMessage(rateLimit.reason));
       return;
     }
 
-    // Check rate limit
-    const rateLimitCheck = this.rateLimiter.canSubmit();
-    if (!rateLimitCheck.allowed) {
-      this.snackbarService.show('error', rateLimitCheck.reason || 'Rate limit exceeded.');
-      return;
-    }
-
-    if (!MAKE_WEBHOOK_URL.trim()) {
+    if (!CONTACT_FORM_WEBHOOK_URL.trim()) {
       this.snackbarService.show('error', this.copy().missingWebhook);
       return;
     }
@@ -262,30 +268,20 @@ export class ContactDialogComponent implements OnDestroy {
     this.isSending.set(true);
 
     try {
-      const response = await fetch(MAKE_WEBHOOK_URL, {
+      const response = await fetch(CONTACT_FORM_WEBHOOK_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error(`Make webhook returned ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`Contact webhook returned ${response.status}`);
 
-      // Record successful submission for rate limiting
       this.rateLimiter.recordSubmission();
-
       this.snackbarService.show('success', this.copy().success);
       this.status.set('success');
       this.submitted.set(false);
       this.form.reset();
-
-      // Close modal after brief delay to let snackbar appear
-      setTimeout(() => {
-        this.close();
-      }, 300);
+      setTimeout(() => this.close(), 300);
     } catch {
       this.snackbarService.show('error', this.copy().error);
       this.status.set('error');
@@ -294,7 +290,39 @@ export class ContactDialogComponent implements OnDestroy {
     }
   }
 
-  private clearFeedback(): void {
-    this.status.set('idle');
+  private rateLimitMessage(reason?: RateLimitReason): string {
+    return reason === 'session' ? this.copy().rateSession : this.copy().rateMinute;
+  }
+
+  private trapFocus(event: KeyboardEvent): void {
+    const dialog = this.dialog()?.nativeElement;
+    if (!dialog) return;
+
+    const focusableElements = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ),
+    ).filter(
+      (element) => !element.hasAttribute('hidden') && element.getAttribute('aria-hidden') !== 'true',
+    );
+
+    if (focusableElements.length === 0) {
+      event.preventDefault();
+      dialog.focus();
+      return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    const activeElement = this.document.activeElement;
+    const focusIsOutsideDialog = !activeElement || !dialog.contains(activeElement);
+
+    if (event.shiftKey && (activeElement === firstElement || focusIsOutsideDialog)) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (!event.shiftKey && (activeElement === lastElement || focusIsOutsideDialog)) {
+      event.preventDefault();
+      firstElement.focus();
+    }
   }
 }

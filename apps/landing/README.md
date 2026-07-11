@@ -1,37 +1,48 @@
-# Landing app
+# Hugomenz landing
 
-Landing Angular para la oferta de workflow automation.
+Aplicación Angular 21 prerenderizada para `hugomenz.de`. Presenta la oferta B2B de cualificación técnica de RFQ para fabricantes de maquinaria y conserva n8n como página tecnológica secundaria.
 
-## Qué hace
+## Arquitectura
 
-- Detecta idioma por defecto:
-  - alemán si el navegador parece `de-DE` o la zona horaria es `Europe/Berlin`.
-  - inglés para el resto.
-- Permite cambiar idioma manualmente con el selector `DE / EN`.
-- Divide la página en componentes pequeños para que cada archivo tenga una
-  responsabilidad clara.
-- Usa animaciones CSS sobrias para entrada, scroll, hover, workflow y CTA,
-  coordinadas desde componentes Angular pequeños.
+- Componentes standalone, signals, `OnPush` y change detection zoneless.
+- Angular Router con URLs reales para alemán e inglés.
+- Registro tipado de contenido y metadatos en `src/app/content/`.
+- Prerender estático con `@angular/ssr` y `outputMode: "static"`.
+- Salida publicable en `dist/landing/browser`; producción no necesita servidor.
+- Formulario de contacto protegido con el endpoint y el payload existentes.
 
-## Previsualización local
+## Rutas prerenderizadas
+
+- `/`
+- `/loesungen/technische-anfragequalifizierung/`
+- `/leistungen/rfq-readiness-workshop/`
+- `/leistungen/interner-rfq-copilot/`
+- `/branchen/end-of-line/`
+- `/branchen/verpackungsmaschinen/`
+- `/branchen/palettieranlagen/`
+- `/standorte/stuttgart/`
+- `/ueber-hugo-menz/`
+- `/kontakt/`
+- `/n8n-beratung-stuttgart/`
+- `/en/`
+
+## Desarrollo local
 
 ```bash
-npm install
+npm ci
 npm start
 ```
 
-Después abre `http://127.0.0.1:4200`.
+La aplicación queda disponible en `http://localhost:4200`.
 
-## Build
+## Validación y build
 
 ```bash
+npm test
 npm run build
+npm run verify:prerender
 ```
 
-## Antes de publicar
+`verify:prerender` inspecciona el HTML generado de todas las rutas y comprueba idioma, title, canonical, H1, contenido principal y que `app-root` no esté vacío.
 
-- Sustituye `hello@your-domain.de` por el email real en
-  `src/app/content.ts`.
-- Cambia las iniciales `WA` si quieres una marca personal.
-- Mantén los certificados como `Planned` hasta terminarlos.
-- Publica el contenido generado en `dist/landing/browser`.
+GitHub Actions publica únicamente `dist/landing/browser` en GitHub Pages.

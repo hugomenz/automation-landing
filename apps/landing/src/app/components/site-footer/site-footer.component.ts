@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { ContactDialogService } from '../../contact-dialog.service';
-import { LandingContent } from '../../content';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { PageLocaleService } from '../../core/page-locale.service';
 import { siteConfig } from '../../site.config';
 
 @Component({
@@ -11,14 +10,29 @@ import { siteConfig } from '../../site.config';
   styleUrl: './site-footer.component.css',
 })
 export class SiteFooterComponent {
-  readonly contactDialog = inject(ContactDialogService);
+  private readonly pageLocale = inject(PageLocaleService);
 
-  readonly content = input.required<LandingContent['footer']>();
-
-  readonly socialLinks = [
-    { label: 'LinkedIn', href: siteConfig.social.linkedin },
-    { label: 'GitHub', href: siteConfig.social.github },
-  ].filter((link) => /^https?:\/\//i.test(link.href));
-
-  readonly serviceLinks = siteConfig.seoLandingLinks;
+  readonly language = this.pageLocale.language;
+  readonly linkedin = siteConfig.social.linkedin;
+  readonly copy = computed(() =>
+    this.language() === 'de'
+      ? {
+          description:
+            'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer in Deutschland.',
+          solutionLabel: 'Lösung und Leistungen',
+          industriesLabel: 'Maschinenfamilien',
+          companyLabel: 'Hugo Menz Automation',
+          secondaryLabel: 'Technologie',
+          languageLabel: 'English home',
+        }
+      : {
+          description:
+            'Technical RFQ qualification and digital quotation processes for machinery manufacturers in Germany.',
+          solutionLabel: 'Solution and services',
+          industriesLabel: 'Machine families',
+          companyLabel: 'Hugo Menz Automation',
+          secondaryLabel: 'Technology',
+          languageLabel: 'Deutsche Startseite',
+        },
+  );
 }

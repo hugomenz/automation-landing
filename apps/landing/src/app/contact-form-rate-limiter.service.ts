@@ -1,61 +1,43 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+export type RateLimitReason = 'minute' | 'session';
+
+@Injectable({ providedIn: 'root' })
 export class ContactFormRateLimiterService {
-  private readonly RATE_LIMIT_KEY = 'contact_form_timestamps';
-  private readonly SESSION_LIMIT_KEY = 'contact_form_session_count';
-  private readonly RATE_WINDOW_MS = 60000; // 1 minuto
-  private readonly MAX_PER_MINUTE = 2;
-  private readonly MAX_PER_SESSION = 2;
+  private readonly rateLimitKey = 'contact_form_timestamps';
+  private readonly sessionLimitKey = 'contact_form_session_count';
+  private readonly rateWindowMs = 60_000;
+  private readonly maxPerMinute = 2;
+  private readonly maxPerSession = 2;
 
-  canSubmit(): { allowed: boolean; reason?: string } {
+  canSubmit(): { allowed: boolean; reason?: RateLimitReason } {
     const now = Date.now();
+    const recentTimestamps = this.getTimestamps().filter(
+      (timestamp) => now - timestamp < this.rateWindowMs,
+    );
 
-    // Get submission timestamps from session storage
-    const timestamps = this.getTimestamps();
-    const sessionCount = this.getSessionCount();
-
-    // Clean old timestamps outside the rate window
-    const recentTimestamps = timestamps.filter((ts) => now - ts < this.RATE_WINDOW_MS);
-
-    // Check per-minute rate limit
-    if (recentTimestamps.length >= this.MAX_PER_MINUTE) {
-      return {
-        allowed: false,
-        reason: `Solo puedes enviar ${this.MAX_PER_MINUTE} mensajes por minuto. Intenta de nuevo en un momento.`,
-      };
+    if (recentTimestamps.length >= this.maxPerMinute) {
+      return { allowed: false, reason: 'minute' };
     }
 
-    // Check per-session limit
-    if (sessionCount >= this.MAX_PER_SESSION) {
-      return {
-        allowed: false,
-        reason: `Has alcanzado el máximo de ${this.MAX_PER_SESSION} mensajes por sesión.`,
-      };
+    if (this.getSessionCount() >= this.maxPerSession) {
+      return { allowed: false, reason: 'session' };
     }
 
     return { allowed: true };
   }
 
   recordSubmission(): void {
-    const now = Date.now();
-
-    // Record timestamp
     const timestamps = this.getTimestamps();
-    timestamps.push(now);
-    sessionStorage.setItem(this.RATE_LIMIT_KEY, JSON.stringify(timestamps));
-
-    // Increment session count
-    const sessionCount = this.getSessionCount();
-    sessionStorage.setItem(this.SESSION_LIMIT_KEY, String(sessionCount + 1));
+    timestamps.push(Date.now());
+    sessionStorage.setItem(this.rateLimitKey, JSON.stringify(timestamps));
+    sessionStorage.setItem(this.sessionLimitKey, String(this.getSessionCount() + 1));
   }
 
   private getTimestamps(): number[] {
     try {
-      const stored = sessionStorage.getItem(this.RATE_LIMIT_KEY);
-      return stored ? JSON.parse(stored) : [];
+      const stored = sessionStorage.getItem(this.rateLimitKey);
+      return stored ? (JSON.parse(stored) as number[]) : [];
     } catch {
       return [];
     }
@@ -63,8 +45,8 @@ export class ContactFormRateLimiterService {
 
   private getSessionCount(): number {
     try {
-      const stored = sessionStorage.getItem(this.SESSION_LIMIT_KEY);
-      return stored ? parseInt(stored, 10) : 0;
+      const stored = sessionStorage.getItem(this.sessionLimitKey);
+      return stored ? Number.parseInt(stored, 10) : 0;
     } catch {
       return 0;
     }

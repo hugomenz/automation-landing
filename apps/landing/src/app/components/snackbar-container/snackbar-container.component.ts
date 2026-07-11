@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SnackbarService } from '../../snackbar.service';
-import { LanguageService } from '../../language.service';
 
 @Component({
   selector: 'app-snackbar-container',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="snackbar-container">
       @for (msg of snackbarService.messages(); track msg.id) {
@@ -60,8 +60,8 @@ import { LanguageService } from '../../language.service';
     }
 
     .snackbar-success {
-      background: #238636;
-      color: #e6f6ef;
+      background: var(--accent-action);
+      color: #fff;
     }
 
     .snackbar-error {

@@ -1,0 +1,30 @@
+:host {
+  display: inline-flex;
+}
+
+button {
+  font: inherit;
+}
+
+.content-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--accent-bright);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 140ms ease, color 140ms ease;
+}
+
+.content-link::after {
+  content: '→';
+  margin-left: 8px;
+}
+
+.content-link:hover,
+.content-link:focus-visible {
+  color: var(--text);
+  text-decoration-color: currentColor;
+}
