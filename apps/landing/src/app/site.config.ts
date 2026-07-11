@@ -7,8 +7,8 @@ export const siteConfig = {
     portraitSrc: 'hugo.jfif',
     portraitAlt: 'Hugo Martin Menz',
   },
-  baseUrl: 'https://hugomenz.de/',
-  canonicalUrl: 'https://hugomenz.de/',
+  baseUrl: 'https://www.hugomenz.de/',
+  canonicalUrl: 'https://www.hugomenz.de/',
   locale: 'de_DE',
   language: 'de',
   localizedLocales: {
@@ -74,7 +74,7 @@ export const siteConfig = {
   areaServed: ['Stuttgart', 'Baden-Württemberg', 'Deutschland', 'DACH', 'Remote'],
   schema: {
     jobTitle: 'AI Automation Engineer',
-    priceRange: 'EUR EUR',
+    priceRange: '€€',
     knowsAbout: [
       'n8n Beratung Stuttgart',
       'Workflow Automation',

@@ -15,15 +15,17 @@ describe('static SEO pages', () => {
     );
     expect(n8nPage).toContain('<h1>n8n Beratung in Stuttgart</h1>');
     expect(n8nPage).toContain(
-      '<link rel="canonical" href="https://hugomenz.de/n8n-beratung-stuttgart/" />',
+      '<link rel="canonical" href="https://www.hugomenz.de/n8n-beratung-stuttgart/" />',
     );
+    expect(n8nPage).toContain('n8n Workflow prüfen lassen');
+    expect(n8nPage).toContain('Wann ist n8n besser als Make?');
     expect(n8nPage).toContain('"@type": "ProfessionalService"');
     expect(n8nPage).toContain('https://www.linkedin.com/in/hugomartin-menz/');
   });
 
   it('advertises the n8n landing page through sitemap and robots.txt', () => {
-    expect(sitemap).toContain('https://hugomenz.de/');
-    expect(sitemap).toContain('https://hugomenz.de/n8n-beratung-stuttgart/');
-    expect(robots).toContain('Sitemap: https://hugomenz.de/sitemap.xml');
+    expect(sitemap).toContain('https://www.hugomenz.de/');
+    expect(sitemap).toContain('https://www.hugomenz.de/n8n-beratung-stuttgart/');
+    expect(robots).toContain('Sitemap: https://www.hugomenz.de/sitemap.xml');
   });
 });
