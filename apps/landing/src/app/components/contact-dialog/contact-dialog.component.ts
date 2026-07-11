@@ -13,6 +13,7 @@ import {
 import {
   FormControl,
   FormGroup,
+  Validators,
   ReactiveFormsModule,
   ValidatorFn,
   AbstractControl,
@@ -65,6 +66,7 @@ const CONTACT_DIALOG_COPY: Record<
     messageRequired: string;
     messageTooShort: string;
     messageTooLong: string;
+    errorSummary: string;
     submit: string;
     sending: string;
     success: string;
@@ -90,6 +92,7 @@ const CONTACT_DIALOG_COPY: Record<
     messageRequired: 'Bitte beschreiben Sie kurz den Prozess.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
+    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
     submit: 'Anfrage senden',
     sending: 'Wird gesendet ...',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
@@ -115,6 +118,7 @@ const CONTACT_DIALOG_COPY: Record<
     messageRequired: 'Please briefly describe the process.',
     messageTooShort: 'Minimum 20 characters required.',
     messageTooLong: 'Maximum 1000 characters allowed.',
+    errorSummary: 'Please correct the following errors:',
     submit: 'Send request',
     sending: 'Sending ...',
     success: 'Thanks. Your request has been sent.',
@@ -150,7 +154,7 @@ export class ContactDialogComponent implements OnDestroy {
   readonly form = new FormGroup({
     name: new FormControl('', { nonNullable: true }),
     email: new FormControl('', {
-      validators: [emailValidator],
+      validators: [Validators.required, emailValidator],
       nonNullable: true,
     }),
     phone: new FormControl('', {
@@ -158,7 +162,7 @@ export class ContactDialogComponent implements OnDestroy {
       nonNullable: true,
     }),
     message: new FormControl('', {
-      validators: [messageValidator],
+      validators: [Validators.required, messageValidator],
       nonNullable: true,
     }),
   });
