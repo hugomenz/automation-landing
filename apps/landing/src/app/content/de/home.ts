@@ -8,7 +8,7 @@ export const HOME_DE = {
   seo: {
     title: 'Angebotsprozesse im Maschinenbau digitalisieren | Hugo Menz',
     description:
-      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für eine Maschinenfamilie.',
+      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für einen klar abgegrenzten Angebotsbereich.',
     canonicalPath: '/',
     robots: 'index,follow',
     openGraph: {
@@ -45,7 +45,7 @@ export const HOME_DE = {
         label: 'Lösung',
         href: '/loesungen/technische-anfragequalifizierung/',
       },
-      { label: 'Branchen', href: '/#maschinenfamilien' },
+      { label: 'Anwendungsfälle', href: '/#anwendungsbereiche' },
       { label: 'Leistungen', href: '/leistungen/rfq-readiness-workshop/' },
       { label: 'Über Hugo', href: '/ueber-hugo-menz/' },
       { label: 'Kontakt', href: '/kontakt/' },
@@ -73,7 +73,7 @@ export const HOME_DE = {
       href: '/leistungen/interner-rfq-copilot/',
       dataCta: 'copilot-hero',
     },
-    trustLine: 'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+    trustLine: 'Ein klarer Anwendungsfall · freigegebene Regeln · menschliche Prüfung',
     diagram: {
       fileLabel: 'technische-anfrage.flow',
       nodes: [
@@ -110,7 +110,7 @@ export const HOME_DE = {
       eyebrow: 'Interner RFQ-Copilot',
       heading: 'Was der Pilot vorbereitet',
       intro:
-        'Der Copilot arbeitet intern und für eine klar abgegrenzte Maschinenfamilie. Er bereitet Informationen vor, damit Vertrieb und Engineering schneller prüfen können – er ersetzt ihre Entscheidung nicht.',
+        'Der Copilot arbeitet intern und für einen klar abgegrenzten Angebotsbereich. Er bereitet Informationen vor, damit Vertrieb und Engineering schneller prüfen können – er ersetzt ihre Entscheidung nicht.',
       items: [
         {
           title: 'Strukturierte Anforderungsakte',
@@ -174,35 +174,27 @@ export const HOME_DE = {
       layout: 'comparison',
     },
     {
-      id: 'maschinenfamilien',
-      eyebrow: 'Maschinenfamilien',
-      heading: 'Für welche Anwendungen der Ansatz geeignet sein kann',
+      id: 'anwendungsbereiche',
+      eyebrow: 'Anwendungsbeispiele',
+      heading: 'Geeignete Bereiche im Maschinen- und Anlagenbau',
       intro:
-        'Gute Kandidaten haben wiederkehrende Eingangsgrößen, bekannte Module und klare Ausschlussregeln. Der Pilot startet bewusst nicht mit dem gesamten Portfolio.',
+        'Gute Kandidaten haben wiederkehrende Eingangsgrößen, bekannte Module und klare Ausschlussregeln. Die folgenden Bereiche sind typische Einstiege – keine Einschränkung des Angebots.',
       items: [
         {
-          title: 'End-of-Line-Anlagen',
-          body: 'Palettieren, Kartonieren, Verschließen, Etikettieren und weitere modulare Schritte am Linienende.',
+          title: 'Verpackungs- und End-of-Line-Anlagen',
+          body: 'Kartonieren, Verschließen, Etikettieren, Palettieren und weitere modulare Prozesse mit wiederkehrenden Formaten und Optionen.',
           link: {
             label: 'Angebotsprozesse für End-of-Line-Anlagen',
             href: '/branchen/end-of-line/',
           },
         },
         {
-          title: 'Verpackungsmaschinen',
-          body: 'Vor allem sekundäre Verpackungsprozesse mit wiederkehrenden Formaten, Optionen und Leistungsgrenzen.',
-          link: {
-            label: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
-            href: '/branchen/verpackungsmaschinen/',
-          },
+          title: 'Montage-, Handhabungs- und Prüfanlagen',
+          body: 'Modulare Stationen, Zuführungen, Prüfabläufe und Varianten, deren technische Grenzen und Schnittstellen wiederkehren.',
         },
         {
-          title: 'Palettieranlagen',
-          body: 'Robotergestützte Palettierung von definierten Kartons oder starren Trays innerhalb eines klaren technischen Rahmens.',
-          link: {
-            label: 'Angebotsprozesse für Palettieranlagen',
-            href: '/branchen/palettieranlagen/',
-          },
+          title: 'Fördertechnik, Robotik und Automatisierung',
+          body: 'Kundenspezifische Anlagen mit bekannten Baugruppen, wiederkehrenden Leistungsdaten und klar definierbaren Ausschlüssen.',
         },
         {
           label: 'Negativer Fit',
@@ -215,12 +207,12 @@ export const HOME_DE = {
     {
       id: 'vorgehen',
       eyebrow: 'Vorgehen',
-      heading: 'Einstieg mit einer klar abgegrenzten Maschinenfamilie',
+      heading: 'Einstieg mit einem klar abgegrenzten Anwendungsfall',
       items: [
         {
           label: 'Schritt 1',
           title: 'RFQ Readiness Workshop',
-          body: 'Prozess, Volumen, Daten, Regeln, Risiken und eine geeignete Maschinenfamilie prüfen. Ergebnis: Go, Go mit Bedingungen oder No-Go.',
+          body: 'Prozess, Volumen, Daten, Regeln, Risiken und einen geeigneten Anwendungsfall prüfen. Ergebnis: Go, Go mit Bedingungen oder No-Go.',
           link: {
             label: 'RFQ Readiness Workshop',
             href: '/leistungen/rfq-readiness-workshop/',
@@ -275,9 +267,9 @@ export const HOME_DE = {
     heading: 'Fragen zur technischen Anfragequalifizierung',
     items: [
       {
-        question: 'Für welche Maschinenfamilien funktioniert der Ansatz?',
+        question: 'Für welche Anwendungsfälle funktioniert der Ansatz?',
         answer:
-          'Für Familien mit wiederkehrenden Eingangsgrößen, Modulen, Optionen und Grenzen. Je stärker jeder Auftrag vollständig neu entwickelt werden muss, desto kleiner ist der sinnvoll automatisierbare Anteil.',
+          'Für Maschinentypen und Anlagen mit wiederkehrenden Eingangsgrößen, Modulen, Optionen und Grenzen. Das kann Verpackung oder Palettierung sein, ebenso Montage, Handhabung, Prüftechnik, Fördertechnik, Robotik oder ein anderer klar abgrenzbarer Sondermaschinenbereich.',
       },
       {
         question: 'Muss bereits ein CPQ vorhanden sein?',
@@ -297,7 +289,7 @@ export const HOME_DE = {
       {
         question: 'Welche Daten werden benötigt?',
         answer:
-          'Eine ausgewählte Maschinenfamilie, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte, der Regeln und Ergebnisse freigeben kann.',
+          'Ein ausgewählter Anwendungsfall, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte, der Regeln und Ergebnisse freigeben kann.',
       },
       {
         question: 'Wann sollte man nicht automatisieren?',
@@ -308,7 +300,7 @@ export const HOME_DE = {
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Ist Ihre Maschinenfamilie für diesen Ansatz geeignet?',
+    heading: 'Ist Ihr Anwendungsfall für diesen Ansatz geeignet?',
     body: 'In einem RFQ Readiness Workshop prüfen wir Prozess, Volumen, Daten, Regeln und technische Grenzen. Sie erhalten eine klare Empfehlung – auch dann, wenn ein Pilot nicht sinnvoll ist.',
     action: {
       label: 'Pilot-Eignung prüfen',

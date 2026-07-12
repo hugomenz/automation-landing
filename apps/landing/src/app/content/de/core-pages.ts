@@ -94,7 +94,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       heading: 'So verarbeitet der Copilot Eingaben',
       items: [
         { title: 'Anfrage und Anhänge aufnehmen.' },
-        { title: 'Inhalte in das Schema der Maschinenfamilie einordnen.' },
+        { title: 'Inhalte in das Schema des definierten Angebotsbereichs einordnen.' },
         { title: 'Quellen zuordnen und Einheiten normalisieren.' },
         { title: 'Lücken und Widersprüche markieren.' },
         { title: 'Rückfragen priorisieren.' },
@@ -108,12 +108,14 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       id: 'geeignet',
       heading: 'Geeignet, wenn ...',
       points: [
-        'eine Maschinenfamilie wiederkehrende Anforderungen besitzt;',
+        'ein klar abgegrenzter Maschinentyp oder Anwendungsfall wiederkehrende Anforderungen besitzt;',
         'Module, Optionen oder technische Grenzen dokumentierbar sind;',
         'mehrere Anfragen pro Monat oder ein hoher Aufwand pro Anfrage entsteht;',
         'historische Unterlagen und Expertenwissen zugänglich sind;',
         'ein Verantwortlicher Regeln freigibt und pflegt.',
       ],
+      callout:
+        'End-of-Line, Verpackung und Palettierung sind vertiefende Beispiele. Der Ansatz gilt ebenso für Montage, Handhabung, Prüftechnik, Fördertechnik, Robotik und andere klar abgrenzbare Bereiche des Sondermaschinenbaus.',
       links: [
         {
           label: 'Angebotsprozesse für End-of-Line-Anlagen',
@@ -186,26 +188,26 @@ export const RFQ_READINESS_WORKSHOP = {
   seo: {
     title: 'RFQ Readiness Workshop für Maschinenbauer | Hugo Menz',
     description:
-      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines internen RFQ-Piloten – für einen klar abgegrenzten Angebotsbereich im Maschinenbau.',
     canonicalPath: '/leistungen/rfq-readiness-workshop/',
     robots: 'index,follow',
     openGraph: {
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines internen RFQ-Piloten – für einen klar abgegrenzten Angebotsbereich im Maschinenbau.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'RFQ Readiness Workshop für eine klar abgegrenzte Maschinenfamilie',
+      imageAlt: 'RFQ Readiness Workshop für einen klar abgegrenzten Angebotsbereich',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines internen RFQ-Piloten – für einen klar abgegrenzten Angebotsbereich im Maschinenbau.',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'RFQ Readiness Workshop für eine klar abgegrenzte Maschinenfamilie',
+      imageAlt: 'RFQ Readiness Workshop für einen klar abgegrenzten Angebotsbereich',
     },
   },
   breadcrumbs: [
@@ -215,9 +217,9 @@ export const RFQ_READINESS_WORKSHOP = {
   ],
   hero: {
     kicker: 'RFQ Readiness Workshop',
-    h1: 'Ist Ihre Maschinenfamilie bereit für Angebotsautomatisierung?',
+    h1: 'Ist Ihr Angebotsprozess bereit für einen internen RFQ-Piloten?',
     lead:
-      'Bevor Software gebaut wird, prüfen wir, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für eine Maschinenfamilie – einschließlich eines begründeten No-Go.',
+      'Bevor Software gebaut wird, prüfen wir, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für einen klar abgegrenzten Anwendungsfall – einschließlich eines begründeten No-Go.',
     primaryCta: {
       label: 'Workshop anfragen',
       href: '/kontakt/',
@@ -229,7 +231,7 @@ export const RFQ_READINESS_WORKSHOP = {
       id: 'klaerung',
       heading: 'Was im Workshop geklärt wird',
       points: [
-        'Welche Anfragen gehören tatsächlich zur gleichen Familie?',
+        'Welche Anfragen gehören tatsächlich zum gleichen Angebotsbereich?',
         'Welche Angaben sind für Qualifikation und Budgetbasis unverzichtbar?',
         'Wo entstehen heute Stunden in Vertrieb und Engineering?',
         'Welche Module, Regeln, Tabellen oder Formeln existieren bereits?',
@@ -247,7 +249,7 @@ export const RFQ_READINESS_WORKSHOP = {
         'Vorbereitung anhand eines kurzen Fragebogens.',
         'Gemeinsamer Workshop mit Vertrieb und, wenn nötig, Engineering/IT.',
         'Map des aktuellen RFQ-Prozesses.',
-        'Bewertung einer Maschinenfamilie.',
+        'Bewertung eines klar abgegrenzten Anwendungsfalls.',
         'Inventar von Daten, Dokumenten, Systemen und Regeln.',
         'Liste kritischer Risiken und Abhängigkeiten.',
         'Vorschlag für Messgrößen und historische Testfälle.',
@@ -330,16 +332,16 @@ export const RFQ_READINESS_WORKSHOP = {
       {
         question: 'Muss das gesamte Portfolio analysiert werden?',
         answer:
-          'Nein. Der Workshop konzentriert sich auf eine konkrete Maschinenfamilie. Das gesamte Portfolio würde die Entscheidung unnötig verwässern.',
+          'Nein. Der Workshop konzentriert sich auf einen konkreten Anwendungsfall oder Maschinentyp. Das gesamte Portfolio würde die Entscheidung unnötig verwässern.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Maschinenfamilie besprechen',
+    heading: 'Anwendungsfall besprechen',
     body: 'Bezahlter Workshop mit fest abgegrenztem Umfang.',
     action: {
-      label: 'Maschinenfamilie besprechen',
+      label: 'Anwendungsfall besprechen',
       href: '/kontakt/',
       dataCta: 'contact-final',
     },
@@ -385,7 +387,7 @@ export const INTERNAL_RFQ_COPILOT = {
   ],
   hero: {
     kicker: 'Interner RFQ-Copilot',
-    h1: 'Interner RFQ-Copilot für eine Maschinenfamilie',
+    h1: 'Interner RFQ-Copilot für klar abgegrenzte Angebotsbereiche',
     lead:
       'Der Copilot verarbeitet eingehende Anfragen intern und bereitet einen prüfbaren Entwurf für Vertrieb und Engineering vor. Kunden sehen keine ungeprüften Ergebnisse, und kein Preis wird ohne freigegebene Quelle erzeugt.',
     primaryCta: {
@@ -448,7 +450,7 @@ export const INTERNAL_RFQ_COPILOT = {
       id: 'pilotgrenzen',
       heading: 'Pilotgrenzen',
       points: [
-        'eine Maschinenfamilie;',
+        'ein klar abgegrenzter Anwendungsfall;',
         'wenige interne Nutzer;',
         'kein automatischer Versand;',
         'keine verbindliche Kalkulation;',
@@ -504,16 +506,16 @@ export const INTERNAL_RFQ_COPILOT = {
           'Der Fall wird mit dem konkreten Blockiergrund an Engineering eskaliert. Das System soll Unsicherheit sichtbar machen, nicht durch eine erzwungene Antwort verdecken.',
       },
       {
-        question: 'Können mehrere Produktfamilien gleichzeitig starten?',
+        question: 'Kann der Pilot mehrere Maschinentypen gleichzeitig abdecken?',
         answer:
-          'Für den ersten Pilot nicht. Erst wenn eine Familie stabil funktioniert, sollte der Umfang erweitert werden.',
+          'Für den ersten Pilot nicht. Erst wenn ein abgegrenzter Anwendungsfall stabil funktioniert, sollte der Umfang erweitert werden.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
     heading: 'RFQ Readiness Workshop anfragen',
-    body: 'Vor dem internen Pilot wird geprüft, ob eine Maschinenfamilie genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
+    body: 'Vor dem internen Pilot wird geprüft, ob der ausgewählte Anwendungsfall genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
     action: {
       label: 'RFQ Readiness Workshop anfragen',
       href: '/kontakt/',

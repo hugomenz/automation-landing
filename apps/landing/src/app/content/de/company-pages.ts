@@ -39,7 +39,7 @@ export const STUTTGART = {
     kicker: 'Stuttgart · Baden-Württemberg · Remote',
     h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
     lead:
-      'Von Stuttgart aus unterstütze ich Maschinenbauer und Automatisierer dabei, technische Anfragen für eine klar abgegrenzte Maschinenfamilie strukturiert zu qualifizieren – remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
+      'Von Stuttgart aus unterstütze ich Maschinenbauer und Automatisierer dabei, technische Anfragen für einen klar abgegrenzten Maschinentyp oder Angebotsbereich strukturiert zu qualifizieren – remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -103,10 +103,10 @@ export const STUTTGART = {
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Eine Maschinenfamilie regional oder remote besprechen',
-    body: 'Der Fit-Check klärt zunächst Maschinenfamilie, heutigen RFQ-Prozess, Daten, Regeln und technische Grenzen.',
+    heading: 'Einen Anwendungsfall regional oder remote besprechen',
+    body: 'Der Fit-Check klärt zunächst Anwendungsfall, heutigen RFQ-Prozess, Daten, Regeln und technische Grenzen.',
     action: {
-      label: 'Maschinenfamilie aus Stuttgart oder Baden-Württemberg besprechen',
+      label: 'Anwendungsfall aus Stuttgart oder Baden-Württemberg besprechen',
       href: '/kontakt/',
       dataCta: 'contact-final',
     },
@@ -193,7 +193,7 @@ export const ABOUT_HUGO_MENZ = {
       id: 'kombination',
       heading: 'Warum diese Kombination für RFQ-Prozesse wichtig ist',
       paragraphs: [
-        'Ein technischer Angebotsprozess lässt sich nicht allein durch einen Chatbot oder eine Integration verbessern. Zuerst muss verstanden werden, welche Informationen eine Maschinenfamilie tatsächlich benötigt, welche Regeln belastbar sind und welche Entscheidungen bei erfahrenen Menschen bleiben.',
+        'Ein technischer Angebotsprozess lässt sich nicht allein durch einen Chatbot oder eine Integration verbessern. Zuerst muss verstanden werden, welche Informationen der ausgewählte Maschinentyp tatsächlich benötigt, welche Regeln belastbar sind und welche Entscheidungen bei erfahrenen Menschen bleiben.',
       ],
       links: [
         {
@@ -207,7 +207,7 @@ export const ABOUT_HUGO_MENZ = {
       id: 'arbeitsprinzipien',
       heading: 'Arbeitsprinzipien',
       points: [
-        'Eine Maschinenfamilie statt das ganze Portfolio.',
+        'Ein klarer Anwendungsfall statt das ganze Portfolio.',
         'Fakten und Quellen statt scheinbarer Sicherheit.',
         'Freigegebene Regeln statt erfundener Preise.',
         'Pilot im Schattenbetrieb statt sofortiger Kundenkontakt.',
@@ -233,7 +233,7 @@ export const ABOUT_HUGO_MENZ = {
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Eine Maschinenfamilie statt das ganze Portfolio prüfen',
+    heading: 'Einen Anwendungsfall statt das ganze Portfolio prüfen',
     body: 'Der Workshop grenzt den technischen Umfang ab und kann mit einer Empfehlung für Go, Go mit Bedingungen oder No-Go enden.',
     action: {
       label: 'RFQ Readiness Workshop ansehen',
@@ -253,26 +253,26 @@ export const CONTACT = {
   seo: {
     title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
     description:
-      'Besprechen Sie eine Maschinenfamilie, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
+      'Besprechen Sie einen wiederkehrenden Maschinentyp oder Angebotsbereich, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
     canonicalPath: '/kontakt/',
     robots: 'index,follow',
     openGraph: {
       title: 'Pilot-Eignung prüfen',
       description:
-        'Besprechen Sie eine Maschinenfamilie, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
+        'Besprechen Sie einen wiederkehrenden Maschinentyp oder Angebotsbereich, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Anwendungsfalls',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Pilot-Eignung prüfen',
       description:
-        'Besprechen Sie eine Maschinenfamilie, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
+        'Besprechen Sie einen wiederkehrenden Maschinentyp oder Angebotsbereich, Ihren heutigen RFQ-Prozess und die Voraussetzungen für einen begrenzten internen Pilot.',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Anwendungsfalls',
     },
   },
   breadcrumbs: [
@@ -283,7 +283,7 @@ export const CONTACT = {
     kicker: 'Kontakt · Pilot-Eignung',
     h1: 'Eignung für einen Pilot prüfen',
     lead:
-      'Beschreiben Sie kurz die Maschinenfamilie und den heutigen Angebotsprozess. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist. Sie müssen im ersten Kontakt keine vertraulichen Kundendokumente hochladen.',
+      'Beschreiben Sie kurz den wiederkehrenden Maschinentyp oder Angebotsbereich und den heutigen Angebotsprozess. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist. Sie müssen im ersten Kontakt keine vertraulichen Kundendokumente hochladen.',
     primaryCta: {
       label: 'Pilot-Eignung beschreiben',
       href: '#contact-form',
@@ -295,14 +295,14 @@ export const CONTACT = {
       id: 'contact-form',
       heading: 'Pilot-Eignung beschreiben',
       paragraphs: [
-        'Hilfreich sind: typische Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen und der größte Engpass.',
+        'Hilfreich sind: typischer Maschinentyp oder Anwendungsbereich, ungefähres Anfragevolumen, beteiligte Rollen und der größte Engpass.',
         'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
       ],
       points: [
         'Name (Unternehmen gern im Nachrichtentext)',
         'E-Mail-Adresse',
         'Telefon, optional',
-        'Maschinenfamilie und aktueller Prozess im Nachrichtentext',
+        'Maschinentyp oder Anwendungsbereich und aktueller Prozess im Nachrichtentext',
         'Keine Datei-Uploads',
       ],
       layout: 'contact',
@@ -356,7 +356,7 @@ export const CONTACT = {
   finalCta: {
     eyebrow: 'Kontakt',
     heading: 'Pilot-Eignung ohne vertrauliche Unterlagen beschreiben',
-    body: 'Nennen Sie Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen und den größten Engpass. Die vorhandenen Validierungen und Schutzmechanismen bleiben aktiv.',
+    body: 'Nennen Sie Maschinentyp oder Anwendungsbereich, ungefähres Anfragevolumen, beteiligte Rollen und den größten Engpass. Die vorhandenen Validierungen und Schutzmechanismen bleiben aktiv.',
     action: {
       label: 'Pilot-Eignung beschreiben',
       href: '#contact-form',

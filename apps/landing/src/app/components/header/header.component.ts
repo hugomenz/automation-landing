@@ -10,7 +10,7 @@ interface NavigationItem {
 const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
   de: [
     { label: 'Lösung', path: '/loesungen/technische-anfragequalifizierung/' },
-    { label: 'Branchen', path: '/branchen/end-of-line/' },
+    { label: 'Anwendungsfälle', path: '/#anwendungsbereiche' },
     { label: 'Leistungen', path: '/leistungen/rfq-readiness-workshop/' },
     { label: 'Über Hugo', path: '/ueber-hugo-menz/' },
     { label: 'Kontakt', path: '/kontakt/' },

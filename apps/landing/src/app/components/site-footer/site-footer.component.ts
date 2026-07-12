@@ -20,7 +20,7 @@ export class SiteFooterComponent {
           description:
             'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer in Deutschland.',
           solutionLabel: 'Lösung und Leistungen',
-          industriesLabel: 'Maschinenfamilien',
+          industriesLabel: 'Vertiefende Beispiele',
           companyLabel: 'Hugo Menz Automation',
           secondaryLabel: 'Technologie',
           languageLabel: 'English home',
@@ -29,7 +29,7 @@ export class SiteFooterComponent {
           description:
             'Technical RFQ qualification and digital quotation processes for machinery manufacturers in Germany.',
           solutionLabel: 'Solution and services',
-          industriesLabel: 'Machine families',
+          industriesLabel: 'Detailed examples',
           companyLabel: 'Hugo Menz Automation',
           secondaryLabel: 'Technology',
           languageLabel: 'Deutsche Startseite',

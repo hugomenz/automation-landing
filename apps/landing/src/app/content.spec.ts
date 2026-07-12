@@ -102,7 +102,7 @@ describe('German home content guardrails', () => {
       'Angebotsprozesse im Maschinenbau digitalisieren | Hugo Menz',
     );
     expect(home.seo.description).toBe(
-      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für eine Maschinenfamilie.',
+      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für einen klar abgegrenzten Angebotsbereich.',
     );
     expect(home.hero.h1).toBe('Angebotsprozesse im Maschinenbau digitalisieren');
     expect(home.hero.lead).toBe(
@@ -114,7 +114,7 @@ describe('German home content guardrails', () => {
       dataCta: 'readiness-hero',
     });
     expect(home.hero.trustLine).toBe(
-      'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+      'Ein klarer Anwendungsfall · freigegebene Regeln · menschliche Prüfung',
     );
     expect(home.hero.h1).not.toBe('Ich automatisiere Prozesse, die jeden Tag Zeit kosten.');
   });
@@ -135,6 +135,15 @@ describe('German home content guardrails', () => {
     expect(text).toContain('Interpretation, Regelwerk und menschliche Entscheidung getrennt');
     expect(text).toContain('deterministische Regeln');
     expect(text).toContain('menschlicher Freigabe');
+  });
+
+  it('keeps the visible scope broader than packaging and palletising examples', () => {
+    const text = indexableText(home);
+
+    expect(text).not.toContain('Maschinenfamilie');
+    expect(text).toContain('keine Einschränkung des Angebots');
+    expect(text).toContain('Montage-, Handhabungs- und Prüfanlagen');
+    expect(text).toContain('Fördertechnik, Robotik und Automatisierung');
   });
 });
 
@@ -182,6 +191,13 @@ describe('English home and hreflang', () => {
 
 describe('content trust guardrails', () => {
   const allContent = PAGE_REGISTRY.map(indexableText).join('\n');
+  const germanContent = PAGE_REGISTRY.filter((page) => page.lang === 'de')
+    .map(indexableText)
+    .join('\n');
+
+  it('uses natural German scope wording instead of Maschinenfamilie', () => {
+    expect(germanContent).not.toContain('Maschinenfamilie');
+  });
 
   it('does not publish invented proof, guarantees or result claims', () => {
     const forbiddenClaims = [

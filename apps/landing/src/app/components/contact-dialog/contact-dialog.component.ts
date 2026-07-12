@@ -55,23 +55,23 @@ const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErro
 const CONTACT_DIALOG_COPY = {
   de: {
     eyebrow: 'Pilot-Eignung prüfen',
-    title: 'Maschinenfamilie kurz beschreiben',
+    title: 'Anwendungsfall kurz beschreiben',
     body:
-      'Beschreiben Sie die Maschinenfamilie und den heutigen Angebotsprozess. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist.',
+      'Beschreiben Sie den wiederkehrenden Maschinentyp oder Angebotsbereich und den heutigen Angebotsprozess. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist.',
     confidentiality:
       'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
     closeLabel: 'Kontaktformular schließen',
     name: 'Name',
     email: 'E-Mail',
     phone: 'Telefon (optional)',
-    message: 'Maschinenfamilie und heutiger RFQ-Prozess',
+    message: 'Maschinentyp und heutiger RFQ-Prozess',
     messagePlaceholder:
-      'Hilfreich sind: Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen und der größte Engpass.',
+      'Hilfreich sind: Maschinentyp oder Anwendungsbereich, ungefähres Anfragevolumen, beteiligte Rollen und der größte Engpass.',
     nameRequired: 'Bitte geben Sie Ihren Namen ein.',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
     emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
     phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz die Maschinenfamilie und den Prozess.',
+    messageRequired: 'Bitte beschreiben Sie kurz den Anwendungsfall und den Prozess.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',

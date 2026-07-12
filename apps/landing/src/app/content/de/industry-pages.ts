@@ -32,16 +32,16 @@ export const END_OF_LINE = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
+    { label: 'Anwendungsbeispiele' },
     { label: 'End-of-Line', path: '/branchen/end-of-line/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · End-of-Line',
+    kicker: 'Anwendungsbeispiel · End-of-Line',
     h1: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren',
     lead:
       'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen – wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
     primaryCta: {
-      label: 'Eignung der Maschinenfamilie prüfen',
+      label: 'End-of-Line-Anwendungsfall prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -107,7 +107,7 @@ export const END_OF_LINE = {
       id: 'pilotvorgehen',
       heading: 'Pilotvorgehen',
       items: [
-        { title: 'Eine konkrete End-of-Line-Familie auswählen.' },
+        { title: 'Einen konkreten End-of-Line-Anwendungsfall auswählen.' },
         { title: 'Pflichtdaten und technische Grenzen definieren.' },
         { title: 'Historische RFQ gegen das Schema prüfen.' },
         { title: 'Freigegebene Module und Budgetregeln versionieren.' },
@@ -150,8 +150,8 @@ export const END_OF_LINE = {
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Eine End-of-Line-Familie klar abgrenzen',
-    body: 'Im Workshop werden Pflichtdaten, bekannte Module, technische Grenzen und Blockierregeln für eine konkrete End-of-Line-Familie geprüft.',
+    heading: 'Einen End-of-Line-Anwendungsfall klar abgrenzen',
+    body: 'Im Workshop werden Pflichtdaten, bekannte Module, technische Grenzen und Blockierregeln für einen konkreten End-of-Line-Anwendungsfall geprüft.',
     action: {
       label: 'RFQ Readiness Workshop für End-of-Line anfragen',
       href: '/kontakt/',
@@ -194,16 +194,16 @@ export const PACKAGING_MACHINERY = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
+    { label: 'Anwendungsbeispiele' },
     { label: 'Verpackungsmaschinen', path: '/branchen/verpackungsmaschinen/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · Verpackungsmaschinen',
+    kicker: 'Anwendungsbeispiel · Verpackungsmaschinen',
     h1: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
     lead:
       'Verpackungsanfragen wirken oft standardisiert, enthalten aber entscheidende Abhängigkeiten von Produkt, Packmittel, Leistung und Formatwechsel. Ein guter Pilot konzentriert sich deshalb auf eine klar definierte Plattform, nicht auf jede Verpackungsanwendung.',
     primaryCta: {
-      label: 'Maschinenfamilie prüfen',
+      label: 'Verpackungs-Anwendungsfall prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -294,9 +294,9 @@ export const PACKAGING_MACHINERY = {
           'Nein. Er kann bekannte Regeln prüfen und Abweichungen markieren. Technische Machbarkeit bleibt eine Entscheidung der zuständigen Experten.',
       },
       {
-        question: 'Können mehrere Produktfamilien gleichzeitig starten?',
+        question: 'Kann der Pilot mehrere Maschinentypen gleichzeitig abdecken?',
         answer:
-          'Für den ersten Pilot nicht. Erst wenn eine Familie stabil funktioniert, sollte der Umfang erweitert werden.',
+          'Für den ersten Pilot nicht. Erst wenn ein klar abgegrenzter Anwendungsfall stabil funktioniert, sollte der Umfang erweitert werden.',
       },
     ],
   },
@@ -346,16 +346,16 @@ export const PALLETISING_SYSTEMS = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
+    { label: 'Anwendungsbeispiele' },
     { label: 'Palettieranlagen', path: '/branchen/palettieranlagen/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · Palettieranlagen',
+    kicker: 'Anwendungsbeispiel · Palettieranlagen',
     h1: 'Angebotsqualifizierung für robotergestützte Palettieranlagen',
     lead:
       'Robotergestütztes Palettieren kann als Pilot geeignet sein, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten technischen Rahmens liegen. Der Copilot bereitet die Anfrage vor und blockiert Fälle, die neue Simulation oder Konstruktion benötigen.',
     primaryCta: {
-      label: 'Palettierfamilie prüfen',
+      label: 'Palettier-Anwendungsfall prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -479,7 +479,7 @@ export const PALLETISING_SYSTEMS = {
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Den technischen Rahmen einer Palettierfamilie prüfen',
+    heading: 'Den technischen Rahmen eines Palettier-Anwendungsfalls prüfen',
     body: 'Der Workshop grenzt Produkte, Palettensystem, Leistung, Layout, Optionen und Blockierfälle für einen möglichen internen Pilot ab.',
     action: {
       label: 'RFQ Readiness Workshop für Palettieranlagen anfragen',
