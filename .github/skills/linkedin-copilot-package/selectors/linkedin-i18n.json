@@ -1,0 +1,72 @@
+{
+  "i18n_version": "1.0.0",
+  "updated_at": "2026-07-12",
+  "primary_verified_locale": "de-DE",
+  "note": "Accessible names observed live in the integrated browser were German even though document.documentElement.lang reported 'en'. Always match against all locales; never rely on a single language.",
+  "navigation": {
+    "search": { "de": ["Suche", "Suchen"], "en": ["Search"], "es": ["Buscar"] },
+    "people_tab": { "de": ["Personen"], "en": ["People"], "es": ["Personas"] },
+    "companies_tab": { "de": ["Unternehmen"], "en": ["Companies"], "es": ["Empresas"] },
+    "posts_tab": { "de": ["Beiträge", "Inhalte"], "en": ["Posts", "Content"], "es": ["Publicaciones", "Contenido"] },
+    "events_tab": { "de": ["Veranstaltungen"], "en": ["Events"], "es": ["Eventos"] },
+    "all_filters": { "de": ["Alle Filter"], "en": ["All filters"], "es": ["Todos los filtros"] },
+    "apply_filters": { "de": ["Ergebnisse anzeigen", "Anwenden"], "en": ["Show results", "Apply"], "es": ["Mostrar resultados", "Aplicar"] },
+    "reset_filters": { "de": ["Zurücksetzen", "Alle zurücksetzen"], "en": ["Reset", "Reset all"], "es": ["Restablecer"] },
+    "location_filter": { "de": ["Standort", "Ort"], "en": ["Locations", "Location"], "es": ["Ubicación", "Ubicaciones"] },
+    "current_company_filter": { "de": ["Aktuelles Unternehmen"], "en": ["Current company"], "es": ["Empresa actual"] },
+    "industry_filter": { "de": ["Branche"], "en": ["Industry"], "es": ["Sector"] },
+    "sort_most_recent": { "de": ["Aktuellste"], "en": ["Latest", "Most recent"], "es": ["Más recientes"] },
+    "date_posted_filter": { "de": ["Veröffentlichungsdatum"], "en": ["Date posted"], "es": ["Fecha de publicación"] },
+    "content_type_filter": { "de": ["Inhaltsart"], "en": ["Content type"], "es": ["Tipo de contenido"] },
+    "from_member_filter": { "de": ["Vom Mitglied"], "en": ["From member"], "es": ["Del miembro"] },
+    "next_page": { "de": ["Weiter"], "en": ["Next"], "es": ["Siguiente"] },
+    "previous_page": { "de": ["Zurück"], "en": ["Previous"], "es": ["Anterior"] },
+    "no_results": { "de": ["Keine Ergebnisse gefunden"], "en": ["No results found"], "es": ["No se han encontrado resultados"] },
+    "edit_search": { "de": ["Suche bearbeiten"], "en": ["Edit search"], "es": ["Editar búsqueda"] },
+    "show_more_text": { "de": ["…mehr", "mehr anzeigen", "mehr"], "en": ["…more", "see more"], "es": ["…más", "ver más"] }
+  },
+  "profile": {
+    "about": { "de": ["Info"], "en": ["About"], "es": ["Información", "Acerca de"] },
+    "experience": { "de": ["Erfahrung", "Berufserfahrung"], "en": ["Experience"], "es": ["Experiencia"] },
+    "education": { "de": ["Ausbildung"], "en": ["Education"], "es": ["Educación"] },
+    "skills": { "de": ["Kenntnisse"], "en": ["Skills"], "es": ["Aptitudes"] },
+    "interests": { "de": ["Interessen"], "en": ["Interests"], "es": ["Intereses"] },
+    "activity": { "de": ["Aktivitäten", "Aktivität"], "en": ["Activity"], "es": ["Actividad"] },
+    "posts_subtab": { "de": ["Beiträge"], "en": ["Posts"], "es": ["Publicaciones"] },
+    "comments_subtab": { "de": ["Kommentare"], "en": ["Comments"], "es": ["Comentarios"] },
+    "articles_subtab": { "de": ["Artikel"], "en": ["Articles"], "es": ["Artículos"] }
+  },
+  "company": {
+    "home_tab": { "de": ["Start", "Startseite"], "en": ["Home"], "es": ["Inicio"] },
+    "about_tab": { "de": ["Info"], "en": ["About"], "es": ["Información"] },
+    "posts_tab": { "de": ["Beiträge"], "en": ["Posts"], "es": ["Publicaciones"] },
+    "people_tab": { "de": ["Personen", "Mitarbeiter"], "en": ["People"], "es": ["Personas", "Empleados"] },
+    "insights_tab": { "de": ["Einblicke"], "en": ["Insights"], "es": ["Información y estadísticas"] },
+    "industry": { "de": ["Branche"], "en": ["Industry"], "es": ["Sector"] },
+    "company_size": { "de": ["Größe", "Unternehmensgröße"], "en": ["Company size"], "es": ["Tamaño de la empresa"] },
+    "headquarters": { "de": ["Hauptsitz"], "en": ["Headquarters"], "es": ["Sede"] },
+    "website": { "de": ["Website"], "en": ["Website"], "es": ["Sitio web"] },
+    "founded": { "de": ["Gegründet"], "en": ["Founded"], "es": ["Fundación"] },
+    "specialties": { "de": ["Spezialgebiete"], "en": ["Specialties"], "es": ["Especialidades"] },
+    "followers": { "de": ["Follower", "Follower:innen", "Abonnenten"], "en": ["followers"], "es": ["seguidores"] }
+  },
+  "post": {
+    "reactions": { "de": ["Reaktionen", "Reaktion"], "en": ["reactions", "reaction"], "es": ["reacciones", "reacción"] },
+    "comments": { "de": ["Kommentar", "Kommentare"], "en": ["comment", "comments"], "es": ["comentario", "comentarios"] },
+    "reposts": { "de": ["Reposts", "geteilt"], "en": ["reposts"], "es": ["republicaciones", "veces compartido"] },
+    "edited": { "de": ["Bearbeitet"], "en": ["Edited"], "es": ["Editado"] },
+    "control_menu": { "de": ["Kontrollmenü für den Beitrag", "Kontrollmenü"], "en": ["control menu for", "Open control menu"], "es": ["menú de control"] },
+    "report_post": { "de": ["Beitrag melden", "Artikel melden"], "en": ["Report post"], "es": ["Denunciar publicación", "Reportar"] },
+    "copy_link": { "de": ["Link zum Beitrag kopieren", "Link zum Artikel kopieren"], "en": ["Copy link to post"], "es": ["Copiar enlace a la publicación"] },
+    "save_post": { "de": ["Speichern"], "en": ["Save"], "es": ["Guardar"] }
+  },
+  "relative_time_units": {
+    "minute": { "de": ["Min.", "Minute", "Minuten"], "en": ["m", "min", "minute", "minutes"], "es": ["min", "minuto", "minutos"] },
+    "hour": { "de": ["Std.", "Stunde", "Stunden"], "en": ["h", "hour", "hours"], "es": ["h", "hora", "horas"] },
+    "day": { "de": ["Tag", "Tage"], "en": ["d", "day", "days"], "es": ["d", "día", "días"] },
+    "week": { "de": ["Woche", "Wochen"], "en": ["w", "week", "weeks"], "es": ["sem", "semana", "semanas"] },
+    "month": { "de": ["Monat", "Monate"], "en": ["mo", "month", "months"], "es": ["mes", "meses"] },
+    "year": { "de": ["Jahr", "Jahre"], "en": ["y", "yr", "year", "years"], "es": ["a", "año", "años"] },
+    "ago_prefix": { "de": ["vor"], "en": [], "es": ["hace"] }
+  }
+}

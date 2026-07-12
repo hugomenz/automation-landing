@@ -1,0 +1,80 @@
+{
+  "policy_version": "1.1.0",
+  "mode": "supervised_campaign",
+  "description": "Adds a small, explicitly-approved set of write actions for a documented revenue campaign. It does NOT disable the global read-only policy: all research still runs read-only. Each write action must live inside an approved RUN with an exact URL and, where text applies, exact final text, and executes exactly once.",
+  "allowed_actions": [
+    "follow_person",
+    "follow_company",
+    "connect",
+    "create_post",
+    "comment_on_post",
+    "update_own_profile",
+    "send_message",
+    "reply"
+  ],
+  "action_requirements": [
+    "documented in a RUN file",
+    "has an exact URL",
+    "has exact final text where text applies (comment, post)",
+    "connection requests use a short, natural reason without links or pitch",
+    "messages and replies triggered by a new interaction require a fresh, specific approval at send time",
+    "approved (RUN approved:true, and for profile: changeset approved)",
+    "executed exactly once (idempotent — check not-already-done first)",
+    "recorded after execution",
+    "stops on any warning, CAPTCHA, checkpoint, throttling, login or ambiguous selector"
+  ],
+  "always_forbidden": [
+    "accept_connection",
+    "unfollow",
+    "open_message_composer",
+    "react",
+    "like",
+    "repost",
+    "share",
+    "invite",
+    "endorse",
+    "subscribe",
+    "extract_contact",
+    "read_private_messages",
+    "bulk_write",
+    "auto_submit",
+    "infinite_scroll",
+    "bypass_controls"
+  ],
+  "approval_contract": {
+    "command_template": "EJECUTA RUN-XX COMPLETO SIN CAMBIAR OBJETIVOS, URLs NI TEXTOS.",
+    "authorizes": "only actions inside that one RUN that have visible final text, an exact URL, approved:true, and are not yet executed",
+    "does_not_authorize": [
+      "other RUNs",
+      "re-running the same RUN",
+      "reacting to posts",
+      "changing profile parts outside the approved changeset",
+      "any undocumented action",
+      "messages or replies that depend on a later interaction without a fresh, specific approval"
+    ],
+    "after_approval": "Do not change any text or destination. If an action needs a new decision, skip it and report."
+  },
+  "limits": {
+    "max_follows_per_run": 2,
+    "initial_follow_exception": {
+      "run_id": "RUN-01",
+      "max_follows": 25,
+      "reason": "one-time campaign setup block explicitly fixed by the campaign owner"
+    },
+    "max_connection_requests_per_day": 5,
+    "max_connection_requests_total": 15,
+    "max_comments_per_day": 3,
+    "max_comments_per_week": 15,
+    "max_comments_per_company_per_week": 2,
+    "minimum_minutes_between_submitted_comments": 20,
+    "max_connection_note_chars": 260,
+    "max_comment_chars": 450,
+    "max_message_chars": 500,
+    "max_reply_chars": 450,
+    "max_posts_per_run": 1
+  },
+  "stop_conditions": [
+    "login", "password", "two_factor", "captcha", "identity_verification",
+    "checkpoint", "warning", "rate_limit", "repeated_error", "ambiguous_selector"
+  ]
+}

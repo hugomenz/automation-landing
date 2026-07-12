@@ -1,0 +1,29 @@
+{
+  "task": "search_people",
+  "description": "Find decision-makers and problem-owners at target companies. READ-ONLY.",
+  "company_urls": [
+    "https://www.linkedin.com/company/EXAMPLE-COMPANY/"
+  ],
+  "role_keywords": [
+    "Geschäftsführer",
+    "Vertriebsleiter",
+    "Leiter Technischer Vertrieb",
+    "Leiter Projektierung",
+    "Head of Sales Engineering",
+    "Head of Application Engineering",
+    "Angebotsleiter"
+  ],
+  "filters": {
+    "location": ["Baden-Württemberg", "Stuttgart Region"],
+    "title_keywords": ["Vertrieb", "Sales Engineering", "Projektierung", "Angebot", "Kalkulation"]
+  },
+  "max_people_per_company": 3,
+  "max_results": 20,
+  "output": { "format": "json", "dedupe_by": "profile_url" },
+  "guardrails": {
+    "read_only": true,
+    "never": ["connect", "follow", "message", "endorse"],
+    "no_contact_info": true,
+    "stop_on": ["login", "captcha", "checkpoint", "verification"]
+  }
+}

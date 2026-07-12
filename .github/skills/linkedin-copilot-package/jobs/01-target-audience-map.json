@@ -1,0 +1,35 @@
+{
+  "job": "target_audience_map",
+  "goal": "Build a small, active LinkedIn audience map for this week's visibility work.",
+  "mode": "read_only",
+  "market": {
+    "region": ["Baden-Württemberg", "Stuttgart Region"],
+    "company_types": [
+      "configurable machinery", "end-of-line", "secondary packaging",
+      "palletizing", "conveyor technology", "industrial automation"
+    ],
+    "employee_target": "20-250",
+    "employee_preference": "40-150"
+  },
+  "roles": [
+    "Geschäftsführer", "Vertriebsleiter", "Leiter Technischer Vertrieb",
+    "Leiter Projektierung", "Head of Sales Engineering",
+    "Head of Application Engineering", "Angebotsleiter"
+  ],
+  "deliverable": {
+    "companies": 30,
+    "people": 60,
+    "active_people_last_30_days": 20,
+    "industry_hubs_or_media": 10,
+    "fields": [
+      "name", "url", "role_or_type", "company", "location",
+      "latest_visible_activity", "reason_relevant", "source_url"
+    ]
+  },
+  "rules": [
+    "Prefer active people over impressive but inactive profiles.",
+    "Maximum three people per company.",
+    "Do not connect, follow, message, react, or comment.",
+    "Do not claim a company is a prospect based only on employee count."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "job": "supervised_visibility_run",
+  "goal": "Turn the best shortlisted discussions into a small number of credible visible interactions.",
+  "mode": "supervised_write",
+  "weekly_target": {
+    "comments": "9-15",
+    "working_days": 5,
+    "comments_per_day": "2-3"
+  },
+  "workflow": [
+    "Re-open the post and confirm it is still available and relevant.",
+    "Re-read the post immediately before drafting.",
+    "Prepare one short German comment using config/comment-style.md.",
+    "Show the post URL, author, and exact comment to the human.",
+    "Wait for explicit approval for that exact comment.",
+    "Submit once, verify it appears, and record the result.",
+    "If approval is not given, do not submit."
+  ],
+  "tracking_fields": [
+    "date", "post_url", "author", "company", "comment_text",
+    "approved_by_human", "submitted", "visible_after_submit",
+    "reply_received", "relevant_profile_visit_or_followup", "notes"
+  ],
+  "success_after_one_week": [
+    "At least 9 approved comments submitted.",
+    "At least 3 replies from authors or relevant professionals.",
+    "At least 2 repeated interactions from the same target audience.",
+    "At least 1 qualified conversation or invitation to continue the discussion."
+  ],
+  "failure_interpretation": [
+    "High impressions but wrong audience: narrow sources and topics.",
+    "No replies: comments are generic, late, or posted under weak accounts.",
+    "Replies but no profile interest: profile positioning may be unclear.",
+    "No useful posts found: LinkedIn is a credibility channel, not the main acquisition channel."
+  ]
+}

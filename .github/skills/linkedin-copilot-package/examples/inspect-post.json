@@ -1,0 +1,18 @@
+{
+  "task": "inspect_post",
+  "description": "Read a public industrial post and its visible commenters. READ-ONLY.",
+  "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:EXAMPLE/",
+  "max_visible_comments": 15,
+  "collect_commenter_profiles": true,
+  "output": {
+    "format": "json",
+    "includes": ["post", "comments"]
+  },
+  "guardrails": {
+    "read_only": true,
+    "never": ["like", "react", "comment", "reply", "repost", "share", "send"],
+    "exclude_session_user_and_author_from_commenters": true,
+    "excerpt_max_chars": 300,
+    "stop_on": ["login", "captcha", "checkpoint", "verification"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "job": "conversation_opportunity_scan",
+  "goal": "Find current industrial discussions where Hugo can add a useful comment.",
+  "mode": "read_only_draft_only",
+  "lookback_days": 7,
+  "queries": [
+    "technischer Vertrieb Maschinenbau",
+    "Angebotsprozess Maschinenbau",
+    "Verpackungsmaschinen Automatisierung",
+    "End-of-Line Palettierung",
+    "Projektierung Sondermaschinenbau",
+    "KI Mittelstand Maschinenbau"
+  ],
+  "deliverable": {
+    "candidate_posts": 25,
+    "shortlist": 10,
+    "draft_comments": 10,
+    "fields": [
+      "post_url", "author", "author_role_or_company", "published_at",
+      "topic", "target_audience_fit", "specific_detail_to_reference",
+      "draft_comment", "why_comment_is_useful", "risk_or_reason_to_skip"
+    ]
+  },
+  "scoring": {
+    "target_audience_fit": 40,
+    "recency": 20,
+    "ability_to_add_specific_value": 25,
+    "credible_connection_to_hugos_experience": 15
+  },
+  "rules": [
+    "Use config/comment-style.md.",
+    "Return SKIP_COMMENT when the draft would be generic.",
+    "Do not submit any comment during this job.",
+    "Avoid generic AI creator posts unless the discussion is explicitly industrial."
+  ]
+}

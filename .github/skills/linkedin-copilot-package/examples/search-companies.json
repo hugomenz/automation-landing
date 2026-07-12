@@ -1,0 +1,22 @@
+{
+  "task": "search_companies",
+  "description": "Locate ICP machinery/packaging/automation companies in Baden-Württemberg. READ-ONLY.",
+  "queries": [
+    "Verpackungsmaschinen Baden-Württemberg",
+    "End-of-Line Maschinenbau Baden-Württemberg",
+    "Palettieranlagen Baden-Württemberg",
+    "Sondermaschinenbau Fördertechnik Stuttgart"
+  ],
+  "filters": {
+    "locations": ["Baden-Württemberg", "Stuttgart Region"],
+    "employee_range_target": "20-250",
+    "preferred_employee_range": "40-150"
+  },
+  "max_results": 25,
+  "output": { "format": "json", "dedupe_by": "company_url" },
+  "guardrails": {
+    "read_only": true,
+    "never": ["follow", "message", "connect"],
+    "stop_on": ["login", "captcha", "checkpoint", "verification"]
+  }
+}

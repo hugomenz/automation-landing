@@ -1,0 +1,24 @@
+{
+  "task": "check_recent_activity",
+  "description": "Determine whether target people have visible activity within a window. READ-ONLY.",
+  "profile_urls": [
+    "https://www.linkedin.com/in/EXAMPLE-PERSON/"
+  ],
+  "days": 30,
+  "max_items_per_profile": 5,
+  "output": {
+    "format": "json",
+    "fields": ["name", "profile_url", "recent_activity"]
+  },
+  "activity_status_values": [
+    "active_within_period",
+    "inactive_within_observed_period",
+    "unknown"
+  ],
+  "guardrails": {
+    "read_only": true,
+    "never": ["like", "comment", "follow", "connect"],
+    "do_not_invent_dates": true,
+    "stop_on": ["login", "captcha", "checkpoint", "verification"]
+  }
+}

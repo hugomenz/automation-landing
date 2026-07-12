@@ -1,0 +1,29 @@
+{
+  "policy_version": "1.0.0",
+  "mode": "supervised_write",
+  "allowed_actions": ["comment_on_post", "update_own_profile", "apply_to_job"],
+  "visibility_campaign_allowed_action": "comment_on_post",
+  "requirements": [
+    "The agent must show the exact final text and target post before submission.",
+    "The human must explicitly approve that exact comment before the submit click.",
+    "One approval authorizes one comment only.",
+    "Never batch-submit, loop writes, or reuse a prior approval.",
+    "Never publish a comment when the post is irrelevant, older than the configured window, or the comment adds no concrete point."
+  ],
+  "always_forbidden": [
+    "connect", "follow", "unfollow", "react", "like", "repost", "share",
+    "send_message", "invite", "endorse", "subscribe", "bulk_write", "auto_submit"
+  ],
+  "limits": {
+    "max_comments_per_day": 3,
+    "max_comments_per_week": 15,
+    "max_comments_per_company_per_week": 2,
+    "minimum_minutes_between_submitted_comments": 20,
+    "max_comment_chars": 450,
+    "preferred_comment_chars": 180
+  },
+  "stop_conditions": [
+    "login", "password", "two_factor", "captcha", "identity_verification",
+    "checkpoint", "warning", "rate_limit", "repeated_error", "ambiguous_selector"
+  ]
+}
