@@ -5,9 +5,11 @@ import {
   TECHNICAL_REQUEST_QUALIFICATION,
 } from './de/core-pages';
 import { HOME_DE } from './de/home';
+import { INDUSTRIAL_AI_SEARCH_DE } from './de/industrial-ai-search';
 import { END_OF_LINE, PACKAGING_MACHINERY, PALLETISING_SYSTEMS } from './de/industry-pages';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
 import { HOME_EN } from './en/home';
+import { INDUSTRIAL_AI_SEARCH_EN } from './en/industrial-ai-search';
 import type {
   ContentLink,
   HreflangAlternate,
@@ -17,6 +19,13 @@ import type {
 } from './page.types';
 
 export const SITE_ORIGIN = 'https://www.hugomenz.de' as const;
+
+const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
+  'home-de',
+  'home-en',
+  'industrial-ai-search-de',
+  'industrial-ai-search-en',
+];
 
 export const PAGE_REGISTRY: readonly PageDefinition[] = [
   HOME_DE,
@@ -31,6 +40,8 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   CONTACT,
   HOME_EN,
   N8N_CONSULTING_STUTTGART,
+  INDUSTRIAL_AI_SEARCH_DE,
+  INDUSTRIAL_AI_SEARCH_EN,
 ];
 
 export const PAGE_BY_KEY: ReadonlyMap<PageKey, PageDefinition> = new Map(
@@ -175,8 +186,8 @@ export function validatePageRegistry(
       );
     }
 
-    if (page.key !== 'home-de' && page.key !== 'home-en' && page.seo.alternates) {
-      errors.push(`Only translated home pages may define hreflang alternates: ${page.key}`);
+    if (!TRANSLATED_PAGE_KEYS.includes(page.key) && page.seo.alternates) {
+      errors.push(`Only translated pages may define hreflang alternates: ${page.key}`);
     }
   }
 

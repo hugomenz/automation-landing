@@ -80,9 +80,24 @@ const pages = [
     title: 'n8n Beratung für technische Workflows in Stuttgart | Hugo Menz',
     h1: 'n8n Beratung für technische Workflows in Stuttgart',
   },
+  {
+    path: '/ki-sichtbarkeit-industrie/',
+    lang: 'de',
+    title: 'KI-Sichtbarkeit für Industrieunternehmen | GEO & AI Search | Hugo Menz',
+    h1: 'KI-Sichtbarkeit für Industrieunternehmen',
+    socialImage: '/og-industrial-ai-search-de.png',
+  },
+  {
+    path: '/en/ai-search-readiness-industrial-companies/',
+    lang: 'en',
+    title: 'AI Search Readiness for Industrial Companies | Hugo Menz',
+    h1: 'AI Search Readiness for Industrial Companies',
+    socialImage: '/og-industrial-ai-search-en.png',
+  },
 ].map((page) => ({
   ...page,
   canonical: new URL(page.path, `${SITE_ORIGIN}/`).toString(),
+  socialImage: page.socialImage ?? '/og-rfq-preview.png',
 }));
 
 function decodeHtml(value) {
@@ -211,9 +226,13 @@ function validatePage(page) {
   if (ogLocale.length !== 1 || singleAttributeValue(ogLocale, 'content') !== expectedLocale) {
     errors.push(`expected Open Graph locale ${expectedLocale}`);
   }
-  const expectedSocialImage = `${SITE_ORIGIN}/og-rfq-preview.png`;
+  const expectedSocialImage = new URL(page.socialImage, `${SITE_ORIGIN}/`).toString();
+  const socialImageFile = join(DIST_ROOT, ...page.socialImage.split('/').filter(Boolean));
+  if (!existsSync(socialImageFile)) {
+    errors.push(`social image is missing: ${socialImageFile}`);
+  }
   if (ogImage.length !== 1 || singleAttributeValue(ogImage, 'content') !== expectedSocialImage) {
-    errors.push('expected the RFQ-specific Open Graph image');
+    errors.push('expected the page-specific Open Graph image');
   }
   if (
     twitterCard.length !== 1 ||

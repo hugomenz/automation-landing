@@ -10,11 +10,11 @@ function sitemapLocations(xml: string): readonly string[] {
 }
 
 describe('sitemap and robots', () => {
-  it('publishes exactly the 12 canonical registry URLs once', () => {
+  it('publishes exactly the 14 canonical registry URLs once', () => {
     const locations = sitemapLocations(sitemap);
     const expected = PAGE_REGISTRY.map(getCanonicalUrl);
 
-    expect(locations).toHaveLength(12);
+    expect(locations).toHaveLength(14);
     expect(new Set(locations).size).toBe(locations.length);
     expect(new Set(locations)).toEqual(new Set(expected));
   });
@@ -32,7 +32,7 @@ describe('sitemap and robots', () => {
     expect(sitemap).not.toMatch(/\/en\/(?:solutions|services|industries|about|contact)\//i);
   });
 
-  it('keeps reciprocal language annotations on home URLs only', () => {
+  it('keeps reciprocal language annotations on translated URL pairs only', () => {
     const urlBlocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
       (match) => match[1],
     );
@@ -40,7 +40,7 @@ describe('sitemap and robots', () => {
       /rel=["']alternate["']/i.test(block),
     );
 
-    expect(blocksWithAlternates).toHaveLength(2);
+    expect(blocksWithAlternates).toHaveLength(4);
     for (const block of blocksWithAlternates) {
       expect(block).toContain('hreflang="de-DE"');
       expect(block).toContain('hreflang="en"');
@@ -49,6 +49,8 @@ describe('sitemap and robots', () => {
     expect(blocksWithAlternates.map((block) => sitemapLocations(block)[0])).toEqual([
       'https://www.hugomenz.de/',
       'https://www.hugomenz.de/en/',
+      'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
+      'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
     ]);
   });
 

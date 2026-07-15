@@ -32,7 +32,7 @@
       <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">Über Hugo Menz</a>
       <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">Kontakt</a>
       <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">n8n Beratung Stuttgart</a>
-      <a [href]="language() === 'de' ? '/en/' : '/'" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
+      <a [href]="languagePath()" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
         {{ copy().languageLabel }}
       </a>
     </nav>

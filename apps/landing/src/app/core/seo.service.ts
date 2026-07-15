@@ -17,8 +17,12 @@ export class SeoService {
   applyPage(page: PageDefinition): void {
     const canonical = resolveAbsoluteUrl(page.seo.canonicalPath);
     const image = resolveAbsoluteUrl(page.seo.openGraph.imagePath);
+    const oppositeHreflang = page.lang === 'de' ? 'en' : 'de-DE';
+    const languagePath =
+      page.seo.alternates?.find((alternate) => alternate.hreflang === oppositeHreflang)?.path ??
+      (page.lang === 'de' ? '/en/' : '/');
 
-    this.pageLocale.setLanguage(page.lang);
+    this.pageLocale.setLanguage(page.lang, languagePath, page.key);
     this.document.documentElement.lang = page.lang;
     this.title.setTitle(page.seo.title);
 

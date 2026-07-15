@@ -13,6 +13,8 @@ export class SiteFooterComponent {
   private readonly pageLocale = inject(PageLocaleService);
 
   readonly language = this.pageLocale.language;
+  readonly languagePath = this.pageLocale.languagePath;
+  readonly pageKey = this.pageLocale.pageKey;
   readonly linkedin = siteConfig.social.linkedin;
   readonly copy = computed(() =>
     this.language() === 'de'
@@ -23,7 +25,8 @@ export class SiteFooterComponent {
           industriesLabel: 'Maschinenfamilien',
           companyLabel: 'Hugo Menz Automation',
           secondaryLabel: 'Technologie',
-          languageLabel: 'English home',
+          languageLabel:
+            this.pageKey() === 'industrial-ai-search-de' ? 'English version' : 'English home',
         }
       : {
           description:
@@ -32,7 +35,10 @@ export class SiteFooterComponent {
           industriesLabel: 'Machine families',
           companyLabel: 'Hugo Menz Automation',
           secondaryLabel: 'Technology',
-          languageLabel: 'Deutsche Startseite',
+          languageLabel:
+            this.pageKey() === 'industrial-ai-search-en'
+              ? 'Deutsche Version'
+              : 'Deutsche Startseite',
         },
   );
 }

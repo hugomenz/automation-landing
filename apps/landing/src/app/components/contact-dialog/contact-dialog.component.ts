@@ -119,6 +119,73 @@ const CONTACT_DIALOG_COPY = {
   },
 } as const;
 
+const INDUSTRIAL_AI_SEARCH_CONTACT_COPY = {
+  de: {
+    eyebrow: 'KI-Sichtbarkeit prüfen',
+    title: 'Ausgangslage kurz beschreiben',
+    body:
+      'Beschreiben Sie Ihre Website, die wichtigsten Produktgruppen, Zielmärkte und Sprachen. Ich prüfe zunächst, ob sich ein Industrial AI Visibility Audit sinnvoll abgrenzen lässt.',
+    confidentiality:
+      'Bitte senden Sie im ersten Kontakt keine vertraulichen Produktdaten, Kundendokumente oder internen Analysen. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
+    closeLabel: 'Kontaktformular schließen',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'Telefon (optional)',
+    message: 'Website, Produktportfolio und Zielmärkte',
+    messagePlaceholder:
+      'Hilfreich sind: Website, wichtige Produktgruppen, Zielmärkte, Sprachen und bekannte Fragen zur KI-Sichtbarkeit.',
+    nameRequired: 'Bitte geben Sie Ihren Namen ein.',
+    emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
+    emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
+    phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
+    messageRequired: 'Bitte beschreiben Sie kurz die Ausgangslage.',
+    messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
+    messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
+    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
+    submit: 'KI-Sichtbarkeit prüfen lassen',
+    sending: 'Wird gesendet …',
+    success: 'Danke. Ihre Anfrage wurde gesendet.',
+    error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
+    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
+    rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
+    rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
+    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
+    messageHint: 'Zeichen',
+  },
+  en: {
+    eyebrow: 'Assess AI-search visibility',
+    title: 'Briefly describe the baseline',
+    body:
+      'Describe your website, main product groups, target markets and languages. I will first assess whether an Industrial AI Visibility Audit can be scoped usefully.',
+    confidentiality:
+      'Please do not send confidential product data, customer documents or internal analyses in this first contact. Handling of non-public information will be agreed separately before any assessment.',
+    closeLabel: 'Close contact form',
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone (optional)',
+    message: 'Website, product portfolio and target markets',
+    messagePlaceholder:
+      'Helpful context: website, main product groups, target markets, languages and known AI-search visibility questions.',
+    nameRequired: 'Please enter your name.',
+    emailRequired: 'Please enter your email.',
+    emailInvalid: 'Please enter a valid email address.',
+    phoneInvalid: 'Please enter a valid phone number.',
+    messageRequired: 'Please briefly describe the baseline.',
+    messageTooShort: 'At least 20 characters are required.',
+    messageTooLong: 'A maximum of 1000 characters is allowed.',
+    errorSummary: 'Please correct the following errors:',
+    submit: 'Assess AI-search visibility',
+    sending: 'Sending …',
+    success: 'Thank you. Your request has been sent.',
+    error: 'Sending failed. Please try again.',
+    missingWebhook: 'The form is not configured yet.',
+    rateMinute: 'You can send at most two messages per minute.',
+    rateSession: 'You have reached the message limit for this session.',
+    protection: 'Protected by the existing form controls',
+    messageHint: 'characters',
+  },
+} as const;
+
 @Component({
   selector: 'app-contact-dialog',
   standalone: true,
@@ -137,7 +204,15 @@ export class ContactDialogComponent implements OnDestroy {
   private readonly dialog = viewChild<ElementRef<HTMLElement>>('dialog');
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
 
-  readonly copy = computed(() => CONTACT_DIALOG_COPY[this.pageLocale.language()]);
+  readonly copy = computed(() => {
+    const pageKey = this.pageLocale.pageKey();
+    const isIndustrialAiSearchCampaign =
+      pageKey === 'industrial-ai-search-de' || pageKey === 'industrial-ai-search-en';
+
+    return (isIndustrialAiSearchCampaign
+      ? INDUSTRIAL_AI_SEARCH_CONTACT_COPY
+      : CONTACT_DIALOG_COPY)[this.pageLocale.language()];
+  });
   readonly isSending = signal(false);
   readonly status = signal<ContactFormStatus>('idle');
   readonly submitted = signal(false);
