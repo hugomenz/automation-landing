@@ -18,7 +18,7 @@ export const N8N_CONSULTING_STUTTGART = {
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+      imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
@@ -27,7 +27,7 @@ export const N8N_CONSULTING_STUTTGART = {
       description:
         'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
       imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+      imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
     },
   },
   breadcrumbs: [
@@ -41,13 +41,14 @@ export const N8N_CONSULTING_STUTTGART = {
     lead:
       'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks – abgestimmt auf den Prozess, die beteiligten Systeme und die Menschen, die damit arbeiten.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'n8n-Prozess einordnen',
       href: '#contact-form',
       dataCta: 'contact-hero',
+      contactContext: 'process-automation',
     },
     secondaryCta: {
-      label: 'Leistungsumfang ansehen',
-      href: '#leistungen',
+      label: 'Weitere Prozessautomatisierungen',
+      href: '/leistungen/prozessautomatisierung/',
       dataCta: 'services-hero',
     },
     trustLine: 'Technologie nach Prozess wählen · Fehlerfälle sichtbar machen · Menschen entscheiden lassen',
@@ -218,9 +219,10 @@ export const N8N_CONSULTING_STUTTGART = {
     heading: 'Erst den Prozess prüfen, dann die Technologie wählen',
     body: 'Beschreiben Sie den technischen Prozess, die beteiligten Systeme, bekannte Regeln und den größten Engpass. Ich prüfe, ob n8n dafür ein sinnvoller Baustein ist.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'n8n-Prozess einordnen',
       href: '#contact-form',
       dataCta: 'contact-final',
+      contactContext: 'process-automation',
     },
     note: 'n8n ist eine mögliche Implementierungstechnologie, nicht die automatische Entscheidung über Preise oder Machbarkeit.',
   },

@@ -44,7 +44,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
     lead:
       'E-Mails, Lastenhefte, Fotos, Zeichnungen und Notizen werden in ein gemeinsames Anforderungsschema überführt. Fehlende Angaben, Widersprüche, Annahmen und technische Risiken bleiben sichtbar, bevor Vertrieb oder Engineering eine Budgetindikation freigeben.',
     primaryCta: {
-      label: 'RFQ Readiness Workshop ansehen',
+      label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -170,9 +170,10 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
     heading: 'RFQ Readiness vor der Umsetzung prüfen',
     body: 'Der RFQ Readiness Workshop prüft, ob Prozess, Daten und Regeln für eine begrenzte Umsetzung ausreichen. Das Ergebnis kann ausdrücklich ein No-Go sein.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
       dataCta: 'contact-final',
+      contactContext: 'rfq',
     },
   },
   schemaKinds: ['Service', 'BreadcrumbList', 'FAQPage'],
@@ -219,9 +220,10 @@ export const RFQ_READINESS_WORKSHOP = {
     lead:
       'Bevor Software gebaut wird, prüfe ich, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für eine Maschinenfamilie – einschließlich eines begründeten No-Go.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
       dataCta: 'contact-hero',
+      contactContext: 'rfq',
     },
   },
   sections: [
@@ -339,9 +341,10 @@ export const RFQ_READINESS_WORKSHOP = {
     heading: 'Maschinenfamilie besprechen',
     body: 'Bezahlter Workshop mit fest abgegrenztem Umfang.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
       dataCta: 'contact-final',
+      contactContext: 'rfq',
     },
     note: 'Keine Preisangabe ohne vorherige Bestätigung des konkreten Umfangs.',
   },
@@ -389,7 +392,7 @@ export const INTERNAL_RFQ_COPILOT = {
     lead:
       'Der Copilot verarbeitet eingehende Anfragen intern und bereitet einen prüfbaren Entwurf für Vertrieb und Engineering vor. Kunden sehen keine ungeprüften Ergebnisse, und kein Preis wird ohne freigegebene Quelle erzeugt.',
     primaryCta: {
-      label: 'RFQ Readiness Workshop ansehen',
+      label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -515,9 +518,10 @@ export const INTERNAL_RFQ_COPILOT = {
     heading: 'RFQ Readiness Workshop anfragen',
     body: 'Vor dem internen Pilot wird geprüft, ob eine Maschinenfamilie genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
       dataCta: 'contact-final',
+      contactContext: 'rfq',
     },
     note: 'Kein automatischer Versand und keine verbindliche Kalkulation ohne menschliche Freigabe.',
   },

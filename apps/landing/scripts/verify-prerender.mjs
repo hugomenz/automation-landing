@@ -11,9 +11,8 @@ const pages = [
   {
     path: '/',
     lang: 'de',
-    title: 'UX Engineering und Prozessautomatisierung | Hugo Menz',
-    h1: 'Digitale Prozesse verständlich und nutzbar machen',
-    socialImage: '/og-general-de.png',
+    title: 'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
+    h1: 'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
   },
   {
     path: '/loesungen/technische-anfragequalifizierung/',
@@ -32,6 +31,13 @@ const pages = [
     lang: 'de',
     title: 'Interner RFQ-Copilot für Maschinenbauer | Hugo Menz',
     h1: 'Interner RFQ-Copilot für eine Maschinenfamilie',
+  },
+  {
+    path: '/leistungen/prozessautomatisierung/',
+    lang: 'de',
+    title: 'Prozessautomatisierung und Systemintegration | Hugo Menz',
+    h1: 'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
+    socialImage: '/og-general-de.png',
   },
   {
     path: '/branchen/end-of-line/',
@@ -54,30 +60,27 @@ const pages = [
   {
     path: '/standorte/stuttgart/',
     lang: 'de',
-    title: 'Digitale Prozesse und Automatisierung in Stuttgart | Hugo Menz',
-    h1: 'Digitale Prozesse und Automatisierung in Stuttgart',
-    socialImage: '/og-general-de.png',
+    title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart | Hugo Menz',
+    h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
   },
   {
     path: '/ueber-hugo-menz/',
     lang: 'de',
-    title: 'Über Hugo Menz | UX Engineering und Industrieerfahrung',
-    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
-    socialImage: '/og-general-de.png',
+    title: 'Über Hugo Menz | Maschinenbau und Prozessautomatisierung',
+    h1: 'Maschinenbau-Erfahrung trifft digitale Prozessautomatisierung',
   },
   {
     path: '/kontakt/',
     lang: 'de',
-    title: 'Unverbindliches Erstgespräch | Kontakt zu Hugo Menz',
-    h1: 'Einen konkreten Prozess unverbindlich besprechen',
-    socialImage: '/og-general-de.png',
+    title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
+    h1: 'Eignung einer Maschinenfamilie für einen RFQ-Pilot prüfen',
   },
   {
     path: '/en/',
     lang: 'en',
-    title: 'UX Engineering and Process Automation | Hugo Menz',
-    h1: 'Make digital processes clear and usable',
-    socialImage: '/og-general-en.png',
+    title: 'Automate quotation processes for machinery manufacturers | Hugo Menz',
+    h1: 'Turn technical enquiries into a reviewable quotation basis',
+    socialImage: '/og-rfq-preview-en.png',
   },
   {
     path: '/n8n-beratung-stuttgart/',
@@ -228,7 +231,7 @@ function validatePage(page) {
   if (ogUrl.length !== 1 || singleAttributeValue(ogUrl, 'content') !== page.canonical) {
     errors.push('Open Graph URL does not match the canonical URL');
   }
-  const expectedLocale = page.lang === 'de' ? 'de_DE' : 'en';
+  const expectedLocale = page.lang === 'de' ? 'de_DE' : 'en_GB';
   if (ogLocale.length !== 1 || singleAttributeValue(ogLocale, 'content') !== expectedLocale) {
     errors.push(`expected Open Graph locale ${expectedLocale}`);
   }

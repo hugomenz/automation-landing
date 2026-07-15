@@ -23,28 +23,29 @@ interface NavigationItem {
 const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
   de: [
     {
-      label: 'Leistungen',
-      path: '/#leistungen',
-      activeKeys: ['home-de', 'n8n-consulting-stuttgart', 'stuttgart'],
-    },
-    {
-      label: 'RFQ & Industrie',
+      label: 'Lösung',
       path: '/loesungen/technische-anfragequalifizierung/',
       activeKeys: [
+        'home-de',
         'technical-request-qualification',
-        'rfq-readiness-workshop',
         'internal-rfq-copilot',
-        'end-of-line',
-        'packaging-machinery',
-        'palletising-systems',
+        'stuttgart',
       ],
       currentKeys: ['technical-request-qualification'],
     },
     {
-      label: 'KI-Sichtbarkeit',
-      path: '/ki-sichtbarkeit-industrie/',
-      activeKeys: ['industrial-ai-search-de'],
-      currentKeys: ['industrial-ai-search-de'],
+      label: 'Für wen',
+      path: '/#passung',
+      activeKeys: [
+        'end-of-line',
+        'packaging-machinery',
+        'palletising-systems',
+      ],
+    },
+    {
+      label: 'Vorgehen',
+      path: '/#vorgehen',
+      activeKeys: ['rfq-readiness-workshop'],
     },
     {
       label: 'Über Hugo',
@@ -52,16 +53,19 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
       activeKeys: ['about-hugo-menz'],
       currentKeys: ['about-hugo-menz'],
     },
+    {
+      label: 'Kontakt',
+      path: '/kontakt/',
+      activeKeys: ['contact'],
+      currentKeys: ['contact'],
+    },
   ],
   en: [
-    { label: 'Services', path: '/en/#services', activeKeys: ['home-en'] },
-    {
-      label: 'AI Search',
-      path: '/en/ai-search-readiness-industrial-companies/',
-      activeKeys: ['industrial-ai-search-en'],
-      currentKeys: ['industrial-ai-search-en'],
-    },
+    { label: 'Solution', path: '/en/#internal-rfq-copilot', activeKeys: ['home-en'] },
+    { label: 'Who it is for', path: '/en/#fit' },
+    { label: 'Approach', path: '/en/#process' },
     { label: 'About Hugo', path: '/en/#about' },
+    { label: 'Contact', path: '/en/#contact' },
   ],
 };
 
@@ -85,7 +89,7 @@ export class HeaderComponent {
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          subtitle: 'UX Engineering · Prozesse · Automatisierung',
+          subtitle: 'Technische Angebotsprozesse · Maschinenbau',
           brandLabel: 'Hugo Menz Automation – Startseite',
           navigationLabel: 'Hauptnavigation',
           menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
@@ -95,17 +99,17 @@ export class HeaderComponent {
               : 'English home',
           languageText: 'EN',
           homePath: '/',
-          cta: 'Unverbindliches Erstgespräch',
+          cta: 'Pilot-Eignung prüfen',
         }
       : {
-          subtitle: 'UX Engineering · Processes · Automation',
+          subtitle: 'Technical quotation processes · Machinery',
           brandLabel: 'Hugo Menz Automation – English home',
           navigationLabel: 'Primary navigation',
           menuLabel: this.menuOpen() ? 'Close menu' : 'Open menu',
           languageLabel: 'Deutsche Version',
           languageText: 'DE',
           homePath: '/en/',
-          cta: 'Introductory call',
+          cta: 'Check pilot fit',
         },
   );
 
@@ -130,7 +134,7 @@ export class HeaderComponent {
   openContactForm(): void {
     const restoreFocusTo = this.menuOpen() ? this.navToggle()?.nativeElement : null;
     this.closeMenu();
-    this.contactDialog.open(restoreFocusTo);
+    this.contactDialog.open('rfq', restoreFocusTo);
   }
 
   @HostListener('document:keydown.escape')

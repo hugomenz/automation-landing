@@ -4,30 +4,32 @@ export const HOME_EN = {
   key: 'home-en',
   path: '/en/',
   lang: 'en',
-  locale: 'en',
+  locale: 'en_GB',
   seo: {
-    title: 'UX Engineering and Process Automation | Hugo Menz',
+    title: 'Automate quotation processes for machinery manufacturers | Hugo Menz',
     description:
-      'User-friendly internal tools, process automation and system integrations for complex technical and operational workflows.',
+      'Turn technical enquiries, emails, specifications, photos and PDFs into a reviewable quotation basis using approved rules and human review.',
     canonicalPath: '/en/',
     robots: 'index,follow',
     openGraph: {
-      title: 'UX Engineering and Process Automation',
+      title: 'Automate quotation processes for machinery manufacturers',
       description:
-        'Turn complex workflows into clear interfaces, structured data and controlled automation.',
+        'Turn incomplete technical enquiries into a reviewable quotation basis with open points, approved rules and human review.',
       type: 'website',
-      locale: 'en',
-      imagePath: '/og-general-en.png',
-      imageAlt: 'UX engineering for digital processes, automation and integrations',
+      locale: 'en_GB',
+      imagePath: '/og-rfq-preview-en.png',
+      imageAlt:
+        'Technical enquiry qualification for machinery manufacturers with approved rules and human review',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'UX Engineering and Process Automation',
+      title: 'Automate quotation processes for machinery manufacturers',
       description:
-        'Turn complex workflows into clear interfaces, structured data and controlled automation.',
-      imagePath: '/og-general-en.png',
-      imageAlt: 'UX engineering for digital processes, automation and integrations',
+        'Turn incomplete technical enquiries into a reviewable quotation basis with open points, approved rules and human review.',
+      imagePath: '/og-rfq-preview-en.png',
+      imageAlt:
+        'Technical enquiry qualification for machinery manufacturers with approved rules and human review',
     },
     alternates: [
       { hreflang: 'de-DE', path: '/' },
@@ -37,183 +39,259 @@ export const HOME_EN = {
   },
   header: {
     brand: 'Hugo Menz Automation',
-    subtitle: 'UX Engineering · Processes · Automation',
+    subtitle: 'Technical quotation processes · Machinery',
     navigation: [
-      { label: 'Services', href: '/en/#services' },
-      { label: 'Use cases', href: '/en/#use-cases' },
-      {
-        label: 'AI Search',
-        href: '/en/ai-search-readiness-industrial-companies/',
-      },
+      { label: 'Solution', href: '/en/#internal-rfq-copilot' },
+      { label: 'Who it is for', href: '/en/#fit' },
+      { label: 'Approach', href: '/en/#process' },
       { label: 'About Hugo', href: '/en/#about' },
+      { label: 'Contact', href: '/en/#contact' },
       { label: 'DE', href: '/', lang: 'de' },
     ],
-    cta: { label: 'Introductory call', href: '#contact-form', dataCta: 'contact-header' },
+    cta: {
+      label: 'Check pilot fit',
+      href: '#contact-form',
+      dataCta: 'readiness-header',
+      contactContext: 'rfq',
+    },
   },
   breadcrumbs: [
-    { label: 'Startseite', path: '/' },
+    { label: 'Home', path: '/en/' },
     { label: 'English', path: '/en/' },
   ],
   hero: {
-    kicker: 'UX Engineering · Digital Processes · Automation',
-    h1: 'Make digital processes clear and usable',
+    kicker: 'Technical quotation processes · Machinery manufacturing · Stuttgart',
+    h1: 'Turn technical enquiries into a reviewable quotation basis',
     lead:
-      'I combine UX engineering, interface development and automation to turn fragmented work into clear, usable digital processes — especially where documents, specialist knowledge and several systems come together.',
+      'I help machinery manufacturers turn incomplete enquiries, emails, specifications, photos and PDFs into a structured, reviewable quotation basis with open points, risks and a rule-based budget foundation before approval by sales engineering.',
     primaryCta: {
-      label: 'Introductory call',
+      label: 'Check pilot fit',
       href: '#contact-form',
-      dataCta: 'contact-hero',
+      dataCta: 'readiness-hero',
+      contactContext: 'rfq',
     },
     secondaryCta: {
-      label: 'View services',
-      href: '/en/#services',
-      dataCta: 'services-hero',
+      label: 'How the internal RFQ copilot works',
+      href: '/en/#internal-rfq-copilot',
+      dataCta: 'copilot-hero',
     },
-    trustLine: 'UX engineering · clear processes · controlled automation',
+    trustLine: 'One machine family · approved rules · human review',
     diagram: {
-      fileLabel: 'digital-process.flow',
+      fileLabel: 'technical-enquiry.flow',
       nodes: [
-        { stage: 'Input', label: 'Email · form · document' },
-        { stage: 'Structure', label: 'Data and context' },
-        { stage: 'Process', label: 'Rules and integrations' },
-        { stage: 'Review', label: 'Exceptions and approvals' },
-        { stage: 'Handover', label: 'Team · CRM · business system' },
+        { stage: 'Input', label: 'Email · specification · photos' },
+        { stage: 'Structure', label: 'Requirements and sources' },
+        { stage: 'Check', label: 'Gaps · contradictions · risks' },
+        { stage: 'Calculate', label: 'approved rules' },
+        { stage: 'Approve', label: 'Sales engineer' },
       ],
-      footer: 'traceable · user-centred · controlled',
+      footer: 'no invented prices · no autonomous approval',
     },
   },
   sections: [
     {
       id: 'problem',
-      heading: 'When information, systems and work steps do not fit together',
-      paragraphs: [
-        'Many processes are slow because information is scattered, entered more than once or reaches the right person too late. I first look at the real workflow, then design a solution that gives people clarity and only automates steps supported by reliable data and rules.',
-      ],
+      eyebrow: 'Current situation',
+      heading: 'Why the first quotation phase requires so much coordination',
+      intro:
+        'Technical enquiries rarely arrive in the form sales and engineering need for a reliable first assessment. Information is spread across emails, specifications, PDFs, photos, notes and spreadsheets.',
       points: [
-        'Requests and documents arrive without a consistent structure.',
-        'Data is copied repeatedly from emails or PDFs.',
-        'Approvals and responsibilities are unclear.',
-        'Information is lost between departments.',
-        'Internal tools are difficult to understand or use.',
-        'Forms, email, CRM and business systems remain disconnected.',
+        'Relevant product, performance or interface data is missing.',
+        'Documents contain conflicting values or assumptions.',
+        'Sales engineers repeatedly clarify the same basic questions.',
+        'Budget knowledge is held in spreadsheets, rules or individual experience.',
+        'Assumptions and exclusions are lost during handover to engineering.',
+      ],
+      paragraphs: [
+        'The first useful automation step is not automatic quotation creation. It is a clearer, traceable preparation of the technical decision.',
       ],
       layout: 'list',
     },
     {
-      id: 'services',
-      heading: 'What I design and improve',
-      intro:
-        'The right scope may be one interface, an integration or an end-to-end internal workflow. The tool matters less than making the process clearer and more reliable.',
+      id: 'workflow',
+      eyebrow: 'Process',
+      heading: 'From customer enquiry to human approval',
       items: [
         {
-          title: 'Interfaces and internal tools',
-          body: 'Clear screens and UI components for tasks currently spread across spreadsheets, emails or difficult systems.',
+          label: 'Step 1',
+          title: 'Capture the enquiry',
+          body: 'Emails, specifications, PDFs, photos, notes and form data are collected together with their sources.',
         },
         {
-          title: 'Structured information capture',
-          body: 'Forms and workflows that collect relevant details, organise them clearly and prepare them for further work.',
+          label: 'Step 2',
+          title: 'Structure requirements',
+          body: 'Information is mapped to an approved schema for the selected machine family.',
         },
         {
-          title: 'Process automation',
-          body: 'Traceable workflows for routine tasks, checks, notifications and approvals, with visible exceptions.',
+          label: 'Step 3',
+          title: 'Review open points',
+          body: 'Missing information, contradictions, assumptions, follow-up questions and risks remain visible.',
         },
         {
-          title: 'System integrations',
-          body: 'Connections between forms, email, CRM, APIs and internal systems without hiding professional responsibility.',
+          label: 'Step 4',
+          title: 'Prepare a budget basis',
+          body: 'Only approved modules, tables, factors and formulas may contribute internal budget values.',
         },
         {
-          title: 'Technical request qualification',
-          body: 'An industrial example: preparing documents, requirements, gaps and sources for sales and engineering review.',
-          link: {
-            label: 'Technical request qualification (German)',
-            href: '/loesungen/technische-anfragequalifizierung/',
-            lang: 'de',
-          },
+          label: 'Step 5',
+          title: 'Human review and approval',
+          body: 'A sales engineer reviews the result before it is used in customer communication, costing, engineering or the CRM.',
+        },
+      ],
+      ordered: true,
+      layout: 'steps',
+    },
+    {
+      id: 'internal-rfq-copilot',
+      eyebrow: 'Internal RFQ copilot',
+      heading: 'What the internal RFQ copilot prepares',
+      intro:
+        'The copilot works internally and within a clearly defined technical scope. It prepares information for sales and engineering; it does not replace their decision.',
+      items: [
+        {
+          title: 'Structured requirements record',
+          body: 'Requirements, units, sources and status are brought into one shared schema.',
         },
         {
-          title: 'AI-search visibility',
-          body: 'Improving the company, product and expert information that helps search and AI systems understand an industrial business.',
-          link: {
-            label: 'AI Search Readiness for industry',
-            href: '/en/ai-search-readiness-industrial-companies/',
-          },
+          title: 'Missing information',
+          body: 'Required inputs for the first technical assessment are clearly marked.',
+        },
+        {
+          title: 'Contradictions and risks',
+          body: 'Conflicting values, unconfirmed assumptions and technical blockers remain visible.',
+        },
+        {
+          title: 'Prioritised follow-up questions',
+          body: 'Open points become a focused question list for the customer, sales or engineering.',
+        },
+        {
+          title: 'Rule-based budget basis',
+          body: 'Internal values come only from approved modules, tables, factors and formulas.',
+        },
+        {
+          title: 'Clean handover',
+          body: 'The reviewed result can be passed to sales, engineering, calculation or CRM.',
+        },
+      ],
+      links: [
+        {
+          label: 'Internal RFQ copilot (German service page)',
+          href: '/leistungen/interner-rfq-copilot/',
+          lang: 'de',
         },
       ],
       layout: 'cards',
     },
     {
-      id: 'approach',
-      heading: 'Understand users and respect operational reality',
+      id: 'control',
+      eyebrow: 'Limits and control',
+      heading: 'Where rules end and engineering begins',
       intro:
-        'A useful digital solution has to work for the people using it and with the company’s actual data, rules and responsibilities.',
+        'AI can interpret documents, but it cannot take responsibility for technical feasibility, costs or margin.',
       columns: [
         {
-          heading: 'UX and usability',
+          heading: 'The system may',
           points: [
-            'Understand users’ tasks and information needs.',
-            'Design clear steps, states and feedback.',
-            'Prevent errors and make corrections understandable.',
-            'Show complexity only where it is needed.',
+            'extract information and link it to its source;',
+            'map terms into an approved requirements schema;',
+            'flag missing information, contradictions and risks;',
+            'suggest follow-up questions;',
+            'apply deterministic rules and versioned tables.',
           ],
         },
         {
-          heading: 'Process and technical reality',
+          heading: 'The system must not',
           points: [
-            'Clarify data sources, rules and interfaces.',
-            'Keep exceptions and human decisions visible.',
-            'Secure handovers between roles and systems.',
-            'Choose a maintainable solution without unnecessary technology.',
+            'invent prices, modules or dimensions;',
+            'confirm technical feasibility by itself;',
+            'approve margins, assumptions or risks;',
+            'send a customer response or quotation automatically;',
+            'silently process cases outside the defined scope.',
           ],
         },
       ],
       callout:
-        'My background in special-purpose machinery and industrial automation helps me understand technical and operational dependencies. UX engineering turns that understanding into a workflow people can use.',
+        'If a rule is missing or a case falls outside the defined technical scope, the system must stop and escalate it for review.',
       layout: 'comparison',
     },
     {
-      id: 'use-cases',
-      heading: 'Where this approach is particularly useful',
+      id: 'fit',
+      eyebrow: 'Who it is for',
+      heading: 'Who this approach is suitable for',
       intro:
-        'My deepest process experience comes from industry and machinery. The approach also fits other complex B2B workflows where information needs to move safely between people and systems.',
+        'The approach is intended for machinery manufacturers, special-purpose machinery companies, plant builders and automation providers whose solutions contain some repeatable structure.',
+      points: [
+        'One machine or solution family can be clearly defined.',
+        'Inputs, modules, options or technical limits repeat across enquiries.',
+        'Historical enquiries, checklists, tables or approved rules are usable.',
+        'A responsible expert can review rules and results.',
+        'The enquiry volume justifies structured preparation.',
+      ],
+      callout:
+        'If every project requires completely new trials, simulation or engineering, a rule-based budget basis may not be appropriate.',
+      layout: 'list',
+    },
+    {
+      id: 'industries',
+      eyebrow: 'Examples',
+      heading: 'Examples of suitable machine families',
+      intro:
+        'These examples are possible starting points, not a closed list. Other machine families may also fit when requirements, modules or technical limits are sufficiently repeatable.',
       items: [
         {
-          title: 'Requests and documents',
-          body: 'Capture different inputs, expose missing information and create a reviewable working record.',
+          title: 'End-of-line equipment',
+          body: 'Modular line-end steps with recurring inputs, options and exclusion rules.',
+          link: {
+            label: 'End-of-line example (German page)',
+            href: '/branchen/end-of-line/',
+            lang: 'de',
+          },
         },
         {
-          title: 'Manual routine work',
-          body: 'Reduce repeated transfers, checks and notifications without ignoring exceptions.',
+          title: 'Packaging machinery',
+          body: 'Defined platforms with known formats, options, performance limits and product dependencies.',
+          link: {
+            label: 'Packaging machinery example (German page)',
+            href: '/branchen/verpackungsmaschinen/',
+            lang: 'de',
+          },
         },
         {
-          title: 'Handovers and approvals',
-          body: 'Make responsibilities, status and next steps clear across teams.',
-        },
-        {
-          title: 'Difficult internal tools',
-          body: 'Simplify interfaces, clarify information hierarchy and support frequent tasks.',
+          title: 'Palletising systems',
+          body: 'Robotic palletising within a known scope for product, pallet, throughput and layout.',
+          link: {
+            label: 'Palletising example (German page)',
+            href: '/branchen/palettieranlagen/',
+            lang: 'de',
+          },
         },
       ],
       layout: 'cards',
     },
     {
       id: 'process',
-      heading: 'From the current situation to a usable solution',
+      eyebrow: 'Approach',
+      heading: 'A controlled path to implementation',
       items: [
         {
-          title: 'Define the problem.',
-          body: 'The introductory call covers the current workflow, people and systems involved, and the main bottleneck.',
+          label: 'Step 1',
+          title: 'RFQ readiness workshop',
+          body: 'Assess process, volume, data, rules, risks and one suitable machine family. The outcome can be go, conditional go or no-go.',
         },
         {
-          title: 'Understand process and use.',
-          body: 'I map tasks, information, rules, exceptions and handovers to define a useful scope.',
+          label: 'Step 2',
+          title: 'Historical evaluation',
+          body: 'Use previous enquiries and approved calculations to test the schema, sources, rules and boundaries.',
         },
         {
-          title: 'Design and implement.',
-          body: 'The interface, workflow or integration is built within a clear boundary and with traceable decisions.',
+          label: 'Step 3',
+          title: 'Shadow-mode pilot',
+          body: 'Process new cases alongside the existing workflow without automating customer communication or official calculations.',
         },
         {
-          title: 'Test in real work.',
-          body: 'The solution is checked with realistic cases, documented and expanded only where useful.',
+          label: 'Step 4',
+          title: 'Limited internal rollout',
+          body: 'Extend internal use only after rules are stable and the reviewed quality is accepted.',
         },
       ],
       ordered: true,
@@ -221,63 +299,84 @@ export const HOME_EN = {
     },
     {
       id: 'about',
-      heading: 'UX engineering backed by industrial process experience',
+      heading: 'Mechanical engineering experience with practical automation delivery',
       paragraphs: [
-        'I work as a UX engineer for digital processes and automation. Before that, I spent around eight years in special-purpose machinery and industrial automation, including mechanical design, technical coordination, purchasing, supplier coordination and project delivery.',
-        'Today I combine that process understanding with interface development, UI components, APIs and automation. You work directly with me from the first assessment through to a possible implementation.',
+        'I am a mechanical engineer. I spent around eight years in special-purpose machinery and industrial automation, working with mechanical design, bills of materials, purchasing, supplier coordination, project delivery and technical coordination between customers, mechanical engineering, electrical engineering and assembly.',
+        'I also have around three years of practical experience with Angular, TypeScript, APIs, webhooks, n8n, Make and automation. This combination helps me define technical quotation processes correctly and implement them pragmatically.',
       ],
       links: [
-        { label: 'More about my background (German)', href: '/ueber-hugo-menz/', lang: 'de' },
-        { label: 'Working together in Stuttgart (German)', href: '/standorte/stuttgart/', lang: 'de' },
+        { label: 'About Hugo Menz (German page)', href: '/ueber-hugo-menz/', lang: 'de' },
       ],
       layout: 'profile',
+    },
+    {
+      id: 'further-automation',
+      eyebrow: 'Further automation',
+      heading: 'Does another technical or operational process consume unnecessary time?',
+      paragraphs: [
+        'In addition to technical quotation processes, I support clearly scoped automation, document workflows and system integrations.',
+      ],
+      links: [
+        {
+          label: 'Further process automation (German page)',
+          href: '/leistungen/prozessautomatisierung/',
+          lang: 'de',
+        },
+      ],
+      layout: 'text',
     },
   ],
   faq: {
     id: 'faq',
     eyebrow: 'Frequently asked questions',
-    heading: 'Questions about working together',
+    heading: 'Questions about technical enquiry qualification',
     items: [
       {
-        question: 'Do you only work with machinery manufacturers?',
+        question: 'Which machine families are suitable?',
         answer:
-          'No. My machinery background is useful for complex technical and operational work, but it is not an industry boundary. What matters is whether a process, internal interface or data flow can be improved meaningfully.',
+          'Families with recurring inputs, modules, options and boundaries. The more each order requires completely new engineering, the smaller the useful scope for automation.',
       },
       {
-        question: 'Which processes are suitable for automation?',
+        question: 'Does a CPQ system need to be in place?',
         answer:
-          'Good candidates contain recurring steps, clear information handovers or repeated manual transfers. Exceptions and decisions that require expertise should remain visible to the responsible people.',
+          'No. A pilot can start before CPQ and first structure requirements, sources, gaps and approved calculation rules.',
       },
       {
-        question: 'Does this require a completely new system?',
+        question: 'Can AI set prices?',
         answer:
-          'Not necessarily. A better interface, clearer form, targeted integration or small internal workflow may be enough.',
+          'No. Prices and budget values may come only from approved tables, modules, factors or formulas. AI may classify information, but it must not invent a price.',
       },
       {
-        question: 'What happens in the introductory call?',
+        question: 'Are customers contacted automatically?',
         answer:
-          'You describe the current workflow and intended outcome. I provide an initial view of whether and how the problem can be scoped. The call is not a complete free analysis.',
+          'Not in the initial pilot. The system works internally. Questions and results are used only after human review.',
+      },
+      {
+        question: 'When should the process not be automated?',
+        answer:
+          'When volume is too low, projects are barely repeatable, rules cannot be maintained or every first assessment requires new trials and detailed engineering.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Next step',
-    heading: 'Which process would you like to make easier to use?',
+    heading: 'Is one of your machine families suitable for this approach?',
     body:
-      'Briefly describe the current workflow and the main bottleneck. In an introductory call, I will help clarify a sensible next step.',
+      'Describe the machine family, approximate enquiry volume, current quotation process, roles involved and the main bottleneck. I will first assess whether a clearly scoped review is useful.',
     action: {
-      label: 'Introductory call',
+      label: 'Check pilot fit',
       href: '#contact-form',
-      dataCta: 'contact-final',
+      dataCta: 'readiness-final',
+      contactContext: 'rfq',
     },
-    note: 'Non-confidential context is enough for the first contact.',
+    note: 'No autonomous quotation. No invented prices. Human approval remains required.',
   },
   footer: {
     left: 'Hugo Menz Automation',
-    right: 'UX engineering, digital processes and automation for complex B2B workflows.',
+    right: 'Technical enquiry qualification and quotation processes for machinery manufacturers.',
     secondaryLink: {
-      label: 'n8n consulting in Stuttgart (German)',
-      href: '/n8n-beratung-stuttgart/',
+      label: 'Further process automation (German page)',
+      href: '/leistungen/prozessautomatisierung/',
       lang: 'de',
     },
   },

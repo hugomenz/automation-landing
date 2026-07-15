@@ -20,6 +20,6 @@ export class ContentLinkComponent {
   readonly opensDialog = computed(() => this.link().href === '#contact-form');
 
   openContactForm(): void {
-    this.contactDialog.open();
+    this.contactDialog.open(this.link().contactContext ?? 'rfq');
   }
 }

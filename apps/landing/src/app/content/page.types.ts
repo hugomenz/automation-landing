@@ -1,6 +1,6 @@
 export type PageLanguage = 'de' | 'en';
 
-export type PageLocale = 'de_DE' | 'en';
+export type PageLocale = 'de_DE' | 'en_GB';
 
 export type PagePath = '/' | `/${string}/`;
 
@@ -9,6 +9,7 @@ export type PageKey =
   | 'technical-request-qualification'
   | 'rfq-readiness-workshop'
   | 'internal-rfq-copilot'
+  | 'process-automation'
   | 'end-of-line'
   | 'packaging-machinery'
   | 'palletising-systems'
@@ -67,6 +68,7 @@ export interface ContentLink {
   readonly href: string;
   readonly lang?: PageLanguage;
   readonly dataCta?: string;
+  readonly contactContext?: 'rfq' | 'process-automation' | 'ai-search';
   readonly external?: boolean;
 }
 

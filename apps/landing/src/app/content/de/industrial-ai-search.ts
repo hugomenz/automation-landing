@@ -53,6 +53,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       label: 'KI-Sichtbarkeit prüfen lassen',
       href: '#contact-form',
       dataCta: 'ai-search-hero',
+      contactContext: 'ai-search',
     },
     secondaryCta: {
       label: 'Leistungsumfang ansehen',
@@ -229,7 +230,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       id: 'warum-hugo-menz',
       heading: 'Industrie verstehen und technische Informationen nutzbar machen',
       paragraphs: [
-        'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit UX Engineering, Interface-Entwicklung und Automatisierung. Sie arbeiten direkt mit mir – von der Analyse bis zu einer möglichen technischen Umsetzung.',
+        'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit technischer Informationsstrukturierung, Webtechnologien und Automatisierung. Sie arbeiten direkt mit mir – von der Analyse bis zu einer möglichen technischen Umsetzung.',
       ],
       points: [
         'Verständnis für Maschinenbau, industrielle Vertriebsfragen und erklärungsbedürftige Produkte.',
@@ -334,6 +335,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       label: 'KI-Sichtbarkeit prüfen lassen',
       href: '#contact-form',
       dataCta: 'ai-search-final',
+      contactContext: 'ai-search',
     },
     note:
       'Nach der Ersteinschätzung erhalten Sie einen klaren Umfang und festen Projektpreis. Sie ersetzt kein vollständiges Audit.',

@@ -4,7 +4,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
   key: 'industrial-ai-search-en',
   path: '/en/ai-search-readiness-industrial-companies/',
   lang: 'en',
-  locale: 'en',
+  locale: 'en_GB',
   seo: {
     title: 'AI Search Readiness for Industrial Companies | Hugo Menz',
     description:
@@ -16,7 +16,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       description:
         'From Stuttgart, Hugo Menz Automation assesses technical signals, product data, sources and specialist content for industrial AI-search visibility.',
       type: 'website',
-      locale: 'en',
+      locale: 'en_GB',
       imagePath: '/og-industrial-ai-search-en.png',
       imageAlt:
         'AI Search Readiness preview showing technical access, product data, sources and measurement review areas for industrial companies',
@@ -56,6 +56,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       label: 'Assess AI-search visibility',
       href: '#contact-form',
       dataCta: 'ai-search-hero',
+      contactContext: 'ai-search',
     },
     secondaryCta: {
       label: 'View the service scope',
@@ -232,7 +233,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       id: 'why-hugo-menz',
       heading: 'Understand industry and make technical information usable',
       paragraphs: [
-        'I combine experience in special-purpose machinery and industrial projects with UX engineering, interface development and automation. You work directly with me from the assessment through to a possible technical implementation.',
+        'I combine experience in special-purpose machinery and industrial projects with technical information structuring, web technologies and automation. You work directly with me from the assessment through to a possible technical implementation.',
       ],
       points: [
         'understanding of machinery, industrial sales questions and products that require explanation;',
@@ -343,6 +344,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       label: 'Assess AI-search visibility',
       href: '#contact-form',
       dataCta: 'ai-search-final',
+      contactContext: 'ai-search',
     },
     note:
       'After the initial assessment, you receive a clear scope and fixed project price. It does not replace a complete audit.',

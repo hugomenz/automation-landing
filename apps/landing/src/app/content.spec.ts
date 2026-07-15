@@ -15,6 +15,7 @@ const REQUIRED_PATHS = [
   '/loesungen/technische-anfragequalifizierung/',
   '/leistungen/rfq-readiness-workshop/',
   '/leistungen/interner-rfq-copilot/',
+  '/leistungen/prozessautomatisierung/',
   '/branchen/end-of-line/',
   '/branchen/verpackungsmaschinen/',
   '/branchen/palettieranlagen/',
@@ -69,8 +70,8 @@ function indexableText(page: PageDefinition): string {
 }
 
 describe('public page registry', () => {
-  it('defines exactly the 14 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(14);
+  it('defines exactly the 15 required public routes', () => {
+    expect(PAGE_REGISTRY).toHaveLength(15);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
@@ -119,41 +120,44 @@ describe('German home content guardrails', () => {
     expect(home.lang).toBe('de');
     expect(home.locale).toBe('de_DE');
     expect(home.seo.title).toBe(
-      'UX Engineering und Prozessautomatisierung | Hugo Menz',
+      'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
     );
     expect(home.seo.description).toBe(
-      'Nutzerfreundliche interne Tools, Prozessautomatisierung und Systemintegrationen für komplexe technische und betriebliche Abläufe.',
+      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen – mit freigegebenen Regeln und menschlicher Prüfung.',
     );
-    expect(home.hero.h1).toBe('Digitale Prozesse verständlich und nutzbar machen');
+    expect(home.hero.h1).toBe(
+      'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
+    );
     expect(home.hero.lead).toBe(
-      'Ich verbinde UX Engineering, Interface-Entwicklung und Automatisierung, um unübersichtliche Arbeitsabläufe in klare, bedienbare digitale Prozesse zu überführen – besonders dort, wo Dokumente, Fachwissen und mehrere Systeme zusammenkommen.',
+      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen – mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
     );
     expect(home.hero.primaryCta).toEqual({
-      label: 'Unverbindliches Erstgespräch',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
+      label: 'Pilot-Eignung prüfen',
+      href: '/leistungen/rfq-readiness-workshop/',
+      dataCta: 'readiness-hero',
     });
     expect(home.hero.trustLine).toBe(
-      'UX Engineering · klare Prozesse · kontrollierte Automatisierung',
+      'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
     );
   });
 
   it('locks the traceable process flow and the human decision boundary', () => {
     expect(home.hero.diagram?.nodes).toEqual([
-      { stage: 'Eingang', label: 'E-Mail · Formular · Dokument' },
-      { stage: 'Strukturieren', label: 'Daten und Kontext' },
-      { stage: 'Bearbeiten', label: 'Regeln und Integrationen' },
-      { stage: 'Prüfen', label: 'Ausnahmen und Freigaben' },
-      { stage: 'Übergeben', label: 'Team · CRM · Fachsystem' },
+      { stage: 'Eingang', label: 'E-Mail · Lastenheft · Fotos' },
+      { stage: 'Strukturieren', label: 'Anforderungen und Quellen' },
+      { stage: 'Prüfen', label: 'Lücken · Widersprüche · Risiken' },
+      { stage: 'Berechnen', label: 'freigegebene Regeln' },
+      { stage: 'Freigeben', label: 'Vertriebsingenieur' },
     ]);
     expect(home.hero.diagram?.footer).toBe(
-      'nachvollziehbar · nutzerzentriert · kontrolliert',
+      'keine erfundenen Preise · keine autonome Freigabe',
     );
 
     const text = indexableText(home);
-    expect(text).toContain('Ausnahmen und menschliche Entscheidungen sichtbar halten');
-    expect(text).toContain('nur dort automatisiert, wo Regeln und Daten dafür ausreichen');
-    expect(text).toContain('UX Engineering mit industrieller Prozesserfahrung');
+    expect(text).toContain('Nur freigegebene Module, Tabellen, Faktoren und Formeln');
+    expect(text).toContain('Das System darf nicht');
+    expect(text).toContain('Pilot im Schattenbetrieb');
+    expect(text).not.toMatch(/UX Engineering|UI-Komponenten|Interface-Entwicklung/);
   });
 });
 
@@ -166,19 +170,22 @@ describe('English home and bilingual hreflang', () => {
   it('publishes a complete, independently canonical English home', () => {
     expect(englishHome.path).toBe('/en/');
     expect(englishHome.lang).toBe('en');
-    expect(englishHome.locale).toBe('en');
+    expect(englishHome.locale).toBe('en_GB');
     expect(englishHome.seo.title).toBe(
-      'UX Engineering and Process Automation | Hugo Menz',
+      'Automate quotation processes for machinery manufacturers | Hugo Menz',
     );
     expect(englishHome.seo.description).toBe(
-      'User-friendly internal tools, process automation and system integrations for complex technical and operational workflows.',
+      'Turn technical enquiries, emails, specifications, photos and PDFs into a reviewable quotation basis using approved rules and human review.',
     );
-    expect(englishHome.hero.h1).toBe('Make digital processes clear and usable');
-    expect(englishHome.hero.lead).toContain('UX engineering, interface development and automation');
+    expect(englishHome.hero.h1).toBe(
+      'Turn technical enquiries into a reviewable quotation basis',
+    );
+    expect(englishHome.hero.lead).toContain('machinery manufacturers');
+    expect(englishHome.hero.lead).toContain('rule-based budget foundation');
     expect(englishHome.hero.trustLine).toBe(
-      'UX engineering · clear processes · controlled automation',
+      'One machine family · approved rules · human review',
     );
-    expect(englishHome.sections.length).toBeGreaterThanOrEqual(6);
+    expect(englishHome.sections.length).toBeGreaterThanOrEqual(9);
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
   });
 
@@ -215,6 +222,32 @@ describe('English home and bilingual hreflang', () => {
     )) {
       expect(page.seo.alternates, `${page.key} alternates`).toBeUndefined();
     }
+  });
+});
+
+describe('secondary process-automation service', () => {
+  const page = getPageByKey('process-automation');
+  const text = indexableText(page);
+
+  it('publishes one secondary, indexable service route without language alternates', () => {
+    expect(page.path).toBe('/leistungen/prozessautomatisierung/');
+    expect(page.seo.canonicalPath).toBe(page.path);
+    expect(page.seo.robots).toBe('index,follow');
+    expect(page.hero.h1).toBe(
+      'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
+    );
+    expect(page.seo.alternates).toBeUndefined();
+    expect(page.schemaKinds).toEqual(['Service', 'BreadcrumbList', 'FAQPage']);
+    expect(page.hero.primaryCta?.contactContext).toBe('process-automation');
+  });
+
+  it('keeps the scope controlled and avoids standalone UX or application-development offers', () => {
+    expect(text).toContain('Technische Angebotsprozesse im Maschinenbau bleiben mein Schwerpunkt');
+    expect(text).toContain('Human-in-the-loop-Workflows');
+    expect(text).toContain('API- und Webhook-Integrationen');
+    expect(text).not.toMatch(
+      /UX(?: Engineering|-Beratung)|UI-Komponenten|Design-Systeme|App-Entwicklung|Webentwicklung|Anwendungsentwicklung/i,
+    );
   });
 });
 

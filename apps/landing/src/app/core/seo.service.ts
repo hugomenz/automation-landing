@@ -98,7 +98,7 @@ export class SeoService {
     const kinds = new Set<SchemaKind>(page.schemaKinds);
 
     if (kinds.has('Person')) graph.push(this.personSchema());
-    if (kinds.has('ProfessionalService')) graph.push(this.professionalServiceSchema(page));
+    if (kinds.has('ProfessionalService')) graph.push(this.professionalServiceSchema());
     if (kinds.has('WebSite')) graph.push(this.websiteSchema(page));
     if (kinds.has('Service')) graph.push(this.serviceSchema(page, canonical));
     if (kinds.has('ContactPage')) graph.push(this.contactPageSchema(page, canonical));
@@ -137,24 +137,22 @@ export class SeoService {
     };
   }
 
-  private professionalServiceSchema(page: PageDefinition): JsonLd {
+  private professionalServiceSchema(): JsonLd {
     return {
       '@type': 'ProfessionalService',
       '@id': `${siteConfig.baseUrl}#professional-service`,
       name: siteConfig.brandName,
       url: siteConfig.baseUrl,
-      image: resolveAbsoluteUrl(page.seo.openGraph.imagePath),
+      image: resolveAbsoluteUrl(siteConfig.socialImage.src),
       areaServed: siteConfig.areaServed,
       provider: { '@id': `${siteConfig.baseUrl}#person` },
       serviceType: [
-        'UX Engineering',
-        'Interne Tools und Interfaces',
-        'Digitale Prozessautomatisierung',
-        'Systemintegrationen',
+        'Automatisierung technischer Angebotsprozesse',
         'Technische Anfragequalifizierung',
         'RFQ Readiness Workshop',
         'Interner RFQ-Copilot',
-        'AI Search Readiness',
+        'Digitale Prozessautomatisierung',
+        'Systemintegration',
       ],
     };
   }

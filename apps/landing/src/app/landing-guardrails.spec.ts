@@ -82,7 +82,7 @@ describe('Angular architecture guardrails', () => {
     expect(appConfig).toContain('provideClientHydration(withEventReplay())');
     expect(appComponent).toContain('RouterOutlet');
     expect(appTemplate).toContain('<router-outlet />');
-    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(14);
+    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(15);
   });
 
   it('runs without Zone.js and enables zoneless change detection', () => {
@@ -147,6 +147,7 @@ describe('protected contact form guardrails', () => {
       /const payload = \{[\s\S]*name:[\s\S]*email:[\s\S]*phone:[\s\S]*message:[\s\S]*page_url:[\s\S]*source:/,
     );
     expect(contactDialog).toContain("source: 'website_contact_form'");
+    expect(contactDialog).toContain('contact_context: this.contactDialog.context()');
   });
 
   it('keeps required-field validation, feedback and submission protection', () => {

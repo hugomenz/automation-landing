@@ -52,30 +52,30 @@ const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErro
   return null;
 };
 
-const CONTACT_DIALOG_COPY = {
+const RFQ_CONTACT_COPY = {
   de: {
-    eyebrow: 'Unverbindliches Erstgespräch',
-    title: 'Welchen Prozess möchten Sie verbessern?',
+    eyebrow: 'Pilot-Eignung prüfen',
+    title: 'Maschinenfamilie kurz beschreiben',
     body:
-      'Beschreiben Sie kurz den aktuellen Ablauf, beteiligte Personen oder Systeme und den größten Engpass. Ich melde mich mit einer ersten Einordnung.',
+      'Beschreiben Sie die Maschinenfamilie, das ungefähre Anfragevolumen, den heutigen Angebotsprozess, beteiligte Rollen und den größten Engpass. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist.',
     confidentiality:
-      'Bitte senden Sie im ersten Kontakt keine vertraulichen Dokumente, Zugangsdaten oder personenbezogenen Kundendaten. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
+      'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
     closeLabel: 'Kontaktformular schließen',
     name: 'Name',
     email: 'E-Mail',
     phone: 'Telefon (optional)',
-    message: 'Prozess und Anliegen',
+    message: 'Maschinenfamilie und heutiger Angebotsprozess',
     messagePlaceholder:
-      'Hilfreich sind: heutiger Ablauf, beteiligte Personen oder Systeme, wiederkehrende Probleme und das gewünschte Ziel.',
+      'Hilfreich sind: Maschinenfamilie, ungefähres Anfragevolumen, heutiger Angebotsprozess, beteiligte Rollen und größter Engpass.',
     nameRequired: 'Bitte geben Sie Ihren Namen ein.',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
     emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
     phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz den Prozess und Ihr Anliegen.',
+    messageRequired: 'Bitte beschreiben Sie kurz die Maschinenfamilie und den Angebotsprozess.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
-    submit: 'Unverbindliches Erstgespräch anfragen',
+    submit: 'Pilot-Eignung prüfen',
     sending: 'Wird gesendet …',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
     error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
@@ -86,28 +86,95 @@ const CONTACT_DIALOG_COPY = {
     messageHint: 'Zeichen',
   },
   en: {
-    eyebrow: 'Introductory call',
-    title: 'Which process would you like to improve?',
+    eyebrow: 'Check pilot fit',
+    title: 'Briefly describe the machine family',
     body:
-      'Briefly describe the current workflow, the people or systems involved and the main bottleneck. I will respond with an initial assessment.',
+      'Describe the machine family, approximate enquiry volume, current quotation process, roles involved and the main bottleneck. I will first assess whether an RFQ readiness workshop is useful.',
+    confidentiality:
+      'Please do not send confidential specifications, drawings or customer data in this first contact. Document handling will be agreed separately before any analysis.',
+    closeLabel: 'Close contact form',
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone (optional)',
+    message: 'Machine family and current quotation process',
+    messagePlaceholder:
+      'Helpful context: machine family, approximate enquiry volume, current quotation process, roles involved and main bottleneck.',
+    nameRequired: 'Please enter your name.',
+    emailRequired: 'Please enter your email.',
+    emailInvalid: 'Please enter a valid email address.',
+    phoneInvalid: 'Please enter a valid phone number.',
+    messageRequired: 'Please briefly describe the machine family and quotation process.',
+    messageTooShort: 'At least 20 characters are required.',
+    messageTooLong: 'A maximum of 1000 characters is allowed.',
+    errorSummary: 'Please correct the following errors:',
+    submit: 'Check pilot fit',
+    sending: 'Sending …',
+    success: 'Thank you. Your request has been sent.',
+    error: 'Sending failed. Please try again.',
+    missingWebhook: 'The form is not configured yet.',
+    rateMinute: 'You can send at most two messages per minute.',
+    rateSession: 'You have reached the message limit for this session.',
+    protection: 'Protected by the existing form controls',
+    messageHint: 'characters',
+  },
+} as const;
+
+const PROCESS_AUTOMATION_CONTACT_COPY = {
+  de: {
+    eyebrow: 'Anderen Prozess beschreiben',
+    title: 'Welchen Ablauf möchten Sie automatisieren?',
+    body:
+      'Beschreiben Sie kurz den heutigen Ablauf, beteiligte Personen oder Systeme, wiederkehrende Arbeit und den größten Engpass. Ich prüfe, ob sich eine sinnvolle Automatisierung klar abgrenzen lässt.',
+    confidentiality:
+      'Bitte senden Sie im ersten Kontakt keine vertraulichen Dokumente, Zugangsdaten oder personenbezogenen Kundendaten. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
+    closeLabel: 'Kontaktformular schließen',
+    name: 'Name',
+    email: 'E-Mail',
+    phone: 'Telefon (optional)',
+    message: 'Prozess und Engpass',
+    messagePlaceholder:
+      'Hilfreich sind: heutiger Ablauf, beteiligte Systeme, wiederkehrende Schritte, Ausnahmen und gewünschtes Ergebnis.',
+    nameRequired: 'Bitte geben Sie Ihren Namen ein.',
+    emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
+    emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
+    phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
+    messageRequired: 'Bitte beschreiben Sie kurz den Prozess und den Engpass.',
+    messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
+    messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
+    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
+    submit: 'Prozess beschreiben',
+    sending: 'Wird gesendet …',
+    success: 'Danke. Ihre Anfrage wurde gesendet.',
+    error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
+    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
+    rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
+    rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
+    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
+    messageHint: 'Zeichen',
+  },
+  en: {
+    eyebrow: 'Describe another process',
+    title: 'Which workflow would you like to automate?',
+    body:
+      'Briefly describe the current workflow, people or systems involved, recurring work and the main bottleneck. I will assess whether a useful automation can be clearly scoped.',
     confidentiality:
       'Please do not send confidential documents, credentials or personal customer data in this first contact. Handling of non-public information will be agreed separately before any analysis.',
     closeLabel: 'Close contact form',
     name: 'Name',
     email: 'Email',
     phone: 'Phone (optional)',
-    message: 'Process and request',
+    message: 'Process and bottleneck',
     messagePlaceholder:
-      'Helpful context: current workflow, people or systems involved, recurring problems and the intended outcome.',
+      'Helpful context: current workflow, systems involved, recurring steps, exceptions and intended outcome.',
     nameRequired: 'Please enter your name.',
     emailRequired: 'Please enter your email.',
     emailInvalid: 'Please enter a valid email address.',
     phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the process and your request.',
+    messageRequired: 'Please briefly describe the process and bottleneck.',
     messageTooShort: 'At least 20 characters are required.',
     messageTooLong: 'A maximum of 1000 characters is allowed.',
     errorSummary: 'Please correct the following errors:',
-    submit: 'Request an introductory call',
+    submit: 'Describe the process',
     sending: 'Sending …',
     success: 'Thank you. Your request has been sent.',
     error: 'Sending failed. Please try again.',
@@ -205,13 +272,13 @@ export class ContactDialogComponent implements OnDestroy {
   private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
 
   readonly copy = computed(() => {
-    const pageKey = this.pageLocale.pageKey();
-    const isIndustrialAiSearchCampaign =
-      pageKey === 'industrial-ai-search-de' || pageKey === 'industrial-ai-search-en';
+    const copyByContext = {
+      rfq: RFQ_CONTACT_COPY,
+      'process-automation': PROCESS_AUTOMATION_CONTACT_COPY,
+      'ai-search': INDUSTRIAL_AI_SEARCH_CONTACT_COPY,
+    } as const;
 
-    return (isIndustrialAiSearchCampaign
-      ? INDUSTRIAL_AI_SEARCH_CONTACT_COPY
-      : CONTACT_DIALOG_COPY)[this.pageLocale.language()];
+    return copyByContext[this.contactDialog.context()][this.pageLocale.language()];
   });
   readonly isSending = signal(false);
   readonly status = signal<ContactFormStatus>('idle');
@@ -338,6 +405,7 @@ export class ContactDialogComponent implements OnDestroy {
       message: formValue.message.trim(),
       page_url: window.location.href,
       source: 'website_contact_form',
+      contact_context: this.contactDialog.context(),
     };
 
     this.isSending.set(true);

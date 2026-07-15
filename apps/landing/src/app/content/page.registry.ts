@@ -8,6 +8,7 @@ import { HOME_DE } from './de/home';
 import { INDUSTRIAL_AI_SEARCH_DE } from './de/industrial-ai-search';
 import { END_OF_LINE, PACKAGING_MACHINERY, PALLETISING_SYSTEMS } from './de/industry-pages';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
+import { PROCESS_AUTOMATION } from './de/process-automation';
 import { HOME_EN } from './en/home';
 import { INDUSTRIAL_AI_SEARCH_EN } from './en/industrial-ai-search';
 import type {
@@ -32,6 +33,7 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   TECHNICAL_REQUEST_QUALIFICATION,
   RFQ_READINESS_WORKSHOP,
   INTERNAL_RFQ_COPILOT,
+  PROCESS_AUTOMATION,
   END_OF_LINE,
   PACKAGING_MACHINERY,
   PALLETISING_SYSTEMS,

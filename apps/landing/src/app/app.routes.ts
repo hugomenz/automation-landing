@@ -12,6 +12,7 @@ export const routes: Routes = [
   pageRoute('loesungen/technische-anfragequalifizierung', 'technical-request-qualification'),
   pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
   pageRoute('leistungen/interner-rfq-copilot', 'internal-rfq-copilot'),
+  pageRoute('leistungen/prozessautomatisierung', 'process-automation'),
   pageRoute('branchen/end-of-line', 'end-of-line'),
   pageRoute('branchen/verpackungsmaschinen', 'packaging-machinery'),
   pageRoute('branchen/palettieranlagen', 'palletising-systems'),

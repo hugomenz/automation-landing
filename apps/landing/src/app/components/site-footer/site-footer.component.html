@@ -8,33 +8,39 @@
 
     <nav class="footer-group" [attr.aria-label]="copy().solutionLabel">
       <strong>{{ copy().solutionLabel }}</strong>
-      <a [href]="language() === 'de' ? '/#leistungen' : '/en/#services'">
-        {{ copy().processesLink }}
-      </a>
       <a href="/loesungen/technische-anfragequalifizierung/" [attr.lang]="language() === 'en' ? 'de' : null">
         {{ copy().requestLink }}
       </a>
-      <a [href]="copy().aiSearchPath">
-        {{ copy().aiSearchLink }}
-      </a>
-    </nav>
-
-    <nav class="footer-group" [attr.aria-label]="copy().examplesLabel">
-      <strong>{{ copy().examplesLabel }}</strong>
       <a href="/leistungen/rfq-readiness-workshop/" [attr.lang]="language() === 'en' ? 'de' : null">
         {{ copy().workshopLink }}
       </a>
       <a href="/leistungen/interner-rfq-copilot/" [attr.lang]="language() === 'en' ? 'de' : null">
         {{ copy().copilotLink }}
       </a>
-      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().n8nLink }}
+    </nav>
+
+    <nav class="footer-group" [attr.aria-label]="copy().industriesLabel">
+      <strong>{{ copy().industriesLabel }}</strong>
+      <a href="/branchen/end-of-line/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().endOfLineLink }}
+      </a>
+      <a href="/branchen/verpackungsmaschinen/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().packagingLink }}
+      </a>
+      <a href="/branchen/palettieranlagen/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().palletisingLink }}
       </a>
     </nav>
 
     <nav class="footer-group" [attr.aria-label]="copy().secondaryLabel">
       <strong>{{ copy().secondaryLabel }}</strong>
-      <a href="/standorte/stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">Stuttgart</a>
+      <a href="/leistungen/prozessautomatisierung/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().processAutomationLink }}
+      </a>
+      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().n8nLink }}
+      </a>
+      <a [href]="copy().aiSearchPath">{{ copy().aiSearchLink }}</a>
       <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().aboutLink }}</a>
       <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().contactLink }}</a>
       <a [href]="languagePath()" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">

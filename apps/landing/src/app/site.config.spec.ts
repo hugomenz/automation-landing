@@ -16,16 +16,17 @@ describe('siteConfig', () => {
   it('keeps factual person and service schema inputs configured', () => {
     expect(siteConfig.name).toBe('Hugo Martin Menz');
     expect(siteConfig.brandName).toBe('Hugo Menz Automation');
-    expect(siteConfig.founder.jobTitle).toBe(
-      'UX Engineer für digitale Prozesse und Automatisierung',
-    );
+    expect(siteConfig.founder.jobTitle).toBe('Maschinenbauingenieur');
     expect(siteConfig.areaServed).toContain('Stuttgart');
+    expect(siteConfig.knowsAbout).toContain('Angebotsprozesse im Maschinenbau');
     expect(siteConfig.knowsAbout).toContain('Technische Anfragequalifizierung');
+    expect(siteConfig.knowsAbout).not.toContain('UX Engineering');
+    expect(siteConfig.knowsAbout).not.toContain('UI-Komponenten');
   });
 
-  it('uses the general social preview with its declared dimensions', () => {
+  it('uses the RFQ social preview with its declared dimensions', () => {
     expect(siteConfig.socialImage).toEqual({
-      src: '/og-general-de.png',
+      src: '/og-rfq-preview.png',
       width: 1200,
       height: 630,
     });

@@ -6,28 +6,28 @@ export const STUTTGART = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Digitale Prozesse und Automatisierung in Stuttgart | Hugo Menz',
+    title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart | Hugo Menz',
     description:
-      'UX Engineering, interne Tools und Prozessautomatisierung aus Stuttgart – für komplexe technische und betriebliche Abläufe.',
+      'Technische Anfragen, Lastenhefte und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
     canonicalPath: '/standorte/stuttgart/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Digitale Prozesse und Automatisierung in Stuttgart',
+      title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
       description:
-        'Komplexe Abläufe verständlicher, besser bedienbar und sinnvoll automatisierbar machen.',
+        'Technische Anfragen und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
       type: 'website',
       locale: 'de_DE',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Technische Angebotsprozesse für Maschinenbauer in Stuttgart',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Digitale Prozesse und Automatisierung in Stuttgart',
+      title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
       description:
-        'Komplexe Abläufe verständlicher, besser bedienbar und sinnvoll automatisierbar machen.',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+        'Technische Anfragen und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Technische Angebotsprozesse für Maschinenbauer in Stuttgart',
     },
   },
   breadcrumbs: [
@@ -37,84 +37,72 @@ export const STUTTGART = {
   ],
   hero: {
     kicker: 'Stuttgart · Baden-Württemberg · Remote',
-    h1: 'Digitale Prozesse und Automatisierung in Stuttgart',
+    h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
     lead:
-      'Von Stuttgart aus unterstütze ich Unternehmen dabei, komplexe digitale Abläufe verständlicher, besser bedienbar und sinnvoll automatisierbar zu machen – remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
+      'Von Stuttgart aus unterstütze ich Maschinenbauer, Sondermaschinenbauer und Automatisierer dabei, technische Anfragen für eine klar abgegrenzte Maschinenfamilie strukturiert zu qualifizieren – remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
+      label: 'Pilot-Eignung prüfen',
+      href: '/leistungen/rfq-readiness-workshop/',
+      dataCta: 'readiness-hero',
+    },
+    secondaryCta: {
+      label: 'Technische Anfragequalifizierung ansehen',
+      href: '/loesungen/technische-anfragequalifizierung/',
+      dataCta: 'solution-hero',
     },
   },
   sections: [
     {
       id: 'zusammenarbeit',
-      heading: 'Mit einem konkreten Prozess beginnen',
+      heading: 'Lokale Zusammenarbeit, klarer technischer Umfang',
       paragraphs: [
-        'Zu Beginn grenze ich mit Ihnen einen konkreten Ablauf ab: Wer arbeitet damit, welche Informationen werden benötigt, wo entstehen Rückfragen und welche Systeme sind beteiligt? Daraus ergibt sich ein nachvollziehbarer nächster Schritt statt einer unnötig großen Transformation.',
+        'Der Einstieg erfolgt nicht mit einer großen Transformationsinitiative. Ich grenze mit Ihnen einen konkreten Angebotsprozess ein, prüfe Daten und Regeln und bewerte, ob ein interner Pilot sinnvoll ist.',
       ],
       layout: 'text',
     },
     {
-      id: 'aufgaben',
-      heading: 'Typische Aufgabenstellungen',
+      id: 'zielgruppe',
+      heading: 'Für wen der Ansatz gedacht ist',
       points: [
-        'interne Tools und Oberflächen verständlicher gestalten;',
-        'Anfragen, Formulare und Dokumente strukturiert erfassen;',
-        'manuelle Dateneingaben und wiederkehrende Arbeitsschritte reduzieren;',
-        'Freigaben und Übergaben nachvollziehbar abbilden;',
-        'E-Mail, CRM, APIs und Fachsysteme verbinden;',
-        'technische und administrative Abläufe kontrolliert automatisieren.',
+        'Maschinen- und Sondermaschinenbauer mit wiederkehrenden Lösungsfamilien;',
+        'Anlagenbauer und Automatisierer mit klar beschreibbaren Anwendungen;',
+        'technische Vertriebsteams mit hohem Vorbereitungsaufwand;',
+        'Unternehmen mit nutzbaren Modulen, Regeln, Tabellen oder historischen Anfragen;',
+        'Unternehmen, die vor einem größeren CPQ-Projekt klein und kontrolliert beginnen möchten.',
       ],
       layout: 'list',
-    },
-    {
-      id: 'industrieerfahrung',
-      heading: 'Industrieerfahrung als fachlicher Vorteil',
-      paragraphs: [
-        'Meine Erfahrung im Sondermaschinenbau und in der Industrieautomation hilft besonders bei erklärungsbedürftigen Produkten, technischen Dokumenten und Übergaben zwischen Fachbereichen. Sie ist ein Vorteil für komplexe B2B-Prozesse, aber keine Beschränkung auf bestimmte Maschinenarten.',
-      ],
-      links: [
-        {
-          label: 'Industriebeispiel: technische Anfragequalifizierung',
-          href: '/loesungen/technische-anfragequalifizierung/',
-        },
-        { label: 'Über meinen Hintergrund', href: '/ueber-hugo-menz/' },
-      ],
-      layout: 'text',
     },
     {
       id: 'arbeitsweise',
       heading: 'So kann die Zusammenarbeit aussehen',
       points: [
-        'unverbindliches Erstgespräch zur Einordnung;',
-        'Prozessaufnahme remote oder nach Vereinbarung vor Ort;',
-        'klar abgegrenzter Vorschlag für Analyse oder Umsetzung;',
-        'direkte Zusammenarbeit von UX-Konzept bis technischer Umsetzung;',
-        'Dokumentation und verständliche Übergabe.',
+        'Vorab-Fit-Check per Videocall.',
+        'Workshop remote oder nach Vereinbarung vor Ort.',
+        'Prüfung historischer Fälle in einer abgesicherten Umgebung.',
+        'Pilot im Schattenbetrieb mit menschlicher Freigabe.',
+        'Direkter Kontakt von der Analyse bis zur möglichen Umsetzung.',
       ],
       layout: 'list',
     },
     {
       id: 'region',
-      heading: 'Region und Zusammenarbeit',
+      heading: 'Region',
       paragraphs: [
-        'Mein Standort ist Stuttgart. Remote-Zusammenarbeit ist innerhalb Deutschlands und DACH möglich. Vor-Ort-Termine und mögliche Reisekosten werden vorab abgestimmt.',
+        'Schwerpunkt ist Stuttgart und Baden-Württemberg. Remote-Zusammenarbeit ist innerhalb Deutschlands und DACH möglich. Konkrete Vor-Ort-Termine und Reisekosten werden vorab vereinbart.',
       ],
       layout: 'text',
     },
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Einen digitalen Prozess konkret besprechen',
+    heading: 'Eine Maschinenfamilie regional oder remote prüfen',
     body:
-      'Beschreiben Sie kurz den heutigen Ablauf und den größten Engpass. Für das erste Gespräch reichen nicht vertrauliche Rahmendaten.',
+      'Der RFQ Readiness Workshop klärt Maschinenfamilie, heutigen Angebotsprozess, Daten, Regeln und technische Grenzen.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
-      href: '#contact-form',
-      dataCta: 'contact-final',
+      label: 'Pilot-Eignung prüfen',
+      href: '/leistungen/rfq-readiness-workshop/',
+      dataCta: 'readiness-final',
     },
-    note: 'Remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
   },
   schemaKinds: ['ProfessionalService', 'BreadcrumbList'],
 } as const satisfies PageDefinition;
@@ -125,28 +113,28 @@ export const ABOUT_HUGO_MENZ = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Über Hugo Menz | UX Engineering und Industrieerfahrung',
+    title: 'Über Hugo Menz | Maschinenbau und Prozessautomatisierung',
     description:
-      'Hugo Menz verbindet Erfahrung aus Sondermaschinenbau und Industrieautomation mit UX Engineering, Interface-Entwicklung und Prozessautomatisierung.',
+      'Maschinenbauingenieur aus Stuttgart mit rund acht Jahren Erfahrung im Sondermaschinenbau und praktischer Erfahrung mit APIs und Automatisierung.',
     canonicalPath: '/ueber-hugo-menz/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Über Hugo Menz: UX Engineering und Industrieerfahrung',
+      title: 'Über Hugo Menz: Maschinenbau und Prozessautomatisierung',
       description:
-        'Technische und betriebliche Prozesse verstehen und in klare Interfaces und Automatisierungen übersetzen.',
+        'Erfahrung aus dem Sondermaschinenbau und der Industrieautomation trifft praktische digitale Prozessautomatisierung.',
       type: 'website',
       locale: 'de_DE',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Über Hugo Menz: UX Engineering und Industrieerfahrung',
+      title: 'Über Hugo Menz: Maschinenbau und Prozessautomatisierung',
       description:
-        'Technische und betriebliche Prozesse verstehen und in klare Interfaces und Automatisierungen übersetzen.',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+        'Erfahrung aus dem Sondermaschinenbau und der Industrieautomation trifft praktische digitale Prozessautomatisierung.',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
     },
   },
   breadcrumbs: [
@@ -154,19 +142,19 @@ export const ABOUT_HUGO_MENZ = {
     { label: 'Über Hugo Menz', path: '/ueber-hugo-menz/' },
   ],
   hero: {
-    kicker: 'Persönlicher Hintergrund · Stuttgart',
-    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
+    kicker: 'Maschinenbau · Automatisierung · Stuttgart',
+    h1: 'Maschinenbau-Erfahrung trifft digitale Prozessautomatisierung',
     lead:
-      'Ich verbinde das Verständnis technischer und betrieblicher Prozesse mit UX, Interface-Entwicklung und Automatisierung. So entstehen Werkzeuge, die nicht nur funktionieren, sondern im Arbeitsalltag verständlich und nutzbar bleiben.',
+      'Ich verbinde rund acht Jahre Erfahrung im Sondermaschinenbau und in der Industrieautomation mit praktischer Erfahrung in Webtechnologien, APIs und Automatisierung. Mein Schwerpunkt liegt auf klar abgegrenzten digitalen Prozessen, die technische Arbeit vorbereiten und nachvollziehbar unterstützen.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
+      label: 'Pilot-Eignung prüfen',
+      href: '/leistungen/rfq-readiness-workshop/',
+      dataCta: 'readiness-hero',
     },
     secondaryCta: {
       label: 'Wie sich beides verbindet',
-      href: '#zusammenspiel',
-      dataCta: 'approach-hero',
+      href: '#kombination',
+      dataCta: 'combination-hero',
     },
     portrait: {
       src: '/hugo.jfif',
@@ -177,61 +165,59 @@ export const ABOUT_HUGO_MENZ = {
   },
   sections: [
     {
-      id: 'industrie',
-      eyebrow: 'Industrieerfahrung',
-      heading: 'Erfahrung im Sondermaschinenbau und in der Industrieautomation',
+      id: 'maschinenbau',
+      eyebrow: 'Industrieller Hintergrund',
+      heading: 'Rund acht Jahre im Sondermaschinenbau und in der Industrieautomation',
       paragraphs: [
-        'Rund acht Jahre arbeitete ich an der Entwicklung und Umsetzung kundenspezifischer Maschinen. Mein beruflicher Schwerpunkt lag auf der Konstruktion und Entwicklung von Sondermaschinen.',
+        'Mein beruflicher Schwerpunkt lag auf der Konstruktion und Entwicklung kundenspezifischer Maschinen sowie der technischen Koordination bis zur Umsetzung.',
       ],
       points: [
         'mechanische Konstruktion und technische Dokumentation;',
         'Stücklisten, Einkauf und Lieferantenkoordination;',
         'Abstimmung mit Mechanik, Elektrik, Montage und Inbetriebnahme;',
         'Kommunikation mit Kunden und internen Fachbereichen;',
-        'technische Koordination und Projektabwicklung;',
-        'Umgang mit Anforderungen, Änderungen, Risiken und Abhängigkeiten.',
+        'Projektabwicklung, Änderungen, Risiken und Abhängigkeiten.',
       ],
       layout: 'list',
     },
     {
-      id: 'ux-engineering',
-      eyebrow: 'Heutiger Schwerpunkt',
-      heading: 'UX Engineering für Interfaces und digitale Abläufe',
+      id: 'automatisierung',
+      eyebrow: 'Praktische Umsetzung',
+      heading: 'Rund drei Jahre mit Webtechnologien, APIs und Automatisierung',
       paragraphs: [
-        'Heute arbeite ich als UX Engineer für digitale Prozesse und Automatisierung. Ich übersetze komplexe Anforderungen in klare Bedienabläufe, strukturierte Daten und wartbare technische Lösungen.',
+        'Für digitale Abläufe arbeite ich praktisch mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung. Entscheidend ist dabei nicht das Werkzeug, sondern ein klarer Prozess mit nachvollziehbaren Regeln und Übergaben.',
       ],
       points: [
-        'Interfaces und wiederverwendbare UI-Komponenten;',
-        'interne Tools für klar abgegrenzte Aufgaben;',
-        'Datenerfassung, Status und verständliche Fehlerrückmeldungen;',
-        'Automatisierungen mit sichtbaren Ausnahmen und Freigaben;',
-        'Integrationen über APIs und Webhooks;',
+        'strukturierte Datenflüsse und Dokumentenverarbeitung;',
+        'API- und Webhook-Integrationen;',
+        'Prüf-, Fehler- und Freigabelogik;',
+        'Human-in-the-loop-Workflows;',
         'nachvollziehbare Übergaben zwischen Menschen und Systemen.',
       ],
       layout: 'list',
     },
     {
-      id: 'zusammenspiel',
+      id: 'kombination',
       eyebrow: 'Verbindung',
-      heading: 'Technische Prozesse verstehen. Nutzung einfach machen.',
+      heading: 'Technische Prozesse verstehen und sinnvoll automatisieren',
       paragraphs: [
-        'Die Verbindung beider Perspektiven ist mein Vorteil: Ich kann mit Fachbereichen klären, was ein Prozess wirklich braucht, und daraus eine Oberfläche oder Automatisierung entwickeln, die im Arbeitsalltag funktioniert.',
+        'Für technische Angebotsprozesse reicht es nicht, Dokumente zu lesen oder Systeme zu verbinden. Zuerst muss verstanden werden, welche Angaben eine Maschinenfamilie tatsächlich benötigt, welche Regeln belastbar sind und wann Vertrieb oder Engineering übernehmen müssen.',
       ],
       columns: [
         {
-          heading: 'Fachliche Realität',
+          heading: 'Fachliche Einordnung',
           points: [
-            'Anforderungen, Datenquellen und Verantwortlichkeiten einordnen.',
-            'Ausnahmen, Risiken und notwendige Entscheidungen erkennen.',
-            'Technische und betriebliche Übergaben verstehen.',
+            'Anforderungen, Module und technische Grenzen verstehen.',
+            'Fakten, Annahmen, Risiken und Quellen trennen.',
+            'Fälle erkennen, die neue Konstruktion oder Versuche brauchen.',
           ],
         },
         {
-          heading: 'Nutzbare Lösung',
+          heading: 'Kontrollierte Umsetzung',
           points: [
-            'Informationen verständlich priorisieren.',
-            'Klare Schritte, Zustände und Rückmeldungen gestalten.',
-            'Nur sinnvolle Teile automatisieren und wartbar umsetzen.',
+            'Informationen in ein freigegebenes Schema überführen.',
+            'bekannte Regeln deterministisch anwenden.',
+            'offene Punkte sichtbar an Fachleute zurückgeben.',
           ],
         },
       ],
@@ -239,42 +225,51 @@ export const ABOUT_HUGO_MENZ = {
     },
     {
       id: 'probleme',
-      eyebrow: 'Konkrete Aufgaben',
-      heading: 'Bei diesen Problemen kann ich unterstützen',
+      eyebrow: 'Schwerpunkt',
+      heading: 'Bei welchen Problemen ich im Angebotsprozess unterstütze',
       items: [
         {
-          title: 'Unstrukturierte Eingänge',
-          body: 'Anfragen, Dokumente und Formulare erfassen, ordnen und für die weitere Bearbeitung vorbereiten.',
+          title: 'Verteilte Kundeninformationen',
+          body: 'E-Mails, Lastenhefte, PDFs, Fotos und Notizen in eine gemeinsame Anforderungsakte überführen.',
         },
         {
-          title: 'Manuelle Dateneingabe',
-          body: 'Wiederholte Übertragungen reduzieren und Informationen kontrolliert zwischen Systemen weitergeben.',
+          title: 'Fehlende Angaben und Widersprüche',
+          body: 'Offene Punkte, Annahmen und technische Risiken vor der Budgetindikation sichtbar machen.',
         },
         {
-          title: 'Unklare Freigaben und Übergaben',
-          body: 'Status, Verantwortlichkeiten, offene Punkte und nächste Schritte nachvollziehbar machen.',
+          title: 'Regelbasierte Budgetvorbereitung',
+          body: 'Freigegebene Module, Tabellen, Faktoren und Formeln kontrolliert anwenden.',
         },
         {
-          title: 'Schwer bedienbare interne Tools',
-          body: 'Oberflächen vereinfachen und häufige Aufgaben mit einer klaren Informationshierarchie unterstützen.',
+          title: 'Übergaben an Vertrieb und Engineering',
+          body: 'Einen prüfbaren Stand mit Quellen, Rückfragen und klaren Verantwortlichkeiten vorbereiten.',
         },
-      ],
-      links: [
-        { label: 'Leistungen auf der Startseite', href: '/#leistungen' },
-        { label: 'n8n als möglicher Baustein', href: '/n8n-beratung-stuttgart/' },
       ],
       layout: 'cards',
+    },
+    {
+      id: 'arbeitsprinzipien',
+      eyebrow: 'Arbeitsprinzipien',
+      heading: 'Klarer Umfang statt scheinbarer Vollautomatisierung',
+      points: [
+        'Eine Maschinenfamilie statt das ganze Portfolio.',
+        'Fakten und Quellen statt scheinbarer Sicherheit.',
+        'Freigegebene Regeln statt erfundener Preise.',
+        'Pilot im Schattenbetrieb statt sofortiger Kundenkontakt.',
+        'Ein begründetes No-Go ist ein valides Ergebnis.',
+      ],
+      layout: 'list',
     },
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Einen konkreten Prozess besprechen',
+    heading: 'Eine Maschinenfamilie statt das ganze Portfolio prüfen',
     body:
-      'In einem unverbindlichen Erstgespräch kläre ich mit Ihnen, wo Informationen verloren gehen, die Bedienung unnötig schwerfällt oder wiederkehrende Arbeit Zeit bindet.',
+      'Der RFQ Readiness Workshop grenzt den technischen Umfang ab und kann mit einer Empfehlung für Go, Go mit Bedingungen oder No-Go enden.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
-      href: '#contact-form',
-      dataCta: 'contact-final',
+      label: 'Pilot-Eignung prüfen',
+      href: '/leistungen/rfq-readiness-workshop/',
+      dataCta: 'readiness-final',
     },
     note: 'Sie sprechen direkt mit mir – von der Einordnung bis zu einer möglichen Umsetzung.',
   },
@@ -287,28 +282,28 @@ export const CONTACT = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Unverbindliches Erstgespräch | Kontakt zu Hugo Menz',
+    title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
     description:
-      'Besprechen Sie einen digitalen Prozess, eine interne Oberfläche oder eine Automatisierung unverbindlich mit Hugo Menz.',
+      'Besprechen Sie eine Maschinenfamilie, Ihren heutigen Angebotsprozess und die Voraussetzungen für einen begrenzten internen RFQ-Pilot.',
     canonicalPath: '/kontakt/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Unverbindliches Erstgespräch mit Hugo Menz',
+      title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
       description:
-        'Einen komplexen digitalen oder betrieblichen Prozess kurz einordnen und einen sinnvollen nächsten Schritt klären.',
+        'Maschinenfamilie, Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
       type: 'website',
       locale: 'de_DE',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Unverbindliches Erstgespräch mit Hugo Menz',
+      title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
       description:
-        'Einen komplexen digitalen oder betrieblichen Prozess kurz einordnen und einen sinnvollen nächsten Schritt klären.',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
+        'Maschinenfamilie, Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
+      imagePath: '/og-rfq-preview.png',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
     },
   },
   breadcrumbs: [
@@ -316,42 +311,48 @@ export const CONTACT = {
     { label: 'Kontakt', path: '/kontakt/' },
   ],
   hero: {
-    kicker: 'Kontakt · Unverbindliche Einordnung',
-    h1: 'Einen konkreten Prozess unverbindlich besprechen',
+    kicker: 'Kontakt · RFQ-Pilot · Maschinenfamilie',
+    h1: 'Eignung einer Maschinenfamilie für einen RFQ-Pilot prüfen',
     lead:
-      'Beschreiben Sie kurz, welcher Ablauf heute Zeit kostet, Informationen verliert oder schwer zu bedienen ist. Für den Erstkontakt reichen nicht vertrauliche Rahmendaten.',
+      'Beschreiben Sie kurz die Maschinenfamilie und den heutigen Angebotsprozess. Für die erste Einordnung reichen nicht vertrauliche Rahmendaten.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
-      dataCta: 'contact-hero',
+      dataCta: 'readiness-hero',
+      contactContext: 'rfq',
     },
   },
   sections: [
     {
       id: 'contact-form',
-      heading: 'Worum geht es?',
-      paragraphs: [
-        'Hilfreich sind eine kurze Beschreibung des heutigen Ablaufs, der beteiligten Personen oder Systeme, des größten Engpasses und des gewünschten Ziels.',
-        'Bitte senden Sie im ersten Kontakt keine vertraulichen Dokumente, Zugangsdaten oder personenbezogenen Kundendaten. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
-      ],
+      heading: 'Diese Angaben helfen bei der ersten Einordnung',
       points: [
-        'Name und E-Mail-Adresse',
-        'Telefon, optional',
-        'heutiger Prozess oder konkrete Aufgabe',
-        'beteiligte Systeme oder Rollen, soweit bekannt',
-        'gewünschtes Ziel oder wichtigste Verbesserung',
+        'Maschinenfamilie oder klar abgegrenzte Lösungsfamilie;',
+        'ungefähres Anfragevolumen;',
+        'heutiger Angebotsprozess;',
+        'beteiligte Rollen in Vertrieb und Engineering;',
+        'größter Engpass vor der ersten Budgetindikation.',
+      ],
+      paragraphs: [
+        'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
       ],
       layout: 'contact',
     },
     {
       id: 'erwartungsmanagement',
-      heading: 'Was Sie im ersten Schritt erwarten können',
+      heading: 'Was im ersten Schritt geprüft wird',
       paragraphs: [
-        'Das Erstgespräch dient einer ersten Einordnung. Ich kläre mit Ihnen, ob das Thema sinnvoll abgegrenzt werden kann und ob eine Analyse, ein UX-Konzept, eine Integration oder eine kleine Umsetzung der passende nächste Schritt wäre. Es ist keine vollständige kostenlose Analyse.',
+        'Der erste Schritt ist keine Produktdemo und keine automatische Kalkulation. Ziel ist zu klären, ob genügend Wiederholbarkeit, Daten und Regeln für einen begrenzten RFQ Readiness Workshop vorhanden sind.',
       ],
       links: [
-        { label: 'Leistungen ansehen', href: '/#leistungen' },
-        { label: 'Über Hugo Menz', href: '/ueber-hugo-menz/' },
+        {
+          label: 'RFQ Readiness Workshop ansehen',
+          href: '/leistungen/rfq-readiness-workshop/',
+        },
+        {
+          label: 'Technische Anfragequalifizierung ansehen',
+          href: '/loesungen/technische-anfragequalifizierung/',
+        },
       ],
       layout: 'text',
     },
@@ -359,7 +360,7 @@ export const CONTACT = {
       id: 'alternative-kontaktwege',
       heading: 'Alternativer Kontaktweg',
       paragraphs: [
-        'Sie können mich auch über mein bestehendes LinkedIn-Profil kontaktieren.',
+        'Wenn Sie zunächst ausschließlich öffentlich verfügbare Informationen teilen möchten, können Sie mich auch über mein bestehendes LinkedIn-Profil kontaktieren.',
       ],
       links: [
         {
@@ -374,26 +375,27 @@ export const CONTACT = {
   faq: {
     id: 'faq',
     eyebrow: 'Häufige Frage',
-    heading: 'Vertrauliche Informationen im Erstkontakt',
+    heading: 'Vertrauliche Dokumente im Erstkontakt',
     items: [
       {
-        question: 'Soll ich bereits Dokumente oder Zugangsdaten senden?',
+        question: 'Können vertrauliche Dokumente im ersten Gespräch hochgeladen werden?',
         answer:
-          'Nein. Für das Erstgespräch reichen eine grobe Prozessbeschreibung und nicht vertrauliche Rahmendaten. Der Umgang mit Dokumenten, Systemzugängen und Daten wird vor einer Analyse separat vereinbart.',
+          'Nein. Im ersten Kontakt reichen eine grobe Prozessbeschreibung und nicht vertrauliche Rahmendaten. Der Umgang mit Dokumenten und Daten wird vor einer Analyse separat vereinbart.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Kontakt',
-    heading: 'Den ersten Schritt einfach halten',
+    heading: 'Maschinenfamilie und Angebotsprozess kurz beschreiben',
     body:
-      'Eine kurze Beschreibung des Prozesses und des größten Engpasses genügt. Details lassen sich anschließend gezielt klären.',
+      'Nennen Sie Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen, heutigen Angebotsprozess und den größten Engpass.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
-      dataCta: 'contact-final',
+      dataCta: 'readiness-final',
+      contactContext: 'rfq',
     },
-    note: 'Keine Datei-Uploads und keine vertraulichen Unterlagen im Erstkontakt.',
+    note: 'Keine Datei-Uploads. Bitte senden Sie noch keine vertraulichen Kundendaten.',
   },
   schemaKinds: ['ContactPage', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;
