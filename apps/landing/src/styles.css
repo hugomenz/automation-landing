@@ -3,7 +3,7 @@
 :root {
   --header-offset: 88px;
 
-  /* Dark, GitHub-like surface palette */
+  /* Dark surfaces with restrained Canary Islands accents */
   --bg: #0d1117;
   --surface: #161b22;
   --surface-2: #1c2230;
@@ -15,12 +15,30 @@
   --text-secondary: #8b949e;
   --text-muted: #7d8590;
 
-  --accent: #2ea043;
-  --accent-bright: #3fb950;
-  --accent-action: #238636;
-  --accent-action-hover: #1f7a31;
-  --accent-soft: rgba(46, 160, 67, 0.13);
-  --accent-border: rgba(63, 185, 80, 0.42);
+  --accent: #1677b8;
+  --accent-bright: #72b9ea;
+  --accent-action: #0768a9;
+  --accent-action-hover: #075087;
+  --accent-soft: rgba(22, 119, 184, 0.14);
+  --accent-border: rgba(114, 185, 234, 0.52);
+  --accent-glow: rgba(22, 119, 184, 0.09);
+  --accent-ring: rgba(114, 185, 234, 0.2);
+
+  --accent-warm: #f2c94c;
+  --accent-warm-soft: rgba(242, 201, 76, 0.14);
+  --accent-warm-border: rgba(242, 201, 76, 0.48);
+  --accent-warm-glow: rgba(242, 201, 76, 0.045);
+
+  --success-action: #238636;
+  --success-action-text: #ffffff;
+  --error: #ff6b5b;
+  --error-text: #ffb4aa;
+  --error-soft: rgba(255, 107, 91, 0.08);
+  --error-ring: rgba(255, 107, 91, 0.14);
+  --error-border: rgba(255, 107, 91, 0.4);
+  --error-action: #8b2c2c;
+  --error-action-text: #ffc2c2;
+  --error-icon: #ff8787;
 
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -45,8 +63,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(1100px 520px at 78% -8%, rgba(46, 160, 67, 0.08), transparent 60%),
-    radial-gradient(900px 480px at 8% 2%, rgba(56, 139, 253, 0.05), transparent 55%),
+    radial-gradient(1100px 520px at 78% -8%, var(--accent-glow), transparent 60%),
+    radial-gradient(900px 480px at 8% 2%, var(--accent-warm-glow), transparent 55%),
     var(--bg);
   color: var(--text);
   font-family: var(--sans);
@@ -178,8 +196,8 @@ svg {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  background: var(--accent-warm);
+  box-shadow: 0 0 0 4px var(--accent-warm-soft);
 }
 
 .mono {
@@ -250,7 +268,7 @@ svg {
 }
 
 ::selection {
-  background: rgba(46, 160, 67, 0.35);
+  background: var(--accent-ring);
   color: var(--text);
 }
 

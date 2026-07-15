@@ -24,7 +24,7 @@
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 2px);
   background:
-    radial-gradient(520px 240px at 100% 0, rgba(46, 160, 67, 0.08), transparent 60%),
+    radial-gradient(520px 240px at 100% 0, var(--accent-glow), transparent 60%),
     var(--surface);
   box-shadow: var(--shadow);
 }
@@ -127,17 +127,17 @@
 .contact-input:focus {
   outline: none;
   border-color: var(--accent-bright);
-  box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.14);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .contact-input-error {
-  border-color: #ff6b5b;
-  background: rgba(255, 107, 91, 0.08);
+  border-color: var(--error);
+  background: var(--error-soft);
 }
 
 .contact-input-error:focus {
-  border-color: #ff6b5b;
-  box-shadow: 0 0 0 3px rgba(255, 107, 91, 0.14);
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px var(--error-ring);
 }
 
 .contact-textarea {
@@ -146,21 +146,21 @@
 }
 
 .contact-error {
-  color: #ffb4aa;
+  color: var(--error-text);
   font-size: 0.84rem;
 }
 
 .contact-errors {
   padding: 14px 16px;
-  border: 1px solid rgba(255, 107, 91, 0.4);
+  border: 1px solid var(--error-border);
   border-radius: 10px;
-  background: rgba(255, 107, 91, 0.08);
+  background: var(--error-soft);
   margin-top: 8px;
 }
 
 .contact-errors-title {
   margin: 0 0 10px 0;
-  color: #ffb4aa;
+  color: var(--error-text);
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -168,7 +168,7 @@
 .contact-errors-list {
   margin: 0;
   padding-left: 20px;
-  color: #ffb4aa;
+  color: var(--error-text);
   font-size: 0.84rem;
   line-height: 1.5;
 }

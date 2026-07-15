@@ -60,13 +60,13 @@ import { SnackbarService } from '../../snackbar.service';
     }
 
     .snackbar-success {
-      background: var(--accent-action);
-      color: #fff;
+      background: var(--success-action);
+      color: var(--success-action-text);
     }
 
     .snackbar-error {
-      background: #8b2c2c;
-      color: #ffc2c2;
+      background: var(--error-action);
+      color: var(--error-action-text);
     }
 
     .snackbar-content {
@@ -85,7 +85,7 @@ import { SnackbarService } from '../../snackbar.service';
     }
 
     .snackbar-icon.error {
-      color: #ff8787;
+      color: var(--error-icon);
     }
 
     .snackbar-message {

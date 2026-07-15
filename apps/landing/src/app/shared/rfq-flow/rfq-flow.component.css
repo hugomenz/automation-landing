@@ -35,11 +35,11 @@ figcaption {
 }
 
 .window-dots i:last-child {
-  background: var(--accent);
+  background: var(--accent-warm);
 }
 
 .flow-status {
-  color: #d29922;
+  color: var(--accent-warm);
 }
 
 .flow-nodes {
