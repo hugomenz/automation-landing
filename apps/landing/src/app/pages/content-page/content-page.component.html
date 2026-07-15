@@ -58,22 +58,6 @@
       [id]="section.id"
     >
       <div class="container section-layout">
-        @if (section.layout === 'profile') {
-          <figure class="profile-portrait">
-            <div class="profile-avatar">
-              <img
-                [src]="portrait.portraitSrc"
-                [alt]="portrait.portraitAlt"
-                width="640"
-                height="480"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <figcaption class="mono">Hugo Martin Menz · Stuttgart</figcaption>
-          </figure>
-        }
-
         <div class="section-content">
           <div class="section-head">
             @if (section.eyebrow) {
@@ -84,6 +68,22 @@
               <p class="section-intro">{{ section.intro }}</p>
             }
           </div>
+
+          @if (section.layout === 'profile') {
+            <figure class="profile-portrait">
+              <div class="profile-avatar">
+                <img
+                  [src]="portrait.portraitSrc"
+                  [alt]="portrait.portraitAlt"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="mono">Hugo Martin · Stuttgart</figcaption>
+            </figure>
+          }
 
           @if (section.paragraphs) {
             <div class="prose">

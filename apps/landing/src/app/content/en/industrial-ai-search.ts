@@ -230,7 +230,6 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     },
     {
       id: 'why-hugo-menz',
-      eyebrow: 'Why Hugo Menz',
       heading: 'Understand industry and make technical information usable',
       paragraphs: [
         'I combine experience in special-purpose machinery and industrial projects with web development and automation. You work directly with me from the assessment through to a possible technical implementation.',

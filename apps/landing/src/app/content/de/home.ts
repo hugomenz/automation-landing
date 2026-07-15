@@ -247,7 +247,6 @@ export const HOME_DE = {
     },
     {
       id: 'profil',
-      eyebrow: 'Warum Hugo Menz',
       heading: 'Maschinenbau verstehen. Software pragmatisch umsetzen.',
       paragraphs: [
         'Ich bin Maschinenbauingenieur und Webentwickler in Stuttgart. Rund acht Jahre habe ich in Sondermaschinenbau, Konstruktion, Stücklisten, Einkauf, Lieferantenkoordination und Projektabwicklung gearbeitet. Dazu kommen rund drei Jahre Erfahrung mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung.',

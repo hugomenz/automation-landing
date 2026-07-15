@@ -227,7 +227,6 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
     },
     {
       id: 'warum-hugo-menz',
-      eyebrow: 'Warum Hugo Menz',
       heading: 'Industrie verstehen und technische Informationen nutzbar machen',
       paragraphs: [
         'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit Webentwicklung und Automatisierung. Sie arbeiten direkt mit mir – von der Analyse bis zu einer möglichen technischen Umsetzung.',
