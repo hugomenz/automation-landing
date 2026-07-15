@@ -1,6 +1,73 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import type { PageLanguage } from '../../content/page.types';
 import { PageLocaleService } from '../../core/page-locale.service';
 import { siteConfig } from '../../site.config';
+
+interface FooterLink {
+  readonly label: string;
+  readonly href: string;
+}
+
+interface FooterGroup {
+  readonly label: string;
+  readonly links: readonly FooterLink[];
+}
+
+export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
+  de: [
+    {
+      label: 'Lösung und Einstieg',
+      links: [
+        {
+          label: 'Technische Anfragequalifizierung',
+          href: '/loesungen/technische-anfragequalifizierung/',
+        },
+        { label: 'RFQ Readiness Workshop', href: '/leistungen/rfq-readiness-workshop/' },
+        { label: 'Interner RFQ-Copilot', href: '/leistungen/interner-rfq-copilot/' },
+      ],
+    },
+    {
+      label: 'Weitere Themen',
+      links: [
+        {
+          label: 'Weitere Prozessautomatisierungen',
+          href: '/leistungen/prozessautomatisierung/',
+        },
+        { label: 'n8n Beratung Stuttgart', href: '/n8n-beratung-stuttgart/' },
+        {
+          label: 'KI-Sichtbarkeit für Industrieunternehmen',
+          href: '/ki-sichtbarkeit-industrie/',
+        },
+        { label: 'Über Hugo Menz', href: '/ueber-hugo-menz/' },
+        { label: 'Kontakt', href: '/kontakt/' },
+      ],
+    },
+  ],
+  en: [
+    {
+      label: 'Solution',
+      links: [
+        { label: 'Technical enquiry qualification', href: '/en/#workflow' },
+        { label: 'Internal RFQ copilot', href: '/en/#internal-rfq-copilot' },
+        {
+          label: 'AI Search Readiness',
+          href: '/en/ai-search-readiness-industrial-companies/',
+        },
+      ],
+    },
+    {
+      label: 'Explore',
+      links: [
+        { label: 'Who it is for', href: '/en/#fit' },
+        { label: 'Controls and human review', href: '/en/#control' },
+        { label: 'Approach', href: '/en/#process' },
+        { label: 'About Hugo Menz', href: '/en/#about' },
+        { label: 'Further process automation', href: '/en/#further-automation' },
+        { label: 'Contact', href: '/en/#contact' },
+      ],
+    },
+  ],
+};
 
 @Component({
   selector: 'app-site-footer',
@@ -14,47 +81,22 @@ export class SiteFooterComponent {
 
   readonly language = this.pageLocale.language;
   readonly languagePath = this.pageLocale.languagePath;
-  readonly pageKey = this.pageLocale.pageKey;
   readonly linkedin = siteConfig.social.linkedin;
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
           description:
             'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer.',
-          solutionLabel: 'Lösung und Einstieg',
-          requestLink: 'Technische Anfragequalifizierung',
-          workshopLink: 'RFQ Readiness Workshop',
-          copilotLink: 'Interner RFQ-Copilot',
-          secondaryLabel: 'Weitere Themen',
-          processAutomationLink: 'Weitere Prozessautomatisierungen',
-          n8nLink: 'n8n Beratung Stuttgart',
-          aiSearchLink: 'KI-Sichtbarkeit für Industrieunternehmen',
-          aiSearchPath: '/ki-sichtbarkeit-industrie/',
+          groups: FOOTER_GROUPS.de,
           companyLabel: 'Hugo Menz Automation',
-          aboutLink: 'Über Hugo Menz',
-          contactLink: 'Kontakt',
-          languageLabel:
-            this.pageKey() === 'industrial-ai-search-de' ? 'English version' : 'English home',
+          languageLabel: 'English',
         }
       : {
           description:
             'Technical enquiry qualification and digital quotation processes for machinery manufacturers.',
-          solutionLabel: 'Solution and first step',
-          requestLink: 'Technical request qualification (DE)',
-          workshopLink: 'RFQ readiness workshop (DE)',
-          copilotLink: 'Internal RFQ copilot (DE)',
-          secondaryLabel: 'Further topics',
-          processAutomationLink: 'Further process automation (DE)',
-          n8nLink: 'n8n consulting in Stuttgart (DE)',
-          aiSearchLink: 'AI Search Readiness for industry',
-          aiSearchPath: '/en/ai-search-readiness-industrial-companies/',
+          groups: FOOTER_GROUPS.en,
           companyLabel: 'Hugo Menz Automation',
-          aboutLink: 'About Hugo Menz (DE)',
-          contactLink: 'Contact (DE)',
-          languageLabel:
-            this.pageKey() === 'industrial-ai-search-en'
-              ? 'Deutsche Version'
-              : 'Deutsche Startseite',
+          languageLabel: 'Deutsch',
         },
   );
 }

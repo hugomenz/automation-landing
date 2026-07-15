@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { FOOTER_GROUPS } from './components/site-footer/site-footer.component';
 
 const angularJson = JSON.parse(
   readFileSync(new URL('../../angular.json', import.meta.url), 'utf8'),
@@ -200,6 +201,14 @@ describe('interaction and accessibility guardrails', () => {
   it('does not frame the global footer around a few machine families', () => {
     expect(footerSource).not.toMatch(/Maschinenfamil|Machine-family/);
     expect(footerTemplate).not.toContain('/branchen/');
+  });
+
+  it('keeps the English footer on English destinations', () => {
+    const englishLinks = FOOTER_GROUPS.en.flatMap((group) => group.links);
+
+    expect(englishLinks.length).toBeGreaterThan(0);
+    expect(englishLinks.every((link) => link.href.startsWith('/en/'))).toBe(true);
+    expect(englishLinks.map((link) => link.label).join(' ')).not.toMatch(/\(DE\)|German page/);
   });
 });
 

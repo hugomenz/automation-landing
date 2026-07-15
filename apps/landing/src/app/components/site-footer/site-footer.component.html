@@ -6,34 +6,19 @@
       <a [href]="linkedin" rel="noreferrer" target="_blank">LinkedIn</a>
     </div>
 
-    <nav class="footer-group" [attr.aria-label]="copy().solutionLabel">
-      <strong>{{ copy().solutionLabel }}</strong>
-      <a href="/loesungen/technische-anfragequalifizierung/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().requestLink }}
-      </a>
-      <a href="/leistungen/rfq-readiness-workshop/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().workshopLink }}
-      </a>
-      <a href="/leistungen/interner-rfq-copilot/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().copilotLink }}
-      </a>
-    </nav>
-
-    <nav class="footer-group" [attr.aria-label]="copy().secondaryLabel">
-      <strong>{{ copy().secondaryLabel }}</strong>
-      <a href="/leistungen/prozessautomatisierung/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().processAutomationLink }}
-      </a>
-      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">
-        {{ copy().n8nLink }}
-      </a>
-      <a [href]="copy().aiSearchPath">{{ copy().aiSearchLink }}</a>
-      <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().aboutLink }}</a>
-      <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().contactLink }}</a>
-      <a [href]="languagePath()" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
-        {{ copy().languageLabel }}
-      </a>
-    </nav>
+    @for (group of copy().groups; track group.label; let last = $last) {
+      <nav class="footer-group" [attr.aria-label]="group.label">
+        <strong>{{ group.label }}</strong>
+        @for (link of group.links; track link.href) {
+          <a [href]="link.href">{{ link.label }}</a>
+        }
+        @if (last) {
+          <a [href]="languagePath()" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
+            {{ copy().languageLabel }}
+          </a>
+        }
+      </nav>
+    }
   </div>
 
   <div class="container footer-bottom">
