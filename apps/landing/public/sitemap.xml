@@ -54,4 +54,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
   </url>
+  <url>
+    <loc>https://www.hugomenz.de/ki-sichtbarkeit-industrie/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+  </url>
 </urlset>

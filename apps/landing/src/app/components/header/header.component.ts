@@ -36,6 +36,7 @@ export class HeaderComponent {
 
   readonly menuOpen = signal(false);
   readonly language = this.pageLocale.language;
+  readonly languagePath = this.pageLocale.languagePath;
   readonly navigation = computed(() => NAVIGATION[this.language()]);
   readonly copy = computed(() =>
     this.language() === 'de'
@@ -46,7 +47,6 @@ export class HeaderComponent {
           menuLabel: 'Menü umschalten',
           languageLabel: 'English version',
           languageText: 'EN',
-          languagePath: '/en/',
           homePath: '/',
           cta: 'Pilot-Eignung prüfen',
           ctaPath: '/leistungen/rfq-readiness-workshop/',
@@ -58,7 +58,6 @@ export class HeaderComponent {
           menuLabel: 'Toggle menu',
           languageLabel: 'Deutsche Version',
           languageText: 'DE',
-          languagePath: '/',
           homePath: '/en/',
           cta: 'Check pilot fit',
           ctaPath: '/en/#contact',

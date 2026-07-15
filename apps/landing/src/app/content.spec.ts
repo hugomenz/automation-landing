@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import {
   getAbsoluteHreflangAlternates,
   getCanonicalUrl,
@@ -23,12 +23,32 @@ const REQUIRED_PATHS = [
   '/kontakt/',
   '/en/',
   '/n8n-beratung-stuttgart/',
+  '/ki-sichtbarkeit-industrie/',
+  '/en/ai-search-readiness-industrial-companies/',
 ] as const satisfies readonly PagePath[];
 
 const HOME_ALTERNATES = [
   { hreflang: 'de-DE', path: '/', href: 'https://www.hugomenz.de/' },
   { hreflang: 'en', path: '/en/', href: 'https://www.hugomenz.de/en/' },
   { hreflang: 'x-default', path: '/', href: 'https://www.hugomenz.de/' },
+] as const;
+
+const INDUSTRIAL_AI_SEARCH_ALTERNATES = [
+  {
+    hreflang: 'de-DE',
+    path: '/ki-sichtbarkeit-industrie/',
+    href: 'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
+  },
+  {
+    hreflang: 'en',
+    path: '/en/ai-search-readiness-industrial-companies/',
+    href: 'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
+  },
+  {
+    hreflang: 'x-default',
+    path: '/ki-sichtbarkeit-industrie/',
+    href: 'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
+  },
 ] as const;
 
 const routeSource = readFileSync(new URL('./app.routes.ts', import.meta.url), 'utf8');
@@ -49,8 +69,8 @@ function indexableText(page: PageDefinition): string {
 }
 
 describe('public page registry', () => {
-  it('defines exactly the 12 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(12);
+  it('defines exactly the 14 required public routes', () => {
+    expect(PAGE_REGISTRY).toHaveLength(14);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
@@ -138,9 +158,11 @@ describe('German home content guardrails', () => {
   });
 });
 
-describe('English home and hreflang', () => {
+describe('English home and bilingual hreflang', () => {
   const germanHome = getPageByKey('home-de');
   const englishHome = getPageByKey('home-en');
+  const germanIndustrialAiSearch = getPageByKey('industrial-ai-search-de');
+  const englishIndustrialAiSearch = getPageByKey('industrial-ai-search-en');
 
   it('publishes a complete, independently canonical English home', () => {
     expect(englishHome.path).toBe('/en/');
@@ -163,20 +185,112 @@ describe('English home and hreflang', () => {
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
   });
 
-  it('emits reciprocal de-DE, en and x-default alternates on the two homes only', () => {
+  it('emits reciprocal de-DE, en and x-default alternates on translated page pairs only', () => {
     expect(getAbsoluteHreflangAlternates(germanHome)).toEqual(HOME_ALTERNATES);
     expect(getAbsoluteHreflangAlternates(englishHome)).toEqual(HOME_ALTERNATES);
+    expect(getAbsoluteHreflangAlternates(germanIndustrialAiSearch)).toEqual(
+      INDUSTRIAL_AI_SEARCH_ALTERNATES,
+    );
+    expect(getAbsoluteHreflangAlternates(englishIndustrialAiSearch)).toEqual(
+      INDUSTRIAL_AI_SEARCH_ALTERNATES,
+    );
 
     const pagesWithAlternates = PAGE_REGISTRY.filter(
       (page) => (page.seo.alternates?.length ?? 0) > 0,
     );
-    expect(pagesWithAlternates.map((page) => page.key)).toEqual(['home-de', 'home-en']);
+    expect(pagesWithAlternates.map((page) => page.key)).toEqual([
+      'home-de',
+      'home-en',
+      'industrial-ai-search-de',
+      'industrial-ai-search-en',
+    ]);
 
     for (const page of PAGE_REGISTRY.filter(
-      (candidate) => !(['home-de', 'home-en'] as PageKey[]).includes(candidate.key),
+      (candidate) =>
+        !(
+          [
+            'home-de',
+            'home-en',
+            'industrial-ai-search-de',
+            'industrial-ai-search-en',
+          ] as PageKey[]
+        ).includes(candidate.key),
     )) {
       expect(page.seo.alternates, `${page.key} alternates`).toBeUndefined();
     }
+  });
+});
+
+describe('industrial AI-search campaign', () => {
+  const germanPage = getPageByKey('industrial-ai-search-de');
+  const englishPage = getPageByKey('industrial-ai-search-en');
+
+  it('publishes the approved positioning and indexable metadata in both languages', () => {
+    expect(germanPage.path).toBe('/ki-sichtbarkeit-industrie/');
+    expect(germanPage.hero.h1).toBe('KI-Sichtbarkeit für Industrieunternehmen');
+    expect(germanPage.seo.robots).toBe('index,follow');
+    expect(englishPage.path).toBe('/en/ai-search-readiness-industrial-companies/');
+    expect(englishPage.hero.h1).toBe('AI Search Readiness for Industrial Companies');
+    expect(englishPage.seo.robots).toBe('index,follow');
+    expect(germanPage.seo.openGraph.imagePath).toBe('/og-industrial-ai-search-de.png');
+    expect(englishPage.seo.openGraph.imagePath).toBe('/og-industrial-ai-search-en.png');
+    expect(
+      existsSync(new URL('../../public/og-industrial-ai-search-de.png', import.meta.url)),
+    ).toBe(true);
+    expect(
+      existsSync(new URL('../../public/og-industrial-ai-search-en.png', import.meta.url)),
+    ).toBe(true);
+  });
+
+  it('uses the existing contact mechanism and publishes matching FAQ schema content', () => {
+    expect(germanPage.hero.primaryCta?.href).toBe('#contact-form');
+    expect(germanPage.finalCta.action.href).toBe('#contact-form');
+    expect(englishPage.hero.primaryCta?.href).toBe('#contact-form');
+    expect(englishPage.finalCta.action.href).toBe('#contact-form');
+    expect(germanPage.faq?.items).toHaveLength(13);
+    expect(englishPage.faq?.items).toHaveLength(13);
+    expect(germanPage.schemaKinds).toEqual([
+      'Service',
+      'Person',
+      'BreadcrumbList',
+      'FAQPage',
+    ]);
+    expect(englishPage.schemaKinds).toEqual([
+      'Service',
+      'Person',
+      'BreadcrumbList',
+      'FAQPage',
+    ]);
+  });
+
+  it('states the platform limitations and avoids a free-audit or result promise', () => {
+    const germanText = indexableText(germanPage);
+    const englishText = indexableText(englishPage);
+
+    expect(germanText).toContain(
+      'Kein Dienstleister kann eine Nennung, Quelle oder Empfehlung in einem bestimmten KI-System garantieren.',
+    );
+    expect(englishText).toContain(
+      'No service provider can guarantee a mention, citation or recommendation in a specific AI system.',
+    );
+    expect(germanText).toContain('Die Ersteinschätzung ist kein vollständiges kostenloses Audit.');
+    expect(englishText).toContain('The initial assessment is not a complete free audit.');
+  });
+
+  it('connects the Hugo Menz brand with the Stuttgart AI-search service', () => {
+    const germanText = indexableText(germanPage);
+    const englishText = indexableText(englishPage);
+
+    expect(germanText).toContain(
+      'Hugo Menz Automation unterstützt von Stuttgart aus Industrieunternehmen',
+    );
+    expect(germanText).toContain('Bietet Hugo Menz GEO oder KI-SEO in Stuttgart an?');
+    expect(englishText).toContain(
+      'From Stuttgart, Hugo Menz Automation supports industrial companies',
+    );
+    expect(englishText).toContain(
+      'Does Hugo Menz offer GEO or AI-search optimization in Stuttgart?',
+    );
   });
 });
 
@@ -184,6 +298,10 @@ describe('content trust guardrails', () => {
   const allContent = PAGE_REGISTRY.map(indexableText).join('\n');
 
   it('does not publish invented proof, guarantees or result claims', () => {
+    const contentWithoutApprovedGuaranteeQuestion = allContent.replace(
+      'Kann eine Erwähnung in ChatGPT oder Gemini garantiert werden?',
+      '',
+    );
     const forbiddenClaims = [
       /\b50\s*%\s+Zeit\s+sparen\b/i,
       /\b90\s*%\b/i,
@@ -201,7 +319,9 @@ describe('content trust guardrails', () => {
     ];
 
     for (const claim of forbiddenClaims) {
-      expect(allContent, `forbidden claim ${claim}`).not.toMatch(claim);
+      expect(contentWithoutApprovedGuaranteeQuestion, `forbidden claim ${claim}`).not.toMatch(
+        claim,
+      );
     }
   });
 

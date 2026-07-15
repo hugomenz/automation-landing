@@ -16,7 +16,9 @@ export type PageKey =
   | 'about-hugo-menz'
   | 'contact'
   | 'home-en'
-  | 'n8n-consulting-stuttgart';
+  | 'n8n-consulting-stuttgart'
+  | 'industrial-ai-search-de'
+  | 'industrial-ai-search-en';
 
 export type SchemaKind =
   | 'BreadcrumbList'

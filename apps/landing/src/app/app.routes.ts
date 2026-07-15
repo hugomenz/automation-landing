@@ -19,6 +19,8 @@ export const routes: Routes = [
   pageRoute('ueber-hugo-menz', 'about-hugo-menz'),
   pageRoute('kontakt', 'contact'),
   pageRoute('n8n-beratung-stuttgart', 'n8n-consulting-stuttgart'),
+  pageRoute('ki-sichtbarkeit-industrie', 'industrial-ai-search-de'),
   pageRoute('en', 'home-en'),
+  pageRoute('en/ai-search-readiness-industrial-companies', 'industrial-ai-search-en'),
   { path: '**', component: NotFoundComponent },
 ];

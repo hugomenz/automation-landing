@@ -38,7 +38,7 @@
       <div class="header-controls">
         <a
           class="language-link"
-          [href]="copy().languagePath"
+          [href]="languagePath()"
           [attr.aria-label]="copy().languageLabel"
           hreflang="{{ language() === 'de' ? 'en' : 'de-DE' }}"
           (click)="closeMenu()"
