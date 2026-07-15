@@ -1,0 +1,34 @@
+{
+  "phase": 1,
+  "purpose": "Company universe search log (read-only).",
+  "research_date": "2026-07-12",
+  "execution_week": "2026-07-13_2026-07-19",
+  "skill": "linkedin-copilot",
+  "method": "Direct read-only navigation to /search/results/companies/?keywords=... + accessibility/DOM extraction. Conservative pace. First results page per query (no infinite scroll).",
+  "ui_language_observed": "de-DE",
+  "session": "existing authenticated human session; no login/CAPTCHA/checkpoint encountered",
+  "important_finding": "LinkedIn company search matches company NAMES, not described activities. Segment terms that are common in company names (Verpackungstechnik, Sondermaschinenbau, Fördertechnik) return many results; process terms that are rarely company names (Palettierung, Montageanlagen, Endverpackung) return none.",
+  "queries": [
+    { "query": "Verpackungsmaschinen", "type": "companies", "result": "results", "kept": 8, "note": "prior discovery; core packaging-machinery builders" },
+    { "query": "Sondermaschinenbau", "type": "companies", "result": "results", "kept": 10 },
+    { "query": "Fördertechnik", "type": "companies", "result": "results", "kept": 10 },
+    { "query": "Verpackungstechnik", "type": "companies", "result": "results", "kept": 10 },
+    { "query": "Automatisierungstechnik", "type": "companies", "result": "results", "kept": 10, "note": "includes research institutes/clusters -> ECOSYSTEM" },
+    { "query": "Handhabungstechnik", "type": "companies", "result": "results", "kept": 10 },
+    { "query": "Robotik Automation", "type": "companies", "result": "results", "kept": 4, "note": "many foreign/non-ICP results dropped (Spain, Turkey, China)" },
+    { "query": "Anlagenbau", "type": "companies", "result": "results", "kept": 6, "note": "several off-topic (Umwelt, Erdöl) dropped" },
+    { "query": "Prüftechnik", "type": "companies", "result": "results", "kept": 5, "note": "surfaced Konradin Mediengruppe (industrial media)" },
+    { "query": "Palettieranlagen", "type": "companies", "result": "no_results" },
+    { "query": "Palettierung", "type": "companies", "result": "no_results" },
+    { "query": "Montageanlagen", "type": "companies", "result": "no_results" },
+    { "query": "Endverpackung", "type": "companies", "result": "no_results" },
+    { "query": "Verpackungsmaschinen Baden-Württemberg", "type": "companies", "result": "no_results", "note": "multi-word company-name search fails; use single tokens + location filter instead" }
+  ],
+  "queries_that_worked": ["Verpackungsmaschinen", "Verpackungstechnik", "Sondermaschinenbau", "Fördertechnik", "Handhabungstechnik", "Automatisierungstechnik", "Prüftechnik", "Anlagenbau"],
+  "queries_that_failed": ["Palettieranlagen", "Palettierung", "Montageanlagen", "Endverpackung", "Verpackungsmaschinen Baden-Württemberg"],
+  "additional_companies_surfaced_via": "people headlines and post authors (Schnaithmann, ASYS Group, VS Sondermaschinenbau, FORM+TEST, RHV Technik, Schmid Maschinenbau, camos, Perspectix, Spanflug, dima, End-of-Line Experts, HuW Automation, VIETZ)",
+  "limitations": [
+    "Per-company employee size / HQ / activity were NOT opened for every company (would exceed conservative read-only limits). Those fields are 'unknown' unless verified on a company page.",
+    "Palletizing / end-of-line as a segment is under-represented in company-name search; better reached via packaging builders' product pages and posts."
+  ]
+}

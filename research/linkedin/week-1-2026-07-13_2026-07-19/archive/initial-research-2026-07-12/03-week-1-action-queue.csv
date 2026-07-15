@@ -1,0 +1,17 @@
+date,priority,company,person,classification,profile_url,post_url,proposed_action,reason,desired_outcome,status,requires_human_approval,follow_up_metric
+2026-07-13,high,Prewa Verpackungsmaschinen,Prewa (page),PROSPECT,,https://www.linkedin.com/feed/update/urn:li:activity:7480901060509773826/,Read post + draft comment #1 (throughput vs format),Primary segment; recent; concrete,Reply from a Prewa engineer/buyer,PENDING_APPROVAL,true,author_reply
+2026-07-13,high,(top-20 accounts),—,—,,,Review top 20 priority accounts + verify activity of top 12 people,Activity is unknown for most buyers; verify first,Confirmed active shortlist,TODO,false,active_count
+2026-07-13,med,—,Erdinc Erboral,PROBLEM_OWNER,https://www.linkedin.com/in/erdinc-erboral-874354193/,,Open profile + recent activity (read only),BW technischer Vertrieb; check if he posts,Know whether he is engageable,TODO,false,profile_activity_found
+2026-07-13,med,—,—,—,,,Identify possible future relationships (no connect yet),Do not auto-connect in week 1,Watchlist for week 2,TODO,false,watchlist_size
+2026-07-14,high,dima,dima (page)/Markus Westermeier,ECOSYSTEM/DISTRIBUTION,https://www.linkedin.com/in/markus-westermeier/,open via recent activity,Read + draft comments #2 and #3 (Angebotsprozess),On Hugo's core topic,Reply from author / buyer visibility,PENDING_APPROVAL,true,author_reply
+2026-07-14,high,—,—,—,,,Prepare own Post 1 (experience observation),Start contributing content,Publish after approval,PENDING_APPROVAL,true,post_impressions_by_role
+2026-07-14,med,—,—,—,,,Review authors who interacted on prior threads,Find warm second-order contacts,2-3 new relevant profiles,TODO,false,new_profiles_found
+2026-07-15,high,EOL Experts,EOL (page),PROSPECT,,open via company recent activity,Read + draft comment #4 (requirements structuring),Pure primary segment,Reply / profile visit,PENDING_APPROVAL,true,author_reply
+2026-07-15,med,—,—,—,,,Search new posts (Angebotsprozess / End-of-Line / Palettierung),Find fresh conversations,3-5 fresh posts,TODO,false,fresh_posts_found
+2026-07-15,med,—,—,—,,,Review relevant people found in comments of engaged posts,Second-order discovery,2-3 commenter profiles,TODO,false,commenter_profiles
+2026-07-16,high,Perspectix / Frank Schepers,Frank Schepers,ECOSYSTEM/CHAMPION,https://www.linkedin.com/in/schepersfrank/,open via recent activity,Read + draft comments #5/#6 (config vs special engineering),Configuration boundary topic,Exchange with config audience,PENDING_APPROVAL,true,author_reply
+2026-07-16,low,camos,camos (page),DISTRIBUTION,,open via company recent activity,Evaluate; likely SKIP if audience is software/consultants,Watch audience-skew,Decide engage or SKIP,TODO,false,audience_type
+2026-07-17,high,—,—,—,,,Prepare own Post 3 (critical AI/estimation opinion),Positioning post,Publish after approval,PENDING_APPROVAL,true,post_impressions_by_role
+2026-07-17,med,Klaus Weßing,Klaus Weßing,DISTRIBUTION_PERSON,https://www.linkedin.com/in/klaus-we%C3%9Fing-72346282/,open via recent activity,Read + draft comment #7 (AI framing) if thread is industrial,Positioning topic,Reply from industrial voices,PENDING_APPROVAL,true,author_reply
+2026-07-17,high,—,—,—,,,Collect week-1 metrics + classify right/wrong audience + prep week-2 decision,Close the loop,Green/Amber/Red verdict,TODO,false,verdict
+2026-07-17,low,—,—,—,,,SKIP filler actions with no natural opportunity,Do not force a quota,Honest queue,SKIP,false,—

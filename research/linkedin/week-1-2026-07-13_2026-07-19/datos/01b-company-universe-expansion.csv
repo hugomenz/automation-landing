@@ -1,0 +1,44 @@
+name,linkedin_url,city_region,segment,classification,follow_priority,campaign_bucket,source_query,slug_status,observed_at
+Harro Höfliger Verpackungsmaschinen,https://www.linkedin.com/company/harro-h-fliger/,Allmersbach im Tal / BW,Packaging (pharma/EOL),PROSPECT,high,PROSPECT,Produktmanager Verpackungsmaschinen (laura-gildein),VERIFIED,2026-07-12
+transnova-RUF Verpackungs- und Palettiertechnik,https://www.linkedin.com/company/transnova-ruf/,Bavaria,EOL + palletizing,PROSPECT,high,PROSPECT,Palettiertechnik,verified,2026-07-12
+Meurer Verpackungssysteme GmbH,https://www.linkedin.com/company/meurer-verpackungssysteme/,unknown,EOL packaging,PROSPECT,high,PROSPECT,Verpackungssysteme,verified,2026-07-12
+FROMM Verpackungssysteme GmbH & Co. KG,https://www.linkedin.com/company/fromm-verpackungssysteme/,unknown,Strapping / EOL,PROSPECT,high,PROSPECT,Verpackungssysteme,verified,2026-07-12
+PROMESS Montage- und Prüfsysteme GmbH,https://www.linkedin.com/company/promessmontage/,BW,Assembly + testing,PROSPECT,high,PROSPECT,Prüfsysteme,verified,2026-07-12
+IVECOPACK Verpackungsanlagen,https://www.linkedin.com/company/ivecopack/,unknown,Packaging lines,PROSPECT,medium,PROSPECT,Verpackungsanlagen,verified,2026-07-12
+KIRSCH Verpackungssysteme GmbH,https://www.linkedin.com/company/kirsch-verpackungssysteme-gmbh/,unknown,Packaging systems,PROSPECT,medium,PROSPECT,Verpackungssysteme,verified,2026-07-12
+erka Verpackungssysteme GmbH,https://www.linkedin.com/company/erka-verpackungssysteme-gmbh/,unknown,Packaging systems,PROSPECT,medium,PROSPECT,Verpackungssysteme,verified,2026-07-12
+A&D Verpackungsmaschinenbau GmbH,https://www.linkedin.com/company/a&d-verpackungsmaschinenbau-gmbh/,unknown,Packaging machinery,PROSPECT,medium,PROSPECT,Verpackungsmaschinenbau,verified,2026-07-12
+HSK Palettiertechnik,https://www.linkedin.com/company/hsk-palettiertechnik/,unknown,Palletizing,PROSPECT,medium,PROSPECT,Palettiertechnik,verified,2026-07-12
+RobotSystems Palettiertechnik mbH,https://www.linkedin.com/company/robotsystems-gesellschaft-f%C3%BCr-palettiertechnik-mbh/,unknown,Palletizing robots,PROSPECT,medium,PROSPECT,Palettiertechnik,verified,2026-07-12
+Nowak Palettiersysteme GmbH,https://www.linkedin.com/company/nowak-palettiersysteme-gmbh/,unknown,Palletizing systems,PROSPECT,medium,PROSPECT,Palettiersysteme,verified,2026-07-12
+Braun Sondermaschinen GmbH,https://www.linkedin.com/company/braun-sondermaschinen-gmbh/,unknown,Sondermaschinenbau,PROSPECT,medium,PROSPECT,Sondermaschinen,verified,2026-07-12
+Somatec Sondermaschinen GmbH,https://www.linkedin.com/company/somatec-sondermaschinen-gmbh/,unknown,Sondermaschinenbau,PROSPECT,medium,PROSPECT,Sondermaschinen,verified,2026-07-12
+Viehoever Sondermaschinen GmbH,https://www.linkedin.com/company/viehoever-sondermaschinen/,unknown,Sondermaschinenbau,PROSPECT,low,PROSPECT,Sondermaschinen,verified,2026-07-12
+ERMAFA Sondermaschinen- und Anlagenbau GmbH,https://www.linkedin.com/company/ermafa-sondermaschinen--und-anlagenbau-gmbh/,Chemnitz,Sondermaschinen/Anlagenbau,PROSPECT,low,PROSPECT,Sondermaschinen,verified,2026-07-12
+DFS Montageautomation GmbH,https://www.linkedin.com/company/dfs-montageautomation-gmbh/,unknown,Assembly automation,PROSPECT,medium,PROSPECT,Montageautomation,verified,2026-07-12
+FMT Flexible Montagetechnik GmbH,https://www.linkedin.com/company/fmt-flexible-montagetechnik-gmbh/,unknown,Assembly technology,PROSPECT,medium,PROSPECT,Montagetechnik,verified,2026-07-12
+Repac Montagetechnik GmbH & Co. KG,https://www.linkedin.com/company/repac-montagetechnik-gmbh-&-co.-kg/,unknown,Assembly technology,PROSPECT,low,PROSPECT,Montagetechnik,verified,2026-07-12
+PSA Zuführtechnik GmbH,https://www.linkedin.com/company/psa-zt/,unknown,Feeding technology,PROSPECT,medium,PROSPECT,Zuführtechnik,verified,2026-07-12
+FSA Zuführtechnik GmbH,https://www.linkedin.com/company/fsa-zuf%C3%BChrtechnik-gmbh/,unknown,Feeding technology,PROSPECT,low,PROSPECT,Zuführtechnik,verified,2026-07-12
+Jensen Greiftechnik,https://www.linkedin.com/company/jensen-greiftechnik/,unknown,Gripping technology,PROSPECT,low,PROSPECT,Greiftechnik,verified,2026-07-12
+Valentum Engineering GmbH,https://www.linkedin.com/company/valentum-engineering/,Regensburg,Automation systems,PROSPECT,medium,PROSPECT,Systemintegration Automation,verified,2026-07-12
+HERMOS Gruppe,https://www.linkedin.com/company/hermos-gruppe/,Bavaria,Automation systems,PROSPECT,low,PROSPECT,Systemintegration Automation,verified,2026-07-12
+DYNA-MESS Prüfsysteme GmbH,https://www.linkedin.com/company/dyna-mess-pr-fsysteme/,unknown,Testing systems,PROSPECT,low,PROSPECT,Prüfsysteme,verified,2026-07-12
+Renner Etikettiertechnik GmbH,https://www.linkedin.com/company/renner-etikettiertechnik-gmbh/,unknown,Labeling (adjacent),PROSPECT,low,PROSPECT,Etikettiertechnik,verified,2026-07-12
+bema Etikettiertechnik GmbH,https://www.linkedin.com/company/bema-etikettiertechnik-gmbh/,unknown,Labeling (adjacent),PROSPECT,low,PROSPECT,Etikettiertechnik,verified,2026-07-12
+Fola Abfülltechnik GmbH,https://www.linkedin.com/company/fola-abf%C3%BClltechnik-gmbh/,unknown,Filling (adjacent),PROSPECT,low,PROSPECT,Abfülltechnik,verified,2026-07-12
+WAT Wunsch Abfülltechnik GmbH,https://www.linkedin.com/company/wat-wunsch-abf%C3%BClltechnik-gmbh/,unknown,Filling (adjacent),PROSPECT,low,PROSPECT,Abfülltechnik,verified,2026-07-12
+Toss Verpackung,unknown (via person mario-weide),unknown,Packaging,PROSPECT,medium,PROSPECT,Konstruktionsleiter Verpackungsmaschinen,SLUG_UNVERIFIED,2026-07-12
+Leidel & Kracht Verpackung,unknown (via person pascal-daub),unknown,Packaging,PROSPECT,low,PROSPECT,Produktmanager Verpackungsmaschinen,SLUG_UNVERIFIED,2026-07-12
+Schuster Maschinenbau GmbH,unknown (via person michael-bernhofer),unknown,Maschinenbau,PROSPECT,medium,PROSPECT,Teamleiter Kalkulation,SLUG_UNVERIFIED,2026-07-12
+KNOLL Maschinenbau GmbH,unknown (via person tobias-engenhart),BW,Maschinenbau,PROSPECT,medium,PROSPECT,Teamleiter Kalkulation,SLUG_UNVERIFIED,2026-07-12
+RAS Reinhardt Maschinenbau GmbH,unknown (via person kevin-mitulla),BW,Sheet-metal machinery,PROSPECT,medium,PROSPECT,Head of Sales Maschinenbau BW,SLUG_UNVERIFIED,2026-07-12
+Packaging Valley Germany e.V.,https://www.linkedin.com/company/packaging-valley-germany-e-v-/,Schwäbisch Hall / BW,Packaging-machinery cluster,ECOSYSTEM,high,MEDIA_ECOSYSTEM,Packaging Valley,verified,2026-07-12
+Fraunhofer IPA,https://www.linkedin.com/company/fraunhofer-ipa/,Stuttgart / BW,Research institute,ECOSYSTEM,medium,MEDIA_ECOSYSTEM,Fraunhofer IPA,verified,2026-07-12
+Intralogistik-Netzwerk BW e.V.,https://www.linkedin.com/company/intralogistik-netzwerk-bw/,BW,Intralogistics cluster,ECOSYSTEM,medium,MEDIA_ECOSYSTEM,Intralogistik,verified,2026-07-12
+Industrieanzeiger,https://www.linkedin.com/company/industrieanzeiger/,BW (Konradin),Industrial media,DISTRIBUTION,medium,MEDIA_ECOSYSTEM,Industrieanzeiger,verified,2026-07-12
+MM MaschinenMarkt,https://www.linkedin.com/company/maschinenmarkt/,Vogel,Machinery media,DISTRIBUTION,medium,MEDIA_ECOSYSTEM,MaschinenMarkt,verified,2026-07-12
+neue verpackung,https://www.linkedin.com/company/neue-verpackung/,unknown,Packaging media,DISTRIBUTION,medium,MEDIA_ECOSYSTEM,neue verpackung,verified,2026-07-12
+Easyfairs Germany (all about automation),https://www.linkedin.com/company/easyfairs-deutschland-gmbh/,unknown,Fair organizer,EVENT,low,MEDIA_ECOSYSTEM,all about automation,verified,2026-07-12
+Packaging Europe,https://www.linkedin.com/company/packaging-europe/,UK,Packaging media,DISTRIBUTION,low,MEDIA_ECOSYSTEM,Packaging Valley,verified,2026-07-12
+dhf Intralogistik,https://www.linkedin.com/company/dhf-intralogistik/,unknown,Intralogistics media,DISTRIBUTION,low,MEDIA_ECOSYSTEM,Intralogistik,verified,2026-07-12

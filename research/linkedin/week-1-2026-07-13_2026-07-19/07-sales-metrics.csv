@@ -1,0 +1,7 @@
+run_id,run_name,start_date,end_date,posts_planned,aligned_comments_planned,connection_requests_prepared,connection_requests_sent,connections_accepted,replies_received,real_problems_described,conversations_proposed,conversations_completed,real_rfqs_reviewed,workshops_presented,proposals_requested,proposals_sent,paid_sales,impressions,profile_visits,new_followers,website_visits,utm_clicks,status,notes
+RUN-01,RUN-01-POSITIONING,2026-07-13,2026-07-14,1,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Profile positioning plus first audience block
+RUN-02,RUN-02-PROBLEM-DISCOVERY,2026-07-15,2026-07-17,1,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Problem discovery and first outbound connection wave
+RUN-03,RUN-03-CONVERSATION,2026-07-18,2026-07-20,1,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Conversation conversion and call invitations
+RUN-04,RUN-04-OFFER,2026-07-21,2026-07-23,1,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Workshop offer and qualified follow-up
+RUN-05,RUN-05-CLOSE-AND-DECIDE,2026-07-24,2026-07-26,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Decision follow-up and channel verdict
+TOTAL,TOTAL,2026-07-13,2026-07-26,5,9,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,PENDING,Primary metric = qualified conversations

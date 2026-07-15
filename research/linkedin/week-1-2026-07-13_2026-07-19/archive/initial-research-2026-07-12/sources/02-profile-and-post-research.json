@@ -1,0 +1,33 @@
+{
+  "phase": 2,
+  "purpose": "People + post/content search log (read-only).",
+  "research_date": "2026-07-12",
+  "skill": "linkedin-copilot",
+  "method": "Direct read-only navigation to /search/results/people/ and /search/results/content/ + accessibility/DOM extraction. First results page per query. No profile-by-profile activity opening (conservative pace).",
+  "people_queries": [
+    { "query": "Leiter Technischer Vertrieb Maschinenbau", "kept": 7, "note": "strong BW technischer-Vertrieb hits (Erboral, Wolters/RHV, Ritter/Schnaithmann, Dietsche/IAR, Meyer/IRCO)" },
+    { "query": "Head of Sales Engineering Maschinenbau", "kept": 8, "note": "Sales/Vertriebsingenieure (Ruoff/Schmid, Simonyi/Schaarschmidt, Gerdelmann, Karataş, Haschkamp)" },
+    { "query": "Leiter Projektierung Maschinenbau", "kept": 8, "note": "Projektierung/Technische Leiter (Habicht, Braun, Gläser/MTS, Dangel/Liebherr, Pitzner/Hohner, Näckel-Birkenfeld/Titan)" },
+    { "query": "Vertriebsleiter Sondermaschinenbau", "kept": 6, "note": "Hobt/FORM+TEST, Kramer/Amtec Kistler, Breu/ASS, Albert/ASYS, Schmidt/VS" },
+    { "query": "Angebotsleiter Kalkulation Maschinenbau", "kept": 6, "note": "mixed; Bloms, Klenk/Busch; some off-topic dropped" },
+    { "query": "Geschäftsführer Sondermaschinenbau", "kept": 7, "note": "GF density (Schmidt/VS, Noll, Bau, Haider/HKR, Freigassner/HAGE, Schreyer)" },
+    { "query": "Vertriebsleiter Verpackungsmaschinen", "kept": 3, "note": "prior discovery (Fassnacht, Pape, Hay)" }
+  ],
+  "post_queries": [
+    { "query": "Angebotsprozess Maschinenbau", "note": "surfaced dima (Fertigungswissen im Angebotsprozess), Westermeier, Spanflug, Perspectix, camos, ANGER MACHINING" },
+    { "query": "technischer Vertrieb Angebot Maschinenbau", "note": "mostly consultants/coaches (Maier, Klippe, Müller) + recruiter (Lubka) -> down-prioritized" },
+    { "query": "End-of-Line Palettierung Verpackung", "note": "EOL - End of Line Packaging Experts GmbH" },
+    { "query": "Sales Engineering Sondermaschinenbau", "note": "HuW Automation, VIETZ (Juri Weimer), + off-topic (MEDICA, LinkedIn)" },
+    { "query": "Fachkräftemangel Konstruktion Engineering", "note": "Schepers (100K+ Konfigurationen/Jahr), Weßing (Maschinenbau+KI), + several generic-AI creators dropped" }
+  ],
+  "extraction_notes": {
+    "people_cards": "role=listitem / li containing a[href*='/in/']; name + connection degree + headline (company often in headline).",
+    "content_cards": "content search did NOT expose data-urn or standard date nodes; authors extracted via /in/ and /company/ links; only Prewa's canonical activity permalink is known (from the company posts feed, not content search).",
+    "excluded": ["generic AI influencers", "sales-coaching consultants", "video/marketing lead-gen", "recruiters posting only jobs", "SEO/GEO-for-Maschinenbau", "off-topic (MEDICA medical fair, FinTech)"]
+  },
+  "limitations": [
+    "Per-profile 30/60/90-day activity is 'unknown' for role-search profiles (not opened).",
+    "Company affiliation and location taken from visible headline text; confirm on profile before outreach.",
+    "No emails/phones/Contact Info collected. No sensitive attributes inferred."
+  ]
+}

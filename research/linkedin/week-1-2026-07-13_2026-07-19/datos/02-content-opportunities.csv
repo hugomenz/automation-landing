@@ -1,0 +1,17 @@
+canonical_post_url,author,company,author_role,date_visible,topic,audience_contains_icp,lead_path_relevance,fully_read,comment_ready,comment_expiry,assigned_run,fallback_post_url,commercial_risk,priority
+https://www.linkedin.com/feed/update/urn:li:activity:7480901060509773826/,Prewa Verpackungsmaschinen GmbH,Prewa Verpackungsmaschinen,company page,3 days (2026-07-09),EOL bagging machine throughput (55 bags/min),yes,high,true,true,2026-08-03,RUN-01,SKIP,low,high
+RESOLVE_VIA_AUTHOR_ACTIVITY,dima - digitale maschinelle Fertigung,dima,company page,~3 weeks,Fertigungswissen im Angebotsprozess,partial,high,false,false,post<=21d,RUN-02,SKIP,medium,high
+RESOLVE_VIA_AUTHOR_ACTIVITY,Markus Westermeier,dima (context),author,~3 weeks,knowledge reuse in quoting,yes,high,false,false,post<=21d,RUN-02,SKIP,medium,high
+RESOLVE_VIA_AUTHOR_ACTIVITY,EOL - End of Line Packaging Experts GmbH,EOL Experts,company page,~1 month,End-of-Line single point of contact,yes,high,false,false,post<=21d,RUN-01,SKIP,low,high
+RESOLVE_VIA_AUTHOR_ACTIVITY,Perspectix AG,Perspectix,company page,~2 weeks,CPQ config + AI inputs,partial,medium,false,false,post<=21d,RUN-03,SKIP,high,medium
+RESOLVE_VIA_AUTHOR_ACTIVITY,Frank Schepers,unknown,Leiter Konstruktion,~2 months,configuration at scale / Konstruktion,partial,medium,false,false,post<=21d,RUN-03,SKIP,medium,medium
+RESOLVE_VIA_AUTHOR_ACTIVITY,camos Software und Beratung GmbH,camos,company page,recent,CPQ trends B2B-Vertrieb,no,low,false,false,post<=21d,RUN-05,SKIP,high,low
+RESOLVE_VIA_AUTHOR_ACTIVITY,Klaus Weßing,unknown,commentator,~6 months,Maschinenbau + KI,partial,medium,false,false,post<=21d,RUN-04,SKIP,medium,low
+RESOLVE_VIA_AUTHOR_ACTIVITY,Gerhard Schubert GmbH,Gerhard Schubert,company page,unknown,modular/TLM packaging,yes,medium,false,false,post<=21d,RUN-06,SKIP,low,medium
+RESOLVE_VIA_AUTHOR_ACTIVITY,IWK Verpackungstechnik GmbH,IWK,company page,unknown,cartoning formats,yes,medium,false,false,post<=21d,RUN-02,SKIP,low,medium
+RESOLVE_VIA_AUTHOR_ACTIVITY,GEBHARDT Fördertechnik GmbH,GEBHARDT,company page,unknown,conveyor line interfaces,yes,medium,false,false,post<=21d,RUN-05,SKIP,low,medium
+RESOLVE_VIA_AUTHOR_ACTIVITY,PCA Roboter- und Verpackungstechnik GmbH,PCA,company page,unknown,robotic packaging cells,yes,medium,false,false,post<=21d,RUN-04,SKIP,low,medium
+OUT_OF_QUEUE,HuW Automation GmbH,HuW Automation,company page,~5 months,plant delivery,yes,low,false,false,stale,PIPELINE,SKIP,low,low
+OUT_OF_QUEUE,ANGER MACHINING GmbH,ANGER MACHINING,company page,~7 months,new sales team,no,low,false,false,stale,PIPELINE,SKIP,low,low
+OUT_OF_QUEUE,Dr.-Ing. Andreas Klippe,unknown,sales coach,~7 months,discount battles in technical sales,no,low,false,false,excluded,PIPELINE,SKIP,high,low
+OUT_OF_QUEUE,Spanflug Technologies,Spanflug,company page,unknown,automated quoting for machined parts,no,low,false,false,verify-first,PIPELINE,SKIP,medium,low

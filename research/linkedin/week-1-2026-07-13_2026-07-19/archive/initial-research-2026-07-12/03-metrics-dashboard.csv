@@ -1,0 +1,8 @@
+date,action,author,company,role,classification,comment_impressions,author_reaction,author_reply,profile_visit,new_connection,conversation_started,interview,audience_right_or_wrong,learning,next_action
+# Fill during the week. Distinguish DISTRIBUTION signals (impressions/reactions/visits/comments/out-of-network reach) from COMMERCIAL signals (real conversations/access to deciders/interviews/shared real processes/request to review a spec/willingness to pay). Do NOT treat likes or impressions as commercial validation.
+2026-07-13,comment (Prewa) [pending approval],Prewa,Prewa Verpackungsmaschinen,company page,PROSPECT,,,,,,,,,,
+2026-07-14,own post 1 [pending approval],Hugo Menz,—,—,—,,,,,,,,,,
+2026-07-14,comment (dima/Westermeier) [pending approval],Markus Westermeier,dima,author,DISTRIBUTION_PERSON,,,,,,,,,,
+2026-07-15,comment (EOL Experts) [pending approval],EOL Experts,EOL Experts,company page,PROSPECT,,,,,,,,,,
+2026-07-16,comment (Schepers/Perspectix) [pending approval],Frank Schepers,—,Leiter Konstruktion,CHAMPION,,,,,,,,,,
+2026-07-17,own post 3 [pending approval],Hugo Menz,—,—,—,,,,,,,,,,

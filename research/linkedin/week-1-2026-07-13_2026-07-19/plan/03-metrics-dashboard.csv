@@ -1,0 +1,16 @@
+date,run_id,post_id,impressions,profile_views,followers_gained,featured_link_clicks,website_sessions_utm,landing_page,author_replies,icp_replies,hot_connections,conversations_started,real_specs_reviewed,meeting_invites,workshop_proposals,qualified_leads,audience_right_or_wrong,learning,next_step
+# 14-day experiment (13-26 Jul). Fill after each RUN. Measure the chain: comment/post -> profile -> web -> conversation -> real spec review -> workshop proposal.
+# DISTRIBUTION signals: impressions/profile_views/followers_gained/featured_link_clicks/website_sessions_utm. Do NOT treat likes or impressions as leads.
+# INTERACTION signals: author_replies/icp_replies/hot_connections. COMMERCIAL signals: conversations_started/real_specs_reviewed/meeting_invites/workshop_proposals/qualified_leads.
+# EXPERIMENT GOAL (not revenue): >=3 ICP conversations AND >=1 real spec (Anfrage) reviewed AND >=1 concrete chance to send an RFQ Readiness Workshop proposal.
+# GREEN = goal met AND >=10 campaign-attributable website visits AND repeated signals from builders/technical-sales.
+# AMBER = profile views + reactions but <5 website visits; distribution mostly software/consultants; clicks without follow-through.
+# RED = 7 posts + all planned comments executed AND no attributable website visit AND no qualified conversation AND audience mostly developers/consultants/agencies.
+2026-07-13,RUN-01,post_01,,,,,,https://www.hugomenz.de/ (profile featured),,,,,,,,,,measure baseline; profile changeset live
+2026-07-15,RUN-02,post_02,,,,,,https://www.hugomenz.de/ (profile),,,,,,,,,,watch featured_link_clicks after method post
+2026-07-17,RUN-03,post_03,,,,,,https://www.hugomenz.de/ (profile),,,,,,,,,,count conversation replies to the 20-min invite
+2026-07-19,RUN-04,post_04,,,,,,https://www.hugomenz.de/?utm_content=post_04,,,,,,,,,,first direct-link post; watch website_sessions_utm
+2026-07-21,RUN-05,post_05,,,,,,https://www.hugomenz.de/ (profile),,,,,,,,,,economic-case post; watch icp_replies
+2026-07-23,RUN-06,post_06,,,,,,https://www.hugomenz.de/leistungen/rfq-readiness-workshop/?utm_content=post_06,,,,,,,,,,offer post; watch workshop_proposals + form_started
+2026-07-25,RUN-07,post_07,,,,,,https://www.hugomenz.de/ (profile),,,,,,,,,,critical-AI post; final tally vs GREEN/AMBER/RED
+TOTALS,ALL,7 posts,,,,,,,,,,,,,,,,sum after RUN-07
