@@ -66,8 +66,8 @@ const pages = [
   {
     path: '/ueber-hugo-menz/',
     lang: 'de',
-    title: 'Über Hugo Menz | Maschinenbau und Prozessautomatisierung',
-    h1: 'Maschinenbau-Erfahrung trifft digitale Prozessautomatisierung',
+    title: 'Über Hugo Menz | UX Engineer für digitale Prozesse',
+    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
   },
   {
     path: '/kontakt/',

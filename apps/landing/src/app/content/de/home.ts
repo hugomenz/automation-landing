@@ -260,10 +260,10 @@ export const HOME_DE = {
     },
     {
       id: 'profil',
-      heading: 'Maschinenbau verstehen. Automatisierung pragmatisch umsetzen.',
+      heading: 'UX Engineer mit Erfahrung aus dem Maschinenbau',
       paragraphs: [
-        'Ich bin Maschinenbauingenieur. Rund acht Jahre habe ich im Sondermaschinenbau und in der Industrieautomation gearbeitet, unter anderem mit Konstruktion, Stücklisten, Einkauf, Lieferantenkoordination, Projektabwicklung und technischen Abstimmungen zwischen Kunde, Mechanik, Elektrik und Montage.',
-        'Dazu kommen rund drei Jahre praktische Erfahrung mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung. Diese Kombination hilft mir, technische Angebotsprozesse fachlich einzugrenzen und pragmatisch umzusetzen.',
+        'Heute arbeite ich als UX Engineer für digitale Prozesse und Automatisierung. Ich gestalte Interfaces und Abläufe, die komplexe Informationen verständlich und prüfbar machen.',
+        'Zuvor arbeitete ich rund acht Jahre im Sondermaschinenbau und in der Industrieautomation. Heute verbinde ich diese Erfahrung mit UX, Software und Digitalisierung.',
       ],
       links: [
         { label: 'Mehr über Hugo Menz', href: '/ueber-hugo-menz/' },

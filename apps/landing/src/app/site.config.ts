@@ -10,7 +10,7 @@ export const siteConfig = {
   founder: {
     portraitSrc: '/hugo.jfif',
     portraitAlt: 'Porträt von Hugo Martin Menz',
-    jobTitle: 'Maschinenbauingenieur',
+    jobTitle: 'UX Engineer',
   },
   socialImage: {
     src: '/og-rfq-preview.png',
@@ -23,6 +23,10 @@ export const siteConfig = {
   },
   areaServed: ['Stuttgart', 'Baden-Württemberg', 'Deutschland', 'DACH'],
   knowsAbout: [
+    'UX Engineering',
+    'User Experience Engineering',
+    'Digitale Prozesse',
+    'Interface-Entwicklung',
     'Angebotsprozesse im Maschinenbau',
     'Technische Anfragequalifizierung',
     'RFQ-Prozesse',
@@ -31,9 +35,6 @@ export const siteConfig = {
     'Industrieautomation',
     'Digitale Prozessautomatisierung',
     'Systemintegrationen',
-    'API-Integrationen',
-    'n8n',
-    'Make',
     'Human-in-the-loop-Automatisierung',
   ],
 } as const;

@@ -262,10 +262,10 @@ export const HOME_EN = {
     },
     {
       id: 'about',
-      heading: 'Mechanical engineering experience with practical automation delivery',
+      heading: 'UX Engineer with a mechanical engineering background',
       paragraphs: [
-        'I am a mechanical engineer. I spent around eight years in special-purpose machinery and industrial automation, working with mechanical design, bills of materials, purchasing, supplier coordination, project delivery and technical coordination between customers, mechanical engineering, electrical engineering and assembly.',
-        'I also have around three years of practical experience with Angular, TypeScript, APIs, webhooks, n8n, Make and automation. This combination helps me define technical quotation processes correctly and implement them pragmatically.',
+        'I currently work as a UX Engineer for digital processes and automation. I design interfaces and workflows that make complex information understandable and reviewable.',
+        'Before moving into software and digitalisation, I spent around eight years in special-purpose machinery and industrial automation. Today I combine that background with UX and digital product work.',
       ],
       layout: 'profile',
     },

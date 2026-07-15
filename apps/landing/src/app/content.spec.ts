@@ -159,7 +159,23 @@ describe('German home content guardrails', () => {
     expect(text).toContain('Pilot im Schattenbetrieb');
     expect(text).toContain('unabhängig vom Maschinentyp');
     expect(text).not.toMatch(/Maschinenfamil/);
-    expect(text).not.toMatch(/UX Engineering|UI-Komponenten|Interface-Entwicklung/);
+
+    const profile = home.sections.find((section) => section.id === 'profil');
+    expect(profile?.heading).toBe('UX Engineer mit Erfahrung aus dem Maschinenbau');
+    expect(JSON.stringify(profile)).toContain('Heute verbinde ich diese Erfahrung');
+    expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
+  });
+});
+
+describe('current professional positioning', () => {
+  const about = getPageByKey('about-hugo-menz');
+  const aboutText = indexableText(about);
+
+  it('presents UX Engineering as the current role and mechanical engineering as prior experience', () => {
+    expect(about.hero.h1).toBe('UX Engineer für digitale Prozesse und Automatisierung');
+    expect(aboutText).toContain('Zuvor: rund acht Jahre im Sondermaschinenbau');
+    expect(aboutText).toContain('Von der mechanischen Konstruktion in die Softwareentwicklung');
+    expect(aboutText).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
   });
 });
 
@@ -194,6 +210,11 @@ describe('English home and bilingual hreflang', () => {
       '"label":"About Hugo Menz","href":"/en/#about"',
     );
     expect(englishHome.sections.length).toBeGreaterThanOrEqual(8);
+
+    const profile = englishHome.sections.find((section) => section.id === 'about');
+    expect(profile?.heading).toBe('UX Engineer with a mechanical engineering background');
+    expect(JSON.stringify(profile)).toContain('Before moving into software and digitalisation');
+    expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|webhooks|\bn8n\b|\bMake\b/);
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
   });
 

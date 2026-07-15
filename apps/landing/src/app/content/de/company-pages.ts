@@ -113,15 +113,15 @@ export const ABOUT_HUGO_MENZ = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Über Hugo Menz | Maschinenbau und Prozessautomatisierung',
+    title: 'Über Hugo Menz | UX Engineer für digitale Prozesse',
     description:
-      'Maschinenbauingenieur aus Stuttgart mit rund acht Jahren Erfahrung im Sondermaschinenbau und praktischer Erfahrung mit APIs und Automatisierung.',
+      'UX Engineer für digitale Prozesse und Automatisierung, nach rund acht Jahren im Sondermaschinenbau und in der Industrieautomation.',
     canonicalPath: '/ueber-hugo-menz/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Über Hugo Menz: Maschinenbau und Prozessautomatisierung',
+      title: 'Über Hugo Menz: UX Engineer und Industrieerfahrung',
       description:
-        'Erfahrung aus dem Sondermaschinenbau und der Industrieautomation trifft praktische digitale Prozessautomatisierung.',
+        'UX Engineering für digitale Prozesse, verbunden mit Erfahrung aus Sondermaschinenbau und Industrieautomation.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -130,9 +130,9 @@ export const ABOUT_HUGO_MENZ = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Über Hugo Menz: Maschinenbau und Prozessautomatisierung',
+      title: 'Über Hugo Menz: UX Engineer und Industrieerfahrung',
       description:
-        'Erfahrung aus dem Sondermaschinenbau und der Industrieautomation trifft praktische digitale Prozessautomatisierung.',
+        'UX Engineering für digitale Prozesse, verbunden mit Erfahrung aus Sondermaschinenbau und Industrieautomation.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
     },
@@ -142,14 +142,15 @@ export const ABOUT_HUGO_MENZ = {
     { label: 'Über Hugo Menz', path: '/ueber-hugo-menz/' },
   ],
   hero: {
-    kicker: 'Maschinenbau · Automatisierung · Stuttgart',
-    h1: 'Maschinenbau-Erfahrung trifft digitale Prozessautomatisierung',
+    kicker: 'UX Engineering · Digitale Prozesse · Automatisierung',
+    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
     lead:
-      'Ich verbinde rund acht Jahre Erfahrung im Sondermaschinenbau und in der Industrieautomation mit praktischer Erfahrung in Webtechnologien, APIs und Automatisierung. Mein Schwerpunkt liegt auf klar abgegrenzten digitalen Prozessen, die technische Arbeit vorbereiten und nachvollziehbar unterstützen.',
+      'Ich verbinde das Verständnis technischer und betrieblicher Prozesse mit UX, Interface-Entwicklung und Automatisierung.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
+      contactContext: 'process-automation',
     },
     secondaryCta: {
       label: 'Wie sich beides verbindet',
@@ -165,11 +166,20 @@ export const ABOUT_HUGO_MENZ = {
   },
   sections: [
     {
+      id: 'heute',
+      eyebrow: 'Heute',
+      heading: 'UX Engineering für verständliche digitale Abläufe',
+      paragraphs: [
+        'Heute gestalte ich digitale Produkte und Prozesse so, dass Menschen komplexe Aufgaben verstehen, prüfen und sicher abschließen können.',
+      ],
+      layout: 'text',
+    },
+    {
       id: 'maschinenbau',
       eyebrow: 'Industrieller Hintergrund',
-      heading: 'Rund acht Jahre im Sondermaschinenbau und in der Industrieautomation',
+      heading: 'Zuvor: rund acht Jahre im Sondermaschinenbau und in der Industrieautomation',
       paragraphs: [
-        'Mein beruflicher Schwerpunkt lag auf der Konstruktion und Entwicklung kundenspezifischer Maschinen sowie der technischen Koordination bis zur Umsetzung.',
+        'Vor meinem Wechsel in die Softwareentwicklung und Digitalisierung arbeitete ich an der Konstruktion und Entwicklung kundenspezifischer Maschinen sowie an der technischen Koordination bis zur Umsetzung.',
       ],
       points: [
         'mechanische Konstruktion und technische Dokumentation;',
@@ -181,43 +191,36 @@ export const ABOUT_HUGO_MENZ = {
       layout: 'list',
     },
     {
-      id: 'automatisierung',
-      eyebrow: 'Praktische Umsetzung',
-      heading: 'Rund drei Jahre mit Webtechnologien, APIs und Automatisierung',
+      id: 'wechsel',
+      eyebrow: 'Beruflicher Wechsel',
+      heading: 'Von der mechanischen Konstruktion in die Softwareentwicklung',
       paragraphs: [
-        'Für digitale Abläufe arbeite ich praktisch mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung. Entscheidend ist dabei nicht das Werkzeug, sondern ein klarer Prozess mit nachvollziehbaren Regeln und Übergaben.',
+        'Danach wechselte ich in die Softwareentwicklung und Digitalisierung. Heute verbinde ich diesen Hintergrund mit meiner Arbeit als UX Engineer.',
       ],
-      points: [
-        'strukturierte Datenflüsse und Dokumentenverarbeitung;',
-        'API- und Webhook-Integrationen;',
-        'Prüf-, Fehler- und Freigabelogik;',
-        'Human-in-the-loop-Workflows;',
-        'nachvollziehbare Übergaben zwischen Menschen und Systemen.',
-      ],
-      layout: 'list',
+      layout: 'text',
     },
     {
       id: 'kombination',
       eyebrow: 'Verbindung',
-      heading: 'Technische Prozesse verstehen und sinnvoll automatisieren',
+      heading: 'Was diese Kombination im Projekt bringt',
       paragraphs: [
-        'Für technische Angebotsprozesse reicht es nicht, Dokumente zu lesen oder Systeme zu verbinden. Entscheidend sind die benötigten Angaben, belastbare Regeln und klare Übergaben an Vertrieb oder Engineering.',
+        'Ich erkenne technische Abhängigkeiten und operative Grenzen früh und übersetze sie in einen verständlichen digitalen Ablauf.',
       ],
       columns: [
         {
-          heading: 'Fachliche Einordnung',
+          heading: 'Technische Einordnung',
           points: [
-            'Anforderungen, Module und technische Grenzen verstehen.',
-            'Fakten, Annahmen, Risiken und Quellen trennen.',
-            'Fälle erkennen, die neue Konstruktion oder Versuche brauchen.',
+            'Anforderungen, Rollen und Grenzen verstehen.',
+            'Risiken und Ausnahmen früh erkennen.',
+            'Verantwortlichkeiten realistisch abbilden.',
           ],
         },
         {
-          heading: 'Kontrollierte Umsetzung',
+          heading: 'Nutzbare Umsetzung',
           points: [
-            'Informationen in ein freigegebenes Schema überführen.',
-            'bekannte Regeln deterministisch anwenden.',
-            'offene Punkte sichtbar an Fachleute zurückgeben.',
+            'Informationen auf Entscheidungen reduzieren.',
+            'Schritte und Status verständlich darstellen.',
+            'Sonderfälle an die richtige Person übergeben.',
           ],
         },
       ],
@@ -226,52 +229,40 @@ export const ABOUT_HUGO_MENZ = {
     {
       id: 'probleme',
       eyebrow: 'Schwerpunkt',
-      heading: 'Bei welchen Problemen ich im Angebotsprozess unterstütze',
+      heading: 'Welche Abläufe ich verständlicher und effizienter mache',
       items: [
         {
-          title: 'Verteilte Kundeninformationen',
-          body: 'E-Mails, Lastenhefte, PDFs, Fotos und Notizen in eine gemeinsame Anforderungsakte überführen.',
+          title: 'Unstrukturierte Informationen',
+          body: 'E-Mails, Dokumente und Eingaben in einen verständlichen Ablauf überführen.',
         },
         {
-          title: 'Fehlende Angaben und Widersprüche',
-          body: 'Offene Punkte, Annahmen und technische Risiken vor der Budgetindikation sichtbar machen.',
+          title: 'Manuelle Datenerfassung',
+          body: 'Wiederkehrende Eingaben reduzieren und Daten für die nächste Entscheidung vorbereiten.',
         },
         {
-          title: 'Regelbasierte Budgetvorbereitung',
-          body: 'Freigegebene Module, Tabellen, Faktoren und Formeln kontrolliert anwenden.',
+          title: 'Freigaben und Übergaben',
+          body: 'Status, Verantwortlichkeiten und offene Punkte für alle Beteiligten sichtbar machen.',
         },
         {
-          title: 'Übergaben an Vertrieb und Engineering',
-          body: 'Einen prüfbaren Stand mit Quellen, Rückfragen und klaren Verantwortlichkeiten vorbereiten.',
+          title: 'Schwer bedienbare interne Werkzeuge',
+          body: 'Komplexe Fachlogik in eine klarere Benutzerführung übersetzen.',
         },
       ],
       layout: 'cards',
     },
-    {
-      id: 'arbeitsprinzipien',
-      eyebrow: 'Arbeitsprinzipien',
-      heading: 'Klarer Umfang statt scheinbarer Vollautomatisierung',
-      points: [
-        'Ein klarer Produkt- oder Lösungsbereich statt des ganzen Portfolios.',
-        'Fakten und Quellen statt scheinbarer Sicherheit.',
-        'Freigegebene Regeln statt erfundener Preise.',
-        'Pilot im Schattenbetrieb statt sofortiger Kundenkontakt.',
-        'Ein begründetes No-Go ist ein valides Ergebnis.',
-      ],
-      layout: 'list',
-    },
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Einen Produkt- oder Lösungsbereich statt des ganzen Portfolios prüfen',
+    heading: 'Einen komplexen Prozess verständlicher machen',
     body:
-      'Der RFQ Readiness Workshop grenzt den technischen Umfang ab und kann mit einer Empfehlung für Go, Go mit Bedingungen oder No-Go enden.',
+      'Im Erstgespräch kläre ich den heutigen Ablauf, den größten Engpass und einen sinnvollen ersten Schritt.',
     action: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-final',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-final',
+      contactContext: 'process-automation',
     },
-    note: 'Sie sprechen direkt mit mir, von der Einordnung bis zu einer möglichen Umsetzung.',
+    note: 'Sie sprechen direkt mit mir.',
   },
   schemaKinds: ['Person', 'BreadcrumbList'],
 } as const satisfies PageDefinition;

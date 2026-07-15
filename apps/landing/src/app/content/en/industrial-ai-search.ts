@@ -232,13 +232,13 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     },
     {
       id: 'why-hugo-menz',
-      heading: 'Understand industry and make technical information usable',
+      heading: 'Connect industrial experience with UX and digital structure',
       paragraphs: [
-        'I combine experience in special-purpose machinery and industrial projects with technical information structuring, web technologies and automation. You work directly with me from the assessment through to a possible technical implementation.',
+        'I currently work as a UX Engineer. Before moving into software and digitalisation, I spent around eight years in special-purpose machinery and industrial automation. That combination helps me structure complex specialist information clearly.',
       ],
       points: [
         'understanding of machinery, industrial sales questions and products that require explanation;',
-        'experience with software development, APIs, data flows and automation;',
+        'clear information architecture and understandable paths through complex content;',
         'ability to connect technical information and sources with product and data processes;',
         'focus on useful, maintainable systems rather than marketing trends;',
         'willingness to advise against implementation when the data, relevance or expected value is insufficient.',
