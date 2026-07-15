@@ -41,7 +41,7 @@ export const END_OF_LINE = {
     lead:
       'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen – wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
     primaryCta: {
-      label: 'Eignung der Maschinenfamilie prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -153,8 +153,8 @@ export const END_OF_LINE = {
     heading: 'Eine End-of-Line-Familie klar abgrenzen',
     body: 'Im Workshop werden Pflichtdaten, bekannte Module, technische Grenzen und Blockierregeln für eine konkrete End-of-Line-Familie geprüft.',
     action: {
-      label: 'RFQ Readiness Workshop für End-of-Line anfragen',
-      href: '/kontakt/',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
       dataCta: 'contact-final',
     },
     note: 'Der Copilot bereitet vor; Vertrieb und Engineering geben das Ergebnis frei.',
@@ -203,7 +203,7 @@ export const PACKAGING_MACHINERY = {
     lead:
       'Verpackungsanfragen wirken oft standardisiert, enthalten aber entscheidende Abhängigkeiten von Produkt, Packmittel, Leistung und Formatwechsel. Ein guter Pilot konzentriert sich deshalb auf eine klar definierte Plattform, nicht auf jede Verpackungsanwendung.',
     primaryCta: {
-      label: 'Maschinenfamilie prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -305,8 +305,8 @@ export const PACKAGING_MACHINERY = {
     heading: 'Eine Verpackungsmaschinen-Plattform als Pilot prüfen',
     body: 'Der Einstieg konzentriert sich auf eine klar definierte Plattform mit wiederkehrenden Formaten, Optionen und Leistungsgrenzen.',
     action: {
-      label: 'RFQ Readiness Workshop für Verpackungsmaschinen anfragen',
-      href: '/kontakt/',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
       dataCta: 'contact-final',
     },
     note: 'Machbarkeit und ungeprüfte Produktabhängigkeiten bleiben bei den zuständigen Experten.',
@@ -355,7 +355,7 @@ export const PALLETISING_SYSTEMS = {
     lead:
       'Robotergestütztes Palettieren kann als Pilot geeignet sein, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten technischen Rahmens liegen. Der Copilot bereitet die Anfrage vor und blockiert Fälle, die neue Simulation oder Konstruktion benötigen.',
     primaryCta: {
-      label: 'Palettierfamilie prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -482,8 +482,8 @@ export const PALLETISING_SYSTEMS = {
     heading: 'Den technischen Rahmen einer Palettierfamilie prüfen',
     body: 'Der Workshop grenzt Produkte, Palettensystem, Leistung, Layout, Optionen und Blockierfälle für einen möglichen internen Pilot ab.',
     action: {
-      label: 'RFQ Readiness Workshop für Palettieranlagen anfragen',
-      href: '/kontakt/',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
       dataCta: 'contact-final',
     },
     note: 'Fälle außerhalb der freigegebenen Klassen werden ohne Budgetbasis an Engineering übergeben.',

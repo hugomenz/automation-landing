@@ -74,7 +74,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
         'From Stuttgart, Hugo Menz Automation offers this audit to industrial and B2B companies. GEO, Generative Engine Optimization, LLMO and AI Search Optimization are methods within the service – not the offer itself.',
       ],
       callout:
-        'We improve the technical, semantic and content foundations that help AI-search systems understand your company, products and expertise and consider them as potential sources.',
+        'I improve the technical, semantic and content foundations that help AI-search systems understand your company, products and expertise and consider them as potential sources.',
       layout: 'text',
     },
     {
@@ -232,7 +232,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       id: 'why-hugo-menz',
       heading: 'Understand industry and make technical information usable',
       paragraphs: [
-        'I combine experience in special-purpose machinery and industrial projects with web development and automation. You work directly with me from the assessment through to a possible technical implementation.',
+        'I combine experience in special-purpose machinery and industrial projects with UX engineering, interface development and automation. You work directly with me from the assessment through to a possible technical implementation.',
       ],
       points: [
         'understanding of machinery, industrial sales questions and products that require explanation;',

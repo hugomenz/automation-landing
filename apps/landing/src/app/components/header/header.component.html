@@ -7,12 +7,13 @@
     <a class="brand" [href]="copy().homePath" [attr.aria-label]="copy().brandLabel" (click)="closeMenu()">
       <span class="brand-mark" aria-hidden="true"><span class="brand-dot"></span></span>
       <span class="brand-copy">
-        <strong>Hugo Menz Automation</strong>
+        <strong>Hugo Menz<span class="brand-name-suffix"> Automation</span></strong>
         <span>{{ copy().subtitle }}</span>
       </span>
     </a>
 
     <button
+      #navToggle
       type="button"
       class="nav-toggle"
       [attr.aria-expanded]="menuOpen()"
@@ -30,6 +31,8 @@
           <a
             [href]="item.path"
             [attr.lang]="item.lang ?? null"
+            [class.is-active]="isActive(item)"
+            [attr.aria-current]="isCurrent(item) ? 'page' : null"
             (click)="closeMenu()"
           >{{ item.label }}</a>
         }
@@ -43,12 +46,13 @@
           hreflang="{{ language() === 'de' ? 'en' : 'de-DE' }}"
           (click)="closeMenu()"
         >{{ copy().languageText }}</a>
-        <a
+        <button
+          type="button"
           class="nav-cta"
-          [href]="copy().ctaPath"
-          data-cta="readiness-header"
-          (click)="closeMenu()"
-        >{{ copy().cta }}</a>
+          [class.is-active]="pageKey() === 'contact'"
+          data-cta="contact-header"
+          (click)="openContactForm()"
+        >{{ copy().cta }}</button>
       </div>
     </div>
   </div>

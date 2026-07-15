@@ -1,26 +1,67 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  HostListener,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { ContactDialogService } from '../../contact-dialog.service';
+import type { PageKey } from '../../content/page.types';
 import { PageLocaleService } from '../../core/page-locale.service';
 
 interface NavigationItem {
   readonly label: string;
   readonly path: string;
   readonly lang?: 'de';
+  readonly activeKeys?: readonly PageKey[];
+  readonly currentKeys?: readonly PageKey[];
 }
 
 const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
   de: [
-    { label: 'Lösung', path: '/loesungen/technische-anfragequalifizierung/' },
-    { label: 'Branchen', path: '/branchen/end-of-line/' },
-    { label: 'Leistungen', path: '/leistungen/rfq-readiness-workshop/' },
-    { label: 'Über Hugo', path: '/ueber-hugo-menz/' },
-    { label: 'Kontakt', path: '/kontakt/' },
+    {
+      label: 'Leistungen',
+      path: '/#leistungen',
+      activeKeys: ['home-de', 'n8n-consulting-stuttgart', 'stuttgart'],
+    },
+    {
+      label: 'RFQ & Industrie',
+      path: '/loesungen/technische-anfragequalifizierung/',
+      activeKeys: [
+        'technical-request-qualification',
+        'rfq-readiness-workshop',
+        'internal-rfq-copilot',
+        'end-of-line',
+        'packaging-machinery',
+        'palletising-systems',
+      ],
+      currentKeys: ['technical-request-qualification'],
+    },
+    {
+      label: 'KI-Sichtbarkeit',
+      path: '/ki-sichtbarkeit-industrie/',
+      activeKeys: ['industrial-ai-search-de'],
+      currentKeys: ['industrial-ai-search-de'],
+    },
+    {
+      label: 'Über Hugo',
+      path: '/ueber-hugo-menz/',
+      activeKeys: ['about-hugo-menz'],
+      currentKeys: ['about-hugo-menz'],
+    },
   ],
   en: [
-    { label: 'Solution', path: '/en/#solution' },
-    { label: 'Industries', path: '/en/#industries' },
-    { label: 'Services', path: '/en/#process' },
+    { label: 'Services', path: '/en/#services', activeKeys: ['home-en'] },
+    {
+      label: 'AI Search',
+      path: '/en/ai-search-readiness-industrial-companies/',
+      activeKeys: ['industrial-ai-search-en'],
+      currentKeys: ['industrial-ai-search-en'],
+    },
     { label: 'About Hugo', path: '/en/#about' },
-    { label: 'Contact', path: '/en/#contact' },
   ],
 };
 
@@ -33,36 +74,50 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
 })
 export class HeaderComponent {
   private readonly pageLocale = inject(PageLocaleService);
+  private readonly contactDialog = inject(ContactDialogService);
 
   readonly menuOpen = signal(false);
   readonly language = this.pageLocale.language;
   readonly languagePath = this.pageLocale.languagePath;
+  readonly pageKey = this.pageLocale.pageKey;
   readonly navigation = computed(() => NAVIGATION[this.language()]);
+  private readonly navToggle = viewChild<ElementRef<HTMLButtonElement>>('navToggle');
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          subtitle: 'Technische Angebotsprozesse · Maschinenbau',
+          subtitle: 'UX Engineering · Prozesse · Automatisierung',
           brandLabel: 'Hugo Menz Automation – Startseite',
           navigationLabel: 'Hauptnavigation',
-          menuLabel: 'Menü umschalten',
-          languageLabel: 'English version',
+          menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
+          languageLabel:
+            this.pageKey() === 'home-de' || this.pageKey() === 'industrial-ai-search-de'
+              ? 'English version'
+              : 'English home',
           languageText: 'EN',
           homePath: '/',
-          cta: 'Pilot-Eignung prüfen',
-          ctaPath: '/leistungen/rfq-readiness-workshop/',
+          cta: 'Unverbindliches Erstgespräch',
         }
       : {
-          subtitle: 'Technical quotation processes · Machinery',
+          subtitle: 'UX Engineering · Processes · Automation',
           brandLabel: 'Hugo Menz Automation – English home',
           navigationLabel: 'Primary navigation',
-          menuLabel: 'Toggle menu',
+          menuLabel: this.menuOpen() ? 'Close menu' : 'Open menu',
           languageLabel: 'Deutsche Version',
           languageText: 'DE',
           homePath: '/en/',
-          cta: 'Check pilot fit',
-          ctaPath: '/en/#contact',
+          cta: 'Introductory call',
         },
   );
+
+  isActive(item: NavigationItem): boolean {
+    const pageKey = this.pageKey();
+    return pageKey !== null && (item.activeKeys?.includes(pageKey) ?? false);
+  }
+
+  isCurrent(item: NavigationItem): boolean {
+    const pageKey = this.pageKey();
+    return pageKey !== null && (item.currentKeys?.includes(pageKey) ?? false);
+  }
 
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
@@ -70,5 +125,16 @@ export class HeaderComponent {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  openContactForm(): void {
+    const restoreFocusTo = this.menuOpen() ? this.navToggle()?.nativeElement : null;
+    this.closeMenu();
+    this.contactDialog.open(restoreFocusTo);
+  }
+
+  @HostListener('document:keydown.escape')
+  closeMenuWithEscape(): void {
+    this.closeMenu();
   }
 }

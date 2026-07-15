@@ -6,30 +6,28 @@ export const HOME_DE = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Angebotsprozesse im Maschinenbau digitalisieren | Hugo Menz',
+    title: 'UX Engineering und Prozessautomatisierung | Hugo Menz',
     description:
-      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für eine Maschinenfamilie.',
+      'Nutzerfreundliche interne Tools, Prozessautomatisierung und Systemintegrationen für komplexe technische und betriebliche Abläufe.',
     canonicalPath: '/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Angebotsprozesse im Maschinenbau digitalisieren',
+      title: 'UX Engineering und Prozessautomatisierung',
       description:
-        'Aus E-Mails, Lastenheften, Fotos und PDFs wird eine prüfbare Anforderungsakte – mit offenen Punkten, freigegebenen Regeln und menschlicher Freigabe.',
+        'Komplexe Abläufe in klare Interfaces, strukturierte Daten und kontrollierte Automatisierungen überführen.',
       type: 'website',
       locale: 'de_DE',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt:
-        'Technische Anfragequalifizierung für Maschinenbauer mit freigegebenen Regeln und menschlicher Freigabe',
+      imagePath: '/og-general-de.png',
+      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Angebotsprozesse im Maschinenbau digitalisieren',
+      title: 'UX Engineering und Prozessautomatisierung',
       description:
-        'Aus E-Mails, Lastenheften, Fotos und PDFs wird eine prüfbare Anforderungsakte – mit offenen Punkten, freigegebenen Regeln und menschlicher Freigabe.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt:
-        'Technische Anfragequalifizierung für Maschinenbauer mit freigegebenen Regeln und menschlicher Freigabe',
+        'Komplexe Abläufe in klare Interfaces, strukturierte Daten und kontrollierte Automatisierungen überführen.',
+      imagePath: '/og-general-de.png',
+      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
     },
     alternates: [
       { hreflang: 'de-DE', path: '/' },
@@ -39,175 +37,177 @@ export const HOME_DE = {
   },
   header: {
     brand: 'Hugo Menz Automation',
-    subtitle: 'Technische Angebotsprozesse · Maschinenbau',
+    subtitle: 'UX Engineering · Prozesse · Automatisierung',
     navigation: [
+      { label: 'Leistungen', href: '/#leistungen' },
       {
-        label: 'Lösung',
+        label: 'RFQ & Industrie',
         href: '/loesungen/technische-anfragequalifizierung/',
       },
-      { label: 'Branchen', href: '/#maschinenfamilien' },
-      { label: 'Leistungen', href: '/leistungen/rfq-readiness-workshop/' },
+      { label: 'KI-Sichtbarkeit', href: '/ki-sichtbarkeit-industrie/' },
       { label: 'Über Hugo', href: '/ueber-hugo-menz/' },
-      { label: 'Kontakt', href: '/kontakt/' },
       { label: 'EN', href: '/en/', lang: 'en' },
     ],
     cta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-header',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-header',
     },
   },
   breadcrumbs: [{ label: 'Startseite', path: '/' }],
   hero: {
-    kicker: 'Technische Vertriebsprozesse · Stuttgart / Baden-Württemberg',
-    h1: 'Angebotsprozesse im Maschinenbau digitalisieren',
+    kicker: 'UX Engineering · Digitale Prozesse · Automatisierung',
+    h1: 'Digitale Prozesse verständlich und nutzbar machen',
     lead:
-      'Ich unterstütze Maschinenbauer dabei, unvollständige Anfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Anforderungsakte mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis zu überführen – vor der Freigabe durch den Vertriebsingenieur.',
+      'Ich verbinde UX Engineering, Interface-Entwicklung und Automatisierung, um unübersichtliche Arbeitsabläufe in klare, bedienbare digitale Prozesse zu überführen – besonders dort, wo Dokumente, Fachwissen und mehrere Systeme zusammenkommen.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
     },
     secondaryCta: {
-      label: 'So funktioniert der interne RFQ-Copilot',
-      href: '/leistungen/interner-rfq-copilot/',
-      dataCta: 'copilot-hero',
+      label: 'Leistungen ansehen',
+      href: '/#leistungen',
+      dataCta: 'services-hero',
     },
-    trustLine: 'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+    trustLine: 'UX Engineering · klare Prozesse · kontrollierte Automatisierung',
     diagram: {
-      fileLabel: 'technische-anfrage.flow',
+      fileLabel: 'digitaler-prozess.flow',
       nodes: [
-        { stage: 'Eingang', label: 'E-Mail · Lastenheft · Fotos' },
-        { stage: 'Strukturieren', label: 'Anforderungen und Quellen' },
-        { stage: 'Prüfen', label: 'Lücken · Widersprüche · Risiken' },
-        { stage: 'Berechnen', label: 'freigegebene Regeln' },
-        { stage: 'Freigeben', label: 'Vertriebsingenieur' },
+        { stage: 'Eingang', label: 'E-Mail · Formular · Dokument' },
+        { stage: 'Strukturieren', label: 'Daten und Kontext' },
+        { stage: 'Bearbeiten', label: 'Regeln und Integrationen' },
+        { stage: 'Prüfen', label: 'Ausnahmen und Freigaben' },
+        { stage: 'Übergeben', label: 'Team · CRM · Fachsystem' },
       ],
-      footer: 'keine erfundenen Preise · keine autonome Freigabe',
+      footer: 'nachvollziehbar · nutzerzentriert · kontrolliert',
     },
   },
   sections: [
     {
       id: 'ausgangslage',
       eyebrow: 'Ausgangslage',
-      heading: 'Von unvollständigen Anfragen zur prüfbaren Angebotsgrundlage',
+      heading: 'Wenn Informationen, Systeme und Arbeitsschritte nicht zusammenpassen',
       intro:
-        'Technische Anfragen kommen selten in der Form an, die Vertrieb und Engineering für eine belastbare erste Einschätzung brauchen. Informationen liegen in E-Mails, Anhängen, Fotos, Notizen und einzelnen Tabellen. Bevor eine Budgetindikation möglich ist, muss jemand den Inhalt ordnen, Lücken erkennen und Annahmen sichtbar machen.',
+        'Viele Prozesse sind nicht deshalb langsam, weil Menschen zu wenig leisten. Die nötigen Informationen sind verteilt, müssen mehrfach übertragen werden oder erreichen die richtige Person zu spät.',
       points: [
-        'Wichtige Produkt-, Leistungs- oder Schnittstellendaten fehlen.',
-        'Mehrere Dokumente enthalten widersprüchliche Angaben.',
-        'Vertriebsingenieure beantworten immer wieder dieselben Grundfragen.',
-        'Kalkulationswissen steckt in Excel-Dateien oder einzelnen Personen.',
-        'Annahmen und Ausschlüsse gehen bei der Übergabe an Engineering verloren.',
+        'Anfragen und Dokumente kommen unstrukturiert an.',
+        'Daten werden wiederholt aus E-Mails oder PDFs übertragen.',
+        'Freigaben und Zuständigkeiten sind nicht eindeutig.',
+        'Informationen gehen zwischen Abteilungen verloren.',
+        'Interne Werkzeuge sind schwer verständlich oder umständlich zu bedienen.',
+        'Formulare, Postfach, CRM und Fachsysteme arbeiten nebeneinander statt zusammen.',
       ],
       paragraphs: [
-        'Der erste sinnvolle Automatisierungsschritt ist deshalb nicht die automatische Angebotserstellung. Es ist eine bessere, nachvollziehbare Vorbereitung der technischen Entscheidung.',
+        'Ich untersuche zuerst den tatsächlichen Arbeitsablauf. Daraus entsteht eine Lösung, die den Menschen im Prozess Orientierung gibt und nur dort automatisiert, wo Regeln und Daten dafür ausreichen.',
       ],
       layout: 'list',
     },
     {
-      id: 'interner-rfq-copilot',
-      eyebrow: 'Interner RFQ-Copilot',
-      heading: 'Was der Pilot vorbereitet',
+      id: 'leistungen',
+      eyebrow: 'Leistungen',
+      heading: 'Was ich entwickle und verbessere',
       intro:
-        'Der Copilot arbeitet intern und für eine klar abgegrenzte Maschinenfamilie. Er bereitet Informationen vor, damit Vertrieb und Engineering schneller prüfen können – er ersetzt ihre Entscheidung nicht.',
+        'Der passende Umfang kann eine einzelne Oberfläche, eine Integration oder ein durchgängiger interner Ablauf sein. Entscheidend ist nicht das Werkzeug, sondern ob der Prozess danach verständlicher und verlässlicher funktioniert.',
       items: [
         {
-          title: 'Strukturierte Anforderungsakte',
-          body: 'Anforderungen, Einheiten, Quellen und Status werden in einem gemeinsamen Schema zusammengeführt.',
+          title: 'Interfaces und interne Tools',
+          body: 'Klare Oberflächen und UI-Komponenten für Aufgaben, die heute in Tabellen, E-Mails oder schwer bedienbaren Systemen verteilt sind.',
         },
         {
-          title: 'Fehlende Angaben und Widersprüche',
-          body: 'Kritische Lücken, widersprüchliche Werte und nicht bestätigte Annahmen werden sichtbar markiert.',
+          title: 'Informationen erfassen und strukturieren',
+          body: 'Formulare und Abläufe, die relevante Angaben vollständig aufnehmen, verständlich ordnen und für die weitere Bearbeitung vorbereiten.',
         },
         {
-          title: 'Gezielte Rückfragen',
-          body: 'Aus den offenen Punkten entsteht eine priorisierte Liste von Fragen für Kunde, Vertrieb oder Engineering.',
+          title: 'Wiederkehrende Abläufe automatisieren',
+          body: 'Nachvollziehbare Workflows für Routineaufgaben, Prüfungen, Benachrichtigungen und Freigaben – mit sichtbaren Ausnahmen.',
         },
         {
-          title: 'Regelbasierte Budgetbasis',
-          body: 'Nur freigegebene Module, Tabellen, Faktoren und Formeln dürfen in eine interne Budgetbasis einfließen.',
+          title: 'Systeme verbinden',
+          body: 'Integrationen zwischen Formularen, E-Mail, CRM, APIs und internen Systemen, ohne die fachliche Verantwortung zu verstecken.',
         },
         {
-          title: 'Saubere Übergabe',
-          body: 'Der geprüfte Stand kann als Grundlage für CRM, Kalkulation, Projektierung oder das nächste Kundengespräch dienen.',
+          title: 'Technische Anfragen qualifizieren',
+          body: 'Ein konkretes Industriebeispiel: Dokumente, Anforderungen, Lücken und Quellen für Vertrieb und Engineering strukturiert vorbereiten.',
+          link: {
+            label: 'Technische Anfragequalifizierung ansehen',
+            href: '/loesungen/technische-anfragequalifizierung/',
+          },
         },
-      ],
-      links: [
         {
-          label: 'Technische Anfragequalifizierung im Maschinenbau',
-          href: '/loesungen/technische-anfragequalifizierung/',
+          title: 'KI-Sichtbarkeit verbessern',
+          body: 'Unternehmens-, Produkt- und Fachinformationen so aufbereiten, dass Suchmaschinen und KI-Systeme sie besser verstehen können.',
+          link: {
+            label: 'KI-Sichtbarkeit für Industrieunternehmen',
+            href: '/ki-sichtbarkeit-industrie/',
+          },
         },
       ],
       layout: 'cards',
     },
     {
-      id: 'kontrolle',
-      eyebrow: 'Kontrolle',
-      heading: 'Wo Regeln enden und Engineering beginnt',
+      id: 'zusammenspiel',
+      eyebrow: 'Arbeitsweise',
+      heading: 'Nutzer verstehen und den Betrieb ernst nehmen',
       intro:
-        'Ein Sprachmodell kann Dokumente interpretieren. Es kann aber nicht die Verantwortung für technische Machbarkeit, Kosten oder Marge übernehmen. Deshalb werden Interpretation, Regelwerk und menschliche Entscheidung getrennt.',
+        'Eine gute digitale Lösung muss zwei Dinge gleichzeitig leisten: Sie muss für die Menschen verständlich sein und mit den realen Daten, Regeln und Verantwortlichkeiten des Unternehmens funktionieren.',
       columns: [
         {
-          heading: 'Das System darf',
+          heading: 'UX und Bedienbarkeit',
           points: [
-            'Informationen aus Dokumenten extrahieren und mit der Quelle verknüpfen.',
-            'Begriffe klassifizieren und in ein freigegebenes Schema übertragen.',
-            'fehlende Angaben und Widersprüche markieren.',
-            'Rückfragen vorschlagen.',
-            'deterministische Regeln und versionierte Preistabellen anwenden.',
+            'Aufgaben und Informationsbedarf der Nutzer verstehen.',
+            'Klare Schritte, Zustände und Rückmeldungen gestalten.',
+            'Fehler vermeiden und Korrekturen verständlich machen.',
+            'Komplexität nur dort zeigen, wo sie gebraucht wird.',
           ],
         },
         {
-          heading: 'Das System darf nicht',
+          heading: 'Prozess und technische Realität',
           points: [
-            'Preise oder Module erfinden.',
-            'fehlende Maße stillschweigend ergänzen.',
-            'technische Machbarkeit bestätigen.',
-            'Margen oder Risiken eigenständig freigeben.',
-            'eine Kundenantwort oder ein Angebot automatisch versenden.',
+            'Datenquellen, Regeln und Schnittstellen klären.',
+            'Ausnahmen und menschliche Entscheidungen sichtbar halten.',
+            'Übergaben zwischen Rollen und Systemen absichern.',
+            'Eine wartbare Lösung statt unnötiger Technik wählen.',
           ],
         },
       ],
       callout:
-        'Wenn eine Regel fehlt oder der Fall außerhalb des definierten technischen Rahmens liegt, muss das System stoppen und zur Prüfung eskalieren.',
+        'Meine Erfahrung aus Sondermaschinenbau und Industrieautomation hilft mir, technische und betriebliche Zusammenhänge schnell einzuordnen. UX Engineering macht daraus einen Ablauf, der im Alltag nutzbar bleibt.',
       layout: 'comparison',
     },
     {
-      id: 'maschinenfamilien',
-      eyebrow: 'Maschinenfamilien',
-      heading: 'Für welche Anwendungen der Ansatz geeignet sein kann',
+      id: 'anwendungsfaelle',
+      eyebrow: 'Anwendungsfälle',
+      heading: 'Wo dieser Ansatz besonders hilfreich ist',
       intro:
-        'Gute Kandidaten haben wiederkehrende Eingangsgrößen, bekannte Module und klare Ausschlussregeln. Der Pilot startet bewusst nicht mit dem gesamten Portfolio.',
+        'Meine tiefste Prozesserfahrung stammt aus Industrie und Maschinenbau. Relevant ist der Ansatz aber überall dort, wo B2B-Abläufe erklärungsbedürftig sind und Informationen kontrolliert zwischen Menschen und Systemen fließen müssen.',
       items: [
         {
-          title: 'End-of-Line-Anlagen',
-          body: 'Palettieren, Kartonieren, Verschließen, Etikettieren und weitere modulare Schritte am Linienende.',
-          link: {
-            label: 'Angebotsprozesse für End-of-Line-Anlagen',
-            href: '/branchen/end-of-line/',
-          },
+          title: 'Anfragen und Dokumente',
+          body: 'Unterschiedliche Eingänge erfassen, fehlende Angaben sichtbar machen und einen prüfbaren Arbeitsstand schaffen.',
         },
         {
-          title: 'Verpackungsmaschinen',
-          body: 'Vor allem sekundäre Verpackungsprozesse mit wiederkehrenden Formaten, Optionen und Leistungsgrenzen.',
-          link: {
-            label: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
-            href: '/branchen/verpackungsmaschinen/',
-          },
+          title: 'Manuelle Routinearbeit',
+          body: 'Wiederkehrende Übertragungen, Prüfungen und Benachrichtigungen reduzieren, ohne Ausnahmen zu übergehen.',
         },
         {
-          title: 'Palettieranlagen',
-          body: 'Robotergestützte Palettierung von definierten Kartons oder starren Trays innerhalb eines klaren technischen Rahmens.',
-          link: {
-            label: 'Angebotsprozesse für Palettieranlagen',
-            href: '/branchen/palettieranlagen/',
-          },
+          title: 'Übergaben und Freigaben',
+          body: 'Verantwortlichkeiten, Status und nächste Schritte zwischen Teams nachvollziehbar abbilden.',
         },
         {
-          label: 'Negativer Fit',
-          title: 'Nicht jede Sondermaschine ist ein guter Kandidat',
-          body: 'Wenn jede Lösung von neuen Versuchen, Simulationen oder vollständig individueller Konstruktion abhängt, ist eine regelbasierte Budgetbasis möglicherweise nicht sinnvoll. Ein Workshop darf deshalb auch mit einem begründeten No-Go enden.',
+          title: 'Schwer bedienbare interne Werkzeuge',
+          body: 'Oberflächen vereinfachen, Informationshierarchien klären und häufige Aufgaben gezielt unterstützen.',
+        },
+      ],
+      links: [
+        { label: 'Industriebeispiel End-of-Line', href: '/branchen/end-of-line/' },
+        {
+          label: 'Industriebeispiel Verpackungsmaschinen',
+          href: '/branchen/verpackungsmaschinen/',
+        },
+        {
+          label: 'Industriebeispiel Palettieranlagen',
+          href: '/branchen/palettieranlagen/',
         },
       ],
       layout: 'cards',
@@ -215,31 +215,27 @@ export const HOME_DE = {
     {
       id: 'vorgehen',
       eyebrow: 'Vorgehen',
-      heading: 'Einstieg mit einer klar abgegrenzten Maschinenfamilie',
+      heading: 'Von der Ausgangslage zu einer nutzbaren Lösung',
       items: [
         {
           label: 'Schritt 1',
-          title: 'RFQ Readiness Workshop',
-          body: 'Prozess, Volumen, Daten, Regeln, Risiken und eine geeignete Maschinenfamilie prüfen. Ergebnis: Go, Go mit Bedingungen oder No-Go.',
-          link: {
-            label: 'RFQ Readiness Workshop',
-            href: '/leistungen/rfq-readiness-workshop/',
-          },
+          title: 'Problem eingrenzen',
+          body: 'Im Erstgespräch geht es um den heutigen Ablauf, beteiligte Personen und Systeme sowie den größten Engpass.',
         },
         {
           label: 'Schritt 2',
-          title: 'Historische Prüfung',
-          body: 'Alte Anfragen und freigegebene Kalkulationen nutzen, um Schema, Quellen, Regeln und Grenzen zu testen.',
+          title: 'Prozess und Nutzung verstehen',
+          body: 'Ich ordne Aufgaben, Informationen, Regeln, Ausnahmen und Übergaben und mache den sinnvollen Umfang sichtbar.',
         },
         {
           label: 'Schritt 3',
-          title: 'Pilot im Schattenbetrieb',
-          body: 'Neue Fälle parallel zum bestehenden Prozess bearbeiten, ohne Kundenkommunikation oder offizielle Kalkulation zu automatisieren.',
+          title: 'Lösung entwerfen und umsetzen',
+          body: 'Interface, Workflow oder Integration entstehen in einem klar abgegrenzten Rahmen mit nachvollziehbaren Entscheidungen.',
         },
         {
           label: 'Schritt 4',
-          title: 'Begrenzter interner Rollout',
-          body: 'Erst nach messbarer Entlastung, stabilen Regeln und akzeptierter Qualität wird der Einsatz erweitert.',
+          title: 'Im Alltag prüfen',
+          body: 'Die Lösung wird mit realistischen Fällen getestet, dokumentiert und nur bei erkennbarem Nutzen erweitert.',
         },
       ],
       ordered: true,
@@ -247,23 +243,14 @@ export const HOME_DE = {
     },
     {
       id: 'profil',
-      heading: 'Maschinenbau verstehen. Software pragmatisch umsetzen.',
+      heading: 'UX Engineering mit industrieller Prozesserfahrung',
       paragraphs: [
-        'Ich bin Maschinenbauingenieur und Webentwickler in Stuttgart. Rund acht Jahre habe ich in Sondermaschinenbau, Konstruktion, Stücklisten, Einkauf, Lieferantenkoordination und Projektabwicklung gearbeitet. Dazu kommen rund drei Jahre Erfahrung mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung.',
-        'Diese Kombination ist für technische Angebotsprozesse entscheidend: Die Lösung muss nicht nur Dokumente lesen und Systeme verbinden. Sie muss auch erkennen, welche Angaben für eine Maschine relevant sind, wo eine Regel belastbar ist und wann Engineering übernehmen muss.',
-      ],
-      points: [
-        'Direkter Ansprechpartner von Analyse bis Umsetzung.',
-        'Technischer Blick auf Anforderungen, Module, Kostenquellen und Risiken.',
-        'Klare Trennung von Fakten, Annahmen und automatisierten Vorschlägen.',
-        'Bereitschaft, von einer Automatisierung abzuraten, wenn die Voraussetzungen fehlen.',
+        'Ich arbeite als UX Engineer für digitale Prozesse und Automatisierung. Zuvor war ich rund acht Jahre im Sondermaschinenbau und in der Industrieautomation tätig – unter anderem in Konstruktion, technischer Koordination, Einkauf, Lieferantenabstimmung und Projektabwicklung.',
+        'Heute verbinde ich dieses Prozessverständnis mit Interface-Entwicklung, UI-Komponenten, APIs und Automatisierung. Sie arbeiten direkt mit mir – von der ersten Einordnung bis zu einer möglichen Umsetzung.',
       ],
       links: [
-        { label: 'Über Hugo Menz', href: '/ueber-hugo-menz/' },
-        {
-          label: 'Angebotsprozess-Automatisierung in Stuttgart',
-          href: '/standorte/stuttgart/',
-        },
+        { label: 'Mehr über meinen Hintergrund', href: '/ueber-hugo-menz/' },
+        { label: 'Zusammenarbeit in Stuttgart', href: '/standorte/stuttgart/' },
       ],
       layout: 'profile',
     },
@@ -271,55 +258,50 @@ export const HOME_DE = {
   faq: {
     id: 'faq',
     eyebrow: 'Häufige Fragen',
-    heading: 'Fragen zur technischen Anfragequalifizierung',
+    heading: 'Fragen zur Zusammenarbeit',
     items: [
       {
-        question: 'Für welche Maschinenfamilien funktioniert der Ansatz?',
+        question: 'Arbeiten Sie ausschließlich mit Maschinenbauunternehmen?',
         answer:
-          'Für Familien mit wiederkehrenden Eingangsgrößen, Modulen, Optionen und Grenzen. Je stärker jeder Auftrag vollständig neu entwickelt werden muss, desto kleiner ist der sinnvoll automatisierbare Anteil.',
+          'Nein. Meine Erfahrung im Maschinenbau ist ein Vorteil bei komplexen technischen und betrieblichen Abläufen, aber keine Branchengrenze. Entscheidend ist, ob ein Prozess, eine interne Oberfläche oder ein Datenfluss sinnvoll verbessert werden kann.',
       },
       {
-        question: 'Muss bereits ein CPQ vorhanden sein?',
+        question: 'Welche Prozesse eignen sich für eine Automatisierung?',
         answer:
-          'Nein. Der Pilot kann vor einem CPQ ansetzen und zunächst Anforderungen, Quellen, Lücken und freigegebene Kalkulationsregeln strukturieren. Er kann auch zeigen, ob eine spätere CPQ-Einführung überhaupt sinnvoll ist.',
+          'Gute Kandidaten enthalten wiederkehrende Schritte, klare Informationsübergaben oder häufige manuelle Übertragungen. Ausnahmen und Entscheidungen, die Fachwissen benötigen, sollten sichtbar bei den zuständigen Menschen bleiben.',
       },
       {
-        question: 'Kann die KI Preise festlegen?',
+        question: 'Muss dafür ein komplett neues System entstehen?',
         answer:
-          'Nein. Preise und Budgetwerte dürfen nur aus freigegebenen Tabellen, Modulen, Faktoren oder Formeln kommen. Die KI darf Informationen zuordnen, aber keinen Preis erfinden.',
+          'Nicht unbedingt. Je nach Ausgangslage kann eine bessere Oberfläche, ein klareres Formular, eine Integration oder ein kleiner interner Workflow ausreichen.',
       },
       {
-        question: 'Werden Kunden automatisch kontaktiert?',
+        question: 'Welche Technologien setzen Sie ein?',
         answer:
-          'Nicht im ersten Pilot. Das System arbeitet intern. Rückfragen und Ergebnisse werden erst nach menschlicher Prüfung verwendet.',
+          'Die Technologie folgt dem Prozess. Je nach Aufgabe können Angular, TypeScript, APIs, Webhooks, n8n, Make oder vorhandene Systeme beteiligt sein. Entscheidend sind Bedienbarkeit, Wartbarkeit und klare Verantwortlichkeiten.',
       },
       {
-        question: 'Welche Daten werden benötigt?',
+        question: 'Was passiert im unverbindlichen Erstgespräch?',
         answer:
-          'Eine ausgewählte Maschinenfamilie, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte, der Regeln und Ergebnisse freigeben kann.',
-      },
-      {
-        question: 'Wann sollte man nicht automatisieren?',
-        answer:
-          'Wenn das Volumen zu gering ist, die Projekte kaum wiederholbar sind, Regeln nicht gepflegt werden können oder jede erste Einschätzung zwingend neue Versuche und detaillierte Konstruktion braucht.',
+          'Sie beschreiben den heutigen Ablauf und das gewünschte Ziel. Ich gebe eine erste Einschätzung, ob und wie sich das Problem sinnvoll eingrenzen lässt. Das Gespräch ist keine vollständige kostenlose Analyse.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Ist Ihre Maschinenfamilie für diesen Ansatz geeignet?',
-    body: 'In einem RFQ Readiness Workshop prüfen wir Prozess, Volumen, Daten, Regeln und technische Grenzen. Sie erhalten eine klare Empfehlung – auch dann, wenn ein Pilot nicht sinnvoll ist.',
+    heading: 'Welchen Prozess möchten Sie verständlicher machen?',
+    body:
+      'Beschreiben Sie kurz den heutigen Ablauf und den größten Engpass. Im unverbindlichen Erstgespräch kläre ich mit Ihnen, welcher nächste Schritt sinnvoll sein kann.',
     action: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-final',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-final',
     },
-    note: 'Kein autonomes Angebot. Keine erfundenen Preise. Eine klar begrenzte Prüfung mit menschlicher Freigabe.',
+    note: 'Für den ersten Kontakt reichen nicht vertrauliche Rahmendaten.',
   },
   footer: {
     left: 'Hugo Menz Automation',
-    right:
-      'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer in Deutschland.',
+    right: 'UX Engineering, digitale Prozesse und Automatisierung für komplexe B2B-Abläufe.',
     secondaryLink: {
       label: 'n8n Beratung Stuttgart',
       href: '/n8n-beratung-stuttgart/',

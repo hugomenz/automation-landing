@@ -6,30 +6,28 @@ export const HOME_EN = {
   lang: 'en',
   locale: 'en',
   seo: {
-    title: 'Digitise quotation processes for machinery manufacturers | Hugo Menz',
+    title: 'UX Engineering and Process Automation | Hugo Menz',
     description:
-      'Structure technical requests, identify missing information and prepare a rule-based budget basis for one machine family with human approval.',
+      'User-friendly internal tools, process automation and system integrations for complex technical and operational workflows.',
     canonicalPath: '/en/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Digitise quotation processes for machinery manufacturers',
+      title: 'UX Engineering and Process Automation',
       description:
-        'Turn emails, specifications, photos and PDFs into a reviewable requirements record with open points, approved rules and human sign-off.',
+        'Turn complex workflows into clear interfaces, structured data and controlled automation.',
       type: 'website',
       locale: 'en',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt:
-        'Technical request qualification for machinery manufacturers with approved rules and human sign-off',
+      imagePath: '/og-general-en.png',
+      imageAlt: 'UX engineering for digital processes, automation and integrations',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Digitise quotation processes for machinery manufacturers',
+      title: 'UX Engineering and Process Automation',
       description:
-        'Turn emails, specifications, photos and PDFs into a reviewable requirements record with open points, approved rules and human sign-off.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt:
-        'Technical request qualification for machinery manufacturers with approved rules and human sign-off',
+        'Turn complex workflows into clear interfaces, structured data and controlled automation.',
+      imagePath: '/og-general-en.png',
+      imageAlt: 'UX engineering for digital processes, automation and integrations',
     },
     alternates: [
       { hreflang: 'de-DE', path: '/' },
@@ -39,177 +37,249 @@ export const HOME_EN = {
   },
   header: {
     brand: 'Hugo Menz Automation',
-    subtitle: 'Technical quotation processes · Machinery',
+    subtitle: 'UX Engineering · Processes · Automation',
     navigation: [
-      { label: 'Solution', href: '/en/#solution' },
-      { label: 'Industries', href: '/en/#industries' },
-      { label: 'Services', href: '/en/#process' },
+      { label: 'Services', href: '/en/#services' },
+      { label: 'Use cases', href: '/en/#use-cases' },
+      {
+        label: 'AI Search',
+        href: '/en/ai-search-readiness-industrial-companies/',
+      },
       { label: 'About Hugo', href: '/en/#about' },
-      { label: 'Contact', href: '/en/#contact' },
       { label: 'DE', href: '/', lang: 'de' },
     ],
-    cta: { label: 'Check pilot fit', href: '/en/#contact', dataCta: 'readiness-header' },
+    cta: { label: 'Introductory call', href: '#contact-form', dataCta: 'contact-header' },
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
     { label: 'English', path: '/en/' },
   ],
   hero: {
-    kicker: 'Technical sales processes · Stuttgart / Baden-Württemberg',
-    h1: 'Digitise quotation processes for machinery manufacturers',
+    kicker: 'UX Engineering · Digital Processes · Automation',
+    h1: 'Make digital processes clear and usable',
     lead:
-      'I help machinery manufacturers turn incomplete requests, emails, specifications, photos and PDFs into a reviewable requirements record with open points, risks and a rule-based budget basis — before approval by a sales engineer.',
+      'I combine UX engineering, interface development and automation to turn fragmented work into clear, usable digital processes — especially where documents, specialist knowledge and several systems come together.',
     primaryCta: {
-      label: 'Check pilot fit',
-      href: '/en/#contact',
-      dataCta: 'readiness-hero',
+      label: 'Introductory call',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
     },
     secondaryCta: {
-      label: 'How the internal RFQ copilot works',
-      href: '/en/#solution',
-      dataCta: 'copilot-hero',
+      label: 'View services',
+      href: '/en/#services',
+      dataCta: 'services-hero',
     },
-    trustLine: 'One machine family · approved rules · human review',
+    trustLine: 'UX engineering · clear processes · controlled automation',
     diagram: {
-      fileLabel: 'technical-request.flow',
+      fileLabel: 'digital-process.flow',
       nodes: [
-        { stage: 'Input', label: 'Email · specification · photos' },
-        { stage: 'Structure', label: 'Requirements and sources' },
-        { stage: 'Check', label: 'Gaps · contradictions · risks' },
-        { stage: 'Calculate', label: 'approved rules' },
-        { stage: 'Approve', label: 'Sales engineer' },
+        { stage: 'Input', label: 'Email · form · document' },
+        { stage: 'Structure', label: 'Data and context' },
+        { stage: 'Process', label: 'Rules and integrations' },
+        { stage: 'Review', label: 'Exceptions and approvals' },
+        { stage: 'Handover', label: 'Team · CRM · business system' },
       ],
-      footer: 'no invented prices · no autonomous approval',
+      footer: 'traceable · user-centred · controlled',
     },
   },
   sections: [
     {
       id: 'problem',
-      heading: 'From incomplete requests to a reviewable quotation basis',
+      heading: 'When information, systems and work steps do not fit together',
       paragraphs: [
-        'Technical requests rarely arrive in the format sales and engineering need for a reliable first assessment. Information is spread across emails, attachments, photos, notes and spreadsheets. Before a budget indication is possible, someone has to structure the content, identify gaps and make assumptions visible.',
+        'Many processes are slow because information is scattered, entered more than once or reaches the right person too late. I first look at the real workflow, then design a solution that gives people clarity and only automates steps supported by reliable data and rules.',
       ],
-      layout: 'text',
-    },
-    {
-      id: 'solution',
-      heading: 'What the internal RFQ copilot prepares',
       points: [
-        'A structured requirements record.',
-        'Missing information and contradictions.',
-        'Prioritised follow-up questions.',
-        'A rule-based budget basis from approved sources only.',
-        'A clean handover for sales, engineering or CRM.',
-      ],
-      links: [
-        {
-          label: 'Technical request qualification (German service page)',
-          href: '/loesungen/technische-anfragequalifizierung/',
-          lang: 'de',
-        },
-        {
-          label: 'Internal RFQ copilot (German service page)',
-          href: '/leistungen/interner-rfq-copilot/',
-          lang: 'de',
-        },
+        'Requests and documents arrive without a consistent structure.',
+        'Data is copied repeatedly from emails or PDFs.',
+        'Approvals and responsibilities are unclear.',
+        'Information is lost between departments.',
+        'Internal tools are difficult to understand or use.',
+        'Forms, email, CRM and business systems remain disconnected.',
       ],
       layout: 'list',
     },
     {
-      id: 'control',
-      heading: 'Where rules end and engineering begins',
-      paragraphs: [
-        'AI can interpret documents, but it must not invent prices, approve feasibility or send an offer. If a rule is missing or a case falls outside the defined technical envelope, the system must stop and escalate it for review.',
-      ],
-      layout: 'text',
-    },
-    {
-      id: 'industries',
-      heading: 'Suitable machine families',
+      id: 'services',
+      heading: 'What I design and improve',
+      intro:
+        'The right scope may be one interface, an integration or an end-to-end internal workflow. The tool matters less than making the process clearer and more reliable.',
       items: [
         {
-          title: 'End-of-line equipment.',
+          title: 'Interfaces and internal tools',
+          body: 'Clear screens and UI components for tasks currently spread across spreadsheets, emails or difficult systems.',
+        },
+        {
+          title: 'Structured information capture',
+          body: 'Forms and workflows that collect relevant details, organise them clearly and prepare them for further work.',
+        },
+        {
+          title: 'Process automation',
+          body: 'Traceable workflows for routine tasks, checks, notifications and approvals, with visible exceptions.',
+        },
+        {
+          title: 'System integrations',
+          body: 'Connections between forms, email, CRM, APIs and internal systems without hiding professional responsibility.',
+        },
+        {
+          title: 'Technical request qualification',
+          body: 'An industrial example: preparing documents, requirements, gaps and sources for sales and engineering review.',
           link: {
-            label: 'End-of-line equipment (German page)',
-            href: '/branchen/end-of-line/',
+            label: 'Technical request qualification (German)',
+            href: '/loesungen/technische-anfragequalifizierung/',
             lang: 'de',
           },
         },
         {
-          title: 'Secondary packaging machinery.',
+          title: 'AI-search visibility',
+          body: 'Improving the company, product and expert information that helps search and AI systems understand an industrial business.',
           link: {
-            label: 'Secondary packaging machinery (German page)',
-            href: '/branchen/verpackungsmaschinen/',
-            lang: 'de',
-          },
-        },
-        {
-          title: 'Robotic palletising systems within a defined envelope.',
-          link: {
-            label: 'Robotic palletising systems (German page)',
-            href: '/branchen/palettieranlagen/',
-            lang: 'de',
+            label: 'AI Search Readiness for industry',
+            href: '/en/ai-search-readiness-industrial-companies/',
           },
         },
       ],
       layout: 'cards',
     },
     {
-      id: 'process',
-      heading: 'A controlled path to implementation',
+      id: 'approach',
+      heading: 'Understand users and respect operational reality',
+      intro:
+        'A useful digital solution has to work for the people using it and with the company’s actual data, rules and responsibilities.',
+      columns: [
+        {
+          heading: 'UX and usability',
+          points: [
+            'Understand users’ tasks and information needs.',
+            'Design clear steps, states and feedback.',
+            'Prevent errors and make corrections understandable.',
+            'Show complexity only where it is needed.',
+          ],
+        },
+        {
+          heading: 'Process and technical reality',
+          points: [
+            'Clarify data sources, rules and interfaces.',
+            'Keep exceptions and human decisions visible.',
+            'Secure handovers between roles and systems.',
+            'Choose a maintainable solution without unnecessary technology.',
+          ],
+        },
+      ],
+      callout:
+        'My background in special-purpose machinery and industrial automation helps me understand technical and operational dependencies. UX engineering turns that understanding into a workflow people can use.',
+      layout: 'comparison',
+    },
+    {
+      id: 'use-cases',
+      heading: 'Where this approach is particularly useful',
+      intro:
+        'My deepest process experience comes from industry and machinery. The approach also fits other complex B2B workflows where information needs to move safely between people and systems.',
       items: [
         {
-          title: 'RFQ readiness workshop.',
-          link: {
-            label: 'RFQ readiness workshop (German service page)',
-            href: '/leistungen/rfq-readiness-workshop/',
-            lang: 'de',
-          },
+          title: 'Requests and documents',
+          body: 'Capture different inputs, expose missing information and create a reviewable working record.',
         },
-        { title: 'Historical evaluation.' },
-        { title: 'Shadow-mode internal pilot.' },
-        { title: 'Limited internal rollout.' },
+        {
+          title: 'Manual routine work',
+          body: 'Reduce repeated transfers, checks and notifications without ignoring exceptions.',
+        },
+        {
+          title: 'Handovers and approvals',
+          body: 'Make responsibilities, status and next steps clear across teams.',
+        },
+        {
+          title: 'Difficult internal tools',
+          body: 'Simplify interfaces, clarify information hierarchy and support frequent tasks.',
+        },
+      ],
+      layout: 'cards',
+    },
+    {
+      id: 'process',
+      heading: 'From the current situation to a usable solution',
+      items: [
+        {
+          title: 'Define the problem.',
+          body: 'The introductory call covers the current workflow, people and systems involved, and the main bottleneck.',
+        },
+        {
+          title: 'Understand process and use.',
+          body: 'I map tasks, information, rules, exceptions and handovers to define a useful scope.',
+        },
+        {
+          title: 'Design and implement.',
+          body: 'The interface, workflow or integration is built within a clear boundary and with traceable decisions.',
+        },
+        {
+          title: 'Test in real work.',
+          body: 'The solution is checked with realistic cases, documented and expanded only where useful.',
+        },
       ],
       ordered: true,
       layout: 'steps',
     },
     {
       id: 'about',
-      heading: 'Mechanical engineering experience with practical software delivery',
+      heading: 'UX engineering backed by industrial process experience',
       paragraphs: [
-        'I am a mechanical engineer and web developer based in Stuttgart. I combine around eight years of experience in special-purpose machinery, design, bills of materials, purchasing and project coordination with around three years of experience in Angular, TypeScript, APIs, webhooks, n8n, Make and automation.',
+        'I work as a UX engineer for digital processes and automation. Before that, I spent around eight years in special-purpose machinery and industrial automation, including mechanical design, technical coordination, purchasing, supplier coordination and project delivery.',
+        'Today I combine that process understanding with interface development, UI components, APIs and automation. You work directly with me from the first assessment through to a possible implementation.',
       ],
       links: [
-        { label: 'About Hugo Menz (German page)', href: '/ueber-hugo-menz/', lang: 'de' },
-        {
-          label: 'Quotation process automation in Stuttgart (German page)',
-          href: '/standorte/stuttgart/',
-          lang: 'de',
-        },
+        { label: 'More about my background (German)', href: '/ueber-hugo-menz/', lang: 'de' },
+        { label: 'Working together in Stuttgart (German)', href: '/standorte/stuttgart/', lang: 'de' },
       ],
       layout: 'profile',
     },
   ],
+  faq: {
+    id: 'faq',
+    eyebrow: 'Frequently asked questions',
+    heading: 'Questions about working together',
+    items: [
+      {
+        question: 'Do you only work with machinery manufacturers?',
+        answer:
+          'No. My machinery background is useful for complex technical and operational work, but it is not an industry boundary. What matters is whether a process, internal interface or data flow can be improved meaningfully.',
+      },
+      {
+        question: 'Which processes are suitable for automation?',
+        answer:
+          'Good candidates contain recurring steps, clear information handovers or repeated manual transfers. Exceptions and decisions that require expertise should remain visible to the responsible people.',
+      },
+      {
+        question: 'Does this require a completely new system?',
+        answer:
+          'Not necessarily. A better interface, clearer form, targeted integration or small internal workflow may be enough.',
+      },
+      {
+        question: 'What happens in the introductory call?',
+        answer:
+          'You describe the current workflow and intended outcome. I provide an initial view of whether and how the problem can be scoped. The call is not a complete free analysis.',
+      },
+    ],
+  },
   finalCta: {
     eyebrow: 'Next step',
-    heading: 'Is one of your machine families suitable for this approach?',
-    body: 'The first step is to assess process, volume, data, rules and technical limits. The result may also be a clear recommendation not to automate.',
+    heading: 'Which process would you like to make easier to use?',
+    body:
+      'Briefly describe the current workflow and the main bottleneck. In an introductory call, I will help clarify a sensible next step.',
     action: {
-      label: 'Discuss a machine family',
-      href: '/kontakt/',
-      lang: 'de',
+      label: 'Introductory call',
+      href: '#contact-form',
       dataCta: 'contact-final',
     },
-    note: 'The contact form is currently available in German.',
+    note: 'Non-confidential context is enough for the first contact.',
   },
   footer: {
     left: 'Hugo Menz Automation',
-    right: 'Technical request qualification and digital quotation processes for machinery manufacturers.',
+    right: 'UX engineering, digital processes and automation for complex B2B workflows.',
     secondaryLink: {
-      label: 'n8n consulting in Stuttgart (German page)',
+      label: 'n8n consulting in Stuttgart (German)',
       href: '/n8n-beratung-stuttgart/',
       lang: 'de',
     },
   },
-  schemaKinds: ['Person', 'ProfessionalService', 'WebSite', 'BreadcrumbList'],
+  schemaKinds: ['Person', 'ProfessionalService', 'WebSite', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;

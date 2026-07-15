@@ -119,42 +119,41 @@ describe('German home content guardrails', () => {
     expect(home.lang).toBe('de');
     expect(home.locale).toBe('de_DE');
     expect(home.seo.title).toBe(
-      'Angebotsprozesse im Maschinenbau digitalisieren | Hugo Menz',
+      'UX Engineering und Prozessautomatisierung | Hugo Menz',
     );
     expect(home.seo.description).toBe(
-      'Technische Anfragen strukturieren, Lücken erkennen und eine regelbasierte Budgetbasis vorbereiten – als interner Pilot für eine Maschinenfamilie.',
+      'Nutzerfreundliche interne Tools, Prozessautomatisierung und Systemintegrationen für komplexe technische und betriebliche Abläufe.',
     );
-    expect(home.hero.h1).toBe('Angebotsprozesse im Maschinenbau digitalisieren');
+    expect(home.hero.h1).toBe('Digitale Prozesse verständlich und nutzbar machen');
     expect(home.hero.lead).toBe(
-      'Ich unterstütze Maschinenbauer dabei, unvollständige Anfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Anforderungsakte mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis zu überführen – vor der Freigabe durch den Vertriebsingenieur.',
+      'Ich verbinde UX Engineering, Interface-Entwicklung und Automatisierung, um unübersichtliche Arbeitsabläufe in klare, bedienbare digitale Prozesse zu überführen – besonders dort, wo Dokumente, Fachwissen und mehrere Systeme zusammenkommen.',
     );
     expect(home.hero.primaryCta).toEqual({
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
     });
     expect(home.hero.trustLine).toBe(
-      'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+      'UX Engineering · klare Prozesse · kontrollierte Automatisierung',
     );
-    expect(home.hero.h1).not.toBe('Ich automatisiere Prozesse, die jeden Tag Zeit kosten.');
   });
 
-  it('locks the traceable RFQ flow and the human decision boundary', () => {
+  it('locks the traceable process flow and the human decision boundary', () => {
     expect(home.hero.diagram?.nodes).toEqual([
-      { stage: 'Eingang', label: 'E-Mail · Lastenheft · Fotos' },
-      { stage: 'Strukturieren', label: 'Anforderungen und Quellen' },
-      { stage: 'Prüfen', label: 'Lücken · Widersprüche · Risiken' },
-      { stage: 'Berechnen', label: 'freigegebene Regeln' },
-      { stage: 'Freigeben', label: 'Vertriebsingenieur' },
+      { stage: 'Eingang', label: 'E-Mail · Formular · Dokument' },
+      { stage: 'Strukturieren', label: 'Daten und Kontext' },
+      { stage: 'Bearbeiten', label: 'Regeln und Integrationen' },
+      { stage: 'Prüfen', label: 'Ausnahmen und Freigaben' },
+      { stage: 'Übergeben', label: 'Team · CRM · Fachsystem' },
     ]);
     expect(home.hero.diagram?.footer).toBe(
-      'keine erfundenen Preise · keine autonome Freigabe',
+      'nachvollziehbar · nutzerzentriert · kontrolliert',
     );
 
     const text = indexableText(home);
-    expect(text).toContain('Interpretation, Regelwerk und menschliche Entscheidung getrennt');
-    expect(text).toContain('deterministische Regeln');
-    expect(text).toContain('menschlicher Freigabe');
+    expect(text).toContain('Ausnahmen und menschliche Entscheidungen sichtbar halten');
+    expect(text).toContain('nur dort automatisiert, wo Regeln und Daten dafür ausreichen');
+    expect(text).toContain('UX Engineering mit industrieller Prozesserfahrung');
   });
 });
 
@@ -169,17 +168,15 @@ describe('English home and bilingual hreflang', () => {
     expect(englishHome.lang).toBe('en');
     expect(englishHome.locale).toBe('en');
     expect(englishHome.seo.title).toBe(
-      'Digitise quotation processes for machinery manufacturers | Hugo Menz',
+      'UX Engineering and Process Automation | Hugo Menz',
     );
     expect(englishHome.seo.description).toBe(
-      'Structure technical requests, identify missing information and prepare a rule-based budget basis for one machine family with human approval.',
+      'User-friendly internal tools, process automation and system integrations for complex technical and operational workflows.',
     );
-    expect(englishHome.hero.h1).toBe(
-      'Digitise quotation processes for machinery manufacturers',
-    );
-    expect(englishHome.hero.lead).toContain('before approval by a sales engineer');
+    expect(englishHome.hero.h1).toBe('Make digital processes clear and usable');
+    expect(englishHome.hero.lead).toContain('UX engineering, interface development and automation');
     expect(englishHome.hero.trustLine).toBe(
-      'One machine family · approved rules · human review',
+      'UX engineering · clear processes · controlled automation',
     );
     expect(englishHome.sections.length).toBeGreaterThanOrEqual(6);
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));

@@ -20,21 +20,39 @@ export class SiteFooterComponent {
     this.language() === 'de'
       ? {
           description:
-            'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer in Deutschland.',
-          solutionLabel: 'Lösung und Leistungen',
-          industriesLabel: 'Maschinenfamilien',
+            'UX Engineering, interne Tools und Prozessautomatisierung für komplexe technische und betriebliche Abläufe.',
+          solutionLabel: 'Leistungen',
+          processesLink: 'Digitale Prozesse und Interfaces',
+          requestLink: 'Technische Anfragequalifizierung',
+          aiSearchLink: 'KI-Sichtbarkeit für Industrieunternehmen',
+          aiSearchPath: '/ki-sichtbarkeit-industrie/',
+          examplesLabel: 'Vertiefung',
+          workshopLink: 'RFQ Readiness Workshop',
+          copilotLink: 'Interner RFQ-Copilot',
+          n8nLink: 'n8n Beratung Stuttgart',
           companyLabel: 'Hugo Menz Automation',
-          secondaryLabel: 'Technologie',
+          secondaryLabel: 'Über und Kontakt',
+          aboutLink: 'Über Hugo Menz',
+          contactLink: 'Kontakt',
           languageLabel:
             this.pageKey() === 'industrial-ai-search-de' ? 'English version' : 'English home',
         }
       : {
           description:
-            'Technical RFQ qualification and digital quotation processes for machinery manufacturers in Germany.',
-          solutionLabel: 'Solution and services',
-          industriesLabel: 'Machine families',
+            'UX engineering, internal tools and process automation for complex technical and operational workflows.',
+          solutionLabel: 'Services',
+          processesLink: 'Digital processes and interfaces',
+          requestLink: 'Technical request qualification (DE)',
+          aiSearchLink: 'AI Search Readiness for industry',
+          aiSearchPath: '/en/ai-search-readiness-industrial-companies/',
+          examplesLabel: 'In depth',
+          workshopLink: 'RFQ readiness workshop (DE)',
+          copilotLink: 'Internal RFQ copilot (DE)',
+          n8nLink: 'n8n consulting in Stuttgart (DE)',
           companyLabel: 'Hugo Menz Automation',
-          secondaryLabel: 'Technology',
+          secondaryLabel: 'About and contact',
+          aboutLink: 'About Hugo Menz (DE)',
+          contactLink: 'Contact (DE)',
           languageLabel:
             this.pageKey() === 'industrial-ai-search-en'
               ? 'Deutsche Version'

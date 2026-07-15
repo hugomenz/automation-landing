@@ -8,11 +8,12 @@ export class ContactDialogService {
 
   readonly isOpen = signal(false);
 
-  open(): void {
+  open(restoreFocusTo: HTMLElement | null = null): void {
     if (!this.isOpen()) {
       const activeElement = this.document.activeElement;
       this.previouslyFocusedElement =
-        activeElement && 'focus' in activeElement ? (activeElement as HTMLElement) : null;
+        restoreFocusTo ??
+        (activeElement && 'focus' in activeElement ? (activeElement as HTMLElement) : null);
     }
 
     this.isOpen.set(true);

@@ -8,30 +8,35 @@
 
     <nav class="footer-group" [attr.aria-label]="copy().solutionLabel">
       <strong>{{ copy().solutionLabel }}</strong>
-      <a href="/loesungen/technische-anfragequalifizierung/" [attr.lang]="language() === 'en' ? 'de' : null">
-        Technische Anfragequalifizierung
+      <a [href]="language() === 'de' ? '/#leistungen' : '/en/#services'">
+        {{ copy().processesLink }}
       </a>
+      <a href="/loesungen/technische-anfragequalifizierung/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().requestLink }}
+      </a>
+      <a [href]="copy().aiSearchPath">
+        {{ copy().aiSearchLink }}
+      </a>
+    </nav>
+
+    <nav class="footer-group" [attr.aria-label]="copy().examplesLabel">
+      <strong>{{ copy().examplesLabel }}</strong>
       <a href="/leistungen/rfq-readiness-workshop/" [attr.lang]="language() === 'en' ? 'de' : null">
-        RFQ Readiness Workshop
+        {{ copy().workshopLink }}
       </a>
       <a href="/leistungen/interner-rfq-copilot/" [attr.lang]="language() === 'en' ? 'de' : null">
-        Interner RFQ-Copilot
+        {{ copy().copilotLink }}
+      </a>
+      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">
+        {{ copy().n8nLink }}
       </a>
     </nav>
 
-    <nav class="footer-group" [attr.aria-label]="copy().industriesLabel">
-      <strong>{{ copy().industriesLabel }}</strong>
-      <a href="/branchen/end-of-line/" [attr.lang]="language() === 'en' ? 'de' : null">End-of-Line</a>
-      <a href="/branchen/verpackungsmaschinen/" [attr.lang]="language() === 'en' ? 'de' : null">Verpackungsmaschinen</a>
-      <a href="/branchen/palettieranlagen/" [attr.lang]="language() === 'en' ? 'de' : null">Palettieranlagen</a>
-    </nav>
-
-    <nav class="footer-group" aria-label="Weitere Seiten">
+    <nav class="footer-group" [attr.aria-label]="copy().secondaryLabel">
       <strong>{{ copy().secondaryLabel }}</strong>
       <a href="/standorte/stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">Stuttgart</a>
-      <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">Über Hugo Menz</a>
-      <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">Kontakt</a>
-      <a href="/n8n-beratung-stuttgart/" [attr.lang]="language() === 'en' ? 'de' : null">n8n Beratung Stuttgart</a>
+      <a href="/ueber-hugo-menz/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().aboutLink }}</a>
+      <a href="/kontakt/" [attr.lang]="language() === 'en' ? 'de' : null">{{ copy().contactLink }}</a>
       <a [href]="languagePath()" [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'">
         {{ copy().languageLabel }}
       </a>
@@ -42,4 +47,7 @@
     <span>© {{ language() === 'de' ? 'Hugo Martin Menz' : 'Hugo Martin Menz' }}</span>
     <span class="mono">Stuttgart · Baden-Württemberg</span>
   </div>
+  <p class="container footer-build-note mono">
+    Built with Angular · Developed with Codex + GitHub Copilot
+  </p>
 </footer>

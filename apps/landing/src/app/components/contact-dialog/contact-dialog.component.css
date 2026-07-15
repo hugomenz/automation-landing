@@ -14,13 +14,19 @@
   background: rgba(1, 4, 9, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  scrollbar-width: none;
+}
+
+.contact-dialog-backdrop::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .contact-dialog {
   position: relative;
   width: min(680px, 100%);
   margin-block: auto;
-  padding: clamp(24px, 4vw, 34px);
+  padding: clamp(22px, 3vw, 30px);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 2px);
   background:
@@ -30,19 +36,19 @@
 }
 
 .contact-dialog h2 {
-  margin-top: 14px;
-  max-width: 16ch;
+  margin-top: 10px;
+  max-width: 22ch;
 }
 
 .contact-dialog-body {
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--text-secondary);
   max-width: 40rem;
 }
 
 .contact-confidentiality {
-  margin-top: 16px;
-  padding: 12px 14px;
+  margin-top: 12px;
+  padding: 10px 12px;
   border-left: 3px solid var(--accent);
   background: var(--accent-soft);
   color: var(--text-secondary);
@@ -81,8 +87,8 @@
 .contact-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 22px;
 }
 
 .contact-field {
@@ -141,7 +147,7 @@
 }
 
 .contact-textarea {
-  min-height: 160px;
+  min-height: 130px;
   resize: vertical;
 }
 
@@ -228,5 +234,15 @@
 
   .contact-form {
     grid-template-columns: 1fr;
+  }
+
+  .contact-dialog h2 {
+    max-width: 16ch;
+  }
+}
+
+@media (max-height: 940px) and (min-width: 641px) {
+  .contact-dialog-backdrop {
+    padding-block: 10px;
   }
 }

@@ -17,8 +17,8 @@ export const N8N_CONSULTING_STUTTGART = {
         'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
       type: 'website',
       locale: 'de_DE',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'n8n Beratung für technische Workflows durch Hugo Martin Menz in Stuttgart',
+      imagePath: '/og-general-de.png',
+      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
@@ -26,8 +26,8 @@ export const N8N_CONSULTING_STUTTGART = {
       title: 'n8n Beratung für technische Workflows in Stuttgart',
       description:
         'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'n8n Beratung für technische Workflows durch Hugo Martin Menz in Stuttgart',
+      imagePath: '/og-general-de.png',
+      imageAlt: 'UX Engineering für digitale Prozesse, Automatisierung und Integrationen',
     },
   },
   breadcrumbs: [
@@ -39,16 +39,16 @@ export const N8N_CONSULTING_STUTTGART = {
     kicker: 'Technologie · n8n · APIs · Stuttgart',
     h1: 'n8n Beratung für technische Workflows in Stuttgart',
     lead:
-      'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks. Bei technischen Angebotsprozessen bleibt n8n eine mögliche Implementierungstechnologie; entscheidend sind das Anforderungsschema, freigegebene Regeln und die menschliche Freigabe.',
+      'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks – abgestimmt auf den Prozess, die beteiligten Systeme und die Menschen, die damit arbeiten.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
     },
     secondaryCta: {
-      label: 'n8n Workflow prüfen lassen',
-      href: '/kontakt/',
-      dataCta: 'contact-hero',
+      label: 'Leistungsumfang ansehen',
+      href: '#leistungen',
+      dataCta: 'services-hero',
     },
     trustLine: 'Technologie nach Prozess wählen · Fehlerfälle sichtbar machen · Menschen entscheiden lassen',
   },
@@ -218,9 +218,9 @@ export const N8N_CONSULTING_STUTTGART = {
     heading: 'Erst den Prozess prüfen, dann die Technologie wählen',
     body: 'Beschreiben Sie den technischen Prozess, die beteiligten Systeme, bekannte Regeln und den größten Engpass. Ich prüfe, ob n8n dafür ein sinnvoller Baustein ist.',
     action: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-final',
+      label: 'Unverbindliches Erstgespräch',
+      href: '#contact-form',
+      dataCta: 'contact-final',
     },
     note: 'n8n ist eine mögliche Implementierungstechnologie, nicht die automatische Entscheidung über Preise oder Machbarkeit.',
   },
