@@ -51,6 +51,8 @@
     </div>
   </header>
 
+  <app-section-index [items]="sectionNavigation" [language]="page.lang" />
+
   @for (section of page.sections; track section.id; let sectionIndex = $index) {
     <section
       class="section content-section"

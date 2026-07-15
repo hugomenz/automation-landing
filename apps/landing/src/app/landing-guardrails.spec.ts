@@ -49,6 +49,22 @@ const rateLimiter = readFileSync(
   new URL('./contact-form-rate-limiter.service.ts', import.meta.url),
   'utf8',
 );
+const contentPage = readFileSync(
+  new URL('./pages/content-page/content-page.component.ts', import.meta.url),
+  'utf8',
+);
+const contentPageTemplate = readFileSync(
+  new URL('./pages/content-page/content-page.component.html', import.meta.url),
+  'utf8',
+);
+const sectionIndex = readFileSync(
+  new URL('./components/section-index/section-index.component.ts', import.meta.url),
+  'utf8',
+);
+const sectionIndexTemplate = readFileSync(
+  new URL('./components/section-index/section-index.component.html', import.meta.url),
+  'utf8',
+);
 
 function filesBelow(directory: URL): readonly URL[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -137,6 +153,17 @@ describe('interaction and accessibility guardrails', () => {
   it('preserves visible focus and reduced-motion handling', () => {
     expect(globalStyles).toContain(':focus-visible');
     expect(globalStyles).toContain('@media (prefers-reduced-motion: reduce)');
+  });
+
+  it('keeps an accessible current-section index on content pages', () => {
+    expect(contentPage).toContain('SectionIndexComponent');
+    expect(contentPageTemplate).toContain('<app-section-index');
+    expect(sectionIndex).toContain('IntersectionObserver');
+    expect(sectionIndex).toContain('activeHref');
+    expect(sectionIndexTemplate).toContain('class="section-index"');
+    expect(sectionIndexTemplate).toContain("aria-current");
+    expect(sectionIndexTemplate).toContain('class="section-jump"');
+    expect(sectionIndexTemplate).toContain('(change)="jumpToSection($event)"');
   });
 });
 

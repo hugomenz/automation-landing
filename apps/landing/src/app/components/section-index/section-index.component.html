@@ -1,0 +1,32 @@
+@if (items().length > 1) {
+  <nav
+    class="section-index"
+    [class.is-visible]="visible()"
+    [attr.aria-label]="language() === 'de' ? 'Inhaltsverzeichnis' : 'On-page navigation'"
+  >
+    @for (item of items(); track item.href) {
+      <a
+        class="section-index-link"
+        [class.is-active]="activeHref() === item.href"
+        [attr.aria-current]="activeHref() === item.href ? 'location' : null"
+        [href]="item.href"
+      >
+        <span class="section-index-line" aria-hidden="true"></span>
+        <span class="section-index-label">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <label class="section-jump" [class.is-visible]="visible()">
+    <span>{{ language() === 'de' ? 'Abschnitt' : 'Section' }}</span>
+    <select
+      [value]="activeHref()"
+      [attr.aria-label]="language() === 'de' ? 'Zu einem Abschnitt springen' : 'Jump to a section'"
+      (change)="jumpToSection($event)"
+    >
+      @for (item of items(); track item.href) {
+        <option [value]="item.href">{{ item.label }}</option>
+      }
+    </select>
+  </label>
+}
