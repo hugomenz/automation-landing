@@ -60,14 +60,16 @@
       <div class="container section-layout">
         @if (section.layout === 'profile') {
           <figure class="profile-portrait">
-            <img
-              [src]="portrait.portraitSrc"
-              [alt]="portrait.portraitAlt"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            />
+            <div class="profile-avatar">
+              <img
+                [src]="portrait.portraitSrc"
+                [alt]="portrait.portraitAlt"
+                width="640"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <figcaption class="mono">Hugo Martin Menz · Stuttgart</figcaption>
           </figure>
         }
