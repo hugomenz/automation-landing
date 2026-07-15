@@ -8,7 +8,7 @@ export const HOME_DE = {
   seo: {
     title: 'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
     description:
-      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
+      'Technische Kundenanfragen und Anhänge in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
     canonicalPath: '/',
     robots: 'index,follow',
     openGraph: {
@@ -59,7 +59,7 @@ export const HOME_DE = {
     kicker: 'Technische Angebotsprozesse · Maschinenbau · Stuttgart',
     h1: 'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
     lead:
-      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen, mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
+      'Ich strukturiere für Maschinenbauer unvollständige Kundenanfragen und Anhänge zu einer prüfbaren Angebotsgrundlage für Vertrieb und Engineering.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -89,7 +89,7 @@ export const HOME_DE = {
       eyebrow: 'Ausgangslage',
       heading: 'Warum die erste Angebotsphase so viel Abstimmung bindet',
       intro:
-        'Technische Anfragen kommen selten in der Form an, die Vertrieb und Engineering für eine belastbare erste Einschätzung brauchen. Informationen liegen verteilt in E-Mails, Lastenheften, PDFs, Fotos, Notizen und Tabellen.',
+        'Technische Anfragen verteilen sich oft auf E-Mails, Lastenhefte, PDFs, Fotos und Tabellen. Vor einer belastbaren Einschätzung müssen die Angaben zusammengeführt werden.',
       points: [
         'Wichtige Produkt-, Leistungs- oder Schnittstellendaten fehlen.',
         'Mehrere Dokumente enthalten widersprüchliche Angaben.',
@@ -98,7 +98,7 @@ export const HOME_DE = {
         'Annahmen und Ausschlüsse gehen bei der Übergabe an Engineering verloren.',
       ],
       paragraphs: [
-        'Der erste sinnvolle Automatisierungsschritt ist deshalb nicht die automatische Angebotserstellung. Es ist eine bessere, nachvollziehbare Vorbereitung der technischen Entscheidung.',
+        'Der sinnvolle erste Schritt ist eine nachvollziehbare Vorbereitung der technischen Entscheidung, kein automatisch erzeugtes Angebot.',
       ],
       layout: 'list',
     },
@@ -141,7 +141,7 @@ export const HOME_DE = {
       eyebrow: 'Interner RFQ-Copilot',
       heading: 'Was der interne RFQ-Copilot vorbereitet',
       intro:
-        'Der Copilot arbeitet intern und in einem klar abgegrenzten technischen Rahmen. Er bereitet Informationen für Vertrieb und Engineering vor, ersetzt aber keine fachliche Entscheidung.',
+        'Der interne Copilot strukturiert Informationen für Vertrieb und Engineering. Fachliche Entscheidungen bleiben beim Menschen.',
       items: [
         {
           title: 'Strukturierte Anforderungsakte',
@@ -365,7 +365,7 @@ export const HOME_DE = {
     eyebrow: 'Nächster Schritt',
     heading: 'Ist Ihre Maschinenfamilie für diesen Ansatz geeignet?',
     body:
-      'In einem RFQ Readiness Workshop prüfe ich Prozess, Volumen, Daten, Regeln und technische Grenzen. Sie erhalten auch dann eine klare Empfehlung, wenn ein Pilot nicht sinnvoll ist.',
+      'Der Workshop prüft Prozess, Volumen, Daten, Regeln und Grenzen. Sie erhalten eine klare Go- oder No-Go-Empfehlung.',
     action: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',

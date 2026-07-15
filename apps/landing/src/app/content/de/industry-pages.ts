@@ -355,7 +355,7 @@ export const PALLETISING_SYSTEMS = {
     kicker: 'Maschinenfamilien · Palettieranlagen',
     h1: 'Angebotsqualifizierung für robotergestützte Palettieranlagen',
     lead:
-      'Robotergestütztes Palettieren kann als Pilot geeignet sein, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten technischen Rahmens liegen. Der Copilot bereitet die Anfrage vor und blockiert Fälle, die neue Simulation oder Konstruktion benötigen.',
+      'Ein Pilot passt, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten Rahmens liegen. Fälle mit neuer Simulation oder Konstruktion werden gestoppt.',
     primaryCta: {
       label: 'Palettierfamilie prüfen',
       href: '/leistungen/rfq-readiness-workshop/',

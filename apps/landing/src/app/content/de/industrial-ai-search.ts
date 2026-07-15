@@ -68,8 +68,9 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       eyebrow: 'Kurzantwort',
       heading: 'Was AI Search Readiness für Industrieunternehmen bedeutet',
       paragraphs: [
-        'AI Search Readiness verbindet technisches SEO, strukturierte Unternehmens- und Produktdaten, nachvollziehbare Quellen und klare Fachinhalte. So werden Maschinen, Leistungen und Kompetenzen für Suchmaschinen und KI-Systeme verständlich und auffindbar.',
-        'Hugo Menz Automation bietet diesen Audit von Stuttgart aus für Industrie- und B2B-Unternehmen an. GEO, Generative Engine Optimization, LLMO und AI Search Optimization sind dabei Methoden, nicht das Angebot selbst.',
+        'AI Search Readiness verbindet technisches SEO, klare Produktdaten, belegbare Quellen und Fachinhalte.',
+        'Hugo Menz Automation bietet diesen Audit von Stuttgart aus an.',
+        'GEO, Generative Engine Optimization, LLMO und AI Search Optimization sind Methoden innerhalb des Audits.',
       ],
       callout:
         'Ich verbessere die technischen, semantischen und inhaltlichen Voraussetzungen, damit KI-Suchsysteme Ihr Unternehmen, Ihre Produkte und Ihre Fachkompetenz besser verstehen und als mögliche Quelle berücksichtigen können.',
@@ -80,7 +81,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       eyebrow: 'Einstiegsangebot',
       heading: 'Industrial AI Visibility Audit',
       intro:
-        'Eine klar abgegrenzte Bestandsaufnahme; der Umfang richtet sich nach Website, Portfolio, Sprachen und Märkten.',
+        'Eine begrenzte Bestandsaufnahme für die vereinbarte Website, Sprachen und Märkte.',
       points: [
         '25 bis 40 relevante Käuferfragen definieren und ausgewählte KI-Suchsysteme prüfen;',
         'mit bis zu drei relevanten Wettbewerbern vergleichen;',
@@ -89,7 +90,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
         'einen priorisierten 90-Tage-Maßnahmenplan mit einer Empfehlung erstellen: umsetzen, abwarten oder nicht investieren.',
       ],
       callout:
-        'Sie erhalten nach einer kurzen Ersteinschätzung einen klar abgegrenzten Leistungsumfang und einen festen Projektpreis. Die Ersteinschätzung ist kein vollständiges kostenloses Audit.',
+        'Nach einer kurzen Ersteinschätzung erhalten Sie einen festen Umfang und Projektpreis. Die Ersteinschätzung ist kein vollständiges kostenloses Audit.',
       layout: 'list',
     },
     {
@@ -97,13 +98,13 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       eyebrow: 'Ausgangslage',
       heading: 'Warum industrielle Angebote für KI-Suchsysteme schwer einzuordnen sein können',
       intro:
-        'In vielen Unternehmen ist Wissen über Seiten, Dokumente und Partner verteilt. Besonders relevant ist die Prüfung für Hersteller technischer Produkte, Maschinen oder Anlagen sowie B2B-Anbieter mit komplexen Portfolios, langen Vertriebszyklen oder internationalen Märkten.',
+        'Besonders relevant ist die Prüfung bei komplexen, erklärungsbedürftigen oder mehrsprachigen Angeboten.',
       points: [
-        'Produktinformationen verteilen sich häufig auf PDFs, Produkt-, Portal- und Händlerseiten; Begriffe oder Sprachversionen können voneinander abweichen.',
-        'Fachwissen aus Vertrieb, Engineering und Service bleibt oft unsichtbar; wichtige Fakten lassen sich nicht immer leicht verifizieren.',
-        'Maschinen und Leistungen sind schwer vergleichbar, wenn Inhalte für Insider statt für konkrete Einkaufsfragen geschrieben sind.',
-        'Die Beziehung zwischen Unternehmen, Produkten, Anwendungen und Fachkompetenz kann undeutlich bleiben.',
-        'KI-Systeme können dann Verzeichnisse, Wettbewerber oder Distributoren statt des Herstellers als Quelle heranziehen.',
+        'Produktinformationen und Begriffe sind über PDFs, Seiten, Portale oder Händler verteilt.',
+        'Fachwissen bleibt unsichtbar und wichtige Fakten sind schwer zu verifizieren.',
+        'Inhalte beantworten interne Fachfragen, aber keine konkreten Einkaufsfragen.',
+        'Zusammenhänge zwischen Unternehmen, Produkten, Anwendungen und Kompetenz bleiben unklar.',
+        'KI-Systeme können dann Verzeichnisse, Wettbewerber oder Distributoren als Quelle nutzen.',
       ],
       layout: 'list',
     },
@@ -114,19 +115,19 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       items: [
         {
           title: 'SEO',
-          body: 'SEO verbessert Indexierbarkeit und Auffindbarkeit in der klassischen Suche, technisch und mit hilfreichen Antworten.',
+          body: 'SEO verbessert technische Indexierbarkeit und klassische Auffindbarkeit.',
         },
         {
           title: 'GEO',
-          body: 'Generative Engine Optimization verbessert, wie Inhalte in generierten Antworten verstanden, abgerufen, erwähnt und möglicherweise zitiert werden.',
+          body: 'GEO verbessert, wie Inhalte in generierten Antworten verstanden, gefunden und möglicherweise zitiert werden.',
         },
         {
           title: 'AI Search Readiness',
-          body: 'AI Search Readiness ist der geschäftsorientierte Rahmen: Er verbindet SEO, GEO, LLMO und AI Search Optimization mit Produktdaten, Quellen und Messung.',
+          body: 'AI Search Readiness verbindet SEO und GEO mit Produktdaten, Quellen und Messung.',
         },
       ],
       callout:
-        'GEO ersetzt weder technisches SEO noch nützliche Inhalte oder vertrauenswürdige Unternehmensinformationen. Sichtbarkeit ohne glaubwürdige Belege ist nicht nachhaltig.',
+        'GEO ersetzt weder technisches SEO noch nützliche Inhalte und glaubwürdige Belege.',
       layout: 'cards',
     },
     {
@@ -202,7 +203,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
         },
       ],
       callout:
-        'Ob umgesetzt wird, entscheiden die Befunde. Bestimmte Nennungen oder Ergebnisse in einem festen Zeitraum werden nicht zugesagt.',
+        'Die Befunde entscheiden über eine Umsetzung. Bestimmte Nennungen oder Ergebnisse werden nicht zugesagt.',
       layout: 'cards',
     },
     {
@@ -330,7 +331,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
     eyebrow: 'Nächster Schritt',
     heading: 'KI-Sichtbarkeit Ihres Unternehmens prüfen',
     body:
-      'Nennen Sie Website, Produktgruppen, Zielmärkte und Sprachen. Ich prüfe, ob sich der Audit sinnvoll abgrenzen lässt.',
+      'Nennen Sie Website, Produktgruppen, Märkte und Sprachen. Ich prüfe, ob sich der Audit klar abgrenzen lässt.',
     action: {
       label: 'KI-Sichtbarkeit prüfen lassen',
       href: '#contact-form',
@@ -338,7 +339,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       contactContext: 'ai-search',
     },
     note:
-      'Nach der Ersteinschätzung erhalten Sie einen klaren Umfang und festen Projektpreis. Sie ersetzt kein vollständiges Audit.',
+      'Nach der Ersteinschätzung erhalten Sie Umfang und festen Projektpreis. Sie ersetzt kein Audit.',
   },
   schemaKinds: ['Service', 'Person', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;

@@ -44,7 +44,7 @@ export const PROCESS_AUTOMATION = {
     kicker: 'Weitere Automatisierungen · B2B-Prozesse · Systemintegration',
     h1: 'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
     lead:
-      'Ich unterstütze bei klar abgegrenzten Abläufen, in denen Dokumente, Daten und Systeme heute manuell zusammengeführt werden, mit nachvollziehbaren Regeln, sichtbaren Ausnahmen und menschlicher Freigabe.',
+      'Ich automatisiere klar abgegrenzte Abläufe mit nachvollziehbaren Regeln, sichtbaren Ausnahmen und menschlicher Freigabe.',
     primaryCta: {
       label: 'Anderen Prozess beschreiben',
       href: '#contact-form',
@@ -75,7 +75,7 @@ export const PROCESS_AUTOMATION = {
       eyebrow: 'Ausgangslage',
       heading: 'Wenn wiederkehrende Arbeit zwischen Dokumenten und Systemen hängen bleibt',
       intro:
-        'Nicht jeder Prozess braucht ein großes Digitalisierungsprojekt. Häufig reicht ein klar begrenzter Ablauf, in dem Eingänge strukturiert, Regeln angewendet und Ergebnisse kontrolliert weitergegeben werden.',
+        'Oft reicht ein klarer Ablauf: Eingänge strukturieren, Regeln anwenden und Ergebnisse kontrolliert übergeben.',
       points: [
         'Informationen werden wiederholt aus E-Mails oder Dokumenten übertragen.',
         'Prüfungen, Benachrichtigungen oder Freigaben erfolgen manuell.',
@@ -166,7 +166,7 @@ export const PROCESS_AUTOMATION = {
       eyebrow: 'Technologie',
       heading: 'Werkzeuge folgen dem Prozess',
       paragraphs: [
-        'Je nach vorhandenen Systemen können APIs, Webhooks, n8n oder Make geeignete Bausteine sein. Entscheidend ist nicht das Werkzeug, sondern ob der Ablauf kontrollierbar, wartbar und für die zuständigen Personen nachvollziehbar bleibt.',
+        'Die Technik folgt dem Ablauf. Entscheidend sind Kontrolle, Wartbarkeit und klare Verantwortlichkeiten.',
       ],
       links: [
         {
@@ -181,7 +181,7 @@ export const PROCESS_AUTOMATION = {
       eyebrow: 'Einordnung',
       heading: 'Technische Angebotsprozesse im Maschinenbau bleiben mein Schwerpunkt',
       paragraphs: [
-        'Meine tiefste Prozesserfahrung liegt im Sondermaschinenbau und in der Industrieautomation. Weitere Automatisierungen übernehme ich, wenn der Ablauf fachlich klar begrenzt ist und sich mit vorhandenen Daten, Regeln und Systemen nachvollziehbar umsetzen lässt.',
+        'Meine tiefste Prozesserfahrung liegt im Sondermaschinenbau und in der Industrieautomation. Weitere Automatisierungen prüfe ich bei klaren Abläufen, Daten und Regeln.',
       ],
       links: [
         {

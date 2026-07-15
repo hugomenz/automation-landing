@@ -71,8 +71,9 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       eyebrow: 'Short answer',
       heading: 'What AI Search Readiness means for industrial companies',
       paragraphs: [
-        'AI Search Readiness combines technical SEO, structured company and product data, traceable sources and clear specialist content. It makes machinery, services and expertise easier for search and AI systems to understand and find.',
-        'From Stuttgart, Hugo Menz Automation offers this audit to industrial and B2B companies. GEO, Generative Engine Optimization, LLMO and AI Search Optimization are methods within the service, not the offer itself.',
+        'AI Search Readiness combines technical SEO, clear product data, traceable sources and specialist content.',
+        'From Stuttgart, Hugo Menz Automation offers this audit.',
+        'GEO, Generative Engine Optimization, LLMO and AI Search Optimization are methods within the audit.',
       ],
       callout:
         'I improve the technical, semantic and content foundations that help AI-search systems understand your company, products and expertise and consider them as potential sources.',
@@ -83,7 +84,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       eyebrow: 'Entry offer',
       heading: 'Industrial AI Visibility Audit',
       intro:
-        'A clearly bounded baseline assessment, scoped to the website, portfolio, languages and markets.',
+        'A bounded assessment of the agreed website, languages and markets.',
       points: [
         'define 25 to 40 relevant buyer questions and review selected AI-search systems;',
         'compare visibility with up to three relevant competitors;',
@@ -92,7 +93,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
         'prepare a prioritised 90-day action plan with a recommendation to proceed, wait or not invest.',
       ],
       callout:
-        'After a short initial assessment, you receive a clearly defined scope and a fixed project price. The initial assessment is not a complete free audit.',
+        'After a short initial assessment, you receive a fixed scope and project price. The initial assessment is not a complete free audit.',
       layout: 'list',
     },
     {
@@ -100,13 +101,13 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       eyebrow: 'Baseline',
       heading: 'Why industrial offers can be difficult for AI-search systems to interpret',
       intro:
-        'In many companies, knowledge is spread across pages, documents and partners. The assessment is especially relevant to manufacturers of technical products, machinery or equipment and B2B providers with complex portfolios, long sales cycles or international markets.',
+        'The assessment is most relevant to complex, explanation-heavy or multilingual offers.',
       points: [
-        'Product information is often split between PDFs, product, portal and dealer pages; terminology or language versions may differ.',
-        'Sales, engineering and service expertise may remain hidden, while important facts can be difficult to verify.',
-        'Machinery and services are hard to compare when content speaks to insiders rather than specific purchasing questions.',
-        'The relationship between the company, products, applications and expertise may remain unclear.',
-        'AI systems may then use directories, competitors or distributors instead of the manufacturer as a source.',
+        'Product information and terms are split across PDFs, pages, portals or dealers.',
+        'Expertise stays hidden and important facts are difficult to verify.',
+        'Content answers internal questions rather than specific buyer questions.',
+        'Links between the company, products, applications and expertise remain unclear.',
+        'AI systems may then use directories, competitors or distributors as sources.',
       ],
       layout: 'list',
     },
@@ -117,19 +118,19 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       items: [
         {
           title: 'SEO',
-          body: 'SEO improves indexability and discoverability in traditional search through technical foundations and useful answers.',
+          body: 'SEO improves technical indexability and traditional search visibility.',
         },
         {
           title: 'GEO',
-          body: 'Generative Engine Optimization improves how content is understood, retrieved, mentioned and potentially cited in generated answers.',
+          body: 'GEO improves how content is understood, found and potentially cited in generated answers.',
         },
         {
           title: 'AI Search Readiness',
-          body: 'AI Search Readiness is the business framework connecting SEO, GEO, LLMO and AI Search Optimization with product data, sources and measurement.',
+          body: 'AI Search Readiness connects SEO and GEO with product data, sources and measurement.',
         },
       ],
       callout:
-        'GEO does not replace technical SEO, useful content or trustworthy company information. Visibility without credible evidence is not sustainable.',
+        'GEO does not replace technical SEO, useful content or credible evidence.',
       layout: 'cards',
     },
     {
@@ -205,7 +206,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
         },
       ],
       callout:
-        'The findings determine whether implementation should proceed. No specific mention or outcome within a fixed period is promised.',
+        'The findings determine whether to proceed. No specific mention or outcome is promised.',
       layout: 'cards',
     },
     {
@@ -339,7 +340,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     eyebrow: 'Next step',
     heading: 'Assess your company’s AI-search visibility',
     body:
-      'Share your website, product groups, target markets and languages. I will assess whether the audit can be scoped usefully.',
+      'Share your website, product groups, markets and languages. I will assess whether the audit can be clearly scoped.',
     action: {
       label: 'Assess AI-search visibility',
       href: '#contact-form',
@@ -347,7 +348,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       contactContext: 'ai-search',
     },
     note:
-      'After the initial assessment, you receive a clear scope and fixed project price. It does not replace a complete audit.',
+      'After the initial assessment, you receive the scope and fixed project price. It is not an audit.',
   },
   schemaKinds: ['Service', 'Person', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;

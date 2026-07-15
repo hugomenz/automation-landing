@@ -8,13 +8,13 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
   seo: {
     title: 'Technische Anfragequalifizierung im Maschinenbau | Hugo Menz',
     description:
-      'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
+      'Unvollständige RFQs und Anhänge in eine prüfbare Anforderungsakte mit Quellen und offenen Punkten überführen.',
     canonicalPath: '/loesungen/technische-anfragequalifizierung/',
     robots: 'index,follow',
     openGraph: {
       title: 'Technische Anfragequalifizierung im Maschinenbau',
       description:
-        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
+        'Unvollständige RFQs und Anhänge in eine prüfbare Anforderungsakte mit Quellen und offenen Punkten überführen.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -25,7 +25,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       card: 'summary_large_image',
       title: 'Technische Anfragequalifizierung im Maschinenbau',
       description:
-        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
+        'Unvollständige RFQs und Anhänge in eine prüfbare Anforderungsakte mit Quellen und offenen Punkten überführen.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'Prüfbare technische Anforderungsakte mit Quellen und offenen Punkten',
     },
@@ -42,7 +42,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
     kicker: 'Technische Anfragequalifizierung',
     h1: 'Technische Anfragen vor dem Angebot strukturiert qualifizieren',
     lead:
-      'E-Mails, Lastenhefte, Fotos, Zeichnungen und Notizen werden in ein gemeinsames Anforderungsschema überführt. Fehlende Angaben, Widersprüche, Annahmen und technische Risiken bleiben sichtbar, bevor Vertrieb oder Engineering eine Budgetindikation freigeben.',
+      'E-Mails, Lastenhefte und Anhänge werden in einer Anforderungsakte gebündelt. Lücken, Widersprüche und Risiken bleiben bis zur Freigabe sichtbar.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -59,7 +59,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       id: 'problem',
       heading: 'Das eigentliche Problem liegt vor der Kalkulation',
       intro:
-        'Viele technische Anfragen sind nicht falsch, sondern unvollständig. Der Kunde beschreibt sein Ziel in seiner eigenen Sprache. Vertrieb, Projektierung und Engineering müssen daraus erst die Informationen rekonstruieren, die für eine erste Entscheidung relevant sind. Dieser Schritt ist wiederkehrend, verteilt und schwer nachvollziehbar.',
+        'Technische Anfragen sind oft unvollständig. Vertrieb und Engineering müssen die entscheidungsrelevanten Angaben erst aus mehreren Quellen rekonstruieren.',
       points: [
         'Informationen verteilen sich auf mehrere Nachrichten und Dateien.',
         'Einheiten, Begriffe und Versionen sind nicht einheitlich.',
@@ -86,7 +86,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
         'Punkte, die zwingend Engineering benötigen.',
       ],
       callout:
-        'Ein sauber formatiertes Feld ohne Quelle ist nicht automatisch verlässlich. Deshalb werden Fakten, Interpretation, Annahme und menschliche Entscheidung getrennt gespeichert.',
+        'Formatierte Daten sind ohne Quelle nicht automatisch verlässlich. Fakten, Annahmen und Entscheidungen bleiben deshalb getrennt.',
       layout: 'list',
     },
     {
@@ -218,7 +218,7 @@ export const RFQ_READINESS_WORKSHOP = {
     kicker: 'RFQ Readiness Workshop',
     h1: 'Ist Ihre Maschinenfamilie bereit für Angebotsautomatisierung?',
     lead:
-      'Bevor Software gebaut wird, prüfe ich, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für eine Maschinenfamilie, einschließlich eines begründeten No-Go.',
+      'Der Workshop prüft Wiederholbarkeit, Daten, Regeln und Nutzen einer Maschinenfamilie. Ergebnis ist eine belastbare Go- oder No-Go-Entscheidung.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
@@ -443,7 +443,7 @@ export const INTERNAL_RFQ_COPILOT = {
       id: 'intern-beginnen',
       heading: 'Warum intern beginnen',
       paragraphs: [
-        'Ein öffentlicher Wizard verändert gleichzeitig das Verhalten des Kunden, den Webauftritt, den Datenschutz und die Preiswahrnehmung. Ein interner Pilot kann dagegen mit historischen Fällen und im Schattenbetrieb lernen, ohne ungeprüfte Ergebnisse nach außen zu geben.',
+        'Ein interner Pilot kann mit historischen Fällen im Schattenbetrieb lernen. So gelangen keine ungeprüften Ergebnisse zu Kunden.',
       ],
       layout: 'text',
     },

@@ -8,13 +8,13 @@ export const N8N_CONSULTING_STUTTGART = {
   seo: {
     title: 'n8n Beratung für technische Workflows in Stuttgart | Hugo Menz',
     description:
-      'n8n Workflows, APIs und Webhooks in Stuttgart nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
+      'n8n Workflows in Stuttgart nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
     canonicalPath: '/n8n-beratung-stuttgart/',
     robots: 'index,follow',
     openGraph: {
       title: 'n8n Beratung für technische Workflows in Stuttgart',
       description:
-        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
+        'n8n Workflows nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-general-de.png',
@@ -25,7 +25,7 @@ export const N8N_CONSULTING_STUTTGART = {
       card: 'summary_large_image',
       title: 'n8n Beratung für technische Workflows in Stuttgart',
       description:
-        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
+        'n8n Workflows nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
       imagePath: '/og-general-de.png',
       imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
     },
@@ -39,7 +39,7 @@ export const N8N_CONSULTING_STUTTGART = {
     kicker: 'Technologie · n8n · APIs · Stuttgart',
     h1: 'n8n Beratung für technische Workflows in Stuttgart',
     lead:
-      'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks, abgestimmt auf den Prozess, die beteiligten Systeme und die Menschen, die damit arbeiten.',
+      'Ich plane und implementiere n8n-Workflows, die zum Prozess, zu den Systemen und zu den verantwortlichen Menschen passen.',
     primaryCta: {
       label: 'n8n-Prozess einordnen',
       href: '#contact-form',
@@ -59,8 +59,7 @@ export const N8N_CONSULTING_STUTTGART = {
       eyebrow: 'Einordnung',
       heading: 'n8n als Baustein, nicht als Geschäftsversprechen',
       paragraphs: [
-        'Ein stabiler Workflow beginnt mit einem klaren Prozess, verlässlichen Daten, Regeln, Ausnahmen und Verantwortlichkeiten. Erst danach lässt sich entscheiden, ob n8n, Make, eine direkte API oder ein internes Tool der passende technische Weg ist.',
-        'Für die technische Anfragequalifizierung stehen eine prüfbare Anforderungsakte, Quellen, freigegebene Regeln und menschliche Freigabe im Vordergrund. n8n kann Systeme verbinden und Abläufe steuern, ersetzt diese fachlichen Grundlagen aber nicht.',
+        'Ein stabiler Workflow braucht klare Daten, Regeln, Ausnahmen und Verantwortlichkeiten. n8n verbindet Systeme, ersetzt aber weder diese fachliche Grundlage noch die menschliche Freigabe.',
       ],
       links: [
         {

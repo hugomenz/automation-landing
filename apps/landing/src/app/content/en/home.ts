@@ -63,7 +63,7 @@ export const HOME_EN = {
     kicker: 'Technical quotation processes · Machinery manufacturing · Stuttgart',
     h1: 'Turn technical enquiries into a reviewable quotation basis',
     lead:
-      'I help machinery manufacturers turn incomplete enquiries, emails, specifications, photos and PDFs into a structured, reviewable quotation basis with open points, risks and a rule-based budget foundation before approval by sales engineering.',
+      'I help machinery manufacturers turn incomplete enquiries into a reviewable basis for sales and engineering.',
     primaryCta: {
       label: 'Check pilot fit',
       href: '#contact-form',
@@ -94,7 +94,7 @@ export const HOME_EN = {
       eyebrow: 'Current situation',
       heading: 'Why the first quotation phase requires so much coordination',
       intro:
-        'Technical enquiries rarely arrive in the form sales and engineering need for a reliable first assessment. Information is spread across emails, specifications, PDFs, photos, notes and spreadsheets.',
+        'Technical enquiries are often spread across emails, specifications, PDFs, photos and spreadsheets. The details must be brought together before a reliable assessment.',
       points: [
         'Relevant product, performance or interface data is missing.',
         'Documents contain conflicting values or assumptions.',
@@ -103,7 +103,7 @@ export const HOME_EN = {
         'Assumptions and exclusions are lost during handover to engineering.',
       ],
       paragraphs: [
-        'The first useful automation step is not automatic quotation creation. It is a clearer, traceable preparation of the technical decision.',
+        'The useful first step is traceable preparation for a technical decision, not an automatically generated quotation.',
       ],
       layout: 'list',
     },
