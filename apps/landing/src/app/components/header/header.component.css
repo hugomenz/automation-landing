@@ -47,21 +47,11 @@
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
+  display: block;
   width: 34px;
   height: 34px;
-  border: 1px solid var(--border);
   border-radius: 9px;
-  background: var(--surface);
-}
-
-.brand-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent-warm);
-  box-shadow: 0 0 0 4px var(--accent-warm-soft);
+  flex: 0 0 auto;
 }
 
 .brand-copy {

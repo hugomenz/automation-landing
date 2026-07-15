@@ -86,6 +86,11 @@ const footerTemplate = readFileSync(
   new URL('./components/site-footer/site-footer.component.html', import.meta.url),
   'utf8',
 );
+const documentHead = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const brandMark = readFileSync(
+  new URL('../../public/hugo-menz-mark.svg', import.meta.url),
+  'utf8',
+);
 
 function filesBelow(directory: URL): readonly URL[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -209,6 +214,16 @@ describe('interaction and accessibility guardrails', () => {
     expect(englishLinks.length).toBeGreaterThan(0);
     expect(englishLinks.every((link) => link.href.startsWith('/en/'))).toBe(true);
     expect(englishLinks.map((link) => link.label).join(' ')).not.toMatch(/\(DE\)|German page/);
+  });
+
+  it('reuses the accessible M mark in the header, footer and browser tab', () => {
+    expect(headerTemplate).toContain('src="/hugo-menz-mark.svg"');
+    expect(headerTemplate).toContain('class="brand-mark"');
+    expect(headerTemplate).not.toContain('brand-dot');
+    expect(footerTemplate).toContain('src="/hugo-menz-mark.svg"');
+    expect(documentHead).toContain('rel="icon" href="/hugo-menz-mark.svg"');
+    expect(brandMark).toContain('d="M15 47V18L32 35L49 18V40"');
+    expect(brandMark).not.toContain('#f2c94c');
   });
 });
 

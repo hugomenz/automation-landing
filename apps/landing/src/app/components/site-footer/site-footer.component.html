@@ -1,7 +1,10 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-intro">
-      <strong>{{ copy().companyLabel }}</strong>
+      <div class="footer-brand">
+        <img class="footer-brand-mark" src="/hugo-menz-mark.svg" alt="" width="32" height="32" />
+        <strong>{{ copy().companyLabel }}</strong>
+      </div>
       <p>{{ copy().description }}</p>
       <a [href]="linkedin" rel="noreferrer" target="_blank">LinkedIn</a>
     </div>
