@@ -342,3 +342,9 @@ details p {
     display: block;
   }
 }
+
+@media (max-width: 480px) {
+  .page-industrial-ai-search-de .hero-copy h1 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+  }
+}

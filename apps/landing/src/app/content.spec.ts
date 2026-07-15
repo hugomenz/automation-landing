@@ -282,11 +282,11 @@ describe('industrial AI-search campaign', () => {
     const englishText = indexableText(englishPage);
 
     expect(germanText).toContain(
-      'Hugo Menz Automation unterstützt von Stuttgart aus Industrieunternehmen',
+      'Hugo Menz Automation bietet diesen Audit von Stuttgart aus',
     );
     expect(germanText).toContain('Bietet Hugo Menz GEO oder KI-SEO in Stuttgart an?');
     expect(englishText).toContain(
-      'From Stuttgart, Hugo Menz Automation supports industrial companies',
+      'From Stuttgart, Hugo Menz Automation offers this audit',
     );
     expect(englishText).toContain(
       'Does Hugo Menz offer GEO or AI-search optimization in Stuttgart?',

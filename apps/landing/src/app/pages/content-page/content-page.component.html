@@ -1,4 +1,8 @@
-<article class="page" [class.page-home]="isHome">
+<article
+  class="page"
+  [class.page-home]="isHome"
+  [class.page-industrial-ai-search-de]="page.key === 'industrial-ai-search-de'"
+>
   @if (!isHome) {
     <app-breadcrumbs [items]="page.breadcrumbs" [language]="page.lang" />
   }
