@@ -94,7 +94,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       heading: 'So verarbeitet der Copilot Eingaben',
       items: [
         { title: 'Anfrage und Anhänge aufnehmen.' },
-        { title: 'Inhalte in das Schema der Maschinenfamilie einordnen.' },
+        { title: 'Inhalte in das freigegebene Schema des Produkt- oder Lösungsbereichs einordnen.' },
         { title: 'Quellen zuordnen und Einheiten normalisieren.' },
         { title: 'Lücken und Widersprüche markieren.' },
         { title: 'Rückfragen priorisieren.' },
@@ -108,7 +108,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       id: 'geeignet',
       heading: 'Geeignet, wenn ...',
       points: [
-        'eine Maschinenfamilie wiederkehrende Anforderungen besitzt;',
+        'sich für einen Produktbereich, Maschinentyp oder eine Lösungsfamilie wiederkehrende Anforderungen beschreiben lassen;',
         'Module, Optionen oder technische Grenzen dokumentierbar sind;',
         'mehrere Anfragen pro Monat oder ein hoher Aufwand pro Anfrage entsteht;',
         'historische Unterlagen und Expertenwissen zugänglich sind;',
@@ -187,26 +187,26 @@ export const RFQ_READINESS_WORKSHOP = {
   seo: {
     title: 'RFQ Readiness Workshop für Maschinenbauer | Hugo Menz',
     description:
-      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
+      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines klar abgegrenzten technischen Angebotsprozesses.',
     canonicalPath: '/leistungen/rfq-readiness-workshop/',
     robots: 'index,follow',
     openGraph: {
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines klar abgegrenzten technischen Angebotsprozesses.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'RFQ Readiness Workshop für eine klar abgegrenzte Maschinenfamilie',
+      imageAlt: 'RFQ Readiness Workshop für einen klar abgegrenzten Angebotsprozess',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit eines klar abgegrenzten technischen Angebotsprozesses.',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'RFQ Readiness Workshop für eine klar abgegrenzte Maschinenfamilie',
+      imageAlt: 'RFQ Readiness Workshop für einen klar abgegrenzten Angebotsprozess',
     },
   },
   breadcrumbs: [
@@ -216,9 +216,9 @@ export const RFQ_READINESS_WORKSHOP = {
   ],
   hero: {
     kicker: 'RFQ Readiness Workshop',
-    h1: 'Ist Ihre Maschinenfamilie bereit für Angebotsautomatisierung?',
+    h1: 'Ist Ihr Angebotsprozess bereit für kontrollierte Automatisierung?',
     lead:
-      'Der Workshop prüft Wiederholbarkeit, Daten, Regeln und Nutzen einer Maschinenfamilie. Ergebnis ist eine belastbare Go- oder No-Go-Entscheidung.',
+      'Der Workshop prüft Wiederholbarkeit, Daten, Regeln und Nutzen eines klar abgegrenzten Angebotsprozesses. Ergebnis ist eine belastbare Go- oder No-Go-Entscheidung.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
@@ -231,7 +231,7 @@ export const RFQ_READINESS_WORKSHOP = {
       id: 'klaerung',
       heading: 'Was im Workshop geklärt wird',
       points: [
-        'Welche Anfragen gehören tatsächlich zur gleichen Familie?',
+        'Welche Anfragen gehören zum gleichen Produkt- oder Lösungsbereich?',
         'Welche Angaben sind für Qualifikation und Budgetbasis unverzichtbar?',
         'Wo entstehen heute Stunden in Vertrieb und Engineering?',
         'Welche Module, Regeln, Tabellen oder Formeln existieren bereits?',
@@ -249,7 +249,7 @@ export const RFQ_READINESS_WORKSHOP = {
         'Vorbereitung anhand eines kurzen Fragebogens.',
         'Gemeinsamer Workshop mit Vertrieb und, wenn nötig, Engineering/IT.',
         'Map des aktuellen RFQ-Prozesses.',
-        'Bewertung einer Maschinenfamilie.',
+        'Bewertung des ausgewählten Angebotsprozesses.',
         'Inventar von Daten, Dokumenten, Systemen und Regeln.',
         'Liste kritischer Risiken und Abhängigkeiten.',
         'Vorschlag für Messgrößen und historische Testfälle.',
@@ -332,13 +332,13 @@ export const RFQ_READINESS_WORKSHOP = {
       {
         question: 'Muss das gesamte Portfolio analysiert werden?',
         answer:
-          'Nein. Der Workshop konzentriert sich auf eine konkrete Maschinenfamilie. Das gesamte Portfolio würde die Entscheidung unnötig verwässern.',
+          'Nein. Der Workshop konzentriert sich auf einen konkreten Angebotsprozess oder Produktbereich. Das gesamte Portfolio würde die Entscheidung unnötig verwässern.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Maschinenfamilie besprechen',
+    heading: 'Angebotsprozess besprechen',
     body: 'Bezahlter Workshop mit fest abgegrenztem Umfang.',
     action: {
       label: 'Pilot-Eignung prüfen',
@@ -388,7 +388,7 @@ export const INTERNAL_RFQ_COPILOT = {
   ],
   hero: {
     kicker: 'Interner RFQ-Copilot',
-    h1: 'Interner RFQ-Copilot für eine Maschinenfamilie',
+    h1: 'Interner RFQ-Copilot für technische Angebotsprozesse',
     lead:
       'Der Copilot verarbeitet eingehende Anfragen intern und bereitet einen prüfbaren Entwurf für Vertrieb und Engineering vor. Kunden sehen keine ungeprüften Ergebnisse, und kein Preis wird ohne freigegebene Quelle erzeugt.',
     primaryCta: {
@@ -451,7 +451,7 @@ export const INTERNAL_RFQ_COPILOT = {
       id: 'pilotgrenzen',
       heading: 'Pilotgrenzen',
       points: [
-        'eine Maschinenfamilie;',
+        'ein klar abgegrenzter Angebotsprozess;',
         'wenige interne Nutzer;',
         'kein automatischer Versand;',
         'keine verbindliche Kalkulation;',
@@ -507,16 +507,16 @@ export const INTERNAL_RFQ_COPILOT = {
           'Der Fall wird mit dem konkreten Blockiergrund an Engineering eskaliert. Das System soll Unsicherheit sichtbar machen, nicht durch eine erzwungene Antwort verdecken.',
       },
       {
-        question: 'Können mehrere Produktfamilien gleichzeitig starten?',
+        question: 'Können mehrere Produkt- oder Lösungsbereiche gleichzeitig pilotiert werden?',
         answer:
-          'Für den ersten Pilot nicht. Erst wenn eine Familie stabil funktioniert, sollte der Umfang erweitert werden.',
+          'Für den ersten Pilot nicht. Zunächst sollte ein abgegrenzter Angebotsprozess stabil funktionieren.',
       },
     ],
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
     heading: 'RFQ Readiness Workshop anfragen',
-    body: 'Vor dem internen Pilot wird geprüft, ob eine Maschinenfamilie genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
+    body: 'Vor dem internen Pilot wird geprüft, ob der Angebotsprozess genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
     action: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',

@@ -39,7 +39,7 @@ export const STUTTGART = {
     kicker: 'Stuttgart · Baden-Württemberg · Remote',
     h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
     lead:
-      'Von Stuttgart aus unterstütze ich Maschinenbauer, Sondermaschinenbauer und Automatisierer dabei, technische Anfragen für eine klar abgegrenzte Maschinenfamilie strukturiert zu qualifizieren, remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
+      'Von Stuttgart aus unterstütze ich kleine und mittlere Maschinenbauer dabei, technische Anfragen in einem klar abgegrenzten Angebotsprozess zu qualifizieren, unabhängig vom Maschinentyp.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -64,7 +64,7 @@ export const STUTTGART = {
       id: 'zielgruppe',
       heading: 'Für wen der Ansatz gedacht ist',
       points: [
-        'Maschinen- und Sondermaschinenbauer mit wiederkehrenden Lösungsfamilien;',
+        'kleine und mittlere Maschinenbauer mit wiederkehrender Angebotsarbeit;',
         'Anlagenbauer und Automatisierer mit klar beschreibbaren Anwendungen;',
         'technische Vertriebsteams mit hohem Vorbereitungsaufwand;',
         'Unternehmen mit nutzbaren Modulen, Regeln, Tabellen oder historischen Anfragen;',
@@ -95,9 +95,9 @@ export const STUTTGART = {
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Eine Maschinenfamilie regional oder remote prüfen',
+    heading: 'Einen technischen Angebotsprozess regional oder remote prüfen',
     body:
-      'Der RFQ Readiness Workshop klärt Maschinenfamilie, heutigen Angebotsprozess, Daten, Regeln und technische Grenzen.',
+      'Der RFQ Readiness Workshop klärt Angebotsprozess, Daten, Regeln und technische Grenzen.',
     action: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -201,7 +201,7 @@ export const ABOUT_HUGO_MENZ = {
       eyebrow: 'Verbindung',
       heading: 'Technische Prozesse verstehen und sinnvoll automatisieren',
       paragraphs: [
-        'Für technische Angebotsprozesse reicht es nicht, Dokumente zu lesen oder Systeme zu verbinden. Zuerst muss verstanden werden, welche Angaben eine Maschinenfamilie tatsächlich benötigt, welche Regeln belastbar sind und wann Vertrieb oder Engineering übernehmen müssen.',
+        'Für technische Angebotsprozesse reicht es nicht, Dokumente zu lesen oder Systeme zu verbinden. Entscheidend sind die benötigten Angaben, belastbare Regeln und klare Übergaben an Vertrieb oder Engineering.',
       ],
       columns: [
         {
@@ -252,7 +252,7 @@ export const ABOUT_HUGO_MENZ = {
       eyebrow: 'Arbeitsprinzipien',
       heading: 'Klarer Umfang statt scheinbarer Vollautomatisierung',
       points: [
-        'Eine Maschinenfamilie statt das ganze Portfolio.',
+        'Ein klarer Produkt- oder Lösungsbereich statt des ganzen Portfolios.',
         'Fakten und Quellen statt scheinbarer Sicherheit.',
         'Freigegebene Regeln statt erfundener Preise.',
         'Pilot im Schattenbetrieb statt sofortiger Kundenkontakt.',
@@ -263,7 +263,7 @@ export const ABOUT_HUGO_MENZ = {
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Eine Maschinenfamilie statt das ganze Portfolio prüfen',
+    heading: 'Einen Produkt- oder Lösungsbereich statt des ganzen Portfolios prüfen',
     body:
       'Der RFQ Readiness Workshop grenzt den technischen Umfang ab und kann mit einer Empfehlung für Go, Go mit Bedingungen oder No-Go enden.',
     action: {
@@ -284,26 +284,26 @@ export const CONTACT = {
   seo: {
     title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
     description:
-      'Besprechen Sie eine Maschinenfamilie, Ihren heutigen Angebotsprozess und die Voraussetzungen für einen begrenzten internen RFQ-Pilot.',
+      'Besprechen Sie Ihren technischen Angebotsprozess und die Voraussetzungen für einen begrenzten internen RFQ-Pilot.',
     canonicalPath: '/kontakt/',
     robots: 'index,follow',
     openGraph: {
       title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
       description:
-        'Maschinenfamilie, Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
+        'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Angebotsprozesses',
       siteName: 'Hugo Menz Automation',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
       description:
-        'Maschinenfamilie, Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
+        'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
       imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung einer Maschinenfamilie',
+      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Angebotsprozesses',
     },
   },
   breadcrumbs: [
@@ -311,10 +311,10 @@ export const CONTACT = {
     { label: 'Kontakt', path: '/kontakt/' },
   ],
   hero: {
-    kicker: 'Kontakt · RFQ-Pilot · Maschinenfamilie',
-    h1: 'Eignung einer Maschinenfamilie für einen RFQ-Pilot prüfen',
+    kicker: 'Kontakt · RFQ-Pilot · Angebotsprozess',
+    h1: 'Eignung Ihres technischen Angebotsprozesses für einen RFQ-Pilot prüfen',
     lead:
-      'Beschreiben Sie kurz die Maschinenfamilie und den heutigen Angebotsprozess. Für die erste Einordnung reichen nicht vertrauliche Rahmendaten.',
+      'Beschreiben Sie kurz den heutigen Angebotsprozess und, falls relevant, den Produktbereich, Maschinentyp oder die Lösungsfamilie. Nicht vertrauliche Rahmendaten reichen aus.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',
@@ -327,11 +327,10 @@ export const CONTACT = {
       id: 'contact-form',
       heading: 'Diese Angaben helfen bei der ersten Einordnung',
       points: [
-        'Maschinenfamilie oder klar abgegrenzte Lösungsfamilie;',
+        'heutiger technischer Angebotsprozess und größter Engpass;',
+        'Produktbereich, Maschinentyp oder Lösungsfamilie, falls relevant;',
         'ungefähres Anfragevolumen;',
-        'heutiger Angebotsprozess;',
         'beteiligte Rollen in Vertrieb und Engineering;',
-        'größter Engpass vor der ersten Budgetindikation.',
       ],
       paragraphs: [
         'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
@@ -386,9 +385,9 @@ export const CONTACT = {
   },
   finalCta: {
     eyebrow: 'Kontakt',
-    heading: 'Maschinenfamilie und Angebotsprozess kurz beschreiben',
+    heading: 'Angebotsprozess kurz beschreiben',
     body:
-      'Nennen Sie Maschinenfamilie, ungefähres Anfragevolumen, beteiligte Rollen, heutigen Angebotsprozess und den größten Engpass.',
+      'Nennen Sie ungefähres Anfragevolumen, beteiligte Rollen, heutigen Angebotsprozess und den größten Engpass.',
     action: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',

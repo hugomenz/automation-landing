@@ -24,13 +24,13 @@ const pages = [
     path: '/leistungen/rfq-readiness-workshop/',
     lang: 'de',
     title: 'RFQ Readiness Workshop für Maschinenbauer | Hugo Menz',
-    h1: 'Ist Ihre Maschinenfamilie bereit für Angebotsautomatisierung?',
+    h1: 'Ist Ihr Angebotsprozess bereit für kontrollierte Automatisierung?',
   },
   {
     path: '/leistungen/interner-rfq-copilot/',
     lang: 'de',
     title: 'Interner RFQ-Copilot für Maschinenbauer | Hugo Menz',
-    h1: 'Interner RFQ-Copilot für eine Maschinenfamilie',
+    h1: 'Interner RFQ-Copilot für technische Angebotsprozesse',
   },
   {
     path: '/leistungen/prozessautomatisierung/',
@@ -73,7 +73,7 @@ const pages = [
     path: '/kontakt/',
     lang: 'de',
     title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
-    h1: 'Eignung einer Maschinenfamilie für einen RFQ-Pilot prüfen',
+    h1: 'Eignung Ihres technischen Angebotsprozesses für einen RFQ-Pilot prüfen',
   },
   {
     path: '/en/',

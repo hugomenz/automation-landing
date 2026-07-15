@@ -36,12 +36,12 @@ export const END_OF_LINE = {
     { label: 'End-of-Line', path: '/branchen/end-of-line/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · End-of-Line',
+    kicker: 'Praxisbeispiel · End-of-Line',
     h1: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren',
     lead:
       'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen, wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
     primaryCta: {
-      label: 'Eignung der Maschinenfamilie prüfen',
+      label: 'Angebotsprozess prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -199,12 +199,12 @@ export const PACKAGING_MACHINERY = {
     { label: 'Verpackungsmaschinen', path: '/branchen/verpackungsmaschinen/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · Verpackungsmaschinen',
+    kicker: 'Praxisbeispiel · Verpackungsmaschinen',
     h1: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
     lead:
       'Verpackungsanfragen wirken oft standardisiert, enthalten aber entscheidende Abhängigkeiten von Produkt, Packmittel, Leistung und Formatwechsel. Ein guter Pilot konzentriert sich deshalb auf eine klar definierte Plattform, nicht auf jede Verpackungsanwendung.',
     primaryCta: {
-      label: 'Maschinenfamilie prüfen',
+      label: 'Angebotsprozess prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -352,12 +352,12 @@ export const PALLETISING_SYSTEMS = {
     { label: 'Palettieranlagen', path: '/branchen/palettieranlagen/' },
   ],
   hero: {
-    kicker: 'Maschinenfamilien · Palettieranlagen',
+    kicker: 'Praxisbeispiel · Palettieranlagen',
     h1: 'Angebotsqualifizierung für robotergestützte Palettieranlagen',
     lead:
       'Ein Pilot passt, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten Rahmens liegen. Fälle mit neuer Simulation oder Konstruktion werden gestoppt.',
     primaryCta: {
-      label: 'Palettierfamilie prüfen',
+      label: 'Angebotsprozess prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },

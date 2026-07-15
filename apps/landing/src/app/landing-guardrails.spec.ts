@@ -77,6 +77,14 @@ const headerStyles = readFileSync(
   new URL('./components/header/header.component.css', import.meta.url),
   'utf8',
 );
+const footerSource = readFileSync(
+  new URL('./components/site-footer/site-footer.component.ts', import.meta.url),
+  'utf8',
+);
+const footerTemplate = readFileSync(
+  new URL('./components/site-footer/site-footer.component.html', import.meta.url),
+  'utf8',
+);
 
 function filesBelow(directory: URL): readonly URL[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -187,6 +195,11 @@ describe('interaction and accessibility guardrails', () => {
     expect(headerTemplate).toContain('class="nav-dropdown"');
     expect(headerStyles).toContain('.nav-group.is-open .nav-dropdown');
     expect(headerStyles).not.toMatch(/\.nav-group:(hover|focus-within) \.nav-dropdown/);
+  });
+
+  it('does not frame the global footer around a few machine families', () => {
+    expect(footerSource).not.toMatch(/Maschinenfamil|Machine-family/);
+    expect(footerTemplate).not.toContain('/branchen/');
   });
 });
 

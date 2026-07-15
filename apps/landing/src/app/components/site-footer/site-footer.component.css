@@ -10,7 +10,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 1.5fr) repeat(3, minmax(150px, 1fr));
+  grid-template-columns: minmax(240px, 1.5fr) repeat(2, minmax(150px, 1fr));
   gap: 32px;
 }
 

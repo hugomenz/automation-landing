@@ -55,23 +55,23 @@ const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErro
 const RFQ_CONTACT_COPY = {
   de: {
     eyebrow: 'Pilot-Eignung prüfen',
-    title: 'Maschinenfamilie kurz beschreiben',
+    title: 'Technischen Angebotsprozess kurz beschreiben',
     body:
-      'Beschreiben Sie die Maschinenfamilie, das ungefähre Anfragevolumen, den heutigen Angebotsprozess, beteiligte Rollen und den größten Engpass. Ich prüfe zunächst, ob ein RFQ Readiness Workshop sinnvoll ist.',
+      'Beschreiben Sie den heutigen Angebotsprozess, das ungefähre Anfragevolumen und den größten Engpass. Ein Produktbereich, Maschinentyp oder eine Lösungsfamilie hilft bei der Einordnung, schränkt das Angebot aber nicht auf bestimmte Maschinen ein.',
     confidentiality:
       'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
     closeLabel: 'Kontaktformular schließen',
     name: 'Name',
     email: 'E-Mail',
     phone: 'Telefon (optional)',
-    message: 'Maschinenfamilie und heutiger Angebotsprozess',
+    message: 'Heutiger Angebotsprozess und größter Engpass',
     messagePlaceholder:
-      'Hilfreich sind: Maschinenfamilie, ungefähres Anfragevolumen, heutiger Angebotsprozess, beteiligte Rollen und größter Engpass.',
+      'Hilfreich sind: Produkt- oder Lösungsbereich, Anfragevolumen, heutiger Angebotsprozess, beteiligte Rollen und größter Engpass.',
     nameRequired: 'Bitte geben Sie Ihren Namen ein.',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
     emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
     phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz die Maschinenfamilie und den Angebotsprozess.',
+    messageRequired: 'Bitte beschreiben Sie kurz den Angebotsprozess und den größten Engpass.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
@@ -87,23 +87,23 @@ const RFQ_CONTACT_COPY = {
   },
   en: {
     eyebrow: 'Check pilot fit',
-    title: 'Briefly describe the machine family',
+    title: 'Briefly describe the technical quotation process',
     body:
-      'Describe the machine family, approximate enquiry volume, current quotation process, roles involved and the main bottleneck. I will first assess whether an RFQ readiness workshop is useful.',
+      'Describe the current quotation process, approximate enquiry volume and main bottleneck. A product area, machine type or solution family helps with context without limiting the service to specific machinery.',
     confidentiality:
       'Please do not send confidential specifications, drawings or customer data in this first contact. Document handling will be agreed separately before any analysis.',
     closeLabel: 'Close contact form',
     name: 'Name',
     email: 'Email',
     phone: 'Phone (optional)',
-    message: 'Machine family and current quotation process',
+    message: 'Current quotation process and main bottleneck',
     messagePlaceholder:
-      'Helpful context: machine family, approximate enquiry volume, current quotation process, roles involved and main bottleneck.',
+      'Helpful context: product or solution area, enquiry volume, current quotation process, roles involved and main bottleneck.',
     nameRequired: 'Please enter your name.',
     emailRequired: 'Please enter your email.',
     emailInvalid: 'Please enter a valid email address.',
     phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the machine family and quotation process.',
+    messageRequired: 'Please briefly describe the quotation process and main bottleneck.',
     messageTooShort: 'At least 20 characters are required.',
     messageTooLong: 'A maximum of 1000 characters is allowed.',
     errorSummary: 'Please correct the following errors:',

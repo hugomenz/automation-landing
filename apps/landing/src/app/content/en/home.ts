@@ -75,7 +75,7 @@ export const HOME_EN = {
       href: '/en/#internal-rfq-copilot',
       dataCta: 'copilot-hero',
     },
-    trustLine: 'One machine family · approved rules · human review',
+    trustLine: 'Clear quotation process · approved rules · human review',
     diagram: {
       fileLabel: 'technical-enquiry.flow',
       nodes: [
@@ -120,7 +120,7 @@ export const HOME_EN = {
         {
           label: 'Step 2',
           title: 'Structure requirements',
-          body: 'Information is mapped to an approved schema for the selected machine family.',
+          body: 'Information is mapped to the approved schema for the selected product or solution area.',
         },
         {
           label: 'Step 3',
@@ -217,11 +217,11 @@ export const HOME_EN = {
     {
       id: 'fit',
       eyebrow: 'Who it is for',
-      heading: 'Who this approach is suitable for',
+      heading: 'For small and medium-sized machinery manufacturers',
       intro:
-        'The approach is intended for machinery manufacturers, special-purpose machinery companies, plant builders and automation providers whose solutions contain some repeatable structure.',
+        'The approach can fit regardless of the machinery they build when part of the technical quotation process can be described consistently and scoped clearly.',
       points: [
-        'One machine or solution family can be clearly defined.',
+        'One product or solution area can be clearly defined.',
         'Inputs, modules, options or technical limits repeat across enquiries.',
         'Historical enquiries, checklists, tables or approved rules are usable.',
         'A responsible expert can review rules and results.',
@@ -232,43 +232,6 @@ export const HOME_EN = {
       layout: 'list',
     },
     {
-      id: 'industries',
-      eyebrow: 'Examples',
-      heading: 'Examples of suitable machine families',
-      intro:
-        'These examples are possible starting points, not a closed list. Other machine families may also fit when requirements, modules or technical limits are sufficiently repeatable.',
-      items: [
-        {
-          title: 'End-of-line equipment',
-          body: 'Modular line-end steps with recurring inputs, options and exclusion rules.',
-          link: {
-            label: 'End-of-line example (German page)',
-            href: '/branchen/end-of-line/',
-            lang: 'de',
-          },
-        },
-        {
-          title: 'Packaging machinery',
-          body: 'Defined platforms with known formats, options, performance limits and product dependencies.',
-          link: {
-            label: 'Packaging machinery example (German page)',
-            href: '/branchen/verpackungsmaschinen/',
-            lang: 'de',
-          },
-        },
-        {
-          title: 'Palletising systems',
-          body: 'Robotic palletising within a known scope for product, pallet, throughput and layout.',
-          link: {
-            label: 'Palletising example (German page)',
-            href: '/branchen/palettieranlagen/',
-            lang: 'de',
-          },
-        },
-      ],
-      layout: 'cards',
-    },
-    {
       id: 'process',
       eyebrow: 'Approach',
       heading: 'A controlled path to implementation',
@@ -276,7 +239,7 @@ export const HOME_EN = {
         {
           label: 'Step 1',
           title: 'RFQ readiness workshop',
-          body: 'Assess process, volume, data, rules, risks and one suitable machine family. The outcome can be go, conditional go or no-go.',
+          body: 'Assess process, volume, data, rules and risks. The outcome can be go, conditional go or no-go.',
         },
         {
           label: 'Step 2',
@@ -332,9 +295,9 @@ export const HOME_EN = {
     heading: 'Questions about technical enquiry qualification',
     items: [
       {
-        question: 'Which machine families are suitable?',
+        question: 'Who is this suitable for?',
         answer:
-          'Families with recurring inputs, modules, options and boundaries. The more each order requires completely new engineering, the smaller the useful scope for automation.',
+          'Small and medium-sized machinery manufacturers, regardless of the machinery they build, provided part of the quotation process can be described consistently.',
       },
       {
         question: 'Does a CPQ system need to be in place?',
@@ -360,9 +323,9 @@ export const HOME_EN = {
   },
   finalCta: {
     eyebrow: 'Next step',
-    heading: 'Is one of your machine families suitable for this approach?',
+    heading: 'Is your quotation process suitable for this approach?',
     body:
-      'Describe the machine family, approximate enquiry volume, current quotation process, roles involved and the main bottleneck. I will first assess whether a clearly scoped review is useful.',
+      'Describe the quotation process, approximate enquiry volume, roles involved and main bottleneck. I will assess whether a clearly scoped review is useful.',
     action: {
       label: 'Check pilot fit',
       href: '#contact-form',

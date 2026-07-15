@@ -70,7 +70,7 @@ export const HOME_DE = {
       href: '/leistungen/interner-rfq-copilot/',
       dataCta: 'copilot-hero',
     },
-    trustLine: 'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+    trustLine: 'Klarer Angebotsprozess · freigegebene Regeln · menschliche Prüfung',
     diagram: {
       fileLabel: 'technische-anfrage.flow',
       nodes: [
@@ -115,7 +115,7 @@ export const HOME_DE = {
         {
           label: 'Schritt 2',
           title: 'Anforderungen strukturieren',
-          body: 'Die Angaben werden einem freigegebenen Schema für die ausgewählte Maschinenfamilie zugeordnet.',
+          body: 'Die Angaben werden dem freigegebenen Schema des ausgewählten Produkt- oder Lösungsbereichs zugeordnet.',
         },
         {
           label: 'Schritt 3',
@@ -211,11 +211,11 @@ export const HOME_DE = {
     {
       id: 'passung',
       eyebrow: 'Für wen',
-      heading: 'Für welche Unternehmen der Ansatz geeignet ist',
+      heading: 'Für kleine und mittlere Maschinenbauer, unabhängig vom Maschinentyp',
       intro:
-        'Der Ansatz richtet sich an Maschinenbauer, Sondermaschinenbauer, Anlagenbauer und Automatisierer, deren Lösungen zumindest teilweise wiederholbar beschrieben werden können.',
+        'Der Ansatz passt, wenn sich ein Teil des technischen Angebotsprozesses wiederholbar beschreiben und klar abgrenzen lässt.',
       points: [
-        'Eine Maschinen- oder Lösungsfamilie lässt sich klar abgrenzen.',
+        'Ein Produkt- oder Lösungsbereich lässt sich klar abgrenzen.',
         'Eingangsgrößen, Module, Optionen oder technische Grenzen wiederholen sich.',
         'Historische Anfragen, Checklisten, Tabellen oder Regeln sind nutzbar.',
         'Ein verantwortlicher Fachexperte kann Regeln und Ergebnisse prüfen.',
@@ -226,48 +226,14 @@ export const HOME_DE = {
       layout: 'list',
     },
     {
-      id: 'maschinenfamilien',
-      eyebrow: 'Beispiele',
-      heading: 'Beispiele für geeignete Maschinenfamilien',
-      intro:
-        'Diese Beispiele zeigen mögliche Ausgangspunkte. Auch andere Maschinenfamilien können geeignet sein, wenn Anforderungen, Module oder technische Grenzen ausreichend wiederholbar sind.',
-      items: [
-        {
-          title: 'End-of-Line-Anlagen',
-          body: 'Modulare Schritte am Linienende mit wiederkehrenden Eingangsgrößen, Optionen und Ausschlussregeln.',
-          link: {
-            label: 'End-of-Line-Beispiel ansehen',
-            href: '/branchen/end-of-line/',
-          },
-        },
-        {
-          title: 'Verpackungsmaschinen',
-          body: 'Definierte Plattformen mit bekannten Formaten, Optionen, Leistungsgrenzen und Produktabhängigkeiten.',
-          link: {
-            label: 'Verpackungsmaschinen-Beispiel ansehen',
-            href: '/branchen/verpackungsmaschinen/',
-          },
-        },
-        {
-          title: 'Palettieranlagen',
-          body: 'Robotergestützte Palettierung innerhalb eines bekannten Rahmens für Produkt, Palette, Leistung und Layout.',
-          link: {
-            label: 'Palettieranlagen-Beispiel ansehen',
-            href: '/branchen/palettieranlagen/',
-          },
-        },
-      ],
-      layout: 'cards',
-    },
-    {
       id: 'vorgehen',
       eyebrow: 'Vorgehen',
-      heading: 'Einstieg mit einer klar abgegrenzten Maschinenfamilie',
+      heading: 'Einstieg mit einem klar abgegrenzten Angebotsprozess',
       items: [
         {
           label: 'Schritt 1',
           title: 'RFQ Readiness Workshop',
-          body: 'Prozess, Volumen, Daten, Regeln, Risiken und eine geeignete Maschinenfamilie prüfen. Ergebnis: Go, Go mit Bedingungen oder No-Go.',
+          body: 'Prozess, Volumen, Daten, Regeln und Risiken prüfen. Ergebnis: Go, Go mit Bedingungen oder No-Go.',
           link: {
             label: 'RFQ Readiness Workshop ansehen',
             href: '/leistungen/rfq-readiness-workshop/',
@@ -330,9 +296,9 @@ export const HOME_DE = {
     heading: 'Fragen zur technischen Anfragequalifizierung',
     items: [
       {
-        question: 'Für welche Maschinenfamilien funktioniert der Ansatz?',
+        question: 'Für wen ist der Ansatz geeignet?',
         answer:
-          'Für Familien mit wiederkehrenden Eingangsgrößen, Modulen, Optionen und Grenzen. Je stärker jeder Auftrag vollständig neu entwickelt werden muss, desto kleiner ist der sinnvoll automatisierbare Anteil.',
+          'Für kleine und mittlere Maschinenbauer unabhängig vom Maschinentyp, wenn sich Teile des Angebotsprozesses wiederholbar beschreiben lassen.',
       },
       {
         question: 'Muss bereits ein CPQ vorhanden sein?',
@@ -352,7 +318,7 @@ export const HOME_DE = {
       {
         question: 'Welche Daten werden benötigt?',
         answer:
-          'Eine ausgewählte Maschinenfamilie, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte, der Regeln und Ergebnisse freigeben kann.',
+          'Ein klarer Angebotsprozess, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte für die Freigabe.',
       },
       {
         question: 'Wann sollte man nicht automatisieren?',
@@ -363,7 +329,7 @@ export const HOME_DE = {
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Ist Ihre Maschinenfamilie für diesen Ansatz geeignet?',
+    heading: 'Ist Ihr Angebotsprozess für diesen Ansatz geeignet?',
     body:
       'Der Workshop prüft Prozess, Volumen, Daten, Regeln und Grenzen. Sie erhalten eine klare Go- oder No-Go-Empfehlung.',
     action: {

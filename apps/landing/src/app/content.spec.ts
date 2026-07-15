@@ -137,7 +137,7 @@ describe('German home content guardrails', () => {
       dataCta: 'readiness-hero',
     });
     expect(home.hero.trustLine).toBe(
-      'Eine Maschinenfamilie · freigegebene Regeln · menschliche Prüfung',
+      'Klarer Angebotsprozess · freigegebene Regeln · menschliche Prüfung',
     );
   });
 
@@ -157,6 +157,8 @@ describe('German home content guardrails', () => {
     expect(text).toContain('Nur freigegebene Module, Tabellen, Faktoren und Formeln');
     expect(text).toContain('Das System darf nicht');
     expect(text).toContain('Pilot im Schattenbetrieb');
+    expect(text).toContain('unabhängig vom Maschinentyp');
+    expect(text).not.toMatch(/Maschinenfamil/);
     expect(text).not.toMatch(/UX Engineering|UI-Komponenten|Interface-Entwicklung/);
   });
 });
@@ -183,9 +185,11 @@ describe('English home and bilingual hreflang', () => {
     expect(englishHome.hero.lead).toContain('machinery manufacturers');
     expect(englishHome.hero.lead).toContain('reviewable basis');
     expect(englishHome.hero.trustLine).toBe(
-      'One machine family · approved rules · human review',
+      'Clear quotation process · approved rules · human review',
     );
-    expect(englishHome.sections.length).toBeGreaterThanOrEqual(9);
+    expect(indexableText(englishHome)).toContain('regardless of the machinery they build');
+    expect(indexableText(englishHome)).not.toMatch(/machine famil/i);
+    expect(englishHome.sections.length).toBeGreaterThanOrEqual(8);
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
   });
 
