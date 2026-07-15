@@ -14,7 +14,9 @@ import { PageLocaleService } from '../../core/page-locale.service';
 
 interface NavigationItem {
   readonly label: string;
-  readonly path: string;
+  readonly path?: string;
+  readonly id?: string;
+  readonly children?: readonly NavigationItem[];
   readonly lang?: 'de';
   readonly activeKeys?: readonly PageKey[];
   readonly currentKeys?: readonly PageKey[];
@@ -23,24 +25,53 @@ interface NavigationItem {
 const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
   de: [
     {
-      label: 'Lösung',
-      path: '/loesungen/technische-anfragequalifizierung/',
+      label: 'Leistungen',
+      id: 'services',
       activeKeys: [
         'home-de',
         'technical-request-qualification',
+        'rfq-readiness-workshop',
         'internal-rfq-copilot',
-        'stuttgart',
+        'process-automation',
+        'n8n-consulting-stuttgart',
+        'industrial-ai-search-de',
       ],
-      currentKeys: ['technical-request-qualification'],
+      children: [
+        {
+          label: 'Technische Anfragequalifizierung',
+          path: '/loesungen/technische-anfragequalifizierung/',
+          currentKeys: ['technical-request-qualification'],
+        },
+        {
+          label: 'RFQ Readiness Workshop',
+          path: '/leistungen/rfq-readiness-workshop/',
+          currentKeys: ['rfq-readiness-workshop'],
+        },
+        {
+          label: 'Interner RFQ-Copilot',
+          path: '/leistungen/interner-rfq-copilot/',
+          currentKeys: ['internal-rfq-copilot'],
+        },
+        {
+          label: 'Weitere Prozessautomatisierung',
+          path: '/leistungen/prozessautomatisierung/',
+          currentKeys: ['process-automation'],
+        },
+        {
+          label: 'KI-Sichtbarkeit für Industrie',
+          path: '/ki-sichtbarkeit-industrie/',
+          currentKeys: ['industrial-ai-search-de'],
+        },
+        {
+          label: 'n8n Beratung Stuttgart',
+          path: '/n8n-beratung-stuttgart/',
+          currentKeys: ['n8n-consulting-stuttgart'],
+        },
+      ],
     },
     {
       label: 'Für wen',
       path: '/#passung',
-      activeKeys: [
-        'end-of-line',
-        'packaging-machinery',
-        'palletising-systems',
-      ],
     },
     {
       label: 'Vorgehen',
@@ -48,10 +79,42 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
       activeKeys: ['rfq-readiness-workshop'],
     },
     {
-      label: 'Über Hugo',
-      path: '/ueber-hugo-menz/',
-      activeKeys: ['about-hugo-menz'],
-      currentKeys: ['about-hugo-menz'],
+      label: 'Mehr',
+      id: 'more',
+      activeKeys: [
+        'about-hugo-menz',
+        'stuttgart',
+        'end-of-line',
+        'packaging-machinery',
+        'palletising-systems',
+      ],
+      children: [
+        {
+          label: 'Über Hugo Menz',
+          path: '/ueber-hugo-menz/',
+          currentKeys: ['about-hugo-menz'],
+        },
+        {
+          label: 'Standort Stuttgart',
+          path: '/standorte/stuttgart/',
+          currentKeys: ['stuttgart'],
+        },
+        {
+          label: 'End-of-Line (Beispiel)',
+          path: '/branchen/end-of-line/',
+          currentKeys: ['end-of-line'],
+        },
+        {
+          label: 'Verpackungsmaschinen (Beispiel)',
+          path: '/branchen/verpackungsmaschinen/',
+          currentKeys: ['packaging-machinery'],
+        },
+        {
+          label: 'Palettieranlagen (Beispiel)',
+          path: '/branchen/palettieranlagen/',
+          currentKeys: ['palletising-systems'],
+        },
+      ],
     },
     {
       label: 'Kontakt',
@@ -61,10 +124,32 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
     },
   ],
   en: [
-    { label: 'Solution', path: '/en/#internal-rfq-copilot', activeKeys: ['home-en'] },
-    { label: 'Who it is for', path: '/en/#fit' },
-    { label: 'Approach', path: '/en/#process' },
-    { label: 'About Hugo', path: '/en/#about' },
+    {
+      label: 'Services',
+      id: 'services',
+      activeKeys: ['home-en', 'industrial-ai-search-en'],
+      children: [
+        { label: 'Technical enquiry qualification', path: '/en/#workflow' },
+        { label: 'Internal RFQ copilot', path: '/en/#internal-rfq-copilot' },
+        { label: 'Further process automation', path: '/en/#further-automation' },
+        {
+          label: 'AI Search Readiness',
+          path: '/en/ai-search-readiness-industrial-companies/',
+          currentKeys: ['industrial-ai-search-en'],
+        },
+      ],
+    },
+    {
+      label: 'Explore',
+      id: 'explore',
+      activeKeys: ['home-en'],
+      children: [
+        { label: 'Who it is for', path: '/en/#fit' },
+        { label: 'Controls', path: '/en/#control' },
+        { label: 'Approach', path: '/en/#process' },
+        { label: 'About Hugo', path: '/en/#about' },
+      ],
+    },
     { label: 'Contact', path: '/en/#contact' },
   ],
 };
@@ -79,8 +164,10 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
 export class HeaderComponent {
   private readonly pageLocale = inject(PageLocaleService);
   private readonly contactDialog = inject(ContactDialogService);
+  private readonly host = inject(ElementRef<HTMLElement>);
 
   readonly menuOpen = signal(false);
+  readonly openDropdown = signal<string | null>(null);
   readonly language = this.pageLocale.language;
   readonly languagePath = this.pageLocale.languagePath;
   readonly pageKey = this.pageLocale.pageKey;
@@ -124,11 +211,29 @@ export class HeaderComponent {
   }
 
   toggleMenu(): void {
-    this.menuOpen.update((open) => !open);
+    this.menuOpen.update((open) => {
+      if (open) {
+        this.openDropdown.set(null);
+      }
+      return !open;
+    });
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
+    this.openDropdown.set(null);
+  }
+
+  toggleDropdown(item: NavigationItem): void {
+    if (!item.id) {
+      return;
+    }
+
+    this.openDropdown.update((current) => (current === item.id ? null : item.id ?? null));
+  }
+
+  isDropdownOpen(item: NavigationItem): boolean {
+    return item.id !== undefined && this.openDropdown() === item.id;
   }
 
   openContactForm(): void {
@@ -140,5 +245,12 @@ export class HeaderComponent {
   @HostListener('document:keydown.escape')
   closeMenuWithEscape(): void {
     this.closeMenu();
+  }
+
+  @HostListener('document:pointerdown', ['$event'])
+  closeMenuOutside(event: PointerEvent): void {
+    if (!this.host.nativeElement.contains(event.target as Node)) {
+      this.closeMenu();
+    }
   }
 }

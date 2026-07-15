@@ -28,13 +28,40 @@
     <div class="header-actions" id="primary-nav">
       <nav class="nav-links" [attr.aria-label]="copy().navigationLabel">
         @for (item of navigation(); track item.label) {
-          <a
-            [href]="item.path"
-            [attr.lang]="item.lang ?? null"
-            [class.is-active]="isActive(item)"
-            [attr.aria-current]="isCurrent(item) ? 'page' : null"
-            (click)="closeMenu()"
-          >{{ item.label }}</a>
+          @if (item.children) {
+            <div class="nav-group" [class.is-open]="isDropdownOpen(item)">
+              <button
+                type="button"
+                class="nav-group-trigger"
+                [class.is-active]="isActive(item)"
+                [attr.aria-expanded]="isDropdownOpen(item)"
+                [attr.aria-controls]="'nav-dropdown-' + item.id"
+                (click)="toggleDropdown(item)"
+              >
+                <span>{{ item.label }}</span>
+                <span class="nav-group-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="nav-dropdown" [id]="'nav-dropdown-' + item.id">
+                @for (child of item.children; track child.label) {
+                  <a
+                    [href]="child.path"
+                    [attr.lang]="child.lang ?? null"
+                    [class.is-active]="isCurrent(child)"
+                    [attr.aria-current]="isCurrent(child) ? 'page' : null"
+                    (click)="closeMenu()"
+                  >{{ child.label }}</a>
+                }
+              </div>
+            </div>
+          } @else {
+            <a
+              [href]="item.path"
+              [attr.lang]="item.lang ?? null"
+              [class.is-active]="isActive(item)"
+              [attr.aria-current]="isCurrent(item) ? 'page' : null"
+              (click)="closeMenu()"
+            >{{ item.label }}</a>
+          }
         }
       </nav>
 

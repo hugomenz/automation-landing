@@ -65,6 +65,18 @@ const sectionIndexTemplate = readFileSync(
   new URL('./components/section-index/section-index.component.html', import.meta.url),
   'utf8',
 );
+const headerSource = readFileSync(
+  new URL('./components/header/header.component.ts', import.meta.url),
+  'utf8',
+);
+const headerTemplate = readFileSync(
+  new URL('./components/header/header.component.html', import.meta.url),
+  'utf8',
+);
+const headerStyles = readFileSync(
+  new URL('./components/header/header.component.css', import.meta.url),
+  'utf8',
+);
 
 function filesBelow(directory: URL): readonly URL[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -164,6 +176,17 @@ describe('interaction and accessibility guardrails', () => {
     expect(sectionIndexTemplate).toContain("aria-current");
     expect(sectionIndexTemplate).toContain('class="section-jump"');
     expect(sectionIndexTemplate).toContain('(change)="jumpToSection($event)"');
+  });
+
+  it('makes service and secondary routes discoverable through header dropdowns', () => {
+    expect(headerSource).toContain("id: 'services'");
+    expect(headerSource).toContain("path: '/ki-sichtbarkeit-industrie/'");
+    expect(headerSource).toContain("path: '/en/ai-search-readiness-industrial-companies/'");
+    expect(headerSource).toContain("path: '/standorte/stuttgart/'");
+    expect(headerTemplate).toContain('[attr.aria-expanded]');
+    expect(headerTemplate).toContain('class="nav-dropdown"');
+    expect(headerStyles).toContain('.nav-group.is-open .nav-dropdown');
+    expect(headerStyles).not.toMatch(/\.nav-group:(hover|focus-within) \.nav-dropdown/);
   });
 });
 
