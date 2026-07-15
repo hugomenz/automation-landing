@@ -247,10 +247,20 @@ describe('industrial AI-search campaign', () => {
     expect(germanPage.finalCta.action.href).toBe('#contact-form');
     expect(englishPage.hero.primaryCta?.href).toBe('#contact-form');
     expect(englishPage.finalCta.action.href).toBe('#contact-form');
-    expect(germanPage.faq?.items).toHaveLength(12);
-    expect(englishPage.faq?.items).toHaveLength(12);
-    expect(germanPage.schemaKinds).toEqual(['Service', 'BreadcrumbList', 'FAQPage']);
-    expect(englishPage.schemaKinds).toEqual(['Service', 'BreadcrumbList', 'FAQPage']);
+    expect(germanPage.faq?.items).toHaveLength(13);
+    expect(englishPage.faq?.items).toHaveLength(13);
+    expect(germanPage.schemaKinds).toEqual([
+      'Service',
+      'Person',
+      'BreadcrumbList',
+      'FAQPage',
+    ]);
+    expect(englishPage.schemaKinds).toEqual([
+      'Service',
+      'Person',
+      'BreadcrumbList',
+      'FAQPage',
+    ]);
   });
 
   it('states the platform limitations and avoids a free-audit or result promise', () => {
@@ -265,6 +275,22 @@ describe('industrial AI-search campaign', () => {
     );
     expect(germanText).toContain('Die Ersteinschätzung ist kein vollständiges kostenloses Audit.');
     expect(englishText).toContain('The initial assessment is not a complete free audit.');
+  });
+
+  it('connects the Hugo Menz brand with the Stuttgart AI-search service', () => {
+    const germanText = indexableText(germanPage);
+    const englishText = indexableText(englishPage);
+
+    expect(germanText).toContain(
+      'Hugo Menz Automation unterstützt von Stuttgart aus Industrieunternehmen',
+    );
+    expect(germanText).toContain('Bietet Hugo Menz GEO oder KI-SEO in Stuttgart an?');
+    expect(englishText).toContain(
+      'From Stuttgart, Hugo Menz Automation supports industrial companies',
+    );
+    expect(englishText).toContain(
+      'Does Hugo Menz offer GEO or AI-search optimization in Stuttgart?',
+    );
   });
 });
 

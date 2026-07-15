@@ -8,13 +8,13 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
   seo: {
     title: 'AI Search Readiness for Industrial Companies | Hugo Menz',
     description:
-      'Assess and improve the technical signals, product data, sources and content that help AI-search systems understand industrial companies and technical products.',
+      'AI Search Readiness from Stuttgart for industrial companies: assess technical signals, product data, sources and content for ChatGPT, Gemini, Perplexity and Google AI.',
     canonicalPath: '/en/ai-search-readiness-industrial-companies/',
     robots: 'index,follow',
     openGraph: {
       title: 'AI Search Readiness for Industrial Companies',
       description:
-        'Assess technical signals, product data, sources and specialist content so AI-search systems can better understand industrial companies and technical products.',
+        'From Stuttgart, Hugo Menz Automation assesses technical signals, product data, sources and specialist content for industrial AI-search visibility.',
       type: 'website',
       locale: 'en',
       imagePath: '/og-industrial-ai-search-en.png',
@@ -26,7 +26,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       card: 'summary_large_image',
       title: 'AI Search Readiness for Industrial Companies',
       description:
-        'Assess technical signals, product data, sources and specialist content for ChatGPT, Gemini, Perplexity and Google AI search.',
+        'From Stuttgart, Hugo Menz Automation assesses technical signals, product data, sources and specialist content for ChatGPT, Gemini, Perplexity and Google AI.',
       imagePath: '/og-industrial-ai-search-en.png',
       imageAlt:
         'AI Search Readiness preview showing technical access, product data, sources and measurement review areas for industrial companies',
@@ -48,7 +48,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     },
   ],
   hero: {
-    kicker: 'AI Search Readiness · Industry',
+    kicker: 'AI Search Readiness · Industry · Stuttgart',
     h1: 'AI Search Readiness for Industrial Companies',
     lead:
       'So that complex products are not only discoverable through traditional search, but are also described clearly enough for ChatGPT, Gemini, Perplexity and other AI-search systems to understand your company and consider its content as potential source material.',
@@ -71,6 +71,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       heading: 'What AI Search Readiness means for industrial companies',
       paragraphs: [
         'AI Search Readiness combines technical SEO, structured company and product data, traceable sources and clearly written specialist content. The aim is to make machinery, services and technical expertise unambiguous, understandable and discoverable for traditional search engines and AI systems.',
+        'From Stuttgart, Hugo Menz Automation supports industrial companies and other B2B providers across Baden-Württemberg, Germany and the DACH region. GEO, AI SEO, LLMO and AI Search Optimization are methods within a clearly bounded AI Search Readiness assessment.',
       ],
       callout:
         'We improve the technical, semantic and content foundations that help AI-search systems understand your company, products and expertise and consider them as potential sources.',
@@ -124,7 +125,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       eyebrow: 'Audience',
       heading: 'Which companies can benefit most from the assessment',
       intro:
-        'Industrial companies are the primary focus. Other B2B providers may also benefit when their products or services require explanation and information is distributed across systems, markets or partners.',
+        'Industrial companies are the primary focus, particularly SMEs and mid-sized providers with products that require explanation. Other B2B companies may also benefit when information is distributed across systems, markets or partners.',
       points: [
         'manufacturers of technical products, machinery or equipment;',
         'companies with complex product portfolios and many variants;',
@@ -277,7 +278,8 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       heading: 'Understand industry and make technical information usable',
       paragraphs: [
         'I combine experience in special-purpose machinery and industrial projects with web development and automation. This means I can connect website findings with product data, technical sources and internal information processes instead of treating them only as a marketing topic.',
-        'You work directly with me from the assessment through to a possible technical implementation. The focus is on useful, maintainable systems and clear facts rather than a short-lived marketing trend.',
+        'From Stuttgart, I work remotely and, by arrangement, with industrial and B2B companies in the Stuttgart region. You work directly with me from the assessment through to a possible technical implementation.',
+        'The bounded audit can be a good fit when you do not need broad SEO-agency support, but a technical assessment of product information, sources and AI-search signals. The focus is on useful, maintainable systems and clear facts rather than a short-lived marketing trend.',
       ],
       points: [
         'understanding of machinery, industrial sales questions and products that require explanation;',
@@ -331,6 +333,11 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
         question: 'Which industrial companies is the service suitable for?',
         answer:
           'It can be particularly relevant to manufacturers of machinery, equipment and technical products whose portfolios require explanation, operate in several languages or are distributed across websites, PDFs, dealers and other sources. Other B2B companies may also be suitable.',
+      },
+      {
+        question: 'Does Hugo Menz offer GEO or AI-search optimization in Stuttgart?',
+        answer:
+          'Yes. From Stuttgart, Hugo Menz Automation offers AI Search Readiness for industrial companies and other B2B providers. GEO or Generative Engine Optimization, technical SEO, LLMO and AI Search Optimization are used as methods to make company, product and specialist information more understandable, discoverable and source-ready for AI-search systems. Work is available remotely and, by arrangement, in the Stuttgart region; mentions or recommendations are not guaranteed.',
       },
       {
         question: 'How is the baseline measured?',
@@ -387,5 +394,5 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     note:
       'After the initial assessment, you receive a clear scope and a fixed project price. The initial assessment does not replace a complete audit.',
   },
-  schemaKinds: ['Service', 'BreadcrumbList', 'FAQPage'],
+  schemaKinds: ['Service', 'Person', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;

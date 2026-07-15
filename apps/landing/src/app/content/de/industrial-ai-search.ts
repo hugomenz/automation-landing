@@ -8,13 +8,13 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
   seo: {
     title: 'KI-Sichtbarkeit für Industrieunternehmen | GEO & AI Search | Hugo Menz',
     description:
-      'AI Search Readiness für Industrieunternehmen: technische Signale, Produktdaten, Quellen und Inhalte für ChatGPT, Gemini, Perplexity und Google AI prüfen und verbessern.',
+      'AI Search Readiness aus Stuttgart für Industrieunternehmen: technische Signale, Produktdaten, Quellen und Inhalte für ChatGPT, Gemini, Perplexity und Google AI prüfen.',
     canonicalPath: '/ki-sichtbarkeit-industrie/',
     robots: 'index,follow',
     openGraph: {
       title: 'KI-Sichtbarkeit für Industrieunternehmen',
       description:
-        'Technische Signale, Produktdaten, Quellen und Fachinhalte prüfen und verbessern, damit KI-Suchsysteme Industrieunternehmen und technische Produkte besser verstehen können.',
+        'Hugo Menz Automation prüft von Stuttgart aus technische Signale, Produktdaten, Quellen und Fachinhalte für die KI-Sichtbarkeit von Industrieunternehmen.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-industrial-ai-search-de.png',
@@ -26,7 +26,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       card: 'summary_large_image',
       title: 'KI-Sichtbarkeit für Industrieunternehmen',
       description:
-        'Technische Signale, Produktdaten, Quellen und Fachinhalte für ChatGPT, Gemini, Perplexity und Google AI prüfen und verbessern.',
+        'Hugo Menz Automation prüft von Stuttgart aus technische Signale, Produktdaten, Quellen und Fachinhalte für ChatGPT, Gemini, Perplexity und Google AI.',
       imagePath: '/og-industrial-ai-search-de.png',
       imageAlt:
         'Vorschaugrafik zur KI-Sichtbarkeit für Industrieunternehmen mit den Prüffeldern technischer Zugriff, Produktdaten, Quellen und Messung',
@@ -45,7 +45,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
     { label: 'KI-Sichtbarkeit für Industrieunternehmen', path: '/ki-sichtbarkeit-industrie/' },
   ],
   hero: {
-    kicker: 'AI Search Readiness · Industrie',
+    kicker: 'AI Search Readiness · Industrie · Stuttgart',
     h1: 'KI-Sichtbarkeit für Industrieunternehmen',
     lead:
       'Damit erklärungsbedürftige Produkte nicht nur über klassische Suchmaschinen gefunden, sondern auch von ChatGPT, Gemini, Perplexity und anderen KI-Suchsystemen verstanden und als mögliche Quelle berücksichtigt werden können.',
@@ -68,6 +68,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       heading: 'Was AI Search Readiness für Industrieunternehmen bedeutet',
       paragraphs: [
         'AI Search Readiness verbindet technisches SEO, strukturierte Unternehmens- und Produktdaten, nachvollziehbare Quellen und klar formulierte Fachinhalte. Ziel ist es, Maschinen, Leistungen und technische Kompetenzen für klassische Suchmaschinen und KI-Systeme eindeutig verständlich und auffindbar zu machen.',
+        'Hugo Menz Automation unterstützt von Stuttgart aus Industrieunternehmen und andere B2B-Anbieter in Baden-Württemberg, Deutschland und DACH. GEO, KI-SEO, LLMO und AI Search Optimization sind dabei Methoden innerhalb einer klar abgegrenzten AI-Search-Readiness-Prüfung.',
       ],
       callout:
         'Wir schaffen die technischen, semantischen und inhaltlichen Voraussetzungen, damit KI-Suchsysteme Ihr Unternehmen, Ihre Produkte und Ihre Fachkompetenz besser verstehen und als mögliche Quelle berücksichtigen können.',
@@ -121,7 +122,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       eyebrow: 'Zielgruppe',
       heading: 'Für welche Unternehmen die Prüfung besonders relevant sein kann',
       intro:
-        'Der Schwerpunkt liegt auf Industrieunternehmen. Auch andere B2B-Anbieter können profitieren, wenn Produkte oder Leistungen erklärungsbedürftig sind und Informationen über mehrere Systeme, Märkte oder Partner verteilt werden.',
+        'Der Schwerpunkt liegt auf Industrieunternehmen, insbesondere auf KMU und mittelständischen Anbietern mit erklärungsbedürftigen Produkten. Auch andere B2B-Unternehmen können profitieren, wenn Informationen über mehrere Systeme, Märkte oder Partner verteilt werden.',
       points: [
         'Hersteller technischer Produkte, Maschinen oder Anlagen;',
         'Unternehmen mit komplexen Produktportfolios und vielen Varianten;',
@@ -274,7 +275,8 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       heading: 'Industrie verstehen und technische Informationen nutzbar machen',
       paragraphs: [
         'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit Webentwicklung und Automatisierung. Dadurch kann ich Website-Befunde nicht nur als Marketingthema betrachten, sondern mit Produktdaten, technischen Quellen und internen Informationsprozessen verbinden.',
-        'Sie sprechen direkt mit mir – von der Analyse bis zur möglichen technischen Umsetzung. Der Schwerpunkt liegt auf nützlichen, wartbaren Systemen und klaren Fakten statt auf einem kurzfristigen Marketingtrend.',
+        'Von Stuttgart aus arbeite ich remote und nach Vereinbarung auch im Raum Stuttgart mit Industrie- und B2B-Unternehmen. Sie sprechen direkt mit mir – von der Analyse bis zur möglichen technischen Umsetzung.',
+        'Der klar abgegrenzte Audit kann besonders dann passen, wenn Sie keine breit angelegte SEO-Agenturbetreuung suchen, sondern eine technische Prüfung von Produktinformationen, Quellen und AI-Search-Signalen. Der Schwerpunkt liegt auf nützlichen, wartbaren Systemen und klaren Fakten statt auf einem kurzfristigen Marketingtrend.',
       ],
       points: [
         'Verständnis für Maschinenbau, industrielle Vertriebsfragen und erklärungsbedürftige Produkte.',
@@ -322,6 +324,11 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
         question: 'Für welche Industrieunternehmen ist das Angebot geeignet?',
         answer:
           'Besonders relevant kann es für Hersteller von Maschinen, Anlagen und technischen Produkten sein, deren Portfolio erklärungsbedürftig, mehrsprachig oder über Website, PDFs, Händler und weitere Quellen verteilt ist. Auch andere B2B-Unternehmen können passen.',
+      },
+      {
+        question: 'Bietet Hugo Menz GEO oder KI-SEO in Stuttgart an?',
+        answer:
+          'Ja. Hugo Menz Automation bietet von Stuttgart aus AI Search Readiness für Industrieunternehmen und andere B2B-Anbieter an. GEO beziehungsweise Generative Engine Optimization, technisches SEO, LLMO und AI Search Optimization werden als Methoden eingesetzt, um Unternehmens-, Produkt- und Fachinformationen für KI-Suchsysteme besser verständlich, auffindbar und quellenfähig zu machen. Die Zusammenarbeit ist remote und nach Vereinbarung im Raum Stuttgart möglich; Nennungen oder Empfehlungen werden nicht zugesagt.',
       },
       {
         question: 'Wie wird die Ausgangslage gemessen?',
@@ -378,5 +385,5 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
     note:
       'Nach der Ersteinschätzung erhalten Sie einen klaren Leistungsumfang und einen festen Projektpreis. Die Ersteinschätzung ersetzt kein vollständiges Audit.',
   },
-  schemaKinds: ['Service', 'BreadcrumbList', 'FAQPage'],
+  schemaKinds: ['Service', 'Person', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;
