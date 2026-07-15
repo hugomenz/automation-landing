@@ -39,7 +39,7 @@ export const STUTTGART = {
     kicker: 'Stuttgart · Baden-Württemberg · Remote',
     h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
     lead:
-      'Von Stuttgart aus unterstütze ich Maschinenbauer, Sondermaschinenbauer und Automatisierer dabei, technische Anfragen für eine klar abgegrenzte Maschinenfamilie strukturiert zu qualifizieren – remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
+      'Von Stuttgart aus unterstütze ich Maschinenbauer, Sondermaschinenbauer und Automatisierer dabei, technische Anfragen für eine klar abgegrenzte Maschinenfamilie strukturiert zu qualifizieren, remote oder nach Vereinbarung vor Ort in Baden-Württemberg.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -271,7 +271,7 @@ export const ABOUT_HUGO_MENZ = {
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-final',
     },
-    note: 'Sie sprechen direkt mit mir – von der Einordnung bis zu einer möglichen Umsetzung.',
+    note: 'Sie sprechen direkt mit mir, von der Einordnung bis zu einer möglichen Umsetzung.',
   },
   schemaKinds: ['Person', 'BreadcrumbList'],
 } as const satisfies PageDefinition;

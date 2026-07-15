@@ -44,7 +44,7 @@ export const PROCESS_AUTOMATION = {
     kicker: 'Weitere Automatisierungen · B2B-Prozesse · Systemintegration',
     h1: 'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
     lead:
-      'Ich unterstütze bei klar abgegrenzten Abläufen, in denen Dokumente, Daten und Systeme heute manuell zusammengeführt werden – mit nachvollziehbaren Regeln, sichtbaren Ausnahmen und menschlicher Freigabe.',
+      'Ich unterstütze bei klar abgegrenzten Abläufen, in denen Dokumente, Daten und Systeme heute manuell zusammengeführt werden, mit nachvollziehbaren Regeln, sichtbaren Ausnahmen und menschlicher Freigabe.',
     primaryCta: {
       label: 'Anderen Prozess beschreiben',
       href: '#contact-form',

@@ -8,7 +8,7 @@ export const HOME_DE = {
   seo: {
     title: 'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
     description:
-      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen – mit freigegebenen Regeln und menschlicher Prüfung.',
+      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
     canonicalPath: '/',
     robots: 'index,follow',
     openGraph: {
@@ -59,7 +59,7 @@ export const HOME_DE = {
     kicker: 'Technische Angebotsprozesse · Maschinenbau · Stuttgart',
     h1: 'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
     lead:
-      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen – mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
+      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen, mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -296,7 +296,7 @@ export const HOME_DE = {
       id: 'profil',
       heading: 'Maschinenbau verstehen. Automatisierung pragmatisch umsetzen.',
       paragraphs: [
-        'Ich bin Maschinenbauingenieur. Rund acht Jahre habe ich im Sondermaschinenbau und in der Industrieautomation gearbeitet – unter anderem mit Konstruktion, Stücklisten, Einkauf, Lieferantenkoordination, Projektabwicklung und technischen Abstimmungen zwischen Kunde, Mechanik, Elektrik und Montage.',
+        'Ich bin Maschinenbauingenieur. Rund acht Jahre habe ich im Sondermaschinenbau und in der Industrieautomation gearbeitet, unter anderem mit Konstruktion, Stücklisten, Einkauf, Lieferantenkoordination, Projektabwicklung und technischen Abstimmungen zwischen Kunde, Mechanik, Elektrik und Montage.',
         'Dazu kommen rund drei Jahre praktische Erfahrung mit Angular, TypeScript, APIs, Webhooks, n8n, Make und Automatisierung. Diese Kombination hilft mir, technische Angebotsprozesse fachlich einzugrenzen und pragmatisch umzusetzen.',
       ],
       links: [
@@ -365,7 +365,7 @@ export const HOME_DE = {
     eyebrow: 'Nächster Schritt',
     heading: 'Ist Ihre Maschinenfamilie für diesen Ansatz geeignet?',
     body:
-      'In einem RFQ Readiness Workshop prüfe ich Prozess, Volumen, Daten, Regeln und technische Grenzen. Sie erhalten eine klare Empfehlung – auch dann, wenn ein Pilot nicht sinnvoll ist.',
+      'In einem RFQ Readiness Workshop prüfe ich Prozess, Volumen, Daten, Regeln und technische Grenzen. Sie erhalten auch dann eine klare Empfehlung, wenn ein Pilot nicht sinnvoll ist.',
     action: {
       label: 'Pilot-Eignung prüfen',
       href: '/leistungen/rfq-readiness-workshop/',

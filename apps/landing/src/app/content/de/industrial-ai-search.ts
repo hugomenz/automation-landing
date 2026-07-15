@@ -69,7 +69,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       heading: 'Was AI Search Readiness für Industrieunternehmen bedeutet',
       paragraphs: [
         'AI Search Readiness verbindet technisches SEO, strukturierte Unternehmens- und Produktdaten, nachvollziehbare Quellen und klare Fachinhalte. So werden Maschinen, Leistungen und Kompetenzen für Suchmaschinen und KI-Systeme verständlich und auffindbar.',
-        'Hugo Menz Automation bietet diesen Audit von Stuttgart aus für Industrie- und B2B-Unternehmen an. GEO, Generative Engine Optimization, LLMO und AI Search Optimization sind dabei Methoden – nicht das Angebot selbst.',
+        'Hugo Menz Automation bietet diesen Audit von Stuttgart aus für Industrie- und B2B-Unternehmen an. GEO, Generative Engine Optimization, LLMO und AI Search Optimization sind dabei Methoden, nicht das Angebot selbst.',
       ],
       callout:
         'Ich verbessere die technischen, semantischen und inhaltlichen Voraussetzungen, damit KI-Suchsysteme Ihr Unternehmen, Ihre Produkte und Ihre Fachkompetenz besser verstehen und als mögliche Quelle berücksichtigen können.',
@@ -82,7 +82,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       intro:
         'Eine klar abgegrenzte Bestandsaufnahme; der Umfang richtet sich nach Website, Portfolio, Sprachen und Märkten.',
       points: [
-        '25–40 relevante Käuferfragen definieren und ausgewählte KI-Suchsysteme prüfen;',
+        '25 bis 40 relevante Käuferfragen definieren und ausgewählte KI-Suchsysteme prüfen;',
         'mit bis zu drei relevanten Wettbewerbern vergleichen;',
         'technische Indexierung, Crawlbarkeit und Crawler-Regeln prüfen;',
         'Unternehmens-, Produkt- und Kompetenzsignale sowie sichtbare Quellen und Beleglücken analysieren;',
@@ -114,7 +114,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       items: [
         {
           title: 'SEO',
-          body: 'SEO verbessert Indexierbarkeit und Auffindbarkeit in der klassischen Suche – technisch und mit hilfreichen Antworten.',
+          body: 'SEO verbessert Indexierbarkeit und Auffindbarkeit in der klassischen Suche, technisch und mit hilfreichen Antworten.',
         },
         {
           title: 'GEO',
@@ -177,7 +177,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
     {
       id: 'ergebnisse',
       eyebrow: 'Ergebnisse und optionale Umsetzung',
-      heading: 'Was Sie erhalten – und was danach möglich ist',
+      heading: 'Was Sie erhalten und was danach möglich ist',
       intro:
         'Konkrete Befunde statt eines vagen Versprechens von „mehr Sichtbarkeit“:',
       items: [
@@ -230,7 +230,7 @@ export const INDUSTRIAL_AI_SEARCH_DE = {
       id: 'warum-hugo-menz',
       heading: 'Industrie verstehen und technische Informationen nutzbar machen',
       paragraphs: [
-        'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit technischer Informationsstrukturierung, Webtechnologien und Automatisierung. Sie arbeiten direkt mit mir – von der Analyse bis zu einer möglichen technischen Umsetzung.',
+        'Ich verbinde Erfahrung im Sondermaschinenbau und in industriellen Projekten mit technischer Informationsstrukturierung, Webtechnologien und Automatisierung. Sie arbeiten direkt mit mir, von der Analyse bis zu einer möglichen technischen Umsetzung.',
       ],
       points: [
         'Verständnis für Maschinenbau, industrielle Vertriebsfragen und erklärungsbedürftige Produkte.',

@@ -72,7 +72,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       heading: 'What AI Search Readiness means for industrial companies',
       paragraphs: [
         'AI Search Readiness combines technical SEO, structured company and product data, traceable sources and clear specialist content. It makes machinery, services and expertise easier for search and AI systems to understand and find.',
-        'From Stuttgart, Hugo Menz Automation offers this audit to industrial and B2B companies. GEO, Generative Engine Optimization, LLMO and AI Search Optimization are methods within the service – not the offer itself.',
+        'From Stuttgart, Hugo Menz Automation offers this audit to industrial and B2B companies. GEO, Generative Engine Optimization, LLMO and AI Search Optimization are methods within the service, not the offer itself.',
       ],
       callout:
         'I improve the technical, semantic and content foundations that help AI-search systems understand your company, products and expertise and consider them as potential sources.',
@@ -85,7 +85,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       intro:
         'A clearly bounded baseline assessment, scoped to the website, portfolio, languages and markets.',
       points: [
-        'define 25–40 relevant buyer questions and review selected AI-search systems;',
+        'define 25 to 40 relevant buyer questions and review selected AI-search systems;',
         'compare visibility with up to three relevant competitors;',
         'review technical indexation, crawlability and crawler rules;',
         'analyse company, product and expertise signals plus visible sources and evidence gaps;',
@@ -180,7 +180,7 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
     {
       id: 'deliverables',
       eyebrow: 'Deliverables and optional implementation',
-      heading: 'What you receive – and what can follow',
+      heading: 'What you receive and what can follow',
       intro:
         'Concrete findings instead of a vague promise of “more visibility”:',
       items: [

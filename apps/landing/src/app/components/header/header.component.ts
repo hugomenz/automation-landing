@@ -90,7 +90,7 @@ export class HeaderComponent {
     this.language() === 'de'
       ? {
           subtitle: 'Technische Angebotsprozesse · Maschinenbau',
-          brandLabel: 'Hugo Menz Automation – Startseite',
+          brandLabel: 'Hugo Menz Automation: Startseite',
           navigationLabel: 'Hauptnavigation',
           menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
           languageLabel:
@@ -103,7 +103,7 @@ export class HeaderComponent {
         }
       : {
           subtitle: 'Technical quotation processes · Machinery',
-          brandLabel: 'Hugo Menz Automation – English home',
+          brandLabel: 'Hugo Menz Automation: English home',
           navigationLabel: 'Primary navigation',
           menuLabel: this.menuOpen() ? 'Close menu' : 'Open menu',
           languageLabel: 'Deutsche Version',

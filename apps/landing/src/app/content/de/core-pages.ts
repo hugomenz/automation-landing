@@ -8,13 +8,13 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
   seo: {
     title: 'Technische Anfragequalifizierung im Maschinenbau | Hugo Menz',
     description:
-      'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen – mit Quellen, offenen Punkten und menschlicher Freigabe.',
+      'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
     canonicalPath: '/loesungen/technische-anfragequalifizierung/',
     robots: 'index,follow',
     openGraph: {
       title: 'Technische Anfragequalifizierung im Maschinenbau',
       description:
-        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen – mit Quellen, offenen Punkten und menschlicher Freigabe.',
+        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -25,7 +25,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
       card: 'summary_large_image',
       title: 'Technische Anfragequalifizierung im Maschinenbau',
       description:
-        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen – mit Quellen, offenen Punkten und menschlicher Freigabe.',
+        'Unvollständige RFQs, Lastenhefte und Anhänge in eine prüfbare Anforderungsakte überführen, mit Quellen, offenen Punkten und menschlicher Freigabe.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'Prüfbare technische Anforderungsakte mit Quellen und offenen Punkten',
     },
@@ -187,13 +187,13 @@ export const RFQ_READINESS_WORKSHOP = {
   seo: {
     title: 'RFQ Readiness Workshop für Maschinenbauer | Hugo Menz',
     description:
-      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+      'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
     canonicalPath: '/leistungen/rfq-readiness-workshop/',
     robots: 'index,follow',
     openGraph: {
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -204,7 +204,7 @@ export const RFQ_READINESS_WORKSHOP = {
       card: 'summary_large_image',
       title: 'RFQ Readiness Workshop für Maschinenbauer',
       description:
-        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung – für eine klar abgegrenzte Maschinenfamilie.',
+        'Prüfen Sie Prozess, Daten, Regeln und Wirtschaftlichkeit einer Angebotsautomatisierung für eine klar abgegrenzte Maschinenfamilie.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'RFQ Readiness Workshop für eine klar abgegrenzte Maschinenfamilie',
     },
@@ -218,7 +218,7 @@ export const RFQ_READINESS_WORKSHOP = {
     kicker: 'RFQ Readiness Workshop',
     h1: 'Ist Ihre Maschinenfamilie bereit für Angebotsautomatisierung?',
     lead:
-      'Bevor Software gebaut wird, prüfe ich, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für eine Maschinenfamilie – einschließlich eines begründeten No-Go.',
+      'Bevor Software gebaut wird, prüfe ich, ob genügend Wiederholbarkeit, Daten, Regeln und wirtschaftlicher Nutzen vorhanden sind. Der Workshop liefert eine belastbare Entscheidungsgrundlage für eine Maschinenfamilie, einschließlich eines begründeten No-Go.',
     primaryCta: {
       label: 'Pilot-Eignung prüfen',
       href: '#contact-form',

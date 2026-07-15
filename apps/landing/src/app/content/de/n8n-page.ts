@@ -8,13 +8,13 @@ export const N8N_CONSULTING_STUTTGART = {
   seo: {
     title: 'n8n Beratung für technische Workflows in Stuttgart | Hugo Menz',
     description:
-      'n8n Workflows, APIs und Webhooks in Stuttgart nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
+      'n8n Workflows, APIs und Webhooks in Stuttgart nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
     canonicalPath: '/n8n-beratung-stuttgart/',
     robots: 'index,follow',
     openGraph: {
       title: 'n8n Beratung für technische Workflows in Stuttgart',
       description:
-        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
+        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-general-de.png',
@@ -25,7 +25,7 @@ export const N8N_CONSULTING_STUTTGART = {
       card: 'summary_large_image',
       title: 'n8n Beratung für technische Workflows in Stuttgart',
       description:
-        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen – als technischer Baustein mit menschlicher Kontrolle.',
+        'n8n Workflows, APIs und Webhooks nachvollziehbar planen, prüfen und umsetzen, als technischer Baustein mit menschlicher Kontrolle.',
       imagePath: '/og-general-de.png',
       imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
     },
@@ -39,7 +39,7 @@ export const N8N_CONSULTING_STUTTGART = {
     kicker: 'Technologie · n8n · APIs · Stuttgart',
     h1: 'n8n Beratung für technische Workflows in Stuttgart',
     lead:
-      'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks – abgestimmt auf den Prozess, die beteiligten Systeme und die Menschen, die damit arbeiten.',
+      'Ich plane, prüfe und implementiere nachvollziehbare Workflows mit n8n, APIs und Webhooks, abgestimmt auf den Prozess, die beteiligten Systeme und die Menschen, die damit arbeiten.',
     primaryCta: {
       label: 'n8n-Prozess einordnen',
       href: '#contact-form',

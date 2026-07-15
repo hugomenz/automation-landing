@@ -39,7 +39,7 @@ export const END_OF_LINE = {
     kicker: 'Maschinenfamilien · End-of-Line',
     h1: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren',
     lead:
-      'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen – wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
+      'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen, wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
     primaryCta: {
       label: 'Eignung der Maschinenfamilie prüfen',
       href: '/leistungen/rfq-readiness-workshop/',
@@ -171,13 +171,13 @@ export const PACKAGING_MACHINERY = {
   seo: {
     title: 'Technische Anfragequalifizierung für Verpackungsmaschinen | Hugo Menz',
     description:
-      'Anfragen für Verpackungsmaschinen strukturiert qualifizieren – mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
+      'Anfragen für Verpackungsmaschinen strukturiert qualifizieren, mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
     canonicalPath: '/branchen/verpackungsmaschinen/',
     robots: 'index,follow',
     openGraph: {
       title: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
       description:
-        'Anfragen für Verpackungsmaschinen strukturiert qualifizieren – mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
+        'Anfragen für Verpackungsmaschinen strukturiert qualifizieren, mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -188,7 +188,7 @@ export const PACKAGING_MACHINERY = {
       card: 'summary_large_image',
       title: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
       description:
-        'Anfragen für Verpackungsmaschinen strukturiert qualifizieren – mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
+        'Anfragen für Verpackungsmaschinen strukturiert qualifizieren, mit Produktdaten, Formaten, Leistung, Schnittstellen, offenen Punkten und Review.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'Strukturierte technische Anfrage für eine Verpackungsmaschinen-Plattform',
     },

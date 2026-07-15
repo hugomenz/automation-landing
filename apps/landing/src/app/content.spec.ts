@@ -123,13 +123,13 @@ describe('German home content guardrails', () => {
       'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
     );
     expect(home.seo.description).toBe(
-      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen – mit freigegebenen Regeln und menschlicher Prüfung.',
+      'Technische Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
     );
     expect(home.hero.h1).toBe(
       'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
     );
     expect(home.hero.lead).toBe(
-      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen – mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
+      'Ich unterstütze Maschinenbauer dabei, unvollständige Kundenanfragen, E-Mails, Lastenhefte, Fotos und PDFs in eine strukturierte, prüfbare Angebotsgrundlage zu überführen, mit offenen Punkten, Risiken und einer regelbasierten Budgetbasis vor der Freigabe durch Vertriebstechnik.',
     );
     expect(home.hero.primaryCta).toEqual({
       label: 'Pilot-Eignung prüfen',
