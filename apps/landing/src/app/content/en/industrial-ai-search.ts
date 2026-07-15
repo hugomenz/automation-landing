@@ -245,9 +245,8 @@ export const INDUSTRIAL_AI_SEARCH_EN = {
       ],
       links: [
         {
-          label: 'About Hugo Menz (German page)',
-          href: '/ueber-hugo-menz/',
-          lang: 'de',
+          label: 'About Hugo Menz',
+          href: '/en/#about',
         },
       ],
       layout: 'profile',

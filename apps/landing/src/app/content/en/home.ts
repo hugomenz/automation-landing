@@ -267,9 +267,6 @@ export const HOME_EN = {
         'I am a mechanical engineer. I spent around eight years in special-purpose machinery and industrial automation, working with mechanical design, bills of materials, purchasing, supplier coordination, project delivery and technical coordination between customers, mechanical engineering, electrical engineering and assembly.',
         'I also have around three years of practical experience with Angular, TypeScript, APIs, webhooks, n8n, Make and automation. This combination helps me define technical quotation processes correctly and implement them pragmatically.',
       ],
-      links: [
-        { label: 'About Hugo Menz (German page)', href: '/ueber-hugo-menz/', lang: 'de' },
-      ],
       layout: 'profile',
     },
     {

@@ -189,6 +189,10 @@ describe('English home and bilingual hreflang', () => {
     );
     expect(indexableText(englishHome)).toContain('regardless of the machinery they build');
     expect(indexableText(englishHome)).not.toMatch(/machine famil/i);
+    expect(indexableText(englishHome)).not.toContain('About Hugo Menz (German page)');
+    expect(indexableText(englishIndustrialAiSearch)).toContain(
+      '"label":"About Hugo Menz","href":"/en/#about"',
+    );
     expect(englishHome.sections.length).toBeGreaterThanOrEqual(8);
     expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
   });
