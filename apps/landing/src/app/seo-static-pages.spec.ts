@@ -32,6 +32,29 @@ describe('sitemap and robots', () => {
     expect(sitemap).not.toMatch(/\/en\/(?:solutions|services|industries|about|contact)\//i);
   });
 
+  it('publishes lastmod only for a known significant content change', () => {
+    const datedUrls = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap((match) => {
+      const block = match[1];
+      const location = sitemapLocations(block)[0];
+      const lastmods = [...block.matchAll(/<lastmod>\s*([^<]+?)\s*<\/lastmod>/g)].map(
+        (lastmod) => lastmod[1],
+      );
+
+      expect(lastmods, 'lastmod count for ' + location).toHaveLength(
+        lastmods.length > 0 ? 1 : 0,
+      );
+      return lastmods.map((lastmod) => ({ location, lastmod }));
+    });
+
+    expect(datedUrls).toEqual([
+      {
+        location: 'https://www.hugomenz.de/',
+        lastmod: '2026-07-22',
+      },
+    ]);
+    expect(sitemap).not.toMatch(/<(?:changefreq|priority)>/i);
+  });
+
   it('keeps reciprocal language annotations on translated URL pairs only', () => {
     const urlBlocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
       (match) => match[1],
@@ -46,6 +69,18 @@ describe('sitemap and robots', () => {
       expect(block).toContain('hreflang="en"');
       expect(block).toContain('hreflang="x-default"');
     }
+    expect(blocksWithAlternates[0]).toContain(
+      'hreflang="en" href="https://www.hugomenz.de/en/"',
+    );
+    expect(blocksWithAlternates[1]).toContain(
+      'hreflang="de-DE" href="https://www.hugomenz.de/"',
+    );
+    expect(blocksWithAlternates[2]).toContain(
+      'hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/"',
+    );
+    expect(blocksWithAlternates[3]).toContain(
+      'hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/"',
+    );
     expect(blocksWithAlternates.map((block) => sitemapLocations(block)[0])).toEqual([
       'https://www.hugomenz.de/',
       'https://www.hugomenz.de/en/',
