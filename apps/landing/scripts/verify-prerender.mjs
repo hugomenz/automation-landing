@@ -344,11 +344,37 @@ function validatePage(page) {
       const graph = Array.isArray(schema['@graph']) ? schema['@graph'] : [];
       const types = new Set(graph.map((entry) => entry?.['@type']).filter(Boolean));
       const expectsBreadcrumb = page.path !== '/' && page.path !== '/en/';
+      const breadcrumb = graph.find((entry) => entry?.['@type'] === 'BreadcrumbList');
       if (expectsBreadcrumb && !types.has('BreadcrumbList')) {
         errors.push('JSON-LD is missing BreadcrumbList');
       }
       if (!expectsBreadcrumb && types.has('BreadcrumbList')) {
         errors.push('homepage JSON-LD must not publish a hidden BreadcrumbList');
+      }
+      if (expectsBreadcrumb && breadcrumb) {
+        const listItems = breadcrumb.itemListElement;
+
+        if (!Array.isArray(listItems)) {
+          errors.push('BreadcrumbList must contain itemListElement');
+        } else {
+          for (const [index, listItem] of listItems.slice(0, -1).entries()) {
+            if (typeof listItem?.item !== 'string') {
+              errors.push(`breadcrumb position ${index + 1} is missing item`);
+              continue;
+            }
+
+            try {
+              const itemUrl = new URL(listItem.item);
+              if (itemUrl.protocol !== 'https:' || itemUrl.origin !== SITE_ORIGIN) {
+                errors.push(
+                  `breadcrumb position ${index + 1} must use an absolute production URL`,
+                );
+              }
+            } catch {
+              errors.push(`breadcrumb position ${index + 1} has an invalid item URL`);
+            }
+          }
+        }
       }
 
       const expectedPrimaryType =

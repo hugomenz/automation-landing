@@ -32,7 +32,6 @@ export const STUTTGART = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Standorte' },
     { label: 'Stuttgart', path: '/standorte/stuttgart/' },
   ],
   hero: {

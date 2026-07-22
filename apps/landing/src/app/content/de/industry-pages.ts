@@ -32,7 +32,6 @@ export const END_OF_LINE = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
     { label: 'End-of-Line', path: '/branchen/end-of-line/' },
   ],
   hero: {
@@ -195,7 +194,6 @@ export const PACKAGING_MACHINERY = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
     { label: 'Verpackungsmaschinen', path: '/branchen/verpackungsmaschinen/' },
   ],
   hero: {
@@ -348,7 +346,6 @@ export const PALLETISING_SYSTEMS = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Branchen' },
     { label: 'Palettieranlagen', path: '/branchen/palettieranlagen/' },
   ],
   hero: {

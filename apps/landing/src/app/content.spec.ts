@@ -76,6 +76,28 @@ describe('public page registry', () => {
     expect(validatePageRegistry()).toEqual([]);
   });
 
+  it('rejects intermediate breadcrumbs without a crawlable path', () => {
+    const page = getPageByKey('technical-request-qualification');
+    const invalidPage: PageDefinition = {
+      ...page,
+      breadcrumbs: [
+        { label: 'Startseite', path: '/' },
+        { label: 'Lösungen' },
+        {
+          label: 'Technische Anfragequalifizierung',
+          path: '/loesungen/technische-anfragequalifizierung/',
+        },
+      ],
+    };
+    const registry = PAGE_REGISTRY.map((entry) =>
+      entry.key === invalidPage.key ? invalidPage : entry,
+    );
+
+    expect(validatePageRegistry(registry)).toContain(
+      'Intermediate breadcrumb is missing a path for technical-request-qualification: Lösungen',
+    );
+  });
+
   it('maps every registry entry to one explicit Angular route and page key', () => {
     const routeEntries = [
       ...routeSource.matchAll(/pageRoute\(\s*'([^']*)'\s*,\s*'([^']+)'\s*\)/g),

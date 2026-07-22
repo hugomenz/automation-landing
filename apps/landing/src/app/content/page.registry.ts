@@ -191,6 +191,14 @@ export function validatePageRegistry(
     if (!TRANSLATED_PAGE_KEYS.includes(page.key) && page.seo.alternates) {
       errors.push(`Only translated pages may define hreflang alternates: ${page.key}`);
     }
+
+    for (const breadcrumb of page.breadcrumbs.slice(0, -1)) {
+      if (!breadcrumb.path) {
+        errors.push(
+          `Intermediate breadcrumb is missing a path for ${page.key}: ${breadcrumb.label}`,
+        );
+      }
+    }
   }
 
   return errors;

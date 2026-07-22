@@ -32,7 +32,6 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Lösungen' },
     {
       label: 'Technische Anfragequalifizierung',
       path: '/loesungen/technische-anfragequalifizierung/',
@@ -211,7 +210,6 @@ export const RFQ_READINESS_WORKSHOP = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Leistungen' },
     { label: 'RFQ Readiness Workshop', path: '/leistungen/rfq-readiness-workshop/' },
   ],
   hero: {
@@ -387,7 +385,6 @@ export const INTERNAL_RFQ_COPILOT = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Leistungen' },
     { label: 'Interner RFQ-Copilot', path: '/leistungen/interner-rfq-copilot/' },
   ],
   hero: {

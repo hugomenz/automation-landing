@@ -32,7 +32,6 @@ export const N8N_CONSULTING_STUTTGART = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Technologie' },
     { label: 'n8n Beratung Stuttgart', path: '/n8n-beratung-stuttgart/' },
   ],
   hero: {

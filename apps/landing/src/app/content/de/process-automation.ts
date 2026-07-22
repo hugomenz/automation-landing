@@ -34,7 +34,6 @@ export const PROCESS_AUTOMATION = {
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Leistungen' },
     {
       label: 'Prozessautomatisierung',
       path: '/leistungen/prozessautomatisierung/',
