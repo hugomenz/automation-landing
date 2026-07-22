@@ -54,7 +54,7 @@ const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErro
 
 const RFQ_CONTACT_COPY = {
   de: {
-    eyebrow: 'Pilot-Eignung prüfen',
+    eyebrow: 'RFQ-Fit-Check',
     title: 'Technischen Angebotsprozess kurz beschreiben',
     body:
       'Beschreiben Sie den heutigen Angebotsprozess, das ungefähre Anfragevolumen und den größten Engpass. Ein Produktbereich, Maschinentyp oder eine Lösungsfamilie hilft bei der Einordnung, schränkt das Angebot aber nicht auf bestimmte Maschinen ein.',
@@ -75,7 +75,7 @@ const RFQ_CONTACT_COPY = {
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
-    submit: 'Pilot-Eignung prüfen',
+    submit: 'RFQ-Fit-Check anfragen',
     sending: 'Wird gesendet …',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
     error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',

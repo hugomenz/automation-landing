@@ -6,15 +6,15 @@ export const HOME_DE = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
+    title: 'Angebotsprozess im Maschinenbau automatisieren | Hugo Menz',
     description:
-      'Technische Kundenanfragen und Anhänge in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
+      'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
     canonicalPath: '/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Angebotsprozesse im Maschinenbau automatisieren',
+      title: 'Angebotsprozess im Maschinenbau automatisieren',
       description:
-        'Technische Anfragen in eine prüfbare Angebotsgrundlage mit offenen Punkten, freigegebenen Regeln und menschlicher Prüfung überführen.',
+        'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -24,9 +24,9 @@ export const HOME_DE = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Angebotsprozesse im Maschinenbau automatisieren',
+      title: 'Angebotsprozess im Maschinenbau automatisieren',
       description:
-        'Technische Anfragen in eine prüfbare Angebotsgrundlage mit offenen Punkten, freigegebenen Regeln und menschlicher Prüfung überführen.',
+        'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
       imagePath: '/og-rfq-preview.png',
       imageAlt:
         'Technische Anfragequalifizierung für Maschinenbauer mit freigegebenen Regeln und menschlicher Prüfung',
@@ -49,21 +49,23 @@ export const HOME_DE = {
       { label: 'EN', href: '/en/', lang: 'en' },
     ],
     cta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-header',
+      label: 'RFQ-Fit-Check anfragen',
+      href: '#contact-form',
+      dataCta: 'contact-header',
+      contactContext: 'rfq',
     },
   },
   breadcrumbs: [{ label: 'Startseite', path: '/' }],
   hero: {
-    kicker: 'Technische Angebotsprozesse · Maschinenbau · Stuttgart',
-    h1: 'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
+    kicker: 'Technischer Angebotsprozess · Maschinenbau · Stuttgart',
+    h1: 'Angebotsprozess im Maschinenbau: technische Anfragen schneller qualifizieren',
     lead:
-      'Ich strukturiere für Maschinenbauer unvollständige Kundenanfragen und Anhänge zu einer prüfbaren Angebotsgrundlage für Vertrieb und Engineering.',
+      'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'RFQ-Fit-Check anfragen',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
+      contactContext: 'rfq',
     },
     secondaryCta: {
       label: 'So funktioniert der interne RFQ-Copilot',
@@ -86,10 +88,10 @@ export const HOME_DE = {
   sections: [
     {
       id: 'ausgangslage',
-      eyebrow: 'Ausgangslage',
-      heading: 'Warum die erste Angebotsphase so viel Abstimmung bindet',
+      eyebrow: 'Definition',
+      heading: 'Was bedeutet technische Anfragequalifizierung im Maschinenbau?',
       intro:
-        'Technische Anfragen verteilen sich oft auf E-Mails, Lastenhefte, PDFs, Fotos und Tabellen. Vor einer belastbaren Einschätzung müssen die Angaben zusammengeführt werden.',
+        'Technische Anfragequalifizierung im Maschinenbau bedeutet, Kundenanfragen und Anhänge vor der Kalkulation in eine prüfbare Anforderungsakte zu überführen. Fehlende Informationen, Widersprüche, Risiken und nicht abgedeckte Sonderfälle werden sichtbar, bevor Vertrieb oder Engineering eine Entscheidung trifft.',
       points: [
         'Wichtige Produkt-, Leistungs- oder Schnittstellendaten fehlen.',
         'Mehrere Dokumente enthalten widersprüchliche Angaben.',
@@ -98,14 +100,22 @@ export const HOME_DE = {
         'Annahmen und Ausschlüsse gehen bei der Übergabe an Engineering verloren.',
       ],
       paragraphs: [
-        'Der sinnvolle erste Schritt ist eine nachvollziehbare Vorbereitung der technischen Entscheidung, kein automatisch erzeugtes Angebot.',
+        'Der sinnvolle erste Schritt ist eine nachvollziehbare Vorbereitung der technischen Entscheidung, kein automatisch erzeugtes Angebot. E-Mails, Lastenhefte, PDFs, Fotos und Tabellen bleiben über ihre Quellen nachvollziehbar.',
+      ],
+      links: [
+        {
+          label: 'Technische Anfragequalifizierung im Detail',
+          href: '/loesungen/technische-anfragequalifizierung/',
+        },
       ],
       layout: 'list',
     },
     {
       id: 'ablauf',
       eyebrow: 'Prozess',
-      heading: 'Von der Kundenanfrage zur menschlich geprüften Angebotsgrundlage',
+      heading: 'Wie lassen sich Angebotsprozesse im Maschinenbau kontrolliert automatisieren?',
+      intro:
+        'Automatisiert werden klar begrenzte Vorbereitungsaufgaben: Informationen zusammenführen, Anforderungen strukturieren, offene Punkte markieren und freigegebene Regeln anwenden. Die fachliche Entscheidung und Freigabe bleiben beim Menschen.',
       items: [
         {
           label: 'Schritt 1',
@@ -139,33 +149,33 @@ export const HOME_DE = {
     {
       id: 'interner-rfq-copilot',
       eyebrow: 'Interner RFQ-Copilot',
-      heading: 'Was der interne RFQ-Copilot vorbereitet',
+      heading: 'Welche Ergebnisse der interne RFQ-Copilot vorbereitet',
       intro:
         'Der interne Copilot strukturiert Informationen für Vertrieb und Engineering. Fachliche Entscheidungen bleiben beim Menschen.',
       items: [
         {
-          title: 'Strukturierte Anforderungsakte',
-          body: 'Anforderungen, Einheiten, Quellen und Status werden in einem gemeinsamen Schema zusammengeführt.',
+          title: 'Weniger manuelle Sortierarbeit',
+          body: 'Dokumente, Anforderungen, Einheiten und Status werden in einem gemeinsamen Schema zusammengeführt.',
         },
         {
-          title: 'Fehlende Angaben',
-          body: 'Pflichtinformationen, die für eine erste technische Einschätzung fehlen, werden eindeutig markiert.',
+          title: 'Fehlende Pflichtdaten früher erkennen',
+          body: 'Pflichtinformationen, die für eine erste technische Einschätzung fehlen, werden vor der Kalkulation markiert.',
         },
         {
-          title: 'Widersprüche und Risiken',
-          body: 'Abweichende Werte, unbestätigte Annahmen und technische Blockierpunkte bleiben sichtbar.',
+          title: 'Nachweisbare Quellen pro Anforderung',
+          body: 'Werte und Anforderungen bleiben mit Dokument, Fundstelle und Status verbunden; Annahmen werden getrennt ausgewiesen.',
         },
         {
-          title: 'Gezielte Rückfragen',
+          title: 'Gezieltere Rückfragen',
           body: 'Aus offenen Punkten entsteht eine priorisierte Fragenliste für Kunde, Vertrieb oder Engineering.',
         },
         {
-          title: 'Regelbasierte Budgetbasis',
-          body: 'Ausschließlich freigegebene Module, Tabellen, Faktoren und Formeln liefern interne Budgetwerte.',
+          title: 'Saubere Übergabe',
+          body: 'Der menschlich geprüfte Stand kann an Vertrieb, Kalkulation, Engineering oder CRM übergeben werden.',
         },
         {
-          title: 'Saubere Übergabe',
-          body: 'Der geprüfte Stand kann an Vertrieb, Engineering, Kalkulation oder CRM übergeben werden.',
+          title: 'Kontrollierte Budgetbasis',
+          body: 'Ausschließlich freigegebene Module, Tabellen, Faktoren und Formeln dürfen interne Budgetwerte liefern.',
         },
       ],
       links: [
@@ -260,9 +270,9 @@ export const HOME_DE = {
     },
     {
       id: 'profil',
-      heading: 'UX Engineer mit Erfahrung aus dem Maschinenbau',
+      heading: 'Industrieerfahrung für prüfbare Angebotsprozesse',
       paragraphs: [
-        'Heute arbeite ich als UX Engineer für digitale Prozesse und Automatisierung. Ich gestalte Interfaces und Abläufe, die komplexe Informationen verständlich und prüfbar machen.',
+        'Heute arbeite ich als UX Engineer für digitale Prozesse und Automatisierung. Ich gestalte Abläufe, in denen komplexe technische Informationen, offene Entscheidungen und Freigaben verständlich und prüfbar bleiben.',
         'Zuvor arbeitete ich rund acht Jahre im Sondermaschinenbau und in der Industrieautomation. Heute verbinde ich diese Erfahrung mit UX, Software und Digitalisierung.',
       ],
       links: [
@@ -274,21 +284,6 @@ export const HOME_DE = {
       ],
       layout: 'profile',
     },
-    {
-      id: 'weitere-automatisierungen',
-      eyebrow: 'Weitere Automatisierungen',
-      heading: 'Ein anderer technischer oder betrieblicher Prozess kostet unnötig Zeit?',
-      paragraphs: [
-        'Neben technischen Angebotsprozessen unterstütze ich bei klar abgegrenzten Automatisierungen, Dokumentenflüssen und Systemintegrationen.',
-      ],
-      links: [
-        {
-          label: 'Weitere Prozessautomatisierungen ansehen',
-          href: '/leistungen/prozessautomatisierung/',
-        },
-      ],
-      layout: 'text',
-    },
   ],
   faq: {
     id: 'faq',
@@ -296,29 +291,29 @@ export const HOME_DE = {
     heading: 'Fragen zur technischen Anfragequalifizierung',
     items: [
       {
+        question: 'Was bedeutet technische Anfragequalifizierung?',
+        answer:
+          'Technische Anfragequalifizierung überführt Kundenanfragen und Anhänge vor der Kalkulation in eine prüfbare Anforderungsakte. Quellen, fehlende Angaben, Widersprüche, Risiken und offene Entscheidungen bleiben sichtbar.',
+      },
+      {
+        question: 'Welche Teile des Angebotsprozesses lassen sich automatisieren?',
+        answer:
+          'Klar begrenzte Vorbereitungsaufgaben wie Dokumente zusammenführen, Anforderungen strukturieren, Pflichtdaten prüfen, Rückfragen vorbereiten und freigegebene Regeln anwenden. Machbarkeit, Preisfreigabe und Kundenkommunikation bleiben menschliche Entscheidungen.',
+      },
+      {
         question: 'Für wen ist der Ansatz geeignet?',
         answer:
-          'Für kleine und mittlere Maschinenbauer unabhängig vom Maschinentyp, wenn sich Teile des Angebotsprozesses wiederholbar beschreiben lassen.',
+          'Für Maschinenbauer, wenn sich ein Teil des Angebotsprozesses wiederholbar beschreiben und klar abgrenzen lässt und ein verantwortlicher Fachexperte Regeln sowie Ergebnisse prüft.',
       },
       {
-        question: 'Muss bereits ein CPQ vorhanden sein?',
+        question: 'Welche Rolle behält der Mensch?',
         answer:
-          'Nein. Der Pilot kann vor einem CPQ ansetzen und zunächst Anforderungen, Quellen, Lücken und freigegebene Kalkulationsregeln strukturieren.',
+          'Vertrieb oder Engineering prüft Quellen, Annahmen, Risiken und Regelanwendung. Erst nach dieser Prüfung dürfen Ergebnisse für Kalkulation, Engineering, CRM oder Kundenkommunikation verwendet werden.',
       },
       {
-        question: 'Kann die KI Preise festlegen?',
+        question: 'Welche Angaben braucht der erste RFQ-Fit-Check?',
         answer:
-          'Nein. Preise und Budgetwerte dürfen nur aus freigegebenen Tabellen, Modulen, Faktoren oder Formeln kommen. Die KI darf Informationen zuordnen, aber keinen Preis erfinden.',
-      },
-      {
-        question: 'Werden Kunden automatisch kontaktiert?',
-        answer:
-          'Nicht im ersten Pilot. Das System arbeitet intern. Rückfragen und Ergebnisse werden erst nach menschlicher Prüfung verwendet.',
-      },
-      {
-        question: 'Welche Daten werden benötigt?',
-        answer:
-          'Ein klarer Angebotsprozess, Beispiele früherer Anfragen, vorhandene Checklisten oder Kalkulationslogik und ein verantwortlicher Experte für die Freigabe.',
+          'Für die erste Einschätzung reichen Anfragevolumen, beteiligte Rollen und der größte Engpass. Vertrauliche Dokumente sind dafür nicht erforderlich.',
       },
       {
         question: 'Wann sollte man nicht automatisieren?',
@@ -329,13 +324,14 @@ export const HOME_DE = {
   },
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Ist Ihr Angebotsprozess für diesen Ansatz geeignet?',
+    heading: 'RFQ-Fit-Check für Ihren Angebotsprozess anfragen',
     body:
-      'Der Workshop prüft Prozess, Volumen, Daten, Regeln und Grenzen. Sie erhalten eine klare Go- oder No-Go-Empfehlung.',
+      'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Für die erste Einschätzung sind keine vertraulichen Dokumente erforderlich. Sie erhalten eine Einschätzung, ob sich ein klar abgegrenzter RFQ Readiness Workshop sinnvoll vorbereiten lässt.',
     action: {
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-final',
+      label: 'RFQ-Fit-Check anfragen',
+      href: '#contact-form',
+      dataCta: 'contact-final',
+      contactContext: 'rfq',
     },
     note: 'Kein autonomes Angebot. Keine erfundenen Preise. Eine klar begrenzte Prüfung mit menschlicher Freigabe.',
   },
@@ -343,10 +339,6 @@ export const HOME_DE = {
     left: 'Hugo Menz Automation',
     right:
       'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer.',
-    secondaryLink: {
-      label: 'Weitere Prozessautomatisierungen',
-      href: '/leistungen/prozessautomatisierung/',
-    },
   },
-  schemaKinds: ['Person', 'ProfessionalService', 'WebSite', 'BreadcrumbList', 'FAQPage'],
+  schemaKinds: ['Person', 'Organization', 'WebSite', 'FAQPage'],
 } as const satisfies PageDefinition;

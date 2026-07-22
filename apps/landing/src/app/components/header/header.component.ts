@@ -52,21 +52,6 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
           path: '/leistungen/interner-rfq-copilot/',
           currentKeys: ['internal-rfq-copilot'],
         },
-        {
-          label: 'Weitere Prozessautomatisierung',
-          path: '/leistungen/prozessautomatisierung/',
-          currentKeys: ['process-automation'],
-        },
-        {
-          label: 'KI-Sichtbarkeit für Industrie',
-          path: '/ki-sichtbarkeit-industrie/',
-          currentKeys: ['industrial-ai-search-de'],
-        },
-        {
-          label: 'n8n Beratung Stuttgart',
-          path: '/n8n-beratung-stuttgart/',
-          currentKeys: ['n8n-consulting-stuttgart'],
-        },
       ],
     },
     {
@@ -132,11 +117,6 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
         { label: 'Technical enquiry qualification', path: '/en/#workflow' },
         { label: 'Internal RFQ copilot', path: '/en/#internal-rfq-copilot' },
         { label: 'Further process automation', path: '/en/#further-automation' },
-        {
-          label: 'AI Search Readiness',
-          path: '/en/ai-search-readiness-industrial-companies/',
-          currentKeys: ['industrial-ai-search-en'],
-        },
       ],
     },
     {
@@ -186,7 +166,7 @@ export class HeaderComponent {
               : 'English home',
           languageText: 'EN',
           homePath: '/',
-          cta: 'Pilot-Eignung prüfen',
+          cta: 'RFQ-Fit-Check anfragen',
         }
       : {
           subtitle: 'Technical quotation processes · Machinery',

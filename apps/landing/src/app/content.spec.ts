@@ -120,25 +120,30 @@ describe('German home content guardrails', () => {
     expect(home.lang).toBe('de');
     expect(home.locale).toBe('de_DE');
     expect(home.seo.title).toBe(
-      'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
+      'Angebotsprozess im Maschinenbau automatisieren | Hugo Menz',
     );
     expect(home.seo.description).toBe(
-      'Technische Kundenanfragen und Anhänge in eine prüfbare Angebotsgrundlage überführen, mit freigegebenen Regeln und menschlicher Prüfung.',
+      'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
+    );
+    expect(home.hero.kicker).toBe(
+      'Technischer Angebotsprozess · Maschinenbau · Stuttgart',
     );
     expect(home.hero.h1).toBe(
-      'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
+      'Angebotsprozess im Maschinenbau: technische Anfragen schneller qualifizieren',
     );
     expect(home.hero.lead).toBe(
-      'Ich strukturiere für Maschinenbauer unvollständige Kundenanfragen und Anhänge zu einer prüfbaren Angebotsgrundlage für Vertrieb und Engineering.',
+      'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
     );
     expect(home.hero.primaryCta).toEqual({
-      label: 'Pilot-Eignung prüfen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
+      label: 'RFQ-Fit-Check anfragen',
+      href: '#contact-form',
+      dataCta: 'contact-hero',
+      contactContext: 'rfq',
     });
     expect(home.hero.trustLine).toBe(
       'Klarer Angebotsprozess · freigegebene Regeln · menschliche Prüfung',
     );
+    expect(home.schemaKinds).toEqual(['Person', 'Organization', 'WebSite', 'FAQPage']);
   });
 
   it('locks the traceable process flow and the human decision boundary', () => {
@@ -161,9 +166,62 @@ describe('German home content guardrails', () => {
     expect(text).not.toMatch(/Maschinenfamil/);
 
     const profile = home.sections.find((section) => section.id === 'profil');
-    expect(profile?.heading).toBe('UX Engineer mit Erfahrung aus dem Maschinenbau');
+    expect(profile?.heading).toBe('Industrieerfahrung für prüfbare Angebotsprozesse');
     expect(JSON.stringify(profile)).toContain('Heute verbinde ich diese Erfahrung');
     expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
+  });
+});
+
+describe('RFQ intent and conversion guardrails', () => {
+  const home = getPageByKey('home-de');
+  const qualification = getPageByKey('technical-request-qualification');
+  const workshop = getPageByKey('rfq-readiness-workshop');
+  const copilot = getPageByKey('internal-rfq-copilot');
+
+  it('keeps the homepage answer-first and focused on the RFQ offer', () => {
+    const definition = home.sections.find((section) => section.id === 'ausgangslage');
+    const text = indexableText(home);
+
+    expect(definition?.heading).toBe(
+      'Was bedeutet technische Anfragequalifizierung im Maschinenbau?',
+    );
+    expect(definition?.intro).toContain(
+      'vor der Kalkulation in eine prüfbare Anforderungsakte',
+    );
+    expect(text).toContain('Weniger manuelle Sortierarbeit');
+    expect(text).toContain('Nachweisbare Quellen pro Anforderung');
+    expect(text).not.toContain('/leistungen/prozessautomatisierung/');
+  });
+
+  it('separates the qualification method from the copilot product', () => {
+    const method = qualification.sections.find((section) => section.id === 'verarbeitung');
+
+    expect(method?.heading).toBe('So entsteht die prüfbare Anforderungsakte');
+    expect(JSON.stringify(method)).not.toContain('Copilot');
+    expect(copilot.sections.find((section) => section.id === 'definition')?.heading).toBe(
+      'Was ist ein RFQ-Copilot?',
+    );
+  });
+
+  it('publishes a neutral four-category comparison on the copilot page', () => {
+    const comparison = copilot.sections.find((section) => section.id === 'vergleich');
+
+    expect(comparison?.columns?.map((column) => column.heading)).toEqual([
+      'RFQ-Copilot',
+      'CPQ',
+      'CRM',
+      'Document AI',
+    ]);
+    expect(JSON.stringify(comparison)).toContain('menschliche Prüfung');
+    expect(JSON.stringify(comparison)).not.toMatch(/besser als|ersetzt|überlegen/i);
+  });
+
+  it('distinguishes informational links from contact actions', () => {
+    expect(qualification.hero.primaryCta?.label).toBe('RFQ Readiness Workshop ansehen');
+    expect(copilot.hero.primaryCta?.label).toBe('RFQ Readiness Workshop ansehen');
+    expect(workshop.hero.primaryCta?.label).toBe('Workshop anfragen');
+    expect(home.finalCta.action.label).toBe('RFQ-Fit-Check anfragen');
+    expect(home.finalCta.body).toContain('keine vertraulichen Dokumente erforderlich');
   });
 });
 
@@ -172,9 +230,13 @@ describe('current professional positioning', () => {
   const aboutText = indexableText(about);
 
   it('presents UX Engineering as the current role and mechanical engineering as prior experience', () => {
-    expect(about.hero.h1).toBe('UX Engineer für digitale Prozesse und Automatisierung');
+    expect(about.hero.h1).toBe(
+      'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
+    );
+    expect(aboutText).toContain('Heute gestalte ich digitale Produkte und Prozesse');
     expect(aboutText).toContain('Zuvor: rund acht Jahre im Sondermaschinenbau');
     expect(aboutText).toContain('Von der mechanischen Konstruktion in die Softwareentwicklung');
+    expect(aboutText).toContain('/leistungen/interner-rfq-copilot/');
     expect(aboutText).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
   });
 });
