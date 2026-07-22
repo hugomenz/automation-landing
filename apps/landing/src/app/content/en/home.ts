@@ -340,5 +340,5 @@ export const HOME_EN = {
       lang: 'de',
     },
   },
-  schemaKinds: ['Person', 'ProfessionalService', 'WebSite', 'BreadcrumbList', 'FAQPage'],
+  schemaKinds: ['Person', 'Organization', 'WebSite', 'FAQPage'],
 } as const satisfies PageDefinition;

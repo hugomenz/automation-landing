@@ -94,11 +94,12 @@ export class SeoService {
   }
 
   private buildGraph(page: PageDefinition, canonical: string): JsonLd[] {
-    const graph: JsonLd[] = [this.breadcrumbSchema(page, canonical)];
     const kinds = new Set<SchemaKind>(page.schemaKinds);
+    const graph: JsonLd[] = [];
 
+    if (kinds.has('BreadcrumbList')) graph.push(this.breadcrumbSchema(page, canonical));
     if (kinds.has('Person')) graph.push(this.personSchema());
-    if (kinds.has('ProfessionalService')) graph.push(this.professionalServiceSchema());
+    if (kinds.has('Organization')) graph.push(this.organizationSchema());
     if (kinds.has('WebSite')) graph.push(this.websiteSchema(page));
     if (kinds.has('Service')) graph.push(this.serviceSchema(page, canonical));
     if (kinds.has('ContactPage')) graph.push(this.contactPageSchema(page, canonical));
@@ -129,7 +130,7 @@ export class SeoService {
       '@type': 'Person',
       '@id': `${siteConfig.baseUrl}#person`,
       name: siteConfig.name,
-      url: siteConfig.baseUrl,
+      url: resolveAbsoluteUrl('/ueber-hugo-menz/'),
       image: resolveAbsoluteUrl(siteConfig.founder.portraitSrc),
       jobTitle: siteConfig.founder.jobTitle,
       sameAs: [siteConfig.social.linkedin],
@@ -137,23 +138,16 @@ export class SeoService {
     };
   }
 
-  private professionalServiceSchema(): JsonLd {
+  private organizationSchema(): JsonLd {
     return {
-      '@type': 'ProfessionalService',
-      '@id': `${siteConfig.baseUrl}#professional-service`,
+      '@type': 'Organization',
+      '@id': `${siteConfig.baseUrl}#organization`,
       name: siteConfig.brandName,
       url: siteConfig.baseUrl,
+      description:
+        'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer.',
       image: resolveAbsoluteUrl(siteConfig.socialImage.src),
-      areaServed: siteConfig.areaServed,
-      provider: { '@id': `${siteConfig.baseUrl}#person` },
-      serviceType: [
-        'Automatisierung technischer Angebotsprozesse',
-        'Technische Anfragequalifizierung',
-        'RFQ Readiness Workshop',
-        'Interner RFQ-Copilot',
-        'Digitale Prozessautomatisierung',
-        'Systemintegration',
-      ],
+      founder: { '@id': `${siteConfig.baseUrl}#person` },
     };
   }
 
@@ -176,7 +170,7 @@ export class SeoService {
       url: canonical,
       inLanguage: page.lang,
       areaServed: siteConfig.areaServed,
-      provider: { '@id': `${siteConfig.baseUrl}#professional-service` },
+      provider: { '@id': `${siteConfig.baseUrl}#organization` },
     };
   }
 

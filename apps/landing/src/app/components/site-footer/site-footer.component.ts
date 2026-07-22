@@ -27,18 +27,10 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
       ],
     },
     {
-      label: 'Weitere Themen',
+      label: 'Unternehmen und Kontakt',
       links: [
-        {
-          label: 'Weitere Prozessautomatisierungen',
-          href: '/leistungen/prozessautomatisierung/',
-        },
-        { label: 'n8n Beratung Stuttgart', href: '/n8n-beratung-stuttgart/' },
-        {
-          label: 'KI-Sichtbarkeit für Industrieunternehmen',
-          href: '/ki-sichtbarkeit-industrie/',
-        },
         { label: 'Über Hugo Menz', href: '/ueber-hugo-menz/' },
+        { label: 'Zusammenarbeit in Stuttgart', href: '/standorte/stuttgart/' },
         { label: 'Kontakt', href: '/kontakt/' },
       ],
     },
@@ -49,10 +41,6 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
       links: [
         { label: 'Technical enquiry qualification', href: '/en/#workflow' },
         { label: 'Internal RFQ copilot', href: '/en/#internal-rfq-copilot' },
-        {
-          label: 'AI Search Readiness',
-          href: '/en/ai-search-readiness-industrial-companies/',
-        },
       ],
     },
     {
@@ -62,7 +50,6 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
         { label: 'Controls and human review', href: '/en/#control' },
         { label: 'Approach', href: '/en/#process' },
         { label: 'About Hugo Menz', href: '/en/#about' },
-        { label: 'Further process automation', href: '/en/#further-automation' },
         { label: 'Contact', href: '/en/#contact' },
       ],
     },

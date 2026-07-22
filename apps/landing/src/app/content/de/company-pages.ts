@@ -41,7 +41,7 @@ export const STUTTGART = {
     lead:
       'Von Stuttgart aus unterstütze ich kleine und mittlere Maschinenbauer dabei, technische Anfragen in einem klar abgegrenzten Angebotsprozess zu qualifizieren, unabhängig vom Maschinentyp.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -99,12 +99,12 @@ export const STUTTGART = {
     body:
       'Der RFQ Readiness Workshop klärt Angebotsprozess, Daten, Regeln und technische Grenzen.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-final',
     },
   },
-  schemaKinds: ['ProfessionalService', 'BreadcrumbList'],
+  schemaKinds: ['Service', 'BreadcrumbList'],
 } as const satisfies PageDefinition;
 
 export const ABOUT_HUGO_MENZ = {
@@ -113,15 +113,15 @@ export const ABOUT_HUGO_MENZ = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Über Hugo Menz | UX Engineer für digitale Prozesse',
+    title: 'Über Hugo Menz | Maschinenbau-Erfahrung für RFQ-Prozesse',
     description:
-      'UX Engineer für digitale Prozesse und Automatisierung, nach rund acht Jahren im Sondermaschinenbau und in der Industrieautomation.',
+      'Hugo Menz verbindet rund acht Jahre im Sondermaschinenbau und in der Industrieautomation mit UX Engineering für prüfbare technische Angebotsprozesse.',
     canonicalPath: '/ueber-hugo-menz/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Über Hugo Menz: UX Engineer und Industrieerfahrung',
+      title: 'Über Hugo Menz: Maschinenbau-Erfahrung und UX Engineering',
       description:
-        'UX Engineering für digitale Prozesse, verbunden mit Erfahrung aus Sondermaschinenbau und Industrieautomation.',
+        'Industrieerfahrung und UX Engineering für prüfbare technische Anfrage- und Angebotsprozesse.',
       type: 'website',
       locale: 'de_DE',
       imagePath: '/og-rfq-preview.png',
@@ -130,9 +130,9 @@ export const ABOUT_HUGO_MENZ = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Über Hugo Menz: UX Engineer und Industrieerfahrung',
+      title: 'Über Hugo Menz: Maschinenbau-Erfahrung und UX Engineering',
       description:
-        'UX Engineering für digitale Prozesse, verbunden mit Erfahrung aus Sondermaschinenbau und Industrieautomation.',
+        'Industrieerfahrung und UX Engineering für prüfbare technische Anfrage- und Angebotsprozesse.',
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
     },
@@ -142,15 +142,15 @@ export const ABOUT_HUGO_MENZ = {
     { label: 'Über Hugo Menz', path: '/ueber-hugo-menz/' },
   ],
   hero: {
-    kicker: 'UX Engineering · Digitale Prozesse · Automatisierung',
-    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
+    kicker: 'Maschinenbau · UX Engineering · technische Angebotsprozesse',
+    h1: 'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
     lead:
-      'Ich verbinde das Verständnis technischer und betrieblicher Prozesse mit UX, Interface-Entwicklung und Automatisierung.',
+      'Ich verbinde Erfahrung aus Sondermaschinenbau und Industrieautomation mit UX Engineering, damit technische Anfragen, Regeln, offene Punkte und Freigaben verständlich und prüfbar bleiben.',
     primaryCta: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-hero',
-      contactContext: 'process-automation',
+      contactContext: 'rfq',
     },
     secondaryCta: {
       label: 'Wie sich beides verbindet',
@@ -168,9 +168,9 @@ export const ABOUT_HUGO_MENZ = {
     {
       id: 'heute',
       eyebrow: 'Heute',
-      heading: 'UX Engineering für verständliche digitale Abläufe',
+      heading: 'UX Engineering für prüfbare digitale Abläufe',
       paragraphs: [
-        'Heute gestalte ich digitale Produkte und Prozesse so, dass Menschen komplexe Aufgaben verstehen, prüfen und sicher abschließen können.',
+        'Heute gestalte ich digitale Produkte und Prozesse so, dass Menschen komplexe technische Informationen verstehen, Quellen und Annahmen prüfen und Freigaben bewusst erteilen können.',
       ],
       layout: 'text',
     },
@@ -224,28 +224,42 @@ export const ABOUT_HUGO_MENZ = {
           ],
         },
       ],
+      links: [
+        {
+          label: 'Technische Anfragequalifizierung im Maschinenbau',
+          href: '/loesungen/technische-anfragequalifizierung/',
+        },
+        {
+          label: 'Kontrollen im internen RFQ-Copiloten',
+          href: '/leistungen/interner-rfq-copilot/',
+        },
+        {
+          label: 'RFQ Readiness Workshop',
+          href: '/leistungen/rfq-readiness-workshop/',
+        },
+      ],
       layout: 'comparison',
     },
     {
       id: 'probleme',
       eyebrow: 'Schwerpunkt',
-      heading: 'Welche Abläufe ich verständlicher und effizienter mache',
+      heading: 'Welche RFQ-Aufgaben ich verständlicher und prüfbarer mache',
       items: [
         {
-          title: 'Unstrukturierte Informationen',
-          body: 'E-Mails, Dokumente und Eingaben in einen verständlichen Ablauf überführen.',
+          title: 'Technische Anfragen strukturieren',
+          body: 'E-Mails, Lastenhefte, PDFs und Fotos in eine nachvollziehbare Anforderungsakte überführen.',
         },
         {
-          title: 'Manuelle Datenerfassung',
-          body: 'Wiederkehrende Eingaben reduzieren und Daten für die nächste Entscheidung vorbereiten.',
+          title: 'Lücken und Widersprüche sichtbar machen',
+          body: 'Fehlende Pflichtdaten, abweichende Werte, Annahmen und Risiken vor der Kalkulation kennzeichnen.',
         },
         {
-          title: 'Freigaben und Übergaben',
-          body: 'Status, Verantwortlichkeiten und offene Punkte für alle Beteiligten sichtbar machen.',
+          title: 'Freigegebene Regeln kontrolliert anwenden',
+          body: 'Nur dokumentierte Module, Tabellen, Faktoren und Formeln für interne Budgetschritte zulassen.',
         },
         {
-          title: 'Schwer bedienbare interne Werkzeuge',
-          body: 'Komplexe Fachlogik in eine klarere Benutzerführung übersetzen.',
+          title: 'Menschliche Freigaben unterstützen',
+          body: 'Quellen, Status, offene Entscheidungen und Blockiergründe für Vertrieb und Engineering verständlich darstellen.',
         },
       ],
       layout: 'cards',
@@ -253,14 +267,14 @@ export const ABOUT_HUGO_MENZ = {
   ],
   finalCta: {
     eyebrow: 'Nächster Schritt',
-    heading: 'Einen komplexen Prozess verständlicher machen',
+    heading: 'RFQ-Fit-Check für einen Angebotsprozess anfragen',
     body:
-      'Im Erstgespräch kläre ich den heutigen Ablauf, den größten Engpass und einen sinnvollen ersten Schritt.',
+      'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Für die erste Einschätzung sind keine vertraulichen Dokumente erforderlich.',
     action: {
-      label: 'Unverbindliches Erstgespräch',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
-      contactContext: 'process-automation',
+      contactContext: 'rfq',
     },
     note: 'Sie sprechen direkt mit mir.',
   },
@@ -273,13 +287,13 @@ export const CONTACT = {
   lang: 'de',
   locale: 'de_DE',
   seo: {
-    title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
+    title: 'RFQ-Fit-Check für Maschinenbauer | Kontakt zu Hugo Menz',
     description:
       'Besprechen Sie Ihren technischen Angebotsprozess und die Voraussetzungen für einen begrenzten internen RFQ-Pilot.',
     canonicalPath: '/kontakt/',
     robots: 'index,follow',
     openGraph: {
-      title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
+      title: 'RFQ-Fit-Check für einen technischen Angebotsprozess',
       description:
         'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
       type: 'website',
@@ -290,7 +304,7 @@ export const CONTACT = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Pilot-Eignung für einen technischen Angebotsprozess prüfen',
+      title: 'RFQ-Fit-Check für einen technischen Angebotsprozess',
       description:
         'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
       imagePath: '/og-rfq-preview.png',
@@ -303,11 +317,11 @@ export const CONTACT = {
   ],
   hero: {
     kicker: 'Kontakt · RFQ-Pilot · Angebotsprozess',
-    h1: 'Eignung Ihres technischen Angebotsprozesses für einen RFQ-Pilot prüfen',
+    h1: 'RFQ-Fit-Check für Ihren technischen Angebotsprozess',
     lead:
       'Beschreiben Sie kurz den heutigen Angebotsprozess und, falls relevant, den Produktbereich, Maschinentyp oder die Lösungsfamilie. Nicht vertrauliche Rahmendaten reichen aus.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'readiness-hero',
       contactContext: 'rfq',
@@ -380,7 +394,7 @@ export const CONTACT = {
     body:
       'Nennen Sie ungefähres Anfragevolumen, beteiligte Rollen, heutigen Angebotsprozess und den größten Engpass.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'readiness-final',
       contactContext: 'rfq',

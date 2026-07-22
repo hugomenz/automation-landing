@@ -6,13 +6,29 @@ const SITE_ORIGIN = 'https://www.hugomenz.de';
 const DIST_ROOT = fileURLToPath(new URL('../dist/landing/browser/', import.meta.url));
 const MINIMUM_MAIN_CHARACTERS = 500;
 const MINIMUM_MAIN_WORDS = 70;
+const HOME_ALTERNATES = [
+  { hreflang: 'de-DE', href: SITE_ORIGIN + '/' },
+  { hreflang: 'en', href: SITE_ORIGIN + '/en/' },
+  { hreflang: 'x-default', href: SITE_ORIGIN + '/' },
+];
+const AI_SEARCH_ALTERNATES = [
+  { hreflang: 'de-DE', href: SITE_ORIGIN + '/ki-sichtbarkeit-industrie/' },
+  {
+    hreflang: 'en',
+    href: SITE_ORIGIN + '/en/ai-search-readiness-industrial-companies/',
+  },
+  { hreflang: 'x-default', href: SITE_ORIGIN + '/ki-sichtbarkeit-industrie/' },
+];
 
 const pages = [
   {
     path: '/',
     lang: 'de',
-    title: 'Angebotsprozesse im Maschinenbau automatisieren | Hugo Menz',
-    h1: 'Technische Anfragen schneller zur prüfbaren Angebotsgrundlage führen',
+    title: 'Angebotsprozess im Maschinenbau automatisieren | Hugo Menz',
+    description:
+      'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
+    h1: 'Angebotsprozess im Maschinenbau: technische Anfragen schneller qualifizieren',
+    alternates: HOME_ALTERNATES,
   },
   {
     path: '/loesungen/technische-anfragequalifizierung/',
@@ -66,14 +82,14 @@ const pages = [
   {
     path: '/ueber-hugo-menz/',
     lang: 'de',
-    title: 'Über Hugo Menz | UX Engineer für digitale Prozesse',
-    h1: 'UX Engineer für digitale Prozesse und Automatisierung',
+    title: 'Über Hugo Menz | Maschinenbau-Erfahrung für RFQ-Prozesse',
+    h1: 'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
   },
   {
     path: '/kontakt/',
     lang: 'de',
-    title: 'Pilot-Eignung prüfen | Kontakt zu Hugo Menz',
-    h1: 'Eignung Ihres technischen Angebotsprozesses für einen RFQ-Pilot prüfen',
+    title: 'RFQ-Fit-Check für Maschinenbauer | Kontakt zu Hugo Menz',
+    h1: 'RFQ-Fit-Check für Ihren technischen Angebotsprozess',
   },
   {
     path: '/en/',
@@ -81,6 +97,7 @@ const pages = [
     title: 'Automate quotation processes for machinery manufacturers | Hugo Menz',
     h1: 'Turn technical enquiries into a reviewable quotation basis',
     socialImage: '/og-rfq-preview-en.png',
+    alternates: HOME_ALTERNATES,
   },
   {
     path: '/n8n-beratung-stuttgart/',
@@ -95,6 +112,7 @@ const pages = [
     title: 'KI-Sichtbarkeit für Industrieunternehmen | GEO & AI Search | Hugo Menz',
     h1: 'KI-Sichtbarkeit für Industrieunternehmen',
     socialImage: '/og-industrial-ai-search-de.png',
+    alternates: AI_SEARCH_ALTERNATES,
   },
   {
     path: '/en/ai-search-readiness-industrial-companies/',
@@ -102,6 +120,7 @@ const pages = [
     title: 'AI Search Readiness for Industrial Companies | Hugo Menz',
     h1: 'AI Search Readiness for Industrial Companies',
     socialImage: '/og-industrial-ai-search-en.png',
+    alternates: AI_SEARCH_ALTERNATES,
   },
 ].map((page) => ({
   ...page,
@@ -194,7 +213,15 @@ function validatePage(page) {
     const rel = attributes(tag).get('rel') ?? '';
     return rel.toLowerCase().split(/\s+/).includes('canonical');
   });
-  const schemaScripts = [...html.matchAll(/<script\b[^>]*data-page-schema[^>]*>([\s\S]*?)<\/script>/gi)];
+  const alternateLinks = (html.match(/<link\b[^>]*>/gi) ?? []).filter((tag) => {
+    const tagAttributes = attributes(tag);
+    const rel = tagAttributes.get('rel') ?? '';
+    return rel.toLowerCase().split(/\s+/).includes('alternate') && tagAttributes.has('hreflang');
+  });
+  const schemaScripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].filter(
+    (match) => attributes('<script ' + match[1] + '>').get('type') === 'application/ld+json',
+  );
+  const imageTags = html.match(/<img\b[^>]*>/gi) ?? [];
 
   if (htmlTags.length !== 1) {
     errors.push(`expected one <html> element, found ${htmlTags.length}`);
@@ -225,6 +252,30 @@ function validatePage(page) {
   if (descriptions.length !== 1 || !singleAttributeValue(descriptions, 'content')?.trim()) {
     errors.push(`expected one non-empty meta description, found ${descriptions.length}`);
   }
+  if (
+    page.description &&
+    singleAttributeValue(descriptions, 'content') !== page.description
+  ) {
+    errors.push('meta description does not match the expected homepage copy');
+  }
+
+  const renderedAlternates = alternateLinks.map((tag) => {
+    const tagAttributes = attributes(tag);
+    return {
+      hreflang: tagAttributes.get('hreflang'),
+      href: tagAttributes.get('href'),
+    };
+  });
+  const expectedAlternates = page.alternates ?? [];
+  if (JSON.stringify(renderedAlternates) !== JSON.stringify(expectedAlternates)) {
+    errors.push(
+      'hreflang mismatch: expected ' +
+        JSON.stringify(expectedAlternates) +
+        ', found ' +
+        JSON.stringify(renderedAlternates),
+    );
+  }
+
   if (robots.length !== 1 || singleAttributeValue(robots, 'content') !== 'index,follow') {
     errors.push('expected one index,follow robots meta tag');
   }
@@ -258,6 +309,16 @@ function validatePage(page) {
     errors.push(`H1 mismatch: expected ${JSON.stringify(page.h1)}, found ${JSON.stringify(h1s[0])}`);
   }
 
+  for (const imageTag of imageTags) {
+    const imageAttributes = attributes(imageTag);
+    if (!imageAttributes.has('alt')) {
+      errors.push('rendered image is missing an alt attribute');
+    }
+    if (!imageAttributes.get('width') || !imageAttributes.get('height')) {
+      errors.push('rendered image is missing intrinsic width or height');
+    }
+  }
+
   if (appRoots.length !== 1) {
     errors.push(`expected one <app-root>, found ${appRoots.length}`);
   } else if (normalizeText(appRoots[0]) === '') {
@@ -269,23 +330,52 @@ function validatePage(page) {
   }
 
   if (schemaScripts.length !== 1) {
-    errors.push(`expected one page JSON-LD graph, found ${schemaScripts.length}`);
+    errors.push('expected one page JSON-LD graph, found ' + schemaScripts.length);
   } else {
     try {
-      const schema = JSON.parse(decodeHtml(schemaScripts[0][1]));
-      const types = new Set((schema['@graph'] ?? []).map((entry) => entry['@type']));
-      if (!types.has('BreadcrumbList')) errors.push('JSON-LD is missing BreadcrumbList');
+      const schema = JSON.parse(decodeHtml(schemaScripts[0][2]));
+      if (schema['@context'] !== 'https://schema.org') {
+        errors.push('JSON-LD has an unexpected @context');
+      }
+      if (!Array.isArray(schema['@graph'])) {
+        errors.push('JSON-LD must contain an @graph array');
+      }
+
+      const graph = Array.isArray(schema['@graph']) ? schema['@graph'] : [];
+      const types = new Set(graph.map((entry) => entry?.['@type']).filter(Boolean));
+      const expectsBreadcrumb = page.path !== '/' && page.path !== '/en/';
+      if (expectsBreadcrumb && !types.has('BreadcrumbList')) {
+        errors.push('JSON-LD is missing BreadcrumbList');
+      }
+      if (!expectsBreadcrumb && types.has('BreadcrumbList')) {
+        errors.push('homepage JSON-LD must not publish a hidden BreadcrumbList');
+      }
 
       const expectedPrimaryType =
         page.path === '/ueber-hugo-menz/'
           ? 'Person'
           : page.path === '/kontakt/'
             ? 'ContactPage'
-            : page.path === '/' || page.path === '/en/' || page.path === '/standorte/stuttgart/'
-              ? 'ProfessionalService'
+            : page.path === '/' || page.path === '/en/'
+              ? 'Organization'
               : 'Service';
       if (!types.has(expectedPrimaryType)) {
-        errors.push(`JSON-LD is missing ${expectedPrimaryType}`);
+        errors.push('JSON-LD is missing ' + expectedPrimaryType);
+      }
+
+      const forbiddenTypes = [
+        'Article',
+        'BlogPosting',
+        'Product',
+        'Review',
+        'AggregateRating',
+        'LocalBusiness',
+        'ProfessionalService',
+      ];
+      for (const forbiddenType of forbiddenTypes) {
+        if (types.has(forbiddenType)) {
+          errors.push('JSON-LD contains unsupported type ' + forbiddenType);
+        }
       }
     } catch {
       errors.push('page JSON-LD is not valid JSON');
@@ -302,6 +392,16 @@ function validatePage(page) {
         .replace(/<template\b[^>]*>[\s\S]*?<\/template>/gi, ' '),
     );
     const wordCount = mainText === '' ? 0 : mainText.split(/\s+/).length;
+
+    if (
+      page.path === '/' &&
+      (/<time\b/i.test(mainElements[0]) ||
+        /\b(?:Veröffentlicht|Publiziert|Zuletzt aktualisiert|Published|Updated)\b/i.test(
+          mainText,
+        ))
+    ) {
+      errors.push('homepage must not expose an editorial publication date');
+    }
 
     if (mainText.length < MINIMUM_MAIN_CHARACTERS) {
       errors.push(

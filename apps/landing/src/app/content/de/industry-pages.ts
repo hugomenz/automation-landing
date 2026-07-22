@@ -36,7 +36,7 @@ export const END_OF_LINE = {
     { label: 'End-of-Line', path: '/branchen/end-of-line/' },
   ],
   hero: {
-    kicker: 'Praxisbeispiel · End-of-Line',
+    kicker: 'Beispielhafter Anwendungsrahmen · End-of-Line',
     h1: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren',
     lead:
       'End-of-Line-Projekte kombinieren häufig bekannte Module mit kundenspezifischen Randbedingungen. Genau diese Mischung kann sich für einen begrenzten internen RFQ-Pilot eignen, wenn Eingangsgrößen, Optionen und Ausschlüsse klar beschrieben werden.',
@@ -137,14 +137,14 @@ export const END_OF_LINE = {
     heading: 'Fragen zur Angebotsqualifizierung für End-of-Line-Anlagen',
     items: [
       {
-        question: 'Kann der Copilot Machbarkeit bestätigen?',
+        question: 'Welche Schnittstellen müssen bei End-of-Line-Anfragen früh geklärt werden?',
         answer:
-          'Nein. Er kann bekannte Regeln prüfen und Abweichungen markieren. Technische Machbarkeit bleibt eine Entscheidung der zuständigen Experten.',
+          'Früh geklärt werden müssen unter anderem Übergabehöhen, Produktfluss, vorgelagerte und nachgelagerte Maschinen, Signale, Medien sowie verfügbare Layoutflächen. Nicht bestätigte Angaben bleiben als offene Punkte markiert.',
       },
       {
-        question: 'Was passiert bei Sonderfällen?',
+        question: 'Wann wird eine End-of-Line-Anfrage an Engineering eskaliert?',
         answer:
-          'Der Fall wird mit dem konkreten Blockiergrund an Engineering eskaliert. Das System soll Unsicherheit sichtbar machen, nicht durch eine erzwungene Antwort verdecken.',
+          'Wenn Layout, Produkt, Leistung, Schnittstellen oder Sicherheitsanforderungen außerhalb der freigegebenen Regeln liegen, wird der konkrete Blockiergrund an Engineering übergeben. Der Copilot bestätigt keine Machbarkeit.',
       },
     ],
   },
@@ -153,7 +153,7 @@ export const END_OF_LINE = {
     heading: 'Eine End-of-Line-Familie klar abgrenzen',
     body: 'Im Workshop werden Pflichtdaten, bekannte Module, technische Grenzen und Blockierregeln für eine konkrete End-of-Line-Familie geprüft.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',
@@ -199,7 +199,7 @@ export const PACKAGING_MACHINERY = {
     { label: 'Verpackungsmaschinen', path: '/branchen/verpackungsmaschinen/' },
   ],
   hero: {
-    kicker: 'Praxisbeispiel · Verpackungsmaschinen',
+    kicker: 'Beispielhafter Anwendungsrahmen · Verpackungsmaschinen',
     h1: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
     lead:
       'Verpackungsanfragen wirken oft standardisiert, enthalten aber entscheidende Abhängigkeiten von Produkt, Packmittel, Leistung und Formatwechsel. Ein guter Pilot konzentriert sich deshalb auf eine klar definierte Plattform, nicht auf jede Verpackungsanwendung.',
@@ -290,14 +290,14 @@ export const PACKAGING_MACHINERY = {
     heading: 'Fragen zur Anfragequalifizierung für Verpackungsmaschinen',
     items: [
       {
-        question: 'Kann der Copilot Machbarkeit bestätigen?',
+        question: 'Welche Pflichtdaten braucht eine Anfrage für Verpackungsmaschinen?',
         answer:
-          'Nein. Er kann bekannte Regeln prüfen und Abweichungen markieren. Technische Machbarkeit bleibt eine Entscheidung der zuständigen Experten.',
+          'Benötigt werden mindestens Produkt- und Packmitteldaten, Formate, gewünschte Leistung, Qualitätsanforderungen, Schnittstellen sowie relevante Optionen und Ausschlüsse. Fehlende Werte werden vor der Kalkulation als Rückfrage ausgewiesen.',
       },
       {
-        question: 'Können mehrere Produktfamilien gleichzeitig starten?',
+        question: 'Wie werden Formatwechsel und Optionen qualifiziert?',
         answer:
-          'Für den ersten Pilot nicht. Erst wenn eine Familie stabil funktioniert, sollte der Umfang erweitert werden.',
+          'Formatwechsel, Varianten und Optionen werden nur gegen den freigegebenen Rahmen der ausgewählten Maschinenplattform geprüft. Nicht dokumentierte Kombinationen werden nicht angenommen, sondern zur fachlichen Klärung markiert.',
       },
     ],
   },
@@ -306,7 +306,7 @@ export const PACKAGING_MACHINERY = {
     heading: 'Eine Verpackungsmaschinen-Plattform als Pilot prüfen',
     body: 'Der Einstieg konzentriert sich auf eine klar definierte Plattform mit wiederkehrenden Formaten, Optionen und Leistungsgrenzen.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',
@@ -352,7 +352,7 @@ export const PALLETISING_SYSTEMS = {
     { label: 'Palettieranlagen', path: '/branchen/palettieranlagen/' },
   ],
   hero: {
-    kicker: 'Praxisbeispiel · Palettieranlagen',
+    kicker: 'Beispielhafter Anwendungsrahmen · Palettieranlagen',
     h1: 'Angebotsqualifizierung für robotergestützte Palettieranlagen',
     lead:
       'Ein Pilot passt, wenn Produkt, Palettensystem, Leistung, Layout und Optionen innerhalb eines bekannten Rahmens liegen. Fälle mit neuer Simulation oder Konstruktion werden gestoppt.',
@@ -468,14 +468,14 @@ export const PALLETISING_SYSTEMS = {
     heading: 'Fragen zur Angebotsqualifizierung für Palettieranlagen',
     items: [
       {
-        question: 'Was passiert bei Sonderfällen?',
+        question: 'Welche Angaben braucht eine Palettieranfrage für die erste Qualifikation?',
         answer:
-          'Der Fall wird mit dem konkreten Blockiergrund an Engineering eskaliert. Das System soll Unsicherheit sichtbar machen, nicht durch eine erzwungene Antwort verdecken.',
+          'Wesentlich sind Produkt und Gebinde, Leistung, Palettentyp, gewünschtes Palettenbild, Zu- und Abführung, Layout, Sicherheitsrahmen und Optionen. Fehlende oder widersprüchliche Angaben bleiben sichtbar.',
       },
       {
-        question: 'Können mehrere Produktfamilien gleichzeitig starten?',
+        question: 'Wann muss eine Palettieranfrage an Engineering übergeben werden?',
         answer:
-          'Für den ersten Pilot nicht. Erst wenn eine Familie stabil funktioniert, sollte der Umfang erweitert werden.',
+          'Engineering übernimmt, wenn Produktstabilität, Greifbarkeit, Takt, Palettenbild, Layout oder Sicherheitsanforderungen nicht durch freigegebene Regeln abgedeckt sind. Der Copilot schätzt diese Sonderfälle nicht.',
       },
     ],
   },
@@ -484,7 +484,7 @@ export const PALLETISING_SYSTEMS = {
     heading: 'Den technischen Rahmen einer Palettierfamilie prüfen',
     body: 'Der Workshop grenzt Produkte, Palettensystem, Leistung, Layout, Optionen und Blockierfälle für einen möglichen internen Pilot ab.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',

@@ -44,7 +44,7 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
     lead:
       'E-Mails, Lastenhefte und Anhänge werden in einer Anforderungsakte gebündelt. Lücken, Widersprüche und Risiken bleiben bis zur Freigabe sichtbar.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
@@ -91,15 +91,15 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
     },
     {
       id: 'verarbeitung',
-      heading: 'So verarbeitet der Copilot Eingaben',
+      heading: 'So entsteht die prüfbare Anforderungsakte',
       items: [
-        { title: 'Anfrage und Anhänge aufnehmen.' },
-        { title: 'Inhalte in das freigegebene Schema des Produkt- oder Lösungsbereichs einordnen.' },
-        { title: 'Quellen zuordnen und Einheiten normalisieren.' },
-        { title: 'Lücken und Widersprüche markieren.' },
-        { title: 'Rückfragen priorisieren.' },
-        { title: 'Regelabdeckung prüfen.' },
-        { title: 'Ergebnis zur menschlichen Freigabe vorlegen.' },
+        { title: 'Anfrage, Anhänge und Dokumentversionen erfassen.' },
+        { title: 'Inhalte dem freigegebenen Anforderungsschema des Produkt- oder Lösungsbereichs zuordnen.' },
+        { title: 'Quelle, Fundstelle und Status pro Anforderung festhalten.' },
+        { title: 'Einheiten normalisieren und abweichende Angaben gegenüberstellen.' },
+        { title: 'Lücken, Widersprüche, Risiken und Rückfragen priorisieren.' },
+        { title: 'Regelabdeckung sowie nicht abgedeckte Sonderfälle ausweisen.' },
+        { title: 'Die Anforderungsakte zur fachlichen Prüfung vorlegen.' },
       ],
       ordered: true,
       layout: 'steps',
@@ -168,9 +168,9 @@ export const TECHNICAL_REQUEST_QUALIFICATION = {
   finalCta: {
     eyebrow: 'Nächster Schritt',
     heading: 'RFQ Readiness vor der Umsetzung prüfen',
-    body: 'Der RFQ Readiness Workshop prüft, ob Prozess, Daten und Regeln für eine begrenzte Umsetzung ausreichen. Das Ergebnis kann ausdrücklich ein No-Go sein.',
+    body: 'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Für die erste Einschätzung sind keine vertraulichen Dokumente erforderlich. Danach lässt sich klären, ob ein begrenzter RFQ Readiness Workshop sinnvoll ist.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',
@@ -220,11 +220,13 @@ export const RFQ_READINESS_WORKSHOP = {
     lead:
       'Der Workshop prüft Wiederholbarkeit, Daten, Regeln und Nutzen eines klar abgegrenzten Angebotsprozesses. Ergebnis ist eine belastbare Go- oder No-Go-Entscheidung.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'Workshop anfragen',
       href: '#contact-form',
       dataCta: 'contact-hero',
       contactContext: 'rfq',
     },
+    trustLine:
+      'Erster Kontakt: Anfragevolumen · beteiligte Rollen · größter Engpass · keine vertraulichen Dokumente erforderlich',
   },
   sections: [
     {
@@ -285,6 +287,8 @@ export const RFQ_READINESS_WORKSHOP = {
     {
       id: 'unterlagen',
       heading: 'Welche Unterlagen hilfreich sind',
+      intro:
+        'Für die erste Kontaktaufnahme werden keine vertraulichen Dokumente benötigt. Nach abgestimmtem Umfang können für den Workshop folgende Unterlagen hilfreich sein:',
       points: [
         'fünf bis zehn aktuelle RFQ-Beispiele;',
         'vorhandene Checklisten oder Fragebögen;',
@@ -339,9 +343,9 @@ export const RFQ_READINESS_WORKSHOP = {
   finalCta: {
     eyebrow: 'Nächster Schritt',
     heading: 'Angebotsprozess besprechen',
-    body: 'Bezahlter Workshop mit fest abgegrenztem Umfang.',
+    body: 'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Im ersten Kontakt klären wir ohne vertrauliche Dokumente, ob sich ein Workshop sinnvoll abgrenzen lässt.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'Workshop anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',
@@ -392,12 +396,26 @@ export const INTERNAL_RFQ_COPILOT = {
     lead:
       'Der Copilot verarbeitet eingehende Anfragen intern und bereitet einen prüfbaren Entwurf für Vertrieb und Engineering vor. Kunden sehen keine ungeprüften Ergebnisse, und kein Preis wird ohne freigegebene Quelle erzeugt.',
     primaryCta: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ Readiness Workshop ansehen',
       href: '/leistungen/rfq-readiness-workshop/',
       dataCta: 'readiness-hero',
     },
   },
   sections: [
+    {
+      id: 'definition',
+      eyebrow: 'Kurz erklärt',
+      heading: 'Was ist ein RFQ-Copilot?',
+      intro:
+        'Ein interner RFQ-Copilot strukturiert technische Kundenanfragen, verbindet Anforderungen mit ihren Quellen und markiert Lücken, Widersprüche sowie nicht abgedeckte Sonderfälle. Er bereitet Entscheidungen vor, trifft aber keine autonome Machbarkeits-, Preis- oder Freigabeentscheidung.',
+      links: [
+        {
+          label: 'Methode der technischen Anfragequalifizierung',
+          href: '/loesungen/technische-anfragequalifizierung/',
+        },
+      ],
+      layout: 'text',
+    },
     {
       id: 'eingaben',
       heading: 'Eingaben',
@@ -440,6 +458,68 @@ export const INTERNAL_RFQ_COPILOT = {
       layout: 'list',
     },
     {
+      id: 'vergleich',
+      eyebrow: 'Einordnung',
+      heading: 'Was unterscheidet RFQ-Copilot, CPQ, CRM und Document AI?',
+      intro:
+        'Die vier Kategorien lösen unterschiedliche Aufgaben und können sich ergänzen. Entscheidend ist, an welcher Stelle des Angebotsprozesses strukturierte, freigegebene Daten bereits vorliegen.',
+      columns: [
+        {
+          heading: 'RFQ-Copilot',
+          intro:
+            'Zweck: unstrukturierte technische Anfragen vor Kalkulation und Engineering qualifizieren.',
+          points: [
+            'Eingabe: E-Mails, Spezifikationen, Anhänge und freigegebene Regeln.',
+            'Ausgabe: Anforderungsakte, Quellen, Lücken, Widersprüche, Risiken und Rückfragen.',
+            'Automatisiert: Strukturierung, Prüfhinweise und abgedeckte Regelanwendung.',
+            'Entscheidet nicht: Machbarkeit, Preisfreigabe oder Kundenantwort.',
+            'Freigabe: menschliche Prüfung ist vor jeder Weitergabe verpflichtend.',
+            'Passt: wenn RFQs vor einem CPQ oder Engineering-Schritt noch unstrukturiert sind.',
+          ],
+        },
+        {
+          heading: 'CPQ',
+          intro:
+            'Zweck: Produkte und Optionen innerhalb eines gepflegten Regel- und Preismodells konfigurieren.',
+          points: [
+            'Eingabe: strukturierte Merkmale, Produktlogik, Kataloge und Preisregeln.',
+            'Ausgabe: gültige Konfiguration, Preis oder Angebotsdokument.',
+            'Automatisiert: Konfiguration und Kalkulation innerhalb des definierten Modells.',
+            'Entscheidet nicht: unklare technische Anforderungen außerhalb des Modells.',
+            'Freigabe: richtet sich nach Preis-, Ausnahme- und Angebotsregeln des Unternehmens.',
+            'Passt: wenn Produkt- und Preisdaten bereits strukturiert und gepflegt sind.',
+          ],
+        },
+        {
+          heading: 'CRM',
+          intro:
+            'Zweck: Kunden, Kontakte, Aktivitäten, Verkaufschancen und Kommunikation verwalten.',
+          points: [
+            'Eingabe: Konto-, Kontakt-, Aktivitäts- und Opportunity-Daten.',
+            'Ausgabe: Pipeline, Historie, Aufgaben und Vertriebsstatus.',
+            'Automatisiert: Vertriebsabläufe, Erinnerungen und Datenübergaben.',
+            'Entscheidet nicht: technische Eignung, Konfiguration oder Preis.',
+            'Freigabe: folgt den Vertriebs- und Datenprozessen des Unternehmens.',
+            'Passt: als führendes System für Kundenbeziehung und Opportunity-Status.',
+          ],
+        },
+        {
+          heading: 'Document AI',
+          intro:
+            'Zweck: Inhalte aus Dokumenten und Bildern extrahieren, klassifizieren oder zuordnen.',
+          points: [
+            'Eingabe: PDFs, Scans, Bilder und andere Dokumente.',
+            'Ausgabe: Text, Felder, Klassen oder erkannte Dokumentstrukturen.',
+            'Automatisiert: Erfassung und Vorstrukturierung von Dokumentinhalten.',
+            'Entscheidet nicht: technische Machbarkeit, Preis oder Angebotsfreigabe.',
+            'Freigabe: mehrdeutige oder geschäftskritische Inhalte benötigen Prüfung.',
+            'Passt: als Extraktionsbaustein innerhalb eines fachlich kontrollierten Prozesses.',
+          ],
+        },
+      ],
+      layout: 'comparison',
+    },
+    {
       id: 'intern-beginnen',
       heading: 'Warum intern beginnen',
       paragraphs: [
@@ -479,17 +559,6 @@ export const INTERNAL_RFQ_COPILOT = {
       ],
       layout: 'list',
     },
-    {
-      id: 'technologie',
-      heading: 'Technologie ist Mittel zum Zweck',
-      paragraphs: [
-        'Je nach bestehender Landschaft können Angular, APIs, Webhooks, n8n, Make oder andere Komponenten eingesetzt werden. Entscheidend sind jedoch das Anforderungsschema, die freigegebenen Regeln, die Versionierung und der Review-Prozess.',
-      ],
-      links: [
-        { label: 'n8n Beratung Stuttgart', href: '/n8n-beratung-stuttgart/' },
-      ],
-      layout: 'text',
-    },
   ],
   faq: {
     id: 'faq',
@@ -516,9 +585,9 @@ export const INTERNAL_RFQ_COPILOT = {
   finalCta: {
     eyebrow: 'Nächster Schritt',
     heading: 'RFQ Readiness Workshop anfragen',
-    body: 'Vor dem internen Pilot wird geprüft, ob der Angebotsprozess genügend Wiederholbarkeit, Daten, freigegebene Regeln und klare technische Grenzen besitzt.',
+    body: 'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Für die erste Einschätzung sind keine vertraulichen Dokumente erforderlich. Danach lässt sich ein geeigneter Workshop- oder No-Go-Schritt abgrenzen.',
     action: {
-      label: 'Pilot-Eignung prüfen',
+      label: 'RFQ-Fit-Check anfragen',
       href: '#contact-form',
       dataCta: 'contact-final',
       contactContext: 'rfq',

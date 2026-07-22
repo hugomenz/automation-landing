@@ -192,11 +192,15 @@ describe('interaction and accessibility guardrails', () => {
     expect(sectionIndexTemplate).toContain('(change)="jumpToSection($event)"');
   });
 
-  it('makes service and secondary routes discoverable through header dropdowns', () => {
+  it('keeps the primary navigation focused on the RFQ offer', () => {
     expect(headerSource).toContain("id: 'services'");
-    expect(headerSource).toContain("path: '/ki-sichtbarkeit-industrie/'");
-    expect(headerSource).toContain("path: '/en/ai-search-readiness-industrial-companies/'");
+    expect(headerSource).toContain("path: '/loesungen/technische-anfragequalifizierung/'");
+    expect(headerSource).toContain("path: '/leistungen/rfq-readiness-workshop/'");
+    expect(headerSource).toContain("path: '/leistungen/interner-rfq-copilot/'");
     expect(headerSource).toContain("path: '/standorte/stuttgart/'");
+    expect(headerSource).not.toContain("path: '/n8n-beratung-stuttgart/'");
+    expect(headerSource).not.toContain("path: '/ki-sichtbarkeit-industrie/'");
+    expect(headerSource).toContain("cta: 'RFQ-Fit-Check anfragen'");
     expect(headerTemplate).toContain('[attr.aria-expanded]');
     expect(headerTemplate).toContain('class="nav-dropdown"');
     expect(headerStyles).toContain('.nav-group.is-open .nav-dropdown');
@@ -206,6 +210,15 @@ describe('interaction and accessibility guardrails', () => {
   it('does not frame the global footer around a few machine families', () => {
     expect(footerSource).not.toMatch(/Maschinenfamil|Machine-family/);
     expect(footerTemplate).not.toContain('/branchen/');
+  });
+
+  it('keeps the global footer focused on RFQ qualification and company trust', () => {
+    expect(footerSource).toContain('/loesungen/technische-anfragequalifizierung/');
+    expect(footerSource).toContain('/leistungen/rfq-readiness-workshop/');
+    expect(footerSource).toContain('/leistungen/interner-rfq-copilot/');
+    expect(footerSource).not.toContain('/n8n-beratung-stuttgart/');
+    expect(footerSource).not.toContain('/ki-sichtbarkeit-industrie/');
+    expect(footerSource).not.toContain('/leistungen/prozessautomatisierung/');
   });
 
   it('keeps the English footer on English destinations', () => {

@@ -25,8 +25,8 @@ export type SchemaKind =
   | 'BreadcrumbList'
   | 'ContactPage'
   | 'FAQPage'
+  | 'Organization'
   | 'Person'
-  | 'ProfessionalService'
   | 'Service'
   | 'WebSite';
 
