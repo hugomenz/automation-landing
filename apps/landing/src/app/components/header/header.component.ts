@@ -172,7 +172,9 @@ export class HeaderComponent {
           navigationLabel: 'Hauptnavigation',
           menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
           languageLabel:
-            this.pageKey() === 'home-de' || this.pageKey() === 'industrial-ai-search-de'
+            this.pageKey() === 'home-de' ||
+            this.pageKey() === 'rfq-demo-de' ||
+            this.pageKey() === 'industrial-ai-search-de'
               ? 'English version'
               : 'English home',
           languageText: 'EN',

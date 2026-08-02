@@ -9,7 +9,7 @@ function pageRoute(path: string, pageKey: PageKey) {
 
 export const routes: Routes = [
   pageRoute('', 'home-de'),
-  { path: 'demo/rfq-fit-check', redirectTo: 'de/demo/rfq-fit-check', pathMatch: 'full' },
+  { path: 'demo/rfq-fit-check', redirectTo: '/de/demo/rfq-fit-check', pathMatch: 'full' },
   pageRoute('de/demo/rfq-fit-check', 'rfq-demo-de'),
   pageRoute('loesungen/technische-anfragequalifizierung', 'technical-request-qualification'),
   pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
