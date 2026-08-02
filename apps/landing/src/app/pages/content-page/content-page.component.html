@@ -1,3 +1,6 @@
+@if (page.key === 'rfq-demo') {
+  <app-rfq-demo [page]="page" />
+} @else {
 <article
   class="page"
   [class.page-home]="isHome"
@@ -208,3 +211,4 @@
     </div>
   </section>
 </article>
+}

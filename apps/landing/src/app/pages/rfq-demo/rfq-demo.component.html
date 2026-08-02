@@ -1,0 +1,167 @@
+<article class="rfq-demo-page">
+  <app-breadcrumbs [items]="page().breadcrumbs" language="de" />
+
+  <header class="demo-hero">
+    <div class="container demo-hero-inner">
+      <div>
+        <p class="eyebrow">{{ page().hero.kicker }}</p>
+        <h1>{{ page().hero.h1 }}</h1>
+        <p class="demo-lead">{{ page().hero.lead }}</p>
+      </div>
+      <div class="demo-case mono" aria-label="Beispielfall">
+        <span>DEMO</span>
+        <strong>RFQ-LINIE4</strong>
+      </div>
+    </div>
+  </header>
+
+  <section class="demo-workspace" aria-labelledby="request-heading">
+    <div class="container">
+      <div class="workspace-head">
+        <div>
+          <p class="eyebrow">Vorbereiteter Kundenfall</p>
+          <h2 id="request-heading">Technische Anfrage</h2>
+        </div>
+        <p>Alle Angaben sind für diese Demo bereits ausgefüllt. Es werden keine Daten übertragen.</p>
+      </div>
+
+      <div class="request-shell" [class.is-loading]="state() === 'loading'">
+        <div class="request-fields" aria-label="Vorbereitete RFQ-Daten">
+          <div class="field field-wide">
+            <span class="field-label">Unternehmen</span>
+            <strong>Musterwerk GmbH</strong>
+          </div>
+          <div class="field field-wide">
+            <span class="field-label">Projekt</span>
+            <strong>Palettierzelle Linie 4</strong>
+          </div>
+          <div class="field">
+            <span class="field-label">Anlagentyp</span>
+            <strong>Roboter-Palettierzelle</strong>
+          </div>
+          <div class="field">
+            <span class="field-label">Taktzeit</span>
+            <strong>3,3 s</strong>
+          </div>
+          <div class="field">
+            <span class="field-label">Liefertermin</span>
+            <strong>15.12.2026</strong>
+          </div>
+          <div class="field">
+            <span class="field-label">Bodenverschraubung</span>
+            <strong>Möglich · max. 120 mm</strong>
+          </div>
+        </div>
+
+        <div class="request-copy">
+          <span class="field-label">Technische Anfrage</span>
+          <p>
+            Wir benötigen eine Palettierzelle für geschlossene Kartons mit 8–12 kg. Ziel sind
+            20 Kartons/min; im Lastenheft stehen 18 Zyklen/min. Reinigung täglich mit Wasser,
+            Steuerung Siemens S7-1500. Bitte prüfen Sie Machbarkeit und offene Punkte.
+          </p>
+        </div>
+
+        <div class="attachments" aria-label="Vorbereitete Anhänge">
+          <article>
+            <span class="file-kind">PDF</span>
+            <div><strong>Lastenheft_Palettierzelle.pdf</strong><small>12 Seiten · Text erkannt</small></div>
+          </article>
+          <article>
+            <span class="file-kind image-kind">IMG</span>
+            <div><strong>Layout_Linie4.png</strong><small>Produkt und Layout erkannt</small></div>
+          </article>
+        </div>
+
+        <button
+          type="button"
+          class="analyse-button"
+          [disabled]="state() !== 'ready'"
+          (click)="startAnalysis()"
+        >
+          @if (state() === 'loading') {
+            <span class="spinner" aria-hidden="true"></span>
+            Anfrage wird geprüft …
+          } @else if (state() === 'done') {
+            Analyse abgeschlossen
+          } @else {
+            RFQ-Fit-Check starten <span aria-hidden="true">→</span>
+          }
+        </button>
+
+        @if (state() === 'loading') {
+          <div class="loader-panel" role="status" aria-live="polite">
+            <div class="loader-track"><span [style.width.%]="25 + loadingStep() * 25"></span></div>
+            <div class="loader-steps mono">
+              <span [class.is-active]="loadingStep() >= 1">Dokumente lesen</span>
+              <span [class.is-active]="loadingStep() >= 2">Anforderungen abgleichen</span>
+              <span [class.is-active]="loadingStep() >= 3">Lücken priorisieren</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  @if (state() === 'done') {
+    <section class="analysis-result" #result aria-labelledby="result-heading">
+      <div class="container">
+        <div class="result-shell">
+          <div class="result-meta mono"><span>ANALYSE</span><span>1,9 s</span><span>RFQ-LINIE4</span></div>
+
+          <div class="result-hero">
+            <div>
+              <p class="eyebrow">Entscheidung</p>
+              <h2 id="result-heading">Taktzeit-Widerspruch blockiert die Auslegung</h2>
+              <p>
+                20 Kartons/min entsprechen 3,0 s pro Karton. Die angegebenen 3,3 s liefern nur
+                18,2 Kartons/min – diese Differenz beeinflusst Roboter-, Greifer- und Pufferdimensionierung.
+              </p>
+            </div>
+            <div class="coverage"><strong>62%</strong><span class="mono">READY</span></div>
+          </div>
+
+          <div class="result-stats">
+            <div><strong>8</strong><span>belegte Fakten</span></div>
+            <div><strong>3</strong><span>offene Angaben</span></div>
+            <div><strong>1</strong><span>Widerspruch</span></div>
+            <div><strong>2</strong><span>Dateien gelesen</span></div>
+          </div>
+
+          <section class="gap-panel" aria-labelledby="gap-heading">
+            <div class="panel-heading">
+              <div><p class="panel-kicker">Vor Angebot klären</p><h3 id="gap-heading">Diese Punkte blockieren eine belastbare Auslegung</h3></div>
+              <span class="panel-count">4</span>
+            </div>
+            <div class="finding-grid gap-grid">
+              <article><div><strong>Leistung vs. Taktzeit</strong><span>kritisch</span></div><p>20 Kartons/min erfordern 3,0 s; angegeben sind 3,3 s beziehungsweise 18 Zyklen/min.</p><small>Dokumentenvergleich</small></article>
+              <article><div><strong>Linien-Schnittstelle</strong><span>kritisch</span></div><p>Signale, Protokoll und Verantwortungsgrenze sind nicht definiert.</p><small>Schnittstellenliste</small></article>
+              <article><div><strong>FAT/SAT-Kriterien</strong><span>kritisch</span></div><p>Messbare Abnahmekriterien und Testumfang fehlen.</p><small>Lastenheft</small></article>
+              <article><div><strong>Reinigungsstandard</strong><span class="medium">prüfen</span></div><p>IP-Schutzart, Reinigungsmittel und Ablaufkonzept müssen bestätigt werden.</p><small>Kundenanfrage</small></article>
+            </div>
+          </section>
+
+          <section class="evidence-panel" aria-labelledby="evidence-heading">
+            <div class="panel-heading">
+              <div><p class="panel-kicker evidence-kicker">Mit Quelle belegt</p><h3 id="evidence-heading">Erkannte Anforderungen</h3></div>
+              <span class="panel-count">8</span>
+            </div>
+            <div class="finding-grid evidence-grid">
+              <article><div><strong>Anlagentyp</strong><span>100%</span></div><p>Roboter-Palettierzelle</p><small>RFQ-Formular</small></article>
+              <article><div><strong>Taktzeit</strong><span>100%</span></div><p>3,3 s</p><small>RFQ-Formular</small></article>
+              <article><div><strong>Produktgewicht</strong><span>96%</span></div><p>8–12 kg je Karton</p><small>Lastenheft · S. 4</small></article>
+              <article><div><strong>Sollleistung</strong><span>94%</span></div><p>20 Kartons/min</p><small>Kundenanfrage</small></article>
+              <article><div><strong>Steuerung</strong><span>98%</span></div><p>Siemens S7-1500</p><small>Lastenheft · S. 7</small></article>
+              <article><div><strong>Bodenbefestigung</strong><span>100%</span></div><p>Möglich · max. 120 mm</p><small>RFQ-Formular</small></article>
+            </div>
+          </section>
+
+          <div class="result-next">
+            <div><p class="panel-kicker">Nächster Schritt</p><strong>Drei gebündelte Rückfragen senden und den Fall anschließend erneut prüfen.</strong></div>
+            <a class="btn btn-primary" href="/kontakt/" data-cta="rfq-demo-result">Eigene RFQ-Demo besprechen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+</article>

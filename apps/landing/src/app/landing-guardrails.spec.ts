@@ -124,7 +124,7 @@ describe('Angular architecture guardrails', () => {
     expect(appConfig).toContain('provideClientHydration(withEventReplay())');
     expect(appComponent).toContain('RouterOutlet');
     expect(appTemplate).toContain('<router-outlet />');
-    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(15);
+    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(16);
   });
 
   it('runs without Zone.js and enables zoneless change detection', () => {
@@ -200,7 +200,7 @@ describe('interaction and accessibility guardrails', () => {
     expect(headerSource).toContain("path: '/standorte/stuttgart/'");
     expect(headerSource).not.toContain("path: '/n8n-beratung-stuttgart/'");
     expect(headerSource).not.toContain("path: '/ki-sichtbarkeit-industrie/'");
-    expect(headerSource).toContain("cta: 'RFQ-Fit-Check anfragen'");
+    expect(headerSource).toContain("cta: 'RFQ-Demo ansehen'");
     expect(headerTemplate).toContain('[attr.aria-expanded]');
     expect(headerTemplate).toContain('class="nav-dropdown"');
     expect(headerStyles).toContain('.nav-group.is-open .nav-dropdown');

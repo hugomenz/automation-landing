@@ -12,6 +12,7 @@ import type { PageDefinition, PageKey, PagePath } from './content/page.types';
 
 const REQUIRED_PATHS = [
   '/',
+  '/demo/rfq-fit-check/',
   '/loesungen/technische-anfragequalifizierung/',
   '/leistungen/rfq-readiness-workshop/',
   '/leistungen/interner-rfq-copilot/',
@@ -70,8 +71,8 @@ function indexableText(page: PageDefinition): string {
 }
 
 describe('public page registry', () => {
-  it('defines exactly the 15 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(15);
+  it('defines exactly the 16 required public routes', () => {
+    expect(PAGE_REGISTRY).toHaveLength(16);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
@@ -157,10 +158,9 @@ describe('German home content guardrails', () => {
       'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
     );
     expect(home.hero.primaryCta).toEqual({
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
-      contactContext: 'rfq',
+      label: 'RFQ-Demo starten',
+      href: '/demo/rfq-fit-check/',
+      dataCta: 'rfq-demo-hero',
     });
     expect(home.hero.trustLine).toBe(
       'Klarer Angebotsprozess · freigegebene Regeln · menschliche Prüfung',

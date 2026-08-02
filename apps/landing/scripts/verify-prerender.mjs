@@ -31,6 +31,12 @@ const pages = [
     alternates: HOME_ALTERNATES,
   },
   {
+    path: '/demo/rfq-fit-check/',
+    lang: 'de',
+    title: 'RFQ-Fit-Check Demo für Maschinenbauer | Hugo Menz',
+    h1: 'So könnte Ihr RFQ-Fit-Check aussehen',
+  },
+  {
     path: '/loesungen/technische-anfragequalifizierung/',
     lang: 'de',
     title: 'Technische Anfragequalifizierung im Maschinenbau | Hugo Menz',

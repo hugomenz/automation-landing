@@ -49,10 +49,9 @@ export const HOME_DE = {
       { label: 'EN', href: '/en/', lang: 'en' },
     ],
     cta: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'contact-header',
-      contactContext: 'rfq',
+      label: 'RFQ-Demo ansehen',
+      href: '/demo/rfq-fit-check/',
+      dataCta: 'rfq-demo-header',
     },
   },
   breadcrumbs: [{ label: 'Startseite', path: '/' }],
@@ -62,10 +61,9 @@ export const HOME_DE = {
     lead:
       'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
     primaryCta: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
-      contactContext: 'rfq',
+      label: 'RFQ-Demo starten',
+      href: '/demo/rfq-fit-check/',
+      dataCta: 'rfq-demo-hero',
     },
     secondaryCta: {
       label: 'So funktioniert der interne RFQ-Copilot',

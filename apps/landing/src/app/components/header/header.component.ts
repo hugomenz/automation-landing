@@ -29,6 +29,7 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
       id: 'services',
       activeKeys: [
         'home-de',
+        'rfq-demo',
         'technical-request-qualification',
         'rfq-readiness-workshop',
         'internal-rfq-copilot',
@@ -37,6 +38,11 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
         'industrial-ai-search-de',
       ],
       children: [
+        {
+          label: 'RFQ-Fit-Check Demo',
+          path: '/demo/rfq-fit-check/',
+          currentKeys: ['rfq-demo'],
+        },
         {
           label: 'Technische Anfragequalifizierung',
           path: '/loesungen/technische-anfragequalifizierung/',
@@ -166,7 +172,7 @@ export class HeaderComponent {
               : 'English home',
           languageText: 'EN',
           homePath: '/',
-          cta: 'RFQ-Fit-Check anfragen',
+          cta: 'RFQ-Demo ansehen',
         }
       : {
           subtitle: 'Technical quotation processes · Machinery',

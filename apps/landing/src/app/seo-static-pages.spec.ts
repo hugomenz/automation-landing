@@ -10,11 +10,11 @@ function sitemapLocations(xml: string): readonly string[] {
 }
 
 describe('sitemap and robots', () => {
-  it('publishes exactly the 15 canonical registry URLs once', () => {
+  it('publishes exactly the 16 canonical registry URLs once', () => {
     const locations = sitemapLocations(sitemap);
     const expected = PAGE_REGISTRY.map(getCanonicalUrl);
 
-    expect(locations).toHaveLength(15);
+    expect(locations).toHaveLength(16);
     expect(new Set(locations).size).toBe(locations.length);
     expect(new Set(locations)).toEqual(new Set(expected));
   });

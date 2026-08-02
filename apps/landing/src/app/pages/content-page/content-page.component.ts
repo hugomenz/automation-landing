@@ -10,6 +10,7 @@ import { SeoService } from '../../core/seo.service';
 import { BreadcrumbsComponent } from '../../shared/breadcrumbs/breadcrumbs.component';
 import { ContentLinkComponent } from '../../shared/content-link/content-link.component';
 import { RfqFlowComponent } from '../../shared/rfq-flow/rfq-flow.component';
+import { RfqDemoComponent } from '../rfq-demo/rfq-demo.component';
 import { siteConfig } from '../../site.config';
 
 @Component({
@@ -20,6 +21,7 @@ import { siteConfig } from '../../site.config';
     ContentLinkComponent,
     RfqFlowComponent,
     SectionIndexComponent,
+    RfqDemoComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './content-page.component.html',

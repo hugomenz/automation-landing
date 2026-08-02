@@ -9,6 +9,7 @@ function pageRoute(path: string, pageKey: PageKey) {
 
 export const routes: Routes = [
   pageRoute('', 'home-de'),
+  pageRoute('demo/rfq-fit-check', 'rfq-demo'),
   pageRoute('loesungen/technische-anfragequalifizierung', 'technical-request-qualification'),
   pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
   pageRoute('leistungen/interner-rfq-copilot', 'internal-rfq-copilot'),
