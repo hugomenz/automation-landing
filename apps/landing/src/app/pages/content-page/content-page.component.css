@@ -39,6 +39,15 @@
   font-size: clamp(2.2rem, 4.1vw, 2.95rem);
 }
 
+.page-order-entry .hero-copy h1 {
+  max-width: 21ch;
+  font-size: clamp(2.15rem, 4vw, 3.05rem);
+}
+
+.page-order-entry .page-hero {
+  border-bottom: 1px solid var(--border-muted);
+}
+
 .hero-lead {
   max-width: 46rem;
   margin-top: 24px;
@@ -231,6 +240,31 @@
   color: var(--accent-bright);
   font-family: var(--mono);
   font-size: 0.78rem;
+}
+
+.order-ledger {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.order-ledger .item-card {
+  display: grid;
+  grid-template-columns: 72px minmax(180px, 0.58fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 24px;
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+
+.order-ledger .item-card::before,
+.order-ledger .item-card h3,
+.order-ledger .item-card p {
+  margin: 0;
 }
 
 .item-label {
@@ -458,6 +492,15 @@ details p {
     display: block;
   }
 
+  .order-ledger .item-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 8px 16px;
+  }
+
+  .order-ledger .item-card p {
+    grid-column: 2;
+  }
+
   .page-about-hugo-menz .hero-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
@@ -512,6 +555,10 @@ details p {
   .page-home .hero-copy h1,
   .page-about-hugo-menz .hero-copy h1,
   .page-process-automation .hero-copy h1 {
+    font-size: clamp(1.85rem, 7.6vw, 1.95rem);
+  }
+
+  .page-order-entry .hero-copy h1 {
     font-size: clamp(1.85rem, 7.6vw, 1.95rem);
   }
 

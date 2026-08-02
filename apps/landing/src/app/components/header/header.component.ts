@@ -78,8 +78,14 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
         'end-of-line',
         'packaging-machinery',
         'palletising-systems',
+        'order-entry-automation-de',
       ],
       children: [
+        {
+          label: 'Auftragserfassung (Fallstudie)',
+          path: '/leistungen/auftragserfassung-automatisierung/',
+          currentKeys: ['order-entry-automation-de'],
+        },
         {
           label: 'Über Hugo Menz',
           path: '/ueber-hugo-menz/',
@@ -133,8 +139,13 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
     {
       label: 'Explore',
       id: 'explore',
-      activeKeys: ['home-en'],
+      activeKeys: ['home-en', 'order-entry-automation-en'],
       children: [
+        {
+          label: 'Order entry research',
+          path: '/en/order-entry-automation/',
+          currentKeys: ['order-entry-automation-en'],
+        },
         { label: 'Who it is for', path: '/en/#fit' },
         { label: 'Controls', path: '/en/#control' },
         { label: 'Approach', path: '/en/#process' },
@@ -174,6 +185,7 @@ export class HeaderComponent {
           languageLabel:
             this.pageKey() === 'home-de' ||
             this.pageKey() === 'rfq-demo-de' ||
+            this.pageKey() === 'order-entry-automation-de' ||
             this.pageKey() === 'industrial-ai-search-de'
               ? 'English version'
               : 'English home',

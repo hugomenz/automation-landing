@@ -36,6 +36,9 @@ export const siteConfig = {
     'Digitale Prozessautomatisierung',
     'Systemintegrationen',
     'Human-in-the-loop-Automatisierung',
+    'Auftragserfassung',
+    'Order Entry Automation',
+    'ERP-ready Workflows',
   ],
 } as const;
 

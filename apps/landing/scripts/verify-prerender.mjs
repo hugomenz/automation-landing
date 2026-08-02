@@ -24,6 +24,17 @@ const RFQ_DEMO_ALTERNATES = [
   { hreflang: 'en', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
   { hreflang: 'x-default', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
 ];
+const ORDER_ENTRY_ALTERNATES = [
+  {
+    hreflang: 'de-DE',
+    href: SITE_ORIGIN + '/leistungen/auftragserfassung-automatisierung/',
+  },
+  { hreflang: 'en', href: SITE_ORIGIN + '/en/order-entry-automation/' },
+  {
+    hreflang: 'x-default',
+    href: SITE_ORIGIN + '/leistungen/auftragserfassung-automatisierung/',
+  },
+];
 
 const pages = [
   {
@@ -66,6 +77,14 @@ const pages = [
     title: 'Prozessautomatisierung und Systemintegration | Hugo Menz',
     h1: 'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
     socialImage: '/og-general-de.png',
+  },
+  {
+    path: '/leistungen/auftragserfassung-automatisierung/',
+    lang: 'de',
+    title: 'Auftragserfassung automatisieren: Fallstudie | Hugo Menz',
+    h1: 'Auftragserfassung als kontrollierten Dokumentenprozess vorbereiten',
+    socialImage: '/og-general-de.png',
+    alternates: ORDER_ENTRY_ALTERNATES,
   },
   {
     path: '/branchen/end-of-line/',
@@ -118,6 +137,14 @@ const pages = [
     h1: 'See what your RFQ Fit Check could look like',
     socialImage: '/og-rfq-preview-en.png',
     alternates: RFQ_DEMO_ALTERNATES,
+  },
+  {
+    path: '/en/order-entry-automation/',
+    lang: 'en',
+    title: 'Order Entry Automation case study | Hugo Menz',
+    h1: 'Prepare order entry as a controlled document workflow',
+    socialImage: '/og-general-de.png',
+    alternates: ORDER_ENTRY_ALTERNATES,
   },
   {
     path: '/n8n-beratung-stuttgart/',

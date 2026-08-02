@@ -26,6 +26,12 @@
     <loc>https://www.hugomenz.de/leistungen/prozessautomatisierung/</loc>
   </url>
   <url>
+    <loc>https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/</loc>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
+  </url>
+  <url>
     <loc>https://www.hugomenz.de/branchen/end-of-line/</loc>
   </url>
   <url>
@@ -57,6 +63,12 @@
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/en/order-entry-automation/</loc>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
   </url>
   <url>
     <loc>https://www.hugomenz.de/ki-sichtbarkeit-industrie/</loc>
