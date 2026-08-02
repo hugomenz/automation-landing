@@ -9,9 +9,10 @@ import { INDUSTRIAL_AI_SEARCH_DE } from './de/industrial-ai-search';
 import { END_OF_LINE, PACKAGING_MACHINERY, PALLETISING_SYSTEMS } from './de/industry-pages';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
 import { PROCESS_AUTOMATION } from './de/process-automation';
-import { RFQ_DEMO } from './de/rfq-demo';
+import { RFQ_DEMO_DE } from './de/rfq-demo';
 import { HOME_EN } from './en/home';
 import { INDUSTRIAL_AI_SEARCH_EN } from './en/industrial-ai-search';
+import { RFQ_DEMO_EN } from './en/rfq-demo';
 import type {
   ContentLink,
   HreflangAlternate,
@@ -25,13 +26,15 @@ export const SITE_ORIGIN = 'https://www.hugomenz.de' as const;
 const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
   'home-de',
   'home-en',
+  'rfq-demo-de',
+  'rfq-demo-en',
   'industrial-ai-search-de',
   'industrial-ai-search-en',
 ];
 
 export const PAGE_REGISTRY: readonly PageDefinition[] = [
   HOME_DE,
-  RFQ_DEMO,
+  RFQ_DEMO_DE,
   TECHNICAL_REQUEST_QUALIFICATION,
   RFQ_READINESS_WORKSHOP,
   INTERNAL_RFQ_COPILOT,
@@ -43,6 +46,7 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   ABOUT_HUGO_MENZ,
   CONTACT,
   HOME_EN,
+  RFQ_DEMO_EN,
   N8N_CONSULTING_STUTTGART,
   INDUSTRIAL_AI_SEARCH_DE,
   INDUSTRIAL_AI_SEARCH_EN,

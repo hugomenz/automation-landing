@@ -49,10 +49,9 @@ export const HOME_EN = {
       { label: 'DE', href: '/', lang: 'de' },
     ],
     cta: {
-      label: 'Check pilot fit',
-      href: '#contact-form',
-      dataCta: 'readiness-header',
-      contactContext: 'rfq',
+      label: 'View RFQ demo',
+      href: '/en/demo/rfq-fit-check/',
+      dataCta: 'rfq-demo-header-en',
     },
   },
   breadcrumbs: [
@@ -65,10 +64,9 @@ export const HOME_EN = {
     lead:
       'I help machinery manufacturers turn incomplete enquiries into a reviewable basis for sales and engineering.',
     primaryCta: {
-      label: 'Check pilot fit',
-      href: '#contact-form',
-      dataCta: 'readiness-hero',
-      contactContext: 'rfq',
+      label: 'View RFQ demo',
+      href: '/en/demo/rfq-fit-check/',
+      dataCta: 'rfq-demo-hero-en',
     },
     secondaryCta: {
       label: 'How the internal RFQ copilot works',

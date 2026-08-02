@@ -9,7 +9,8 @@ function pageRoute(path: string, pageKey: PageKey) {
 
 export const routes: Routes = [
   pageRoute('', 'home-de'),
-  pageRoute('demo/rfq-fit-check', 'rfq-demo'),
+  { path: 'demo/rfq-fit-check', redirectTo: 'de/demo/rfq-fit-check', pathMatch: 'full' },
+  pageRoute('de/demo/rfq-fit-check', 'rfq-demo-de'),
   pageRoute('loesungen/technische-anfragequalifizierung', 'technical-request-qualification'),
   pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
   pageRoute('leistungen/interner-rfq-copilot', 'internal-rfq-copilot'),
@@ -23,6 +24,7 @@ export const routes: Routes = [
   pageRoute('n8n-beratung-stuttgart', 'n8n-consulting-stuttgart'),
   pageRoute('ki-sichtbarkeit-industrie', 'industrial-ai-search-de'),
   pageRoute('en', 'home-en'),
+  pageRoute('en/demo/rfq-fit-check', 'rfq-demo-en'),
   pageRoute('en/ai-search-readiness-industrial-companies', 'industrial-ai-search-en'),
   { path: '**', component: NotFoundComponent },
 ];

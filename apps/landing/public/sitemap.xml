@@ -8,7 +8,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/demo/rfq-fit-check/</loc>
+    <loc>https://www.hugomenz.de/de/demo/rfq-fit-check/</loc>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
   </url>
   <url>
     <loc>https://www.hugomenz.de/loesungen/technische-anfragequalifizierung/</loc>
@@ -48,6 +51,12 @@
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/en/demo/rfq-fit-check/</loc>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
   </url>
   <url>
     <loc>https://www.hugomenz.de/ki-sichtbarkeit-industrie/</loc>

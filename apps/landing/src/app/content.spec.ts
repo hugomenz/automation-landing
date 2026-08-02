@@ -12,7 +12,7 @@ import type { PageDefinition, PageKey, PagePath } from './content/page.types';
 
 const REQUIRED_PATHS = [
   '/',
-  '/demo/rfq-fit-check/',
+  '/de/demo/rfq-fit-check/',
   '/loesungen/technische-anfragequalifizierung/',
   '/leistungen/rfq-readiness-workshop/',
   '/leistungen/interner-rfq-copilot/',
@@ -24,6 +24,7 @@ const REQUIRED_PATHS = [
   '/ueber-hugo-menz/',
   '/kontakt/',
   '/en/',
+  '/en/demo/rfq-fit-check/',
   '/n8n-beratung-stuttgart/',
   '/ki-sichtbarkeit-industrie/',
   '/en/ai-search-readiness-industrial-companies/',
@@ -53,6 +54,24 @@ const INDUSTRIAL_AI_SEARCH_ALTERNATES = [
   },
 ] as const;
 
+const RFQ_DEMO_ALTERNATES = [
+  {
+    hreflang: 'de-DE',
+    path: '/de/demo/rfq-fit-check/',
+    href: 'https://www.hugomenz.de/de/demo/rfq-fit-check/',
+  },
+  {
+    hreflang: 'en',
+    path: '/en/demo/rfq-fit-check/',
+    href: 'https://www.hugomenz.de/en/demo/rfq-fit-check/',
+  },
+  {
+    hreflang: 'x-default',
+    path: '/en/demo/rfq-fit-check/',
+    href: 'https://www.hugomenz.de/en/demo/rfq-fit-check/',
+  },
+] as const;
+
 const routeSource = readFileSync(new URL('./app.routes.ts', import.meta.url), 'utf8');
 
 function unique<T>(values: readonly T[]): boolean {
@@ -71,8 +90,8 @@ function indexableText(page: PageDefinition): string {
 }
 
 describe('public page registry', () => {
-  it('defines exactly the 16 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(16);
+  it('defines exactly the 17 required public routes', () => {
+    expect(PAGE_REGISTRY).toHaveLength(17);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
@@ -159,7 +178,7 @@ describe('German home content guardrails', () => {
     );
     expect(home.hero.primaryCta).toEqual({
       label: 'RFQ-Demo starten',
-      href: '/demo/rfq-fit-check/',
+      href: '/de/demo/rfq-fit-check/',
       dataCta: 'rfq-demo-hero',
     });
     expect(home.hero.trustLine).toBe(
@@ -191,6 +210,28 @@ describe('German home content guardrails', () => {
     expect(profile?.heading).toBe('Industrieerfahrung für prüfbare Angebotsprozesse');
     expect(JSON.stringify(profile)).toContain('Heute verbinde ich diese Erfahrung');
     expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
+  });
+});
+
+describe('bilingual RFQ demo', () => {
+  const germanDemo = getPageByKey('rfq-demo-de');
+  const englishDemo = getPageByKey('rfq-demo-en');
+
+  it('publishes separate, reciprocal German and English URLs', () => {
+    expect(germanDemo.path).toBe('/de/demo/rfq-fit-check/');
+    expect(englishDemo.path).toBe('/en/demo/rfq-fit-check/');
+    expect(germanDemo.lang).toBe('de');
+    expect(englishDemo.lang).toBe('en');
+    expect(getAbsoluteHreflangAlternates(germanDemo)).toEqual(RFQ_DEMO_ALTERNATES);
+    expect(getAbsoluteHreflangAlternates(englishDemo)).toEqual(RFQ_DEMO_ALTERNATES);
+  });
+
+  it('ships genuinely English customer-facing metadata', () => {
+    expect(englishDemo.seo.title).toBe(
+      'RFQ Fit Check demo for machinery manufacturers | Hugo Menz',
+    );
+    expect(englishDemo.hero.h1).toBe('See what your RFQ Fit Check could look like');
+    expect(JSON.stringify(englishDemo)).not.toMatch(/Vorbereitet|Anfrage wird|Auslegung/);
   });
 });
 
@@ -317,7 +358,9 @@ describe('English home and bilingual hreflang', () => {
     );
     expect(pagesWithAlternates.map((page) => page.key)).toEqual([
       'home-de',
+      'rfq-demo-de',
       'home-en',
+      'rfq-demo-en',
       'industrial-ai-search-de',
       'industrial-ai-search-en',
     ]);
@@ -327,7 +370,9 @@ describe('English home and bilingual hreflang', () => {
         !(
           [
             'home-de',
+            'rfq-demo-de',
             'home-en',
+            'rfq-demo-en',
             'industrial-ai-search-de',
             'industrial-ai-search-en',
           ] as PageKey[]

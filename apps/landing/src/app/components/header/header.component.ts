@@ -29,7 +29,7 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
       id: 'services',
       activeKeys: [
         'home-de',
-        'rfq-demo',
+        'rfq-demo-de',
         'technical-request-qualification',
         'rfq-readiness-workshop',
         'internal-rfq-copilot',
@@ -40,8 +40,8 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
       children: [
         {
           label: 'RFQ-Fit-Check Demo',
-          path: '/demo/rfq-fit-check/',
-          currentKeys: ['rfq-demo'],
+          path: '/de/demo/rfq-fit-check/',
+          currentKeys: ['rfq-demo-de'],
         },
         {
           label: 'Technische Anfragequalifizierung',
@@ -118,8 +118,13 @@ const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
     {
       label: 'Services',
       id: 'services',
-      activeKeys: ['home-en', 'industrial-ai-search-en'],
+      activeKeys: ['home-en', 'rfq-demo-en', 'industrial-ai-search-en'],
       children: [
+        {
+          label: 'RFQ Fit Check demo',
+          path: '/en/demo/rfq-fit-check/',
+          currentKeys: ['rfq-demo-en'],
+        },
         { label: 'Technical enquiry qualification', path: '/en/#workflow' },
         { label: 'Internal RFQ copilot', path: '/en/#internal-rfq-copilot' },
         { label: 'Further process automation', path: '/en/#further-automation' },
@@ -173,6 +178,8 @@ export class HeaderComponent {
           languageText: 'EN',
           homePath: '/',
           cta: 'RFQ-Demo ansehen',
+          ctaPath: '/de/demo/rfq-fit-check/',
+          demoKey: 'rfq-demo-de' as const,
         }
       : {
           subtitle: 'Technical quotation processes · Machinery',
@@ -182,7 +189,9 @@ export class HeaderComponent {
           languageLabel: 'Deutsche Version',
           languageText: 'DE',
           homePath: '/en/',
-          cta: 'Check pilot fit',
+          cta: 'View RFQ demo',
+          ctaPath: '/en/demo/rfq-fit-check/',
+          demoKey: 'rfq-demo-en' as const,
         },
   );
 

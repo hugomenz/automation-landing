@@ -10,11 +10,11 @@ function sitemapLocations(xml: string): readonly string[] {
 }
 
 describe('sitemap and robots', () => {
-  it('publishes exactly the 16 canonical registry URLs once', () => {
+  it('publishes exactly the 17 canonical registry URLs once', () => {
     const locations = sitemapLocations(sitemap);
     const expected = PAGE_REGISTRY.map(getCanonicalUrl);
 
-    expect(locations).toHaveLength(16);
+    expect(locations).toHaveLength(17);
     expect(new Set(locations).size).toBe(locations.length);
     expect(new Set(locations)).toEqual(new Set(expected));
   });
@@ -63,30 +63,35 @@ describe('sitemap and robots', () => {
       /rel=["']alternate["']/i.test(block),
     );
 
-    expect(blocksWithAlternates).toHaveLength(4);
+    expect(blocksWithAlternates).toHaveLength(6);
     for (const block of blocksWithAlternates) {
       expect(block).toContain('hreflang="de-DE"');
       expect(block).toContain('hreflang="en"');
       expect(block).toContain('hreflang="x-default"');
     }
-    expect(blocksWithAlternates[0]).toContain(
+    const blockByLocation = new Map(
+      blocksWithAlternates.map((block) => [sitemapLocations(block)[0], block] as const),
+    );
+    expect(blockByLocation.get('https://www.hugomenz.de/')).toContain(
       'hreflang="en" href="https://www.hugomenz.de/en/"',
     );
-    expect(blocksWithAlternates[1]).toContain(
+    expect(blockByLocation.get('https://www.hugomenz.de/en/')).toContain(
       'hreflang="de-DE" href="https://www.hugomenz.de/"',
     );
-    expect(blocksWithAlternates[2]).toContain(
-      'hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/"',
+    expect(blockByLocation.get('https://www.hugomenz.de/de/demo/rfq-fit-check/')).toContain(
+      'hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/"',
     );
-    expect(blocksWithAlternates[3]).toContain(
-      'hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/"',
+    expect(blockByLocation.get('https://www.hugomenz.de/en/demo/rfq-fit-check/')).toContain(
+      'hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/"',
     );
-    expect(blocksWithAlternates.map((block) => sitemapLocations(block)[0])).toEqual([
+    expect(new Set(blocksWithAlternates.map((block) => sitemapLocations(block)[0]))).toEqual(new Set([
       'https://www.hugomenz.de/',
+      'https://www.hugomenz.de/de/demo/rfq-fit-check/',
       'https://www.hugomenz.de/en/',
+      'https://www.hugomenz.de/en/demo/rfq-fit-check/',
       'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
       'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
-    ]);
+    ]));
   });
 
   it('advertises the sitemap without blocking the static site', () => {

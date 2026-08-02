@@ -124,7 +124,7 @@ describe('Angular architecture guardrails', () => {
     expect(appConfig).toContain('provideClientHydration(withEventReplay())');
     expect(appComponent).toContain('RouterOutlet');
     expect(appTemplate).toContain('<router-outlet />');
-    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(16);
+    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(17);
   });
 
   it('runs without Zone.js and enables zoneless change detection', () => {

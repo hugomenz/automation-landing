@@ -50,7 +50,7 @@ export const HOME_DE = {
     ],
     cta: {
       label: 'RFQ-Demo ansehen',
-      href: '/demo/rfq-fit-check/',
+      href: '/de/demo/rfq-fit-check/',
       dataCta: 'rfq-demo-header',
     },
   },
@@ -62,7 +62,7 @@ export const HOME_DE = {
       'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
     primaryCta: {
       label: 'RFQ-Demo starten',
-      href: '/demo/rfq-fit-check/',
+      href: '/de/demo/rfq-fit-check/',
       dataCta: 'rfq-demo-hero',
     },
     secondaryCta: {

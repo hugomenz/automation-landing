@@ -1,15 +1,15 @@
 import type { PageDefinition } from '../page.types';
 
-export const RFQ_DEMO = {
-  key: 'rfq-demo',
-  path: '/demo/rfq-fit-check/',
+export const RFQ_DEMO_DE = {
+  key: 'rfq-demo-de',
+  path: '/de/demo/rfq-fit-check/',
   lang: 'de',
   locale: 'de_DE',
   seo: {
     title: 'RFQ-Fit-Check Demo für Maschinenbauer | Hugo Menz',
     description:
       'Interaktive Demo: Eine technische Kundenanfrage mit PDF und Produktbild wird strukturiert, auf Lücken und Widersprüche geprüft und für Vertrieb und Engineering vorbereitet.',
-    canonicalPath: '/demo/rfq-fit-check/',
+    canonicalPath: '/de/demo/rfq-fit-check/',
     robots: 'index,follow',
     openGraph: {
       title: 'RFQ-Fit-Check Demo für Maschinenbauer',
@@ -29,10 +29,15 @@ export const RFQ_DEMO = {
       imagePath: '/og-rfq-preview.png',
       imageAlt: 'RFQ-Fit-Check mit technischen Anforderungen, Lücken und Quellen',
     },
+    alternates: [
+      { hreflang: 'de-DE', path: '/de/demo/rfq-fit-check/' },
+      { hreflang: 'en', path: '/en/demo/rfq-fit-check/' },
+      { hreflang: 'x-default', path: '/en/demo/rfq-fit-check/' },
+    ],
   },
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'RFQ-Fit-Check Demo', path: '/demo/rfq-fit-check/' },
+    { label: 'RFQ-Fit-Check Demo', path: '/de/demo/rfq-fit-check/' },
   ],
   hero: {
     kicker: 'Interaktive Beispielanalyse',

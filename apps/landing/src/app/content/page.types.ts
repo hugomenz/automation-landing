@@ -6,7 +6,8 @@ export type PagePath = '/' | `/${string}/`;
 
 export type PageKey =
   | 'home-de'
-  | 'rfq-demo'
+  | 'rfq-demo-de'
+  | 'rfq-demo-en'
   | 'technical-request-qualification'
   | 'rfq-readiness-workshop'
   | 'internal-rfq-copilot'

@@ -73,23 +73,14 @@
           hreflang="{{ language() === 'de' ? 'en' : 'de-DE' }}"
           (click)="closeMenu()"
         >{{ copy().languageText }}</a>
-        @if (language() === 'de') {
-          <a
-            class="nav-cta"
-            href="/demo/rfq-fit-check/"
-            data-cta="rfq-demo-header"
-            [class.is-active]="pageKey() === 'rfq-demo'"
-            [attr.aria-current]="pageKey() === 'rfq-demo' ? 'page' : null"
-            (click)="closeMenu()"
-          >{{ copy().cta }}</a>
-        } @else {
-          <button
-            type="button"
-            class="nav-cta"
-            data-cta="readiness-header"
-            (click)="openContactForm()"
-          >{{ copy().cta }}</button>
-        }
+        <a
+          class="nav-cta"
+          [href]="copy().ctaPath"
+          data-cta="rfq-demo-header"
+          [class.is-active]="pageKey() === copy().demoKey"
+          [attr.aria-current]="pageKey() === copy().demoKey ? 'page' : null"
+          (click)="closeMenu()"
+        >{{ copy().cta }}</a>
       </div>
     </div>
   </div>

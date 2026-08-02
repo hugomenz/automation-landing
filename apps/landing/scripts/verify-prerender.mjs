@@ -19,6 +19,11 @@ const AI_SEARCH_ALTERNATES = [
   },
   { hreflang: 'x-default', href: SITE_ORIGIN + '/ki-sichtbarkeit-industrie/' },
 ];
+const RFQ_DEMO_ALTERNATES = [
+  { hreflang: 'de-DE', href: SITE_ORIGIN + '/de/demo/rfq-fit-check/' },
+  { hreflang: 'en', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
+  { hreflang: 'x-default', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
+];
 
 const pages = [
   {
@@ -31,10 +36,11 @@ const pages = [
     alternates: HOME_ALTERNATES,
   },
   {
-    path: '/demo/rfq-fit-check/',
+    path: '/de/demo/rfq-fit-check/',
     lang: 'de',
     title: 'RFQ-Fit-Check Demo für Maschinenbauer | Hugo Menz',
     h1: 'So könnte Ihr RFQ-Fit-Check aussehen',
+    alternates: RFQ_DEMO_ALTERNATES,
   },
   {
     path: '/loesungen/technische-anfragequalifizierung/',
@@ -104,6 +110,14 @@ const pages = [
     h1: 'Turn technical enquiries into a reviewable quotation basis',
     socialImage: '/og-rfq-preview-en.png',
     alternates: HOME_ALTERNATES,
+  },
+  {
+    path: '/en/demo/rfq-fit-check/',
+    lang: 'en',
+    title: 'RFQ Fit Check demo for machinery manufacturers | Hugo Menz',
+    h1: 'See what your RFQ Fit Check could look like',
+    socialImage: '/og-rfq-preview-en.png',
+    alternates: RFQ_DEMO_ALTERNATES,
   },
   {
     path: '/n8n-beratung-stuttgart/',
