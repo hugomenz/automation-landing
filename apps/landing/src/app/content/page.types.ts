@@ -12,6 +12,8 @@ export type PageKey =
   | 'rfq-readiness-workshop'
   | 'internal-rfq-copilot'
   | 'process-automation'
+  | 'order-entry-automation-de'
+  | 'order-entry-automation-en'
   | 'end-of-line'
   | 'packaging-machinery'
   | 'palletising-systems'
@@ -127,6 +129,7 @@ export type SectionLayout =
   | 'comparison'
   | 'contact'
   | 'list'
+  | 'ledger'
   | 'profile'
   | 'steps'
   | 'text';

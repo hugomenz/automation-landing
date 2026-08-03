@@ -6,6 +6,7 @@
   [class.page-home]="isHome"
   [class.page-about-hugo-menz]="page.key === 'about-hugo-menz'"
   [class.page-process-automation]="page.key === 'process-automation'"
+  [class.page-order-entry]="page.key === 'order-entry-automation-de' || page.key === 'order-entry-automation-en'"
   [class.page-industrial-ai-search-de]="page.key === 'industrial-ai-search-de'"
 >
   @if (!isHome) {
@@ -128,7 +129,7 @@
 
           @if (section.items) {
             @if (section.ordered) {
-              <ol class="item-grid step-grid">
+              <ol class="item-grid step-grid" [class.order-ledger]="section.layout === 'ledger'">
                 @for (item of section.items; track $index) {
                   <li class="item-card">
                     @if (item.label) { <span class="item-label mono">{{ item.label }}</span> }

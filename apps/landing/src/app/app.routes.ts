@@ -15,6 +15,7 @@ export const routes: Routes = [
   pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
   pageRoute('leistungen/interner-rfq-copilot', 'internal-rfq-copilot'),
   pageRoute('leistungen/prozessautomatisierung', 'process-automation'),
+  pageRoute('leistungen/auftragserfassung-automatisierung', 'order-entry-automation-de'),
   pageRoute('branchen/end-of-line', 'end-of-line'),
   pageRoute('branchen/verpackungsmaschinen', 'packaging-machinery'),
   pageRoute('branchen/palettieranlagen', 'palletising-systems'),
@@ -25,6 +26,7 @@ export const routes: Routes = [
   pageRoute('ki-sichtbarkeit-industrie', 'industrial-ai-search-de'),
   pageRoute('en', 'home-en'),
   pageRoute('en/demo/rfq-fit-check', 'rfq-demo-en'),
+  pageRoute('en/order-entry-automation', 'order-entry-automation-en'),
   pageRoute('en/ai-search-readiness-industrial-companies', 'industrial-ai-search-en'),
   { path: '**', component: NotFoundComponent },
 ];

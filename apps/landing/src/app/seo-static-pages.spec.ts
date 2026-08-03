@@ -10,11 +10,11 @@ function sitemapLocations(xml: string): readonly string[] {
 }
 
 describe('sitemap and robots', () => {
-  it('publishes exactly the 17 canonical registry URLs once', () => {
+  it('publishes exactly the 19 canonical registry URLs once', () => {
     const locations = sitemapLocations(sitemap);
     const expected = PAGE_REGISTRY.map(getCanonicalUrl);
 
-    expect(locations).toHaveLength(17);
+    expect(locations).toHaveLength(19);
     expect(new Set(locations).size).toBe(locations.length);
     expect(new Set(locations)).toEqual(new Set(expected));
   });
@@ -63,7 +63,7 @@ describe('sitemap and robots', () => {
       /rel=["']alternate["']/i.test(block),
     );
 
-    expect(blocksWithAlternates).toHaveLength(6);
+    expect(blocksWithAlternates).toHaveLength(8);
     for (const block of blocksWithAlternates) {
       expect(block).toContain('hreflang="de-DE"');
       expect(block).toContain('hreflang="en"');
@@ -84,11 +84,19 @@ describe('sitemap and robots', () => {
     expect(blockByLocation.get('https://www.hugomenz.de/en/demo/rfq-fit-check/')).toContain(
       'hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/"',
     );
+    expect(blockByLocation.get('https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/')).toContain(
+      'hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/"',
+    );
+    expect(blockByLocation.get('https://www.hugomenz.de/en/order-entry-automation/')).toContain(
+      'hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/"',
+    );
     expect(new Set(blocksWithAlternates.map((block) => sitemapLocations(block)[0]))).toEqual(new Set([
       'https://www.hugomenz.de/',
       'https://www.hugomenz.de/de/demo/rfq-fit-check/',
       'https://www.hugomenz.de/en/',
       'https://www.hugomenz.de/en/demo/rfq-fit-check/',
+      'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
+      'https://www.hugomenz.de/en/order-entry-automation/',
       'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
       'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
     ]));

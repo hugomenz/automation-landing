@@ -9,8 +9,10 @@ import { INDUSTRIAL_AI_SEARCH_DE } from './de/industrial-ai-search';
 import { END_OF_LINE, PACKAGING_MACHINERY, PALLETISING_SYSTEMS } from './de/industry-pages';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
 import { PROCESS_AUTOMATION } from './de/process-automation';
+import { ORDER_ENTRY_AUTOMATION_DE } from './de/order-entry';
 import { RFQ_DEMO_DE } from './de/rfq-demo';
 import { HOME_EN } from './en/home';
+import { ORDER_ENTRY_AUTOMATION_EN } from './en/order-entry';
 import { INDUSTRIAL_AI_SEARCH_EN } from './en/industrial-ai-search';
 import { RFQ_DEMO_EN } from './en/rfq-demo';
 import type {
@@ -30,6 +32,8 @@ const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
   'rfq-demo-en',
   'industrial-ai-search-de',
   'industrial-ai-search-en',
+  'order-entry-automation-de',
+  'order-entry-automation-en',
 ];
 
 export const PAGE_REGISTRY: readonly PageDefinition[] = [
@@ -39,6 +43,7 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   RFQ_READINESS_WORKSHOP,
   INTERNAL_RFQ_COPILOT,
   PROCESS_AUTOMATION,
+  ORDER_ENTRY_AUTOMATION_DE,
   END_OF_LINE,
   PACKAGING_MACHINERY,
   PALLETISING_SYSTEMS,
@@ -46,6 +51,7 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   ABOUT_HUGO_MENZ,
   CONTACT,
   HOME_EN,
+  ORDER_ENTRY_AUTOMATION_EN,
   RFQ_DEMO_EN,
   N8N_CONSULTING_STUTTGART,
   INDUSTRIAL_AI_SEARCH_DE,

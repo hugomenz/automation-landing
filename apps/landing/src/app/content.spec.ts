@@ -17,6 +17,7 @@ const REQUIRED_PATHS = [
   '/leistungen/rfq-readiness-workshop/',
   '/leistungen/interner-rfq-copilot/',
   '/leistungen/prozessautomatisierung/',
+  '/leistungen/auftragserfassung-automatisierung/',
   '/branchen/end-of-line/',
   '/branchen/verpackungsmaschinen/',
   '/branchen/palettieranlagen/',
@@ -25,6 +26,7 @@ const REQUIRED_PATHS = [
   '/kontakt/',
   '/en/',
   '/en/demo/rfq-fit-check/',
+  '/en/order-entry-automation/',
   '/n8n-beratung-stuttgart/',
   '/ki-sichtbarkeit-industrie/',
   '/en/ai-search-readiness-industrial-companies/',
@@ -72,6 +74,24 @@ const RFQ_DEMO_ALTERNATES = [
   },
 ] as const;
 
+const ORDER_ENTRY_ALTERNATES = [
+  {
+    hreflang: 'de-DE',
+    path: '/leistungen/auftragserfassung-automatisierung/',
+    href: 'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
+  },
+  {
+    hreflang: 'en',
+    path: '/en/order-entry-automation/',
+    href: 'https://www.hugomenz.de/en/order-entry-automation/',
+  },
+  {
+    hreflang: 'x-default',
+    path: '/leistungen/auftragserfassung-automatisierung/',
+    href: 'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
+  },
+] as const;
+
 const routeSource = readFileSync(new URL('./app.routes.ts', import.meta.url), 'utf8');
 
 function unique<T>(values: readonly T[]): boolean {
@@ -90,8 +110,8 @@ function indexableText(page: PageDefinition): string {
 }
 
 describe('public page registry', () => {
-  it('defines exactly the 17 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(17);
+  it('defines exactly the 19 required public routes', () => {
+    expect(PAGE_REGISTRY).toHaveLength(19);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
@@ -359,7 +379,9 @@ describe('English home and bilingual hreflang', () => {
     expect(pagesWithAlternates.map((page) => page.key)).toEqual([
       'home-de',
       'rfq-demo-de',
+      'order-entry-automation-de',
       'home-en',
+      'order-entry-automation-en',
       'rfq-demo-en',
       'industrial-ai-search-de',
       'industrial-ai-search-en',
@@ -371,8 +393,10 @@ describe('English home and bilingual hreflang', () => {
           [
             'home-de',
             'rfq-demo-de',
+            'order-entry-automation-de',
             'home-en',
             'rfq-demo-en',
+            'order-entry-automation-en',
             'industrial-ai-search-de',
             'industrial-ai-search-en',
           ] as PageKey[]
@@ -406,6 +430,34 @@ describe('secondary process-automation service', () => {
     expect(text).not.toMatch(
       /UX(?: Engineering|-Beratung)|UI-Komponenten|Design-Systeme|App-Entwicklung|Webentwicklung|Anwendungsentwicklung/i,
     );
+  });
+});
+
+describe('bilingual order-entry research case', () => {
+  const germanPage = getPageByKey('order-entry-automation-de');
+  const englishPage = getPageByKey('order-entry-automation-en');
+  const text = `${indexableText(germanPage)}\n${indexableText(englishPage)}`;
+
+  it('publishes reciprocal German and English routes as a secondary case', () => {
+    expect(germanPage.path).toBe('/leistungen/auftragserfassung-automatisierung/');
+    expect(englishPage.path).toBe('/en/order-entry-automation/');
+    expect(getAbsoluteHreflangAlternates(germanPage)).toEqual(ORDER_ENTRY_ALTERNATES);
+    expect(getAbsoluteHreflangAlternates(englishPage)).toEqual(ORDER_ENTRY_ALTERNATES);
+    expect(germanPage.sections.find((section) => section.id === 'einordnung')?.heading).toBe(
+      'RFQ Automation bleibt der Schwerpunkt',
+    );
+  });
+
+  it('uses only repository-backed figures and states the implementation boundaries', () => {
+    expect(text).toContain('1.576');
+    expect(text).toContain('1.382');
+    expect(text).toContain('448');
+    expect(text).toContain('328');
+    expect(text).toContain('381');
+    expect(text).toContain('334');
+    expect(text).toMatch(/keine Verbindung zu SAP|no SAP/);
+    expect(text).toMatch(/kein ERP-Schreibzugriff|no ERP write access/);
+    expect(text).not.toMatch(/unsere Kunden|our customers|Zeit sparen|time saved/i);
   });
 });
 
