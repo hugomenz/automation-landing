@@ -88,7 +88,7 @@ const footerTemplate = readFileSync(
   'utf8',
 );
 const documentHead = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-const brandMarkUrl = new URL('../../public/hugo-martin-mark.svg', import.meta.url);
+const brandMarkUrl = new URL('../../public/hugo-martin-m.svg', import.meta.url);
 const contactService = readFileSync(new URL('./contact-dialog.service.ts', import.meta.url), 'utf8');
 
 function filesBelow(directory: URL): readonly URL[] {
@@ -243,12 +243,12 @@ describe('interaction and accessibility guardrails', () => {
     const brandMark = readFileSync(brandMarkUrl, 'utf8');
     expect(brandMark).toMatch(/<svg\b/);
     expect(brandMark).toContain('viewBox=');
-    expect(headerTemplate).toContain('src="/hugo-martin-mark.svg"');
+    expect(headerTemplate).toContain('src="/hugo-martin-m.svg"');
     expect(headerTemplate).toContain('class="brand-mark"');
     expect(headerTemplate).toContain('[attr.aria-label]="copy().brandLabel"');
-    expect(footerTemplate).toContain('src="/hugo-martin-mark.svg"');
+    expect(footerTemplate).toContain('src="/hugo-martin-m.svg"');
     expect(footerTemplate).toContain('<strong>Hugo Martin</strong>');
-    expect(documentHead).toContain('rel="icon" href="/hugo-martin-mark.svg"');
+    expect(documentHead).toContain('rel="icon" href="/hugo-martin-m.svg"');
   });
 });
 

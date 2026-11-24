@@ -60,7 +60,7 @@ for (const { from, to } of redirects) {
   <title>${heading} | Hugo Martin</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="${destination}">
-  <link rel="icon" href="/hugo-martin-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="/hugo-martin-m.svg" type="image/svg+xml">
   <meta http-equiv="refresh" content="0; url=${destination}">
   <style>body{margin:0;padding:3rem 1.5rem;background:#f7f8f5;color:#17384d;font:1rem/1.6 system-ui,sans-serif}main{max-width:44rem;margin:auto}h1{font-size:2rem;line-height:1.2}a{color:#315f7d;text-underline-offset:.2em}a:focus-visible{outline:3px solid #e5c66d;outline-offset:4px}</style>
 </head>
