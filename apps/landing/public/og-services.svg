@@ -5,9 +5,17 @@
   <path d="M76 80h72" fill="none" stroke="#245b82" stroke-width="5"/>
   <path d="M156 80h36" fill="none" stroke="#dcc678" stroke-width="5"/>
   <g transform="translate(1032 64) scale(1.5)">
-    <rect width="64" height="64" rx="12" fill="#163a56"/>
-    <path d="M13 18v26M26 18v26M13 31h13M36 44V18l8 14 8-14v26" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/>
-    <path d="M13 53h39" fill="none" stroke="#dcc678" stroke-width="3"/>
+    <rect width="64" height="64" rx="16" fill="#07111f" />
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#24364a" stroke-width="2" />
+  <path
+    d="M15 47V18L32 35L49 18V40"
+    fill="none"
+    stroke="#f7fbff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="7"
+  />
+  <circle cx="49" cy="50" r="5" fill="#43d9f5" />
   </g>
   <g font-family="IBM Plex Sans, Noto Sans, sans-serif">
     <text x="72" y="250" font-size="82" font-weight="600" letter-spacing="-2" fill="#1d2b36">Hugo Martin</text>
