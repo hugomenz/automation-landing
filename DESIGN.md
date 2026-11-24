@@ -46,7 +46,7 @@ Default radius is 10px and control radius is 8px. Prefer borders and spacing ove
 
 - Visible name: Hugo Martin.
 - Header subtitle: Angular · Copilot · Automatisierung, or the English equivalent.
-- Use the HM mark at `/hugo-martin-mark.svg`. The former asset URL remains an alias for compatibility.
+- Use the original M mark at `/hugo-martin-m.svg`: a white rounded M on navy with a cyan dot. Preserve this original mark. The former asset URLs remain aliases for compatibility.
 - Header navigation covers Angular, GitHub Copilot, automation, about and contact.
 - The primary header action starts a general project conversation.
 - Language links use the current page's registered alternate. If a German-only page links to the English home, its accessible label must say so.
