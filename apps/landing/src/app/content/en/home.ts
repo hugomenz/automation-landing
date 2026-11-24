@@ -9,44 +9,50 @@ export const HOME_EN = {
   seo: pageSeo(
     'en',
     '/en/',
-    'Angular, GitHub Copilot & Automation | Hugo Martin',
-    'Hugo Martin in Stuttgart: Angular applications, GitHub Copilot skills and agents, and process automation for small businesses and development teams.',
+    'AI Agents & Process Automation | Hugo Martin',
+    'AI agents, MCP and API integration, process automation and custom web applications. IT services from Hugo Martin in Stuttgart and remotely.',
     PAGE_PAIRS.home,
   ),
   header: pageHeader('en', '/'),
   breadcrumbs: [{ label: 'Home', path: '/en/' }],
   hero: {
-    kicker: 'Technical services · Stuttgart',
-    h1: 'Build with Angular. Set up Copilot. Automate workflows.',
-    lead: 'I am Hugo Martin. I support small businesses and development teams with web applications, internal tools and automated workflows. I work directly with you, alongside my main role, with a clear project scope.',
+    kicker: 'IT services · Stuttgart',
+    h1: 'Integrate AI agents. Automate processes. Build applications.',
+    lead: 'I am Hugo Martin. I support small businesses and development teams with AI agents, connected workflows and custom web applications. I connect existing tools and data through MCP and APIs.',
     primaryCta: contactAction('en'),
-    secondaryCta: { label: 'Explore services', href: '/en/#services' },
+    secondaryCta: { label: 'Explore services', href: '/en/services/' },
     trustLine: 'One point of contact · specific tasks · documented handover',
     diagram: projectDiagram('en'),
   },
   sections: [
     {
       id: 'services',
-      heading: 'Three areas of technical support',
-      intro: 'We start with a specific task in your application, your development work or a recurring business process.',
+      heading: 'Technical implementation for your workflows',
+      intro: 'We start with the task: which information is needed, which systems are involved and which step should become easier?',
       items: [
         {
           label: '01',
-          title: 'Angular development',
-          body: 'Build web applications and internal tools, extend existing applications and implement existing design systems as Angular component libraries.',
-          link: { label: 'Explore Angular development', href: '/en/angular-development/' },
+          title: 'AI agents and MCP integration',
+          body: 'Set up agents for specific tasks and connect them to existing tools and data through MCP or APIs. Define their tasks, access and review steps.',
+          link: { label: 'Explore AI agents and MCP', href: '/en/github-copilot/' },
         },
         {
           label: '02',
-          title: 'GitHub Copilot and Developer Experience',
-          body: 'Set up custom skills and agents, coordinate tasks between agents and automate recurring development work.',
-          link: { label: 'Explore GitHub Copilot support', href: '/en/github-copilot/' },
+          title: 'Process automation and API integration',
+          body: 'Connect forms, email, CRM and other systems. Build recurring workflows with n8n, Make or Power Automate and simplify manual handovers.',
+          link: { label: 'Explore process automation', href: '/en/process-automation/' },
         },
         {
           label: '03',
-          title: 'Process automation',
-          body: 'Connect forms, email, CRM and other systems through APIs. Build recurring administrative workflows with n8n, Make or Power Automate.',
-          link: { label: 'Explore process automation', href: '/en/process-automation/' },
+          title: 'Custom web applications',
+          body: 'Build web apps and internal tools with Angular, extend existing applications and implement existing design systems as component libraries.',
+          link: { label: 'Explore web applications', href: '/en/angular-development/' },
+        },
+        {
+          label: '04',
+          title: 'AI-assisted development workflows',
+          body: 'Adapt GitHub Copilot to your repository with project knowledge, custom skills and agents. Coordinate tasks and automate recurring development work.',
+          link: { label: 'Explore development workflows', href: '/en/github-copilot/#development' },
         },
       ],
       layout: 'list',
@@ -57,12 +63,12 @@ export const HOME_EN = {
       intro: 'These examples show possible project scopes. Together, we choose the part you need.',
       items: [
         {
-          title: 'An internal form connected to your data',
-          body: 'A team enters data in an Angular application. Fields, validation and the API connection are built around one clear workflow.',
+          title: 'An agent connected to an existing tool',
+          body: 'Define a specific task, connect the suitable MCP server or API and check the workflow with agreed examples.',
         },
         {
-          title: 'A Copilot workflow for your repository',
-          body: 'Project knowledge, recurring steps and review criteria become instructions, skills and agents for a selected development task.',
+          title: 'An internal tool connected to data',
+          body: 'A team enters or reviews data in an Angular application. Forms, validation and API connections are built for the agreed workflow.',
         },
         {
           title: 'A workflow between two existing tools',
@@ -86,7 +92,7 @@ export const HOME_EN = {
       heading: 'Hugo Martin. Technical background, practical development.',
       paragraphs: [
         'I moved from mechanical engineering into software development. Today, I work as a UX Engineer at EPLAN on a shared Angular component library and tools for developers.',
-        'A main focus is GitHub Copilot: custom skills and agents, coordination between them and automated development workflows. This technical experience also shapes my independent work.',
+        'A main focus is AI-assisted development with GitHub Copilot: custom skills and agents, MCP connections and coordination of recurring tasks. This technical experience also shapes my independent work.',
       ],
       links: [{ label: 'More about me', href: '/en/about/' }],
       layout: 'profile',
@@ -102,7 +108,7 @@ export const HOME_EN = {
       },
       {
         question: 'Can you help with an existing system?',
-        answer: 'Yes. A focused feature, an Angular component, a Copilot workflow or one integration can be a useful starting point.',
+        answer: 'Yes. An MCP or API connection, an agent workflow, a feature or an Angular component can be a useful starting point.',
       },
       {
         question: 'How do we agree on price and availability?',

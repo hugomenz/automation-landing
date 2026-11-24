@@ -13,6 +13,7 @@ import type { PageDefinition, PageKey, PagePath } from './content/page.types';
 
 const REQUIRED_PATHS = [
   '/',
+  '/leistungen/',
   '/leistungen/angular-entwicklung/',
   '/leistungen/github-copilot/',
   '/leistungen/prozessautomatisierung/',
@@ -21,6 +22,7 @@ const REQUIRED_PATHS = [
   '/standorte/stuttgart/',
   '/n8n-beratung-stuttgart/',
   '/en/',
+  '/en/services/',
   '/en/angular-development/',
   '/en/github-copilot/',
   '/en/process-automation/',
@@ -50,7 +52,7 @@ function sortedAlternates(page: PageDefinition): readonly string[] {
 }
 
 describe('public service page registry', () => {
-  it('publishes the 14 agreed routes and passes registry validation', () => {
+  it('publishes the 16 agreed routes and passes registry validation', () => {
     expect(PAGE_REGISTRY).toHaveLength(REQUIRED_PATHS.length);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
@@ -131,9 +133,9 @@ describe('public service page registry', () => {
 });
 
 describe('bilingual pages', () => {
-  it('publishes six reciprocal language pairs, with German as x-default', () => {
+  it('publishes seven reciprocal language pairs, with German as x-default', () => {
     const translated = PAGE_REGISTRY.filter((page) => page.seo.alternates?.length);
-    expect(translated).toHaveLength(12);
+    expect(translated).toHaveLength(14);
     for (const page of translated) {
       const alternates = getAbsoluteHreflangAlternates(page);
       expect(new Set(alternates.map(({ hreflang }) => hreflang))).toEqual(

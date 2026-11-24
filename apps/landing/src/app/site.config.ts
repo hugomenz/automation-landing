@@ -13,7 +13,7 @@ export const siteConfig = {
     jobTitle: 'UX Engineer',
   },
   socialImage: {
-    src: '/og-services.png',
+    src: '/og-ai-services.png',
     width: 1200,
     height: 630,
   },
@@ -23,6 +23,11 @@ export const siteConfig = {
   },
   areaServed: ['Stuttgart', 'Baden-Württemberg', 'Deutschland', 'DACH'],
   knowsAbout: [
+    'KI-Agenten',
+    'Prozessautomatisierung',
+    'Model Context Protocol (MCP)',
+    'MCP- und API-Integration',
+    'Individuelle Web-Anwendungen',
     'Angular',
     'TypeScript',
     'Angular-Komponentenbibliotheken',
@@ -31,7 +36,6 @@ export const siteConfig = {
     'KI-Agenten und Skills',
     'Agenten-Orchestrierung',
     'Developer Experience',
-    'Prozessautomatisierung',
     'n8n',
     'Make',
     'Power Automate',

@@ -45,9 +45,9 @@ describe('sitemap and robots', () => {
     expect(sitemap).not.toMatch(/<(?:changefreq|priority)>/i);
   });
 
-  it('matches reciprocal registry alternates for the six translated pairs', () => {
+  it('matches reciprocal registry alternates for the seven translated pairs', () => {
     const byLocation = new Map(urlBlocks.map((block) => [sitemapLocations(block)[0], block]));
-    expect(urlBlocks.filter((block) => alternateLinks(block).length)).toHaveLength(12);
+    expect(urlBlocks.filter((block) => alternateLinks(block).length)).toHaveLength(14);
     for (const page of PAGE_REGISTRY) {
       const block = byLocation.get(getCanonicalUrl(page));
       expect(block, page.key).toBeDefined();

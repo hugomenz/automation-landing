@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <title>Hugo Martin: Angular, GitHub Copilot und Automatisierung</title>
-  <desc>Technische Unterstützung. Klarer Umfang. hugomenz.de</desc>
+  <title>Hugo Martin: KI-Agenten und Prozessautomatisierung</title>
+  <desc>MCP- und API-Integration. Individuelle Web-Anwendungen. hugomenz.de</desc>
   <rect width="1200" height="630" fill="#f7f8f5"/>
   <path d="M76 80h72" fill="none" stroke="#245b82" stroke-width="5"/>
   <path d="M156 80h36" fill="none" stroke="#dcc678" stroke-width="5"/>
@@ -19,8 +19,8 @@
   </g>
   <g font-family="IBM Plex Sans, Noto Sans, sans-serif">
     <text x="72" y="250" font-size="82" font-weight="600" letter-spacing="-2" fill="#1d2b36">Hugo Martin</text>
-    <text x="76" y="326" font-size="35" font-weight="500" fill="#245b82">Angular · GitHub Copilot · Automatisierung</text>
-    <text x="76" y="392" font-size="29" fill="#4c5e6a">Technische Unterstützung. Klarer Umfang.</text>
+    <text x="76" y="326" font-size="35" font-weight="500" fill="#245b82">KI-Agenten &amp; Prozessautomatisierung</text>
+    <text x="76" y="392" font-size="29" fill="#4c5e6a">MCP- &amp; API-Integration · Web-Anwendungen</text>
   </g>
   <path d="M76 478h1052" fill="none" stroke="#d7e1e6" stroke-width="2"/>
   <text x="76" y="546" font-family="IBM Plex Mono, DejaVu Sans Mono, monospace" font-size="25" fill="#245b82">hugomenz.de</text>

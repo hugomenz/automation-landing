@@ -20,16 +20,16 @@ interface NavigationItem {
 
 const NAVIGATION: Record<PageLanguage, readonly NavigationItem[]> = {
   de: [
-    { label: 'Angular', path: '/leistungen/angular-entwicklung/', pageKey: 'angular-development-de' },
-    { label: 'GitHub Copilot', path: '/leistungen/github-copilot/', pageKey: 'github-copilot-de' },
+    { label: 'KI-Agenten & MCP', path: '/leistungen/github-copilot/', pageKey: 'github-copilot-de' },
     { label: 'Automatisierung', path: '/leistungen/prozessautomatisierung/', pageKey: 'process-automation-de' },
+    { label: 'Web-Apps', path: '/leistungen/angular-entwicklung/', pageKey: 'angular-development-de' },
     { label: 'Über mich', path: '/ueber-hugo-martin/', pageKey: 'about-hugo-martin-de' },
     { label: 'Kontakt', path: '/kontakt/', pageKey: 'contact-de' },
   ],
   en: [
-    { label: 'Angular', path: '/en/angular-development/', pageKey: 'angular-development-en' },
-    { label: 'GitHub Copilot', path: '/en/github-copilot/', pageKey: 'github-copilot-en' },
+    { label: 'AI agents & MCP', path: '/en/github-copilot/', pageKey: 'github-copilot-en' },
     { label: 'Automation', path: '/en/process-automation/', pageKey: 'process-automation-en' },
+    { label: 'Web apps', path: '/en/angular-development/', pageKey: 'angular-development-en' },
     { label: 'About', path: '/en/about/', pageKey: 'about-hugo-martin-en' },
     { label: 'Contact', path: '/en/contact/', pageKey: 'contact-en' },
   ],
@@ -56,7 +56,7 @@ export class HeaderComponent {
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          subtitle: 'Angular · Copilot · Automatisierung',
+          subtitle: 'KI-Agenten · Automatisierung · Web-Apps',
           brandLabel: 'Hugo Martin: Startseite',
           navigationLabel: 'Hauptnavigation',
           menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
@@ -69,7 +69,7 @@ export class HeaderComponent {
           cta: 'Projekt besprechen',
         }
       : {
-          subtitle: 'Angular · Copilot · Automation',
+          subtitle: 'AI agents · Automation · Web apps',
           brandLabel: 'Hugo Martin: English home',
           navigationLabel: 'Primary navigation',
           menuLabel: this.menuOpen() ? 'Close menu' : 'Open menu',

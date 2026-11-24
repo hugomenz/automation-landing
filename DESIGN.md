@@ -2,9 +2,9 @@
 
 ## Position and visual idea
 
-The site presents Hugo Martin's independent services in three connected areas: Angular development, GitHub Copilot and developer workflows, and process automation. The service pages explain practical work, scope and collaboration. The site must not present a packaged RFQ product or imply that visual UX/UI design is offered.
+The site presents Hugo Martin's independent IT services with AI agents and process automation first, followed by MCP/API integration, custom web applications and AI-assisted development workflows. The service pages explain practical work, scope and collaboration. The site must not present a packaged RFQ product or imply that visual UX/UI design is offered.
 
-Angular work covers applications, internal tools, component libraries and the technical implementation of existing design systems. Copilot work is described through concrete capabilities such as agent configuration, reusable skills, coordinated tasks and development automation. Claims must remain grounded in Hugo's actual experience.
+MCP is explained through its use: connecting AI applications with tools and context. Agent work covers defined tasks, relevant integrations, reusable skills and coordinated steps. Angular work covers web applications, internal tools, component libraries and the technical implementation of existing design systems. GitHub Copilot is a concrete development specialty within this wider offer. Claims must remain grounded in Hugo's actual experience.
 
 The visual language is a light technical workspace. Keep precise typography, thin rules, structured rows and compact process labels. White, restrained blue and a small warm yellow accent echo the Canary Islands without using a large flag or emblem.
 
@@ -45,9 +45,10 @@ Default radius is 10px and control radius is 8px. Prefer borders and spacing ove
 ## Identity and navigation
 
 - Visible name: Hugo Martin.
-- Header subtitle: Angular · Copilot · Automatisierung, or the English equivalent.
+- Header subtitle: KI-Agenten · Automatisierung · Web-Apps, or the English equivalent.
 - Use the original M mark at `/hugo-martin-m.svg`: a white rounded M on navy with a cyan dot. Preserve this original mark. The former asset URLs remain aliases for compatibility.
-- Header navigation covers Angular, GitHub Copilot, automation, about and contact.
+- Header navigation covers AI agents/MCP, automation, web apps, about and contact. Existing detailed service routes remain stable.
+- The service overview at `/leistungen/` and `/en/services/` provides a concise introduction and a current destination for profile media.
 - The primary header action starts a general project conversation.
 - Language links use the current page's registered alternate. If a German-only page links to the English home, its accessible label must say so.
 - No RFQ demo CTA or old product slogan in shared navigation.
@@ -58,7 +59,9 @@ The LinkedIn covers use a navy background, the clean M from the supplied `ChatGP
 
 Both PNG sources are 2172 × 724 pixels and are stored without resizing or pixel edits. Use a centred 4:1 crop for `linkedin-profile-banner.png` and a centred 6:1 crop for `linkedin-company-banner.png`. The `linkedin_banner.png` compatibility alias matches the company cover. Keep the left area clear for LinkedIn's portrait or company logo.
 
-The exact banner text is `Hugo Martin`, `Angular · GitHub Copilot · Automatisierung` and `hugomenz.de`. Do not add RFQ claims, UX/UI services, credentials or a second wordmark. The auxiliary `/brand-assets.html` download page previews the intended crops and stays outside the navigation and sitemap with `noindex`.
+Both banners use `KI-Agenten & Prozessautomatisierung` as the service line and `MCP- & API-Integration · Individuelle Anwendungen` as the supporting line. Angular and GitHub Copilot belong in the detailed offer. Keep `Hugo Martin` and `hugomenz.de`. Do not add RFQ claims, UX/UI services, credentials or a second wordmark. The auxiliary `/brand-assets.html` download page previews the intended crops and stays outside the navigation and sitemap with `noindex`.
+
+The current website social preview uses the native vector source `og-services.svg`, exported as `og-ai-services.png`. Keep the light website treatment, the original M and the same service hierarchy. `og-services.png` remains a compatibility copy. Raster LinkedIn banners are managed separately and must not be silently overwritten by social-preview exports.
 
 ## Components
 

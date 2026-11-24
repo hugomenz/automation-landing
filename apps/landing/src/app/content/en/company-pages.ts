@@ -9,8 +9,8 @@ export const ABOUT_HUGO_MARTIN_EN = {
   seo: pageSeo(
     'en',
     '/en/about/',
-    'About Hugo Martin | Angular, Copilot & Automation',
-    'My path from mechanical engineering to software development. I offer personal support with Angular, GitHub Copilot and process automation from Stuttgart.',
+    'About Hugo Martin | AI Agents & IT Services',
+    'My path from mechanical engineering to software development. Personal IT services with AI agents, MCP, process automation and Angular from Stuttgart.',
     PAGE_PAIRS.about,
   ),
   header: pageHeader('en', PAGE_PAIRS.about[0]),
@@ -21,7 +21,7 @@ export const ABOUT_HUGO_MARTIN_EN = {
   hero: {
     kicker: 'Hugo Martin · Stuttgart',
     h1: 'Technical work with the whole workflow in mind',
-    lead: 'My background is in mechanical engineering, and I now work in software development. I focus on Angular, GitHub Copilot and automating recurring tasks.',
+    lead: 'My background is in mechanical engineering, and I now work in software development. I combine application development with AI agents, MCP connections and automation of recurring tasks.',
     primaryCta: contactAction('en'),
     secondaryCta: {
       label: 'My LinkedIn profile',
@@ -42,7 +42,7 @@ export const ABOUT_HUGO_MARTIN_EN = {
       heading: 'From mechanical engineering to applications and development workflows',
       paragraphs: [
         'My career started in mechanical engineering, mechanical design and technical project work. It taught me to clarify requirements, understand dependencies and explain technical decisions.',
-        'Today, I work at EPLAN as a UX Engineer. My work includes Angular, shared component libraries, internal tools and development workflows. I also work with GitHub Copilot, custom skills, agents and automation.',
+        'Today, I work at EPLAN as a UX Engineer. My work includes Angular, shared component libraries, internal tools and development workflows. I also work with GitHub Copilot, custom skills, agents and automation, and explore MCP connections and coordinated agent workflows.',
       ],
       layout: 'text',
     },
@@ -51,19 +51,19 @@ export const ABOUT_HUGO_MARTIN_EN = {
       heading: 'How I can support your project',
       items: [
         {
-          title: 'Angular',
-          body: 'Develop applications, internal tools and component libraries. I implement existing design systems in Angular.',
-          link: { label: 'Angular development', href: '/en/angular-development/' },
-        },
-        {
-          title: 'GitHub Copilot and Developer Experience',
-          body: 'Set up project knowledge, custom skills and agents, and coordinated development workflows in your repository.',
-          link: { label: 'GitHub Copilot', href: '/en/github-copilot/' },
+          title: 'AI agents, MCP and development workflows',
+          body: 'Connect agents to tools and data, configure MCP connections and adapt GitHub Copilot to development tasks with custom skills.',
+          link: { label: 'AI agents and MCP', href: '/en/github-copilot/' },
         },
         {
           title: 'Process automation',
           body: 'Connect recurring tasks with n8n, Make, Power Automate and existing APIs.',
           link: { label: 'Process automation', href: '/en/process-automation/' },
+        },
+        {
+          title: 'Custom web applications',
+          body: 'Develop applications, internal tools and component libraries. I implement existing design systems in Angular.',
+          link: { label: 'Angular development', href: '/en/angular-development/' },
         },
       ],
       layout: 'list',
@@ -98,7 +98,7 @@ export const CONTACT_EN = {
     'en',
     '/en/contact/',
     'Contact Hugo Martin | Discuss Your Technical Project',
-    'Discuss your Angular, GitHub Copilot or process automation task. Contact Hugo Martin directly in Stuttgart for a clearly scoped technical project.',
+    'Discuss your AI agent, MCP integration, process automation or custom web application. Contact Hugo Martin directly in Stuttgart.',
     PAGE_PAIRS.contact,
   ),
   header: pageHeader('en', PAGE_PAIRS.contact[0]),
@@ -109,7 +109,7 @@ export const CONTACT_EN = {
   hero: {
     kicker: 'Contact · Project enquiry',
     h1: 'What technical task do you need help with?',
-    lead: 'Whether it involves Angular, GitHub Copilot or process automation, describe the task, your existing tools and the result you need.',
+    lead: 'Whether it involves AI agents, MCP integration, process automation or a web application, describe the task, your existing tools and the result you need.',
     primaryCta: contactAction('en', 'general', 'Send an enquiry'),
     trustLine: 'Direct contact with Hugo Martin · Stuttgart and remote',
   },
@@ -131,19 +131,19 @@ export const CONTACT_EN = {
       heading: 'What is your project about?',
       items: [
         {
-          title: 'Angular development',
-          body: 'Applications, component libraries, internal tools and API connections.',
-          link: contactAction('en', 'angular', 'Discuss an Angular task'),
-        },
-        {
-          title: 'GitHub Copilot',
-          body: 'Skills, agents, orchestration and automated development workflows.',
-          link: contactAction('en', 'copilot', 'Discuss a Copilot task'),
+          title: 'AI agents and MCP',
+          body: 'MCP and API connections, custom skills, agent orchestration and GitHub Copilot.',
+          link: contactAction('en', 'copilot', 'Discuss an agent task'),
         },
         {
           title: 'Process automation',
           body: 'Connect workflows across forms, email, CRM and other systems.',
           link: contactAction('en', 'process-automation', 'Discuss a workflow'),
+        },
+        {
+          title: 'Web applications with Angular',
+          body: 'Applications, component libraries, internal tools and API connections.',
+          link: contactAction('en', 'angular', 'Discuss an Angular task'),
         },
       ],
       layout: 'list',
