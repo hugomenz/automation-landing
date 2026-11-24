@@ -7,7 +7,7 @@ const DIST_ROOT = fileURLToPath(new URL('../dist/landing/browser/', import.meta.
 const MINIMUM_MAIN_CHARACTERS = 500;
 const MINIMUM_MAIN_WORDS = 70;
 const SOCIAL_IMAGE_PATH = '/og-services.png';
-const FAVICON_PATH = '/hugo-martin-mark.svg';
+const FAVICON_PATH = '/hugo-martin-m.svg';
 const sitemap = readFileSync(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
 const legacyRedirects = JSON.parse(
   readFileSync(new URL('../src/app/legacy-redirects.json', import.meta.url), 'utf8'),
