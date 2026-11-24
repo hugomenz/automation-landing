@@ -18,9 +18,10 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
     {
       label: 'Leistungen',
       links: [
-        { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
-        { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+        { label: 'KI-Agenten & MCP', href: '/leistungen/github-copilot/' },
         { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
+        { label: 'Individuelle Web-Anwendungen', href: '/leistungen/angular-entwicklung/' },
+        { label: 'Alle Leistungen', href: '/leistungen/' },
       ],
     },
     {
@@ -36,9 +37,10 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
     {
       label: 'Services',
       links: [
-        { label: 'Angular development', href: '/en/angular-development/' },
-        { label: 'GitHub Copilot', href: '/en/github-copilot/' },
+        { label: 'AI agents & MCP', href: '/en/github-copilot/' },
         { label: 'Process automation', href: '/en/process-automation/' },
+        { label: 'Custom web applications', href: '/en/angular-development/' },
+        { label: 'All services', href: '/en/services/' },
       ],
     },
     {
@@ -67,14 +69,14 @@ export class SiteFooterComponent {
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          description: 'Angular-Anwendungen, GitHub Copilot und praktische Automatisierung für Unternehmen und Entwicklungsteams.',
+          description: 'KI-Agenten, MCP- und API-Integration, Prozessautomatisierung und individuelle Web-Anwendungen für Unternehmen und Entwicklungsteams.',
           groups: FOOTER_GROUPS.de,
           languageLabel: this.languagePath() === '/en/' && this.pageLocale.pageKey() !== 'home-de'
             ? 'English home'
             : 'English',
         }
       : {
-          description: 'Angular applications, GitHub Copilot and practical automation for businesses and development teams.',
+          description: 'AI agents, MCP and API integration, process automation and custom web applications for businesses and development teams.',
           groups: FOOTER_GROUPS.en,
           languageLabel: 'Deutsch',
         },

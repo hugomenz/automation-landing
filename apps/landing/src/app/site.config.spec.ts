@@ -29,7 +29,7 @@ describe('siteConfig', () => {
 
   it('uses the services social preview with its declared dimensions', () => {
     expect(siteConfig.socialImage).toEqual({
-      src: '/og-services.png',
+      src: '/og-ai-services.png',
       width: 1200,
       height: 630,
     });

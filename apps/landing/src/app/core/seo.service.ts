@@ -145,8 +145,8 @@ export class SeoService {
       name: siteConfig.brandName,
       url: siteConfig.baseUrl,
       description: page.lang === 'de'
-        ? 'Technische Unterstützung für Angular, GitHub Copilot und Prozessautomatisierung.'
-        : 'Technical support for Angular, GitHub Copilot and process automation.',
+        ? 'IT-Dienstleistungen für KI-Agenten, MCP- und API-Integration, Prozessautomatisierung und individuelle Web-Anwendungen.'
+        : 'IT services for AI agents, MCP and API integration, process automation and custom web applications.',
       image: resolveAbsoluteUrl(siteConfig.socialImage.src),
       founder: { '@id': `${siteConfig.baseUrl}#person` },
     };

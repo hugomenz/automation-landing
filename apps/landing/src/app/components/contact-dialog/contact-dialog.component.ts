@@ -57,7 +57,7 @@ const GENERAL_CONTACT_COPY = {
     eyebrow: 'Kontakt mit Hugo Martin',
     title: 'Wobei brauchen Sie Unterstützung?',
     body:
-      'Beschreiben Sie kurz Ihr Vorhaben: eine Angular-Anwendung, GitHub Copilot und Agenten oder einen Ablauf, den Sie automatisieren möchten.',
+      'Beschreiben Sie kurz Ihr Vorhaben: KI-Agenten, eine MCP- oder API-Anbindung, ein automatisierter Ablauf oder eine individuelle Web-Anwendung.',
     confidentiality:
       'Eine kurze Beschreibung genügt. Bitte senden Sie keine Passwörter oder vertraulichen Daten.',
     closeLabel: 'Kontaktformular schließen',
@@ -89,7 +89,7 @@ const GENERAL_CONTACT_COPY = {
     eyebrow: 'Contact Hugo Martin',
     title: 'How can I help?',
     body:
-      'Briefly describe your project: an Angular application, GitHub Copilot and agents, or a process you want to automate.',
+      'Briefly describe your project: AI agents, an MCP or API connection, an automated workflow or a custom web application.',
     confidentiality:
       'A short description is enough. Please do not send passwords or confidential data.',
     closeLabel: 'Close contact form',
@@ -147,25 +147,25 @@ const ANGULAR_CONTACT_COPY = {
 const COPILOT_CONTACT_COPY = {
   de: {
     ...GENERAL_CONTACT_COPY.de,
-    eyebrow: 'GitHub Copilot & Agenten',
-    title: 'Welche Entwicklungsaufgabe möchten Sie vereinfachen?',
+    eyebrow: 'KI-Agenten & MCP',
+    title: 'Welche Aufgabe möchten Sie mit KI unterstützen?',
     body:
-      'Beschreiben Sie, wie Ihr Team heute arbeitet und wo eigene Skills, Agenten oder automatisierte Abläufe helfen könnten.',
-    message: 'Entwicklungsablauf und Ziel',
+      'Beschreiben Sie die Aufgabe und die Tools und Daten, die ein Agent nutzen soll. Auch bestehende Copilot-Einrichtungen, Skills und Entwicklungsabläufe können der Ausgangspunkt sein.',
+    message: 'Aufgabe, Tools und Ziel',
     messagePlaceholder:
-      'Wie nutzen Sie GitHub Copilot bereits? Welche Aufgaben sollen Skills oder Agenten unterstützen?',
-    messageRequired: 'Bitte beschreiben Sie kurz die Entwicklungsaufgabe.',
+      'Welche Daten und Tools soll der Agent nutzen? Gibt es bereits MCP-Server, APIs oder eine Copilot-Einrichtung?',
+    messageRequired: 'Bitte beschreiben Sie kurz die Aufgabe für den Agenten.',
   },
   en: {
     ...GENERAL_CONTACT_COPY.en,
-    eyebrow: 'GitHub Copilot & agents',
-    title: 'Which development task would you like to simplify?',
+    eyebrow: 'AI agents & MCP',
+    title: 'Which task would you like AI to support?',
     body:
-      'Describe how your team works today and where custom skills, agents or automated workflows could help.',
-    message: 'Development workflow and goal',
+      'Describe the task and the tools and data an agent should use. Existing Copilot setups, skills and development workflows can also be the starting point.',
+    message: 'Task, tools and goal',
     messagePlaceholder:
-      'How do you currently use GitHub Copilot? Which tasks should skills or agents support?',
-    messageRequired: 'Please briefly describe the development task.',
+      'Which data and tools should the agent use? Do you already have MCP servers, APIs or a Copilot setup?',
+    messageRequired: 'Please briefly describe the task for the agent.',
   },
 } as const;
 

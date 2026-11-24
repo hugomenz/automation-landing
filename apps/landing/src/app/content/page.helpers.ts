@@ -12,6 +12,7 @@ import type {
 
 export const PAGE_PAIRS = {
   home: ['/', '/en/'],
+  services: ['/leistungen/', '/en/services/'],
   angular: ['/leistungen/angular-entwicklung/', '/en/angular-development/'],
   copilot: ['/leistungen/github-copilot/', '/en/github-copilot/'],
   automation: ['/leistungen/prozessautomatisierung/', '/en/process-automation/'],
@@ -38,8 +39,8 @@ export function pageSeo(
 ): PageSeo {
   const imageAlt =
     lang === 'de'
-      ? 'Hugo Martin: Angular, GitHub Copilot und Prozessautomatisierung'
-      : 'Hugo Martin: Angular, GitHub Copilot and process automation';
+      ? 'Hugo Martin: KI-Agenten, Prozessautomatisierung, MCP-Integration und Web-Anwendungen'
+      : 'Hugo Martin: AI agents, process automation, MCP integration and web applications';
 
   return {
     title,
@@ -51,7 +52,7 @@ export function pageSeo(
       description,
       type: 'website',
       locale: lang === 'de' ? 'de_DE' : 'en_GB',
-      imagePath: '/og-services.png',
+      imagePath: '/og-ai-services.png',
       imageAlt,
       siteName: 'Hugo Martin',
     },
@@ -59,7 +60,7 @@ export function pageSeo(
       card: 'summary_large_image',
       title,
       description,
-      imagePath: '/og-services.png',
+      imagePath: '/og-ai-services.png',
       imageAlt,
     },
     ...(pair ? { alternates: translatedAlternates(pair) } : {}),
@@ -87,11 +88,11 @@ export function pageHeader(
   return lang === 'de'
     ? {
         brand: 'Hugo Martin',
-        subtitle: 'Angular · Copilot · Automatisierung',
+        subtitle: 'KI-Agenten · Automatisierung · Web-Apps',
         navigation: [
-          { label: 'Angular', href: PAGE_PAIRS.angular[0] },
-          { label: 'GitHub Copilot', href: PAGE_PAIRS.copilot[0] },
+          { label: 'KI-Agenten & MCP', href: PAGE_PAIRS.copilot[0] },
           { label: 'Automatisierung', href: PAGE_PAIRS.automation[0] },
+          { label: 'Web-Apps', href: PAGE_PAIRS.angular[0] },
           { label: 'Über mich', href: PAGE_PAIRS.about[0] },
           { label: 'EN', href: alternatePath, lang: 'en' },
         ],
@@ -99,11 +100,11 @@ export function pageHeader(
       }
     : {
         brand: 'Hugo Martin',
-        subtitle: 'Angular · Copilot · Automation',
+        subtitle: 'AI agents · Automation · Web apps',
         navigation: [
-          { label: 'Angular', href: PAGE_PAIRS.angular[1] },
-          { label: 'GitHub Copilot', href: PAGE_PAIRS.copilot[1] },
+          { label: 'AI agents & MCP', href: PAGE_PAIRS.copilot[1] },
           { label: 'Automation', href: PAGE_PAIRS.automation[1] },
+          { label: 'Web apps', href: PAGE_PAIRS.angular[1] },
           { label: 'About me', href: PAGE_PAIRS.about[1] },
           { label: 'DE', href: alternatePath, lang: 'de' },
         ],
@@ -120,8 +121,8 @@ export function pageFooter(lang: PageLanguage): PageFooterCopy {
         : 'Technical services, delivered personally alongside my main role.',
     secondaryLink:
       lang === 'de'
-        ? { label: 'n8n-Beratung in Stuttgart', href: '/n8n-beratung-stuttgart/' }
-        : { label: 'Contact Hugo Martin', href: '/en/contact/' },
+        ? { label: 'Alle Leistungen', href: '/leistungen/' }
+        : { label: 'All services', href: '/en/services/' },
   };
 }
 

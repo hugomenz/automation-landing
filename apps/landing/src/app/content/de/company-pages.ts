@@ -9,8 +9,8 @@ export const ABOUT_HUGO_MARTIN_DE = {
   seo: pageSeo(
     'de',
     '/ueber-hugo-martin/',
-    'Über Hugo Martin | Angular, Copilot & Automatisierung',
-    'Mein Weg vom Maschinenbau zur Softwareentwicklung. Ich unterstütze Sie persönlich mit Angular, GitHub Copilot und Prozessautomatisierung aus Stuttgart.',
+    'Über Hugo Martin | KI-Agenten & IT-Dienstleistungen',
+    'Mein Weg vom Maschinenbau zur Softwareentwicklung. Persönliche IT-Dienstleistungen mit KI-Agenten, MCP, Prozessautomatisierung und Angular aus Stuttgart.',
     PAGE_PAIRS.about,
   ),
   header: pageHeader('de', PAGE_PAIRS.about[1]),
@@ -21,7 +21,7 @@ export const ABOUT_HUGO_MARTIN_DE = {
   hero: {
     kicker: 'Hugo Martin · Stuttgart',
     h1: 'Technische Arbeit mit Blick auf den ganzen Ablauf',
-    lead: 'Ich komme aus dem Maschinenbau und arbeite heute in der Softwareentwicklung. Mein Schwerpunkt liegt auf Angular, GitHub Copilot und der Automatisierung wiederkehrender Aufgaben.',
+    lead: 'Ich komme aus dem Maschinenbau und arbeite heute in der Softwareentwicklung. Ich verbinde die Arbeit an Anwendungen mit KI-Agenten, MCP-Anbindungen und der Automatisierung wiederkehrender Aufgaben.',
     primaryCta: contactAction('de'),
     secondaryCta: {
       label: 'Mein Profil auf LinkedIn',
@@ -42,7 +42,7 @@ export const ABOUT_HUGO_MARTIN_DE = {
       heading: 'Vom Maschinenbau zu Anwendungen und Entwicklungsabläufen',
       paragraphs: [
         'Mein beruflicher Weg begann im Maschinenbau, in der Konstruktion und der technischen Projektarbeit. Dabei habe ich gelernt, Anforderungen zu klären, Abhängigkeiten zu verstehen und technische Entscheidungen nachvollziehbar zu machen.',
-        'Heute arbeite ich bei EPLAN als UX Engineer. Dort beschäftige ich mich mit Angular, gemeinsamen Komponentenbibliotheken, internen Tools und Entwicklungsabläufen. Auch GitHub Copilot mit individuellen Skills, Agents und Automatisierung gehört zu meiner technischen Arbeit.',
+        'Heute arbeite ich bei EPLAN als UX Engineer. Dort beschäftige ich mich mit Angular, gemeinsamen Komponentenbibliotheken, internen Tools und Entwicklungsabläufen. Auch GitHub Copilot mit eigenen Skills, Agenten und Automatisierung gehört zu meiner technischen Arbeit. Dabei erprobe ich MCP-Anbindungen und koordinierte Agenten-Workflows.',
       ],
       layout: 'text',
     },
@@ -51,19 +51,19 @@ export const ABOUT_HUGO_MARTIN_DE = {
       heading: 'Wobei ich Sie unterstützen kann',
       items: [
         {
-          title: 'Angular',
-          body: 'Anwendungen, interne Tools und Komponentenbibliotheken entwickeln. Bestehende Designsysteme setze ich technisch in Angular um.',
-          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
-        },
-        {
-          title: 'GitHub Copilot und Developer Experience',
-          body: 'Projektwissen, individuelle Skills und Agents sowie abgestimmte Entwicklungsabläufe in Ihrem Repository einrichten.',
-          link: { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+          title: 'KI-Agenten, MCP und Entwicklungsabläufe',
+          body: 'Agenten mit Tools und Daten verbinden, MCP-Anbindungen einrichten und GitHub Copilot mit eigenen Skills auf Entwicklungsaufgaben abstimmen.',
+          link: { label: 'KI-Agenten und MCP', href: '/leistungen/github-copilot/' },
         },
         {
           title: 'Prozessautomatisierung',
           body: 'Wiederkehrende Aufgaben mit n8n, Make, Power Automate und vorhandenen APIs verbinden.',
           link: { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
+        },
+        {
+          title: 'Individuelle Web-Anwendungen',
+          body: 'Anwendungen, interne Tools und Komponentenbibliotheken entwickeln. Bestehende Designsysteme setze ich technisch in Angular um.',
+          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
         },
       ],
       layout: 'list',
@@ -98,7 +98,7 @@ export const CONTACT_DE = {
     'de',
     '/kontakt/',
     'Kontakt zu Hugo Martin | Ihr technisches Projekt besprechen',
-    'Sprechen wir über Ihre Aufgabe mit Angular, GitHub Copilot oder Prozessautomatisierung. Persönlicher Kontakt zu Hugo Martin in Stuttgart.',
+    'Sprechen wir über KI-Agenten, MCP-Integration, Prozessautomatisierung oder eine individuelle Web-Anwendung. Persönlicher Kontakt zu Hugo Martin in Stuttgart.',
     PAGE_PAIRS.contact,
   ),
   header: pageHeader('de', PAGE_PAIRS.contact[1]),
@@ -109,7 +109,7 @@ export const CONTACT_DE = {
   hero: {
     kicker: 'Kontakt · Projektanfrage',
     h1: 'Wobei kann ich Sie technisch unterstützen?',
-    lead: 'Ob Angular, GitHub Copilot oder Prozessautomatisierung: Beschreiben Sie die Aufgabe, Ihre vorhandenen Tools und das gewünschte Ergebnis.',
+    lead: 'Ob KI-Agenten, MCP-Integration, Prozessautomatisierung oder eine Web-Anwendung: Beschreiben Sie die Aufgabe, Ihre vorhandenen Tools und das gewünschte Ergebnis.',
     primaryCta: contactAction('de', 'general', 'Anfrage schreiben'),
     trustLine: 'Direkter Kontakt mit Hugo Martin · Stuttgart und remote',
   },
@@ -131,19 +131,19 @@ export const CONTACT_DE = {
       heading: 'Worum geht es in Ihrem Projekt?',
       items: [
         {
-          title: 'Angular-Entwicklung',
-          body: 'Anwendungen, Komponentenbibliotheken, interne Tools und API-Anbindungen.',
-          link: contactAction('de', 'angular', 'Angular-Aufgabe besprechen'),
-        },
-        {
-          title: 'GitHub Copilot',
-          body: 'Skills, Agents, Orchestrierung und automatisierte Entwicklungsabläufe.',
-          link: contactAction('de', 'copilot', 'Copilot-Aufgabe besprechen'),
+          title: 'KI-Agenten und MCP',
+          body: 'MCP- und API-Anbindungen, eigene Skills, Agenten-Orchestrierung und GitHub Copilot.',
+          link: contactAction('de', 'copilot', 'Agenten-Aufgabe besprechen'),
         },
         {
           title: 'Prozessautomatisierung',
           body: 'Abläufe zwischen Formularen, E-Mail, CRM und weiteren Systemen verbinden.',
           link: contactAction('de', 'process-automation', 'Ablauf besprechen'),
+        },
+        {
+          title: 'Web-Anwendungen mit Angular',
+          body: 'Anwendungen, Komponentenbibliotheken, interne Tools und API-Anbindungen.',
+          link: contactAction('de', 'angular', 'Angular-Aufgabe besprechen'),
         },
       ],
       layout: 'list',
@@ -183,8 +183,8 @@ export const STUTTGART = {
   seo: pageSeo(
     'de',
     '/standorte/stuttgart/',
-    'Technische Unterstützung in Stuttgart | Hugo Martin',
-    'Hugo Martin in Stuttgart: persönliche Unterstützung bei Angular, GitHub Copilot und Prozessautomatisierung. Klar abgegrenzte Projekte, auch remote.',
+    'IT-Dienstleistungen in Stuttgart | Hugo Martin',
+    'Hugo Martin in Stuttgart: KI-Agenten, MCP- und API-Integration, Prozessautomatisierung und individuelle Web-Anwendungen. Direkte Zusammenarbeit, auch remote.',
   ),
   header: pageHeader('de', '/en/'),
   breadcrumbs: [
@@ -193,7 +193,7 @@ export const STUTTGART = {
   ],
   hero: {
     kicker: 'Stuttgart · Baden-Württemberg · remote',
-    h1: 'Angular, Copilot und Automatisierung aus Stuttgart',
+    h1: 'KI-Agenten und Prozessautomatisierung aus Stuttgart',
     lead: 'Ich unterstütze kleine Unternehmen und Entwicklungsteams bei konkreten technischen Aufgaben. Sie arbeiten direkt mit mir, mit einem vereinbarten Umfang und einer nachvollziehbaren Übergabe.',
     primaryCta: contactAction('de'),
     secondaryCta: { label: 'Über mich', href: '/ueber-hugo-martin/' },
@@ -202,22 +202,22 @@ export const STUTTGART = {
   sections: [
     {
       id: 'unterstuetzung',
-      heading: 'Drei Bereiche für Ihr technisches Projekt',
+      heading: 'Technische Umsetzung für Ihr Projekt',
       items: [
         {
-          title: 'Angular-Anwendungen und Komponenten',
-          body: 'Eine Anwendung erweitern, ein internes Tool entwickeln oder ein bestehendes Designsystem in einer Angular-Komponentenbibliothek umsetzen.',
-          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
-        },
-        {
-          title: 'Copilot im Entwicklungsalltag',
-          body: 'GitHub Copilot mit Projektwissen, Skills und Agents auf konkrete Aufgaben im Repository abstimmen.',
-          link: { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+          title: 'KI-Agenten, MCP und Copilot',
+          body: 'Agenten mit Tools verbinden und Entwicklungsabläufe mit GitHub Copilot, eigenen Skills und MCP-Anbindungen umsetzen.',
+          link: { label: 'KI-Agenten und MCP', href: '/leistungen/github-copilot/' },
         },
         {
           title: 'Wiederkehrende Abläufe verbinden',
           body: 'Formulare, E-Mail, CRM und vorhandene Schnittstellen mit n8n, Make oder Power Automate verbinden.',
           link: { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
+        },
+        {
+          title: 'Web-Anwendungen und Angular-Komponenten',
+          body: 'Eine Anwendung erweitern, ein internes Tool entwickeln oder ein bestehendes Designsystem in einer Angular-Komponentenbibliothek umsetzen.',
+          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
         },
       ],
       layout: 'list',

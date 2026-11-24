@@ -6,6 +6,7 @@ export type PagePath = '/' | `/${string}/`;
 
 export type PageKey =
   | 'home-de'
+  | 'services-overview-de'
   | 'angular-development-de'
   | 'github-copilot-de'
   | 'process-automation-de'
@@ -14,6 +15,7 @@ export type PageKey =
   | 'stuttgart'
   | 'n8n-consulting-stuttgart'
   | 'home-en'
+  | 'services-overview-en'
   | 'angular-development-en'
   | 'github-copilot-en'
   | 'process-automation-en'

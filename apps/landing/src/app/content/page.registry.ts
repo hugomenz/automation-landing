@@ -1,5 +1,6 @@
 import { ABOUT_HUGO_MARTIN_DE, CONTACT_DE, STUTTGART } from './de/company-pages';
 import { HOME_DE } from './de/home';
+import { SERVICES_OVERVIEW_DE } from './de/services-overview';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
 import {
   ANGULAR_DEVELOPMENT_DE,
@@ -8,6 +9,7 @@ import {
 } from './de/services';
 import { ABOUT_HUGO_MARTIN_EN, CONTACT_EN } from './en/company-pages';
 import { HOME_EN } from './en/home';
+import { SERVICES_OVERVIEW_EN } from './en/services-overview';
 import {
   ANGULAR_DEVELOPMENT_EN,
   GITHUB_COPILOT_EN,
@@ -26,6 +28,8 @@ export const SITE_ORIGIN = 'https://www.hugomenz.de' as const;
 const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
   'home-de',
   'home-en',
+  'services-overview-de',
+  'services-overview-en',
   'angular-development-de',
   'angular-development-en',
   'github-copilot-de',
@@ -40,6 +44,7 @@ const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
 
 export const PAGE_REGISTRY: readonly PageDefinition[] = [
   HOME_DE,
+  SERVICES_OVERVIEW_DE,
   ANGULAR_DEVELOPMENT_DE,
   GITHUB_COPILOT_DE,
   PROCESS_AUTOMATION_DE,
@@ -48,6 +53,7 @@ export const PAGE_REGISTRY: readonly PageDefinition[] = [
   STUTTGART,
   N8N_CONSULTING_STUTTGART,
   HOME_EN,
+  SERVICES_OVERVIEW_EN,
   ANGULAR_DEVELOPMENT_EN,
   GITHUB_COPILOT_EN,
   PROCESS_AUTOMATION_EN,
