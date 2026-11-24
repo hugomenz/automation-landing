@@ -52,6 +52,14 @@ Default radius is 10px and control radius is 8px. Prefer borders and spacing ove
 - Language links use the current page's registered alternate. If a German-only page links to the English home, its accessible label must say so.
 - No RFQ demo CTA or old product slogan in shared navigation.
 
+## LinkedIn banners
+
+The LinkedIn covers use a navy background, the clean M from the supplied `ChatGPT Image 15 jul 2026, 19_26_29.png` reference and subtle blue and yellow waves. Preserve the white M, its short right stem and separate cyan dot. This treatment is limited to the banner artwork; the website interface remains light.
+
+Both PNG sources are 2172 × 724 pixels and are stored without resizing or pixel edits. Use a centred 4:1 crop for `linkedin-profile-banner.png` and a centred 6:1 crop for `linkedin-company-banner.png`. The `linkedin_banner.png` compatibility alias matches the company cover. Keep the left area clear for LinkedIn's portrait or company logo.
+
+The exact banner text is `Hugo Martin`, `Angular · GitHub Copilot · Automatisierung` and `hugomenz.de`. Do not add RFQ claims, UX/UI services, credentials or a second wordmark. The auxiliary `/brand-assets.html` download page previews the intended crops and stays outside the navigation and sitemap with `noindex`.
+
 ## Components
 
 - The generic service flow presents the sequence supplied by page content. It has no hardcoded implementation statuses or RFQ labels.

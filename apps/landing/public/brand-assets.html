@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <title>LinkedIn-Banner · Hugo Martin</title>
+    <link rel="icon" href="/hugo-martin-m.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        color: #1d2b36;
+        background: #f7f8f5;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-size: 16px; line-height: 1.6; }
+      main { width: min(100%, 1120px); margin: 0 auto; padding: 32px clamp(20px, 5vw, 40px) 64px; }
+      a { color: #245b82; text-underline-offset: 0.2em; }
+      a:focus-visible { outline: 3px solid #245b82; outline-offset: 4px; border-radius: 4px; }
+      .back-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+      header { padding-block: 24px 36px; }
+      header::before { content: ''; display: block; width: 64px; height: 4px; margin-bottom: 20px; background: #dcc678; }
+      h1, h2, p, figure { margin: 0; }
+      h1, h2 { line-height: 1.15; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+      h1 { font-size: clamp(2rem, 5vw, 3rem); }
+      h2 { font-size: clamp(1.35rem, 3vw, 1.7rem); }
+      .intro { max-width: 44rem; margin-top: 16px; color: #4c5e6a; }
+      section { padding-block: 32px; border-top: 1px solid #c6d3dc; }
+      .section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+      .ratio { color: #596c78; font-size: 0.95rem; }
+      .preview { overflow: hidden; background: #07111f; border: 1px solid #c6d3dc; }
+      .profile-preview { aspect-ratio: 4 / 1; }
+      .company-preview { aspect-ratio: 6 / 1; }
+      .preview img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+      figcaption { margin-top: 12px; color: #4c5e6a; font-size: 0.95rem; }
+      .download { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 20px; padding: 10px 18px; border: 1px solid #163a56; border-radius: 8px; background: #163a56; color: #fff; font-weight: 600; text-decoration: none; }
+      .download:hover { background: #0d2c43; }
+      footer { padding-top: 24px; border-top: 1px solid #c6d3dc; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back-link" href="/">Hugo Martin</a>
+      <header>
+        <h1>LinkedIn-Banner</h1>
+        <p class="intro">PNG herunterladen. Auf LinkedIn den mittigen Bildausschnitt wählen. Die Vorschauen zeigen das passende Format; die Downloads enthalten das vollständige Bild.</p>
+      </header>
+
+      <section aria-labelledby="profile-title">
+        <div class="section-heading">
+          <h2 id="profile-title">Persönliches Profil</h2>
+          <span class="ratio">Format 4:1</span>
+        </div>
+        <figure>
+          <div class="preview profile-preview">
+            <img src="/linkedin-profile-banner.png" width="2172" height="724" alt="Hugo Martin. Angular · GitHub Copilot · Automatisierung. hugomenz.de. Weißes M auf dunkelblauem Hintergrund mit blauen und gelben Wellen." />
+          </div>
+          <figcaption>Platz für das Profilfoto bleibt links frei.</figcaption>
+        </figure>
+        <a class="download" href="/linkedin-profile-banner.png" download="hugo-martin-linkedin-profil.png">Profilbanner herunterladen</a>
+      </section>
+
+      <section aria-labelledby="company-title">
+        <div class="section-heading">
+          <h2 id="company-title">Unternehmensseite</h2>
+          <span class="ratio">Format 6:1</span>
+        </div>
+        <figure>
+          <div class="preview company-preview">
+            <img src="/linkedin-company-banner.png" width="2172" height="724" alt="Hugo Martin. Angular · GitHub Copilot · Automatisierung. hugomenz.de. Kompaktes Banner mit weißem M und feinen blauen und gelben Wellen." />
+          </div>
+          <figcaption>Platz für das Firmenlogo bleibt links frei.</figcaption>
+        </figure>
+        <a class="download" href="/linkedin-company-banner.png" download="hugo-martin-linkedin-unternehmen.png">Firmenbanner herunterladen</a>
+      </section>
+
+      <footer><a class="back-link" href="/">Zur Website</a></footer>
+    </main>
+  </body>
+</html>
