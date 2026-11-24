@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { inject, Injectable, signal } from '@angular/core';
 
-export type ContactDialogContext = 'rfq' | 'process-automation' | 'ai-search';
+export type ContactDialogContext = 'general' | 'angular' | 'copilot' | 'process-automation';
 
 @Injectable({ providedIn: 'root' })
 export class ContactDialogService {
@@ -9,10 +9,10 @@ export class ContactDialogService {
   private previouslyFocusedElement: HTMLElement | null = null;
 
   readonly isOpen = signal(false);
-  readonly context = signal<ContactDialogContext>('rfq');
+  readonly context = signal<ContactDialogContext>('general');
 
   open(
-    context: ContactDialogContext = 'rfq',
+    context: ContactDialogContext = 'general',
     restoreFocusTo: HTMLElement | null = null,
   ): void {
     if (!this.isOpen()) {

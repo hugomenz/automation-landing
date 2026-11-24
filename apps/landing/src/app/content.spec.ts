@@ -1,9 +1,10 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
 import {
   getAbsoluteHreflangAlternates,
   getCanonicalUrl,
   getPageByKey,
+  getPageLinks,
   PAGE_REGISTRY,
   PUBLIC_PAGE_PATHS,
   validatePageRegistry,
@@ -12,91 +13,24 @@ import type { PageDefinition, PageKey, PagePath } from './content/page.types';
 
 const REQUIRED_PATHS = [
   '/',
-  '/de/demo/rfq-fit-check/',
-  '/loesungen/technische-anfragequalifizierung/',
-  '/leistungen/rfq-readiness-workshop/',
-  '/leistungen/interner-rfq-copilot/',
+  '/leistungen/angular-entwicklung/',
+  '/leistungen/github-copilot/',
   '/leistungen/prozessautomatisierung/',
-  '/leistungen/auftragserfassung-automatisierung/',
-  '/branchen/end-of-line/',
-  '/branchen/verpackungsmaschinen/',
-  '/branchen/palettieranlagen/',
-  '/standorte/stuttgart/',
-  '/ueber-hugo-menz/',
+  '/ueber-hugo-martin/',
   '/kontakt/',
-  '/en/',
-  '/en/demo/rfq-fit-check/',
-  '/en/order-entry-automation/',
+  '/standorte/stuttgart/',
   '/n8n-beratung-stuttgart/',
-  '/ki-sichtbarkeit-industrie/',
-  '/en/ai-search-readiness-industrial-companies/',
+  '/en/',
+  '/en/angular-development/',
+  '/en/github-copilot/',
+  '/en/process-automation/',
+  '/en/about/',
+  '/en/contact/',
 ] as const satisfies readonly PagePath[];
-
-const HOME_ALTERNATES = [
-  { hreflang: 'de-DE', path: '/', href: 'https://www.hugomenz.de/' },
-  { hreflang: 'en', path: '/en/', href: 'https://www.hugomenz.de/en/' },
-  { hreflang: 'x-default', path: '/', href: 'https://www.hugomenz.de/' },
-] as const;
-
-const INDUSTRIAL_AI_SEARCH_ALTERNATES = [
-  {
-    hreflang: 'de-DE',
-    path: '/ki-sichtbarkeit-industrie/',
-    href: 'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
-  },
-  {
-    hreflang: 'en',
-    path: '/en/ai-search-readiness-industrial-companies/',
-    href: 'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
-  },
-  {
-    hreflang: 'x-default',
-    path: '/ki-sichtbarkeit-industrie/',
-    href: 'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
-  },
-] as const;
-
-const RFQ_DEMO_ALTERNATES = [
-  {
-    hreflang: 'de-DE',
-    path: '/de/demo/rfq-fit-check/',
-    href: 'https://www.hugomenz.de/de/demo/rfq-fit-check/',
-  },
-  {
-    hreflang: 'en',
-    path: '/en/demo/rfq-fit-check/',
-    href: 'https://www.hugomenz.de/en/demo/rfq-fit-check/',
-  },
-  {
-    hreflang: 'x-default',
-    path: '/en/demo/rfq-fit-check/',
-    href: 'https://www.hugomenz.de/en/demo/rfq-fit-check/',
-  },
-] as const;
-
-const ORDER_ENTRY_ALTERNATES = [
-  {
-    hreflang: 'de-DE',
-    path: '/leistungen/auftragserfassung-automatisierung/',
-    href: 'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
-  },
-  {
-    hreflang: 'en',
-    path: '/en/order-entry-automation/',
-    href: 'https://www.hugomenz.de/en/order-entry-automation/',
-  },
-  {
-    hreflang: 'x-default',
-    path: '/leistungen/auftragserfassung-automatisierung/',
-    href: 'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
-  },
-] as const;
-
-const routeSource = readFileSync(new URL('./app.routes.ts', import.meta.url), 'utf8');
-
-function unique<T>(values: readonly T[]): boolean {
-  return new Set(values).size === values.length;
-}
+const pageByPath = new Map(PAGE_REGISTRY.map((page) => [page.path, page]));
+const legacyRedirects = JSON.parse(
+  readFileSync(new URL('./legacy-redirects.json', import.meta.url), 'utf8'),
+) as readonly { from: string; to: string }[];
 
 function indexableText(page: PageDefinition): string {
   return JSON.stringify({
@@ -109,464 +43,193 @@ function indexableText(page: PageDefinition): string {
   });
 }
 
-describe('public page registry', () => {
-  it('defines exactly the 19 required public routes', () => {
-    expect(PAGE_REGISTRY).toHaveLength(19);
+function sortedAlternates(page: PageDefinition): readonly string[] {
+  return getAbsoluteHreflangAlternates(page)
+    .map(({ hreflang, href }) => `${hreflang}:${href}`)
+    .sort();
+}
+
+describe('public service page registry', () => {
+  it('publishes the 14 agreed routes and passes registry validation', () => {
+    expect(PAGE_REGISTRY).toHaveLength(REQUIRED_PATHS.length);
     expect(new Set(PUBLIC_PAGE_PATHS)).toEqual(new Set(REQUIRED_PATHS));
     expect(validatePageRegistry()).toEqual([]);
   });
 
-  it('rejects intermediate breadcrumbs without a crawlable path', () => {
-    const page = getPageByKey('technical-request-qualification');
+  it('keeps metadata, H1s, paths and canonical URLs complete and unique', () => {
+    const uniqueFields = [
+      PAGE_REGISTRY.map((page) => page.key),
+      PUBLIC_PAGE_PATHS,
+      PAGE_REGISTRY.map((page) => page.seo.title),
+      PAGE_REGISTRY.map((page) => page.seo.description),
+      PAGE_REGISTRY.map((page) => page.hero.h1),
+      PAGE_REGISTRY.map(getCanonicalUrl),
+    ];
+    for (const values of uniqueFields) {
+      expect(new Set(values).size).toBe(values.length);
+      expect(values.every((value) => value.trim().length > 0)).toBe(true);
+    }
+    for (const page of PAGE_REGISTRY) {
+      expect(page.seo.canonicalPath, page.key).toBe(page.path);
+      expect(getCanonicalUrl(page)).toBe(new URL(page.path, 'https://www.hugomenz.de/').href);
+      expect(page.lang).toBe(page.path.startsWith('/en/') ? 'en' : 'de');
+      expect(page.locale).toBe(page.lang === 'de' ? 'de_DE' : 'en_GB');
+      expect(page.seo.robots).toBe('index,follow');
+    }
+  });
+
+  it('rejects an intermediate breadcrumb without a crawlable destination', () => {
+    const page = getPageByKey('angular-development-de');
     const invalidPage: PageDefinition = {
       ...page,
       breadcrumbs: [
         { label: 'Startseite', path: '/' },
-        { label: 'Lösungen' },
-        {
-          label: 'Technische Anfragequalifizierung',
-          path: '/loesungen/technische-anfragequalifizierung/',
-        },
+        { label: 'Leistungen' },
+        { label: 'Angular', path: page.path },
       ],
     };
-    const registry = PAGE_REGISTRY.map((entry) =>
-      entry.key === invalidPage.key ? invalidPage : entry,
-    );
-
+    const registry = PAGE_REGISTRY.map((entry) => entry.key === page.key ? invalidPage : entry);
     expect(validatePageRegistry(registry)).toContain(
-      'Intermediate breadcrumb is missing a path for technical-request-qualification: Lösungen',
+      'Intermediate breadcrumb is missing a path for angular-development-de: Leistungen',
     );
   });
 
-  it('maps every registry entry to one explicit Angular route and page key', () => {
-    const routeEntries = [
-      ...routeSource.matchAll(/pageRoute\(\s*'([^']*)'\s*,\s*'([^']+)'\s*\)/g),
-    ].map((match) => {
-      const path = match[1] === '' ? '/' : `/${match[1]}/`;
-      return [path, match[2]] as const;
-    });
-
-    expect(routeEntries).toHaveLength(PAGE_REGISTRY.length);
-    expect(new Map(routeEntries)).toEqual(
-      new Map(PAGE_REGISTRY.map((page) => [page.path, page.key] as const)),
-    );
-    expect(routeSource).toMatch(/\{\s*path:\s*'\*\*',\s*component:\s*NotFoundComponent\s*\}/);
-  });
-
-  it('keeps titles, descriptions, H1s and self-canonical URLs complete and unique', () => {
-    expect(unique(PAGE_REGISTRY.map((page) => page.key))).toBe(true);
-    expect(unique(PAGE_REGISTRY.map((page) => page.path))).toBe(true);
-    expect(unique(PAGE_REGISTRY.map((page) => page.seo.title))).toBe(true);
-    expect(unique(PAGE_REGISTRY.map((page) => page.seo.description))).toBe(true);
-    expect(unique(PAGE_REGISTRY.map((page) => page.hero.h1))).toBe(true);
-    expect(unique(PAGE_REGISTRY.map((page) => getCanonicalUrl(page)))).toBe(true);
-
+  it('links only to public pages and existing section anchors', () => {
     for (const page of PAGE_REGISTRY) {
-      expect(page.seo.title.trim(), `${page.key} title`).not.toBe('');
-      expect(page.seo.description.trim(), `${page.key} description`).not.toBe('');
-      expect(page.hero.h1.trim(), `${page.key} H1`).not.toBe('');
-      expect(page.seo.canonicalPath, `${page.key} canonical path`).toBe(page.path);
-      expect(getCanonicalUrl(page), `${page.key} canonical URL`).toBe(
-        new URL(page.path, 'https://www.hugomenz.de/').toString(),
+      for (const link of getPageLinks(page)) {
+        expect(link.label.trim(), `${page.key} link label`).not.toBe('');
+        const destination = new URL(link.href, getCanonicalUrl(page));
+        if (destination.origin !== 'https://www.hugomenz.de') continue;
+        const target = pageByPath.get(destination.pathname as PagePath);
+        expect(target, `${page.key}: ${link.href}`).toBeDefined();
+        if (target && destination.hash) {
+          const anchors = new Set([
+            'contact-form', 'content', 'contact', 'main-content', 'top',
+            ...target.sections.map((section) => section.id),
+            ...(target.faq ? [target.faq.id] : []),
+          ]);
+          expect(anchors.has(destination.hash.slice(1)), `${page.key}: ${link.href}`).toBe(true);
+        }
+      }
+      for (const breadcrumb of page.breadcrumbs) {
+        if (breadcrumb.path) expect(pageByPath.has(breadcrumb.path), page.key).toBe(true);
+      }
+    }
+  });
+
+  it('keeps legacy redirects outside the registry and resolves them without chains', () => {
+    expect(legacyRedirects.length).toBeGreaterThan(0);
+    expect(new Set(legacyRedirects.map(({ from }) => from)).size).toBe(legacyRedirects.length);
+    for (const { from, to } of legacyRedirects) {
+      expect(pageByPath.has(from as PagePath), from).toBe(false);
+      expect(pageByPath.has(to as PagePath), `${from} -> ${to}`).toBe(true);
+      expect(from).not.toBe(to);
+      expect(from).toMatch(/^\/.*\/$/);
+      expect(to).toMatch(/^\/(?:.*\/)?$/);
+    }
+  });
+});
+
+describe('bilingual pages', () => {
+  it('publishes six reciprocal language pairs, with German as x-default', () => {
+    const translated = PAGE_REGISTRY.filter((page) => page.seo.alternates?.length);
+    expect(translated).toHaveLength(12);
+    for (const page of translated) {
+      const alternates = getAbsoluteHreflangAlternates(page);
+      expect(new Set(alternates.map(({ hreflang }) => hreflang))).toEqual(
+        new Set(['de-DE', 'en', 'x-default']),
       );
-      expect(['de', 'en']).toContain(page.lang);
+      expect(alternates).toHaveLength(3);
+      const german = alternates.find(({ hreflang }) => hreflang === 'de-DE')!;
+      const english = alternates.find(({ hreflang }) => hreflang === 'en')!;
+      const fallback = alternates.find(({ hreflang }) => hreflang === 'x-default')!;
+      expect(fallback.path).toBe(german.path);
+      expect(pageByPath.get(german.path)?.lang).toBe('de');
+      expect(pageByPath.get(english.path)?.lang).toBe('en');
+      expect([german.path, english.path]).toContain(page.path);
+      expect(sortedAlternates(pageByPath.get(german.path)!)).toEqual(sortedAlternates(page));
+      expect(sortedAlternates(pageByPath.get(english.path)!)).toEqual(sortedAlternates(page));
+      const languageLinks = (page.header?.navigation ?? [])
+        .filter((link) => link.lang && link.lang !== page.lang);
+      expect(languageLinks, page.key).toHaveLength(1);
+      for (const link of languageLinks) {
+        expect(link.href).toBe(page.lang === 'de' ? english.path : german.path);
+      }
+    }
+  });
+
+  it('does not invent translations for the two local German pages', () => {
+    for (const key of ['stuttgart', 'n8n-consulting-stuttgart'] as const) {
+      const page = getPageByKey(key);
+      expect(page.lang).toBe('de');
+      expect(page.seo.alternates).toBeUndefined();
     }
   });
 });
 
-describe('German home content guardrails', () => {
-  const home = getPageByKey('home-de');
-
-  it('locks the approved primary positioning and conversion copy', () => {
-    expect(home.path).toBe('/');
-    expect(home.lang).toBe('de');
-    expect(home.locale).toBe('de_DE');
-    expect(home.seo.title).toBe(
-      'Angebotsprozess im Maschinenbau automatisieren | Hugo Menz',
-    );
-    expect(home.seo.description).toBe(
-      'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
-    );
-    expect(home.hero.kicker).toBe(
-      'Technischer Angebotsprozess · Maschinenbau · Stuttgart',
-    );
-    expect(home.hero.h1).toBe(
-      'Angebotsprozess im Maschinenbau: technische Anfragen schneller qualifizieren',
-    );
-    expect(home.hero.lead).toBe(
-      'Ich strukturiere E-Mails, Lastenhefte, PDFs und Fotos zu einer prüfbaren Grundlage für Vertrieb und Engineering. Fehlende Angaben, Widersprüche und Risiken bleiben sichtbar.',
-    );
-    expect(home.hero.primaryCta).toEqual({
-      label: 'RFQ-Demo starten',
-      href: '/de/demo/rfq-fit-check/',
-      dataCta: 'rfq-demo-hero',
-    });
-    expect(home.hero.trustLine).toBe(
-      'Klarer Angebotsprozess · freigegebene Regeln · menschliche Prüfung',
-    );
-    expect(home.schemaKinds).toEqual(['Person', 'Organization', 'WebSite', 'FAQPage']);
-  });
-
-  it('locks the traceable process flow and the human decision boundary', () => {
-    expect(home.hero.diagram?.nodes).toEqual([
-      { stage: 'Eingang', label: 'E-Mail · Lastenheft · Fotos' },
-      { stage: 'Strukturieren', label: 'Anforderungen und Quellen' },
-      { stage: 'Prüfen', label: 'Lücken · Widersprüche · Risiken' },
-      { stage: 'Berechnen', label: 'freigegebene Regeln' },
-      { stage: 'Freigeben', label: 'Vertriebsingenieur' },
-    ]);
-    expect(home.hero.diagram?.footer).toBe(
-      'keine erfundenen Preise · keine autonome Freigabe',
-    );
-
-    const text = indexableText(home);
-    expect(text).toContain('Nur freigegebene Module, Tabellen, Faktoren und Formeln');
-    expect(text).toContain('Das System darf nicht');
-    expect(text).toContain('Pilot im Schattenbetrieb');
-    expect(text).toContain('unabhängig vom Maschinentyp');
-    expect(text).not.toMatch(/Maschinenfamil/);
-
-    const profile = home.sections.find((section) => section.id === 'profil');
-    expect(profile?.heading).toBe('Industrieerfahrung für prüfbare Angebotsprozesse');
-    expect(JSON.stringify(profile)).toContain('Heute verbinde ich diese Erfahrung');
-    expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
-  });
-});
-
-describe('bilingual RFQ demo', () => {
-  const germanDemo = getPageByKey('rfq-demo-de');
-  const englishDemo = getPageByKey('rfq-demo-en');
-
-  it('publishes separate, reciprocal German and English URLs', () => {
-    expect(germanDemo.path).toBe('/de/demo/rfq-fit-check/');
-    expect(englishDemo.path).toBe('/en/demo/rfq-fit-check/');
-    expect(germanDemo.lang).toBe('de');
-    expect(englishDemo.lang).toBe('en');
-    expect(getAbsoluteHreflangAlternates(germanDemo)).toEqual(RFQ_DEMO_ALTERNATES);
-    expect(getAbsoluteHreflangAlternates(englishDemo)).toEqual(RFQ_DEMO_ALTERNATES);
-  });
-
-  it('ships genuinely English customer-facing metadata', () => {
-    expect(englishDemo.seo.title).toBe(
-      'RFQ Fit Check demo for machinery manufacturers | Hugo Menz',
-    );
-    expect(englishDemo.hero.h1).toBe('See what your RFQ Fit Check could look like');
-    expect(JSON.stringify(englishDemo)).not.toMatch(/Vorbereitet|Anfrage wird|Auslegung/);
-  });
-});
-
-describe('RFQ intent and conversion guardrails', () => {
-  const home = getPageByKey('home-de');
-  const qualification = getPageByKey('technical-request-qualification');
-  const workshop = getPageByKey('rfq-readiness-workshop');
-  const copilot = getPageByKey('internal-rfq-copilot');
-
-  it('keeps the homepage answer-first and focused on the RFQ offer', () => {
-    const definition = home.sections.find((section) => section.id === 'ausgangslage');
-    const text = indexableText(home);
-
-    expect(definition?.heading).toBe(
-      'Was bedeutet technische Anfragequalifizierung im Maschinenbau?',
-    );
-    expect(definition?.intro).toContain(
-      'vor der Kalkulation in eine prüfbare Anforderungsakte',
-    );
-    expect(text).toContain('Weniger manuelle Sortierarbeit');
-    expect(text).toContain('Nachweisbare Quellen pro Anforderung');
-    expect(text).not.toContain('/leistungen/prozessautomatisierung/');
-  });
-
-  it('separates the qualification method from the copilot product', () => {
-    const method = qualification.sections.find((section) => section.id === 'verarbeitung');
-
-    expect(method?.heading).toBe('So entsteht die prüfbare Anforderungsakte');
-    expect(JSON.stringify(method)).not.toContain('Copilot');
-    expect(copilot.sections.find((section) => section.id === 'definition')?.heading).toBe(
-      'Was ist ein RFQ-Copilot?',
-    );
-  });
-
-  it('publishes a neutral four-category comparison on the copilot page', () => {
-    const comparison = copilot.sections.find((section) => section.id === 'vergleich');
-
-    expect(comparison?.columns?.map((column) => column.heading)).toEqual([
-      'RFQ-Copilot',
-      'CPQ',
-      'CRM',
-      'Document AI',
-    ]);
-    expect(JSON.stringify(comparison)).toContain('menschliche Prüfung');
-    expect(JSON.stringify(comparison)).not.toMatch(/besser als|ersetzt|überlegen/i);
-  });
-
-  it('distinguishes informational links from contact actions', () => {
-    expect(qualification.hero.primaryCta?.label).toBe('RFQ Readiness Workshop ansehen');
-    expect(copilot.hero.primaryCta?.label).toBe('RFQ Readiness Workshop ansehen');
-    expect(workshop.hero.primaryCta?.label).toBe('Workshop anfragen');
-    expect(home.finalCta.action.label).toBe('RFQ-Fit-Check anfragen');
-    expect(home.finalCta.body).toContain('keine vertraulichen Dokumente erforderlich');
-  });
-});
-
-describe('current professional positioning', () => {
-  const about = getPageByKey('about-hugo-menz');
-  const aboutText = indexableText(about);
-
-  it('presents UX Engineering as the current role and mechanical engineering as prior experience', () => {
-    expect(about.hero.h1).toBe(
-      'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
-    );
-    expect(aboutText).toContain('Heute gestalte ich digitale Produkte und Prozesse');
-    expect(aboutText).toContain('Zuvor: rund acht Jahre im Sondermaschinenbau');
-    expect(aboutText).toContain('Von der mechanischen Konstruktion in die Softwareentwicklung');
-    expect(aboutText).toContain('/leistungen/interner-rfq-copilot/');
-    expect(aboutText).not.toMatch(/Angular|TypeScript|Webhooks|\bn8n\b|\bMake\b/);
-  });
-});
-
-describe('English home and bilingual hreflang', () => {
-  const germanHome = getPageByKey('home-de');
-  const englishHome = getPageByKey('home-en');
-  const germanIndustrialAiSearch = getPageByKey('industrial-ai-search-de');
-  const englishIndustrialAiSearch = getPageByKey('industrial-ai-search-en');
-
-  it('publishes a complete, independently canonical English home', () => {
-    expect(englishHome.path).toBe('/en/');
-    expect(englishHome.lang).toBe('en');
-    expect(englishHome.locale).toBe('en_GB');
-    expect(englishHome.seo.title).toBe(
-      'Automate quotation processes for machinery manufacturers | Hugo Menz',
-    );
-    expect(englishHome.seo.description).toBe(
-      'Turn technical enquiries, emails, specifications, photos and PDFs into a reviewable quotation basis using approved rules and human review.',
-    );
-    expect(englishHome.hero.h1).toBe(
-      'Turn technical enquiries into a reviewable quotation basis',
-    );
-    expect(englishHome.hero.lead).toContain('machinery manufacturers');
-    expect(englishHome.hero.lead).toContain('reviewable basis');
-    expect(englishHome.hero.trustLine).toBe(
-      'Clear quotation process · approved rules · human review',
-    );
-    expect(indexableText(englishHome)).toContain('regardless of the machinery they build');
-    expect(indexableText(englishHome)).not.toMatch(/machine famil/i);
-    expect(indexableText(englishHome)).not.toContain('About Hugo Menz (German page)');
-    expect(indexableText(englishIndustrialAiSearch)).toContain(
-      '"label":"About Hugo Menz","href":"/en/#about"',
-    );
-    expect(englishHome.sections.length).toBeGreaterThanOrEqual(8);
-
-    const profile = englishHome.sections.find((section) => section.id === 'about');
-    expect(profile?.heading).toBe('UX Engineer with a mechanical engineering background');
-    expect(JSON.stringify(profile)).toContain('Before moving into software and digitalisation');
-    expect(JSON.stringify(profile)).not.toMatch(/Angular|TypeScript|webhooks|\bn8n\b|\bMake\b/);
-    expect(getCanonicalUrl(germanHome)).not.toBe(getCanonicalUrl(englishHome));
-  });
-
-  it('emits reciprocal de-DE, en and x-default alternates on translated page pairs only', () => {
-    expect(getAbsoluteHreflangAlternates(germanHome)).toEqual(HOME_ALTERNATES);
-    expect(getAbsoluteHreflangAlternates(englishHome)).toEqual(HOME_ALTERNATES);
-    expect(getAbsoluteHreflangAlternates(germanIndustrialAiSearch)).toEqual(
-      INDUSTRIAL_AI_SEARCH_ALTERNATES,
-    );
-    expect(getAbsoluteHreflangAlternates(englishIndustrialAiSearch)).toEqual(
-      INDUSTRIAL_AI_SEARCH_ALTERNATES,
-    );
-
-    const pagesWithAlternates = PAGE_REGISTRY.filter(
-      (page) => (page.seo.alternates?.length ?? 0) > 0,
-    );
-    expect(pagesWithAlternates.map((page) => page.key)).toEqual([
-      'home-de',
-      'rfq-demo-de',
-      'order-entry-automation-de',
-      'home-en',
-      'order-entry-automation-en',
-      'rfq-demo-en',
-      'industrial-ai-search-de',
-      'industrial-ai-search-en',
-    ]);
-
-    for (const page of PAGE_REGISTRY.filter(
-      (candidate) =>
-        !(
-          [
-            'home-de',
-            'rfq-demo-de',
-            'order-entry-automation-de',
-            'home-en',
-            'rfq-demo-en',
-            'order-entry-automation-en',
-            'industrial-ai-search-de',
-            'industrial-ai-search-en',
-          ] as PageKey[]
-        ).includes(candidate.key),
-    )) {
-      expect(page.seo.alternates, `${page.key} alternates`).toBeUndefined();
+describe('service positioning and contact intent', () => {
+  it('makes each of the three service areas reachable from both homepages', () => {
+    for (const [key, paths] of [
+      ['home-de', ['/leistungen/angular-entwicklung/', '/leistungen/github-copilot/', '/leistungen/prozessautomatisierung/']],
+      ['home-en', ['/en/angular-development/', '/en/github-copilot/', '/en/process-automation/']],
+    ] as const) {
+      const destinations = new Set(getPageLinks(getPageByKey(key)).map((link) => link.href));
+      for (const path of paths) expect(destinations.has(path), `${key}: ${path}`).toBe(true);
     }
   });
-});
 
-describe('secondary process-automation service', () => {
-  const page = getPageByKey('process-automation');
-  const text = indexableText(page);
-
-  it('publishes one secondary, indexable service route without language alternates', () => {
-    expect(page.path).toBe('/leistungen/prozessautomatisierung/');
-    expect(page.seo.canonicalPath).toBe(page.path);
-    expect(page.seo.robots).toBe('index,follow');
-    expect(page.hero.h1).toBe(
-      'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
-    );
-    expect(page.seo.alternates).toBeUndefined();
-    expect(page.schemaKinds).toEqual(['Service', 'BreadcrumbList', 'FAQPage']);
-    expect(page.hero.primaryCta?.contactContext).toBe('process-automation');
+  it('opens the shared contact form with the right service context', () => {
+    const serviceContexts = [
+      ['angular-development-de', 'angular'], ['angular-development-en', 'angular'],
+      ['github-copilot-de', 'copilot'], ['github-copilot-en', 'copilot'],
+      ['process-automation-de', 'process-automation'], ['process-automation-en', 'process-automation'],
+    ] as const;
+    for (const [key, context] of serviceContexts) {
+      const page = getPageByKey(key);
+      for (const action of [page.hero.primaryCta, page.finalCta.action]) {
+        expect(action?.href, key).toBe('#contact-form');
+        expect(action?.contactContext, key).toBe(context);
+      }
+    }
+    for (const page of PAGE_REGISTRY) {
+      for (const action of getPageLinks(page).filter((link) => link.href === '#contact-form')) {
+        expect(['general', 'angular', 'copilot', 'process-automation']).toContain(
+          action.contactContext ?? 'general',
+        );
+      }
+    }
   });
 
-  it('keeps the scope controlled and avoids standalone UX or application-development offers', () => {
-    expect(text).toContain('Technische Angebotsprozesse im Maschinenbau bleiben mein Schwerpunkt');
-    expect(text).toContain('Human-in-the-loop-Workflows');
-    expect(text).toContain('API- und Webhook-Integrationen');
-    expect(text).not.toMatch(
-      /UX(?: Engineering|-Beratung)|UI-Komponenten|Design-Systeme|App-Entwicklung|Webentwicklung|Anwendungsentwicklung/i,
-    );
-  });
-});
-
-describe('bilingual order-entry research case', () => {
-  const germanPage = getPageByKey('order-entry-automation-de');
-  const englishPage = getPageByKey('order-entry-automation-en');
-  const text = `${indexableText(germanPage)}\n${indexableText(englishPage)}`;
-
-  it('publishes reciprocal German and English routes as a secondary case', () => {
-    expect(germanPage.path).toBe('/leistungen/auftragserfassung-automatisierung/');
-    expect(englishPage.path).toBe('/en/order-entry-automation/');
-    expect(getAbsoluteHreflangAlternates(germanPage)).toEqual(ORDER_ENTRY_ALTERNATES);
-    expect(getAbsoluteHreflangAlternates(englishPage)).toEqual(ORDER_ENTRY_ALTERNATES);
-    expect(germanPage.sections.find((section) => section.id === 'einordnung')?.heading).toBe(
-      'RFQ Automation bleibt der Schwerpunkt',
-    );
-  });
-
-  it('uses only repository-backed figures and states the implementation boundaries', () => {
-    expect(text).toContain('1.576');
-    expect(text).toContain('1.382');
-    expect(text).toContain('448');
-    expect(text).toContain('328');
-    expect(text).toContain('381');
-    expect(text).toContain('334');
-    expect(text).toMatch(/keine Verbindung zu SAP|no SAP/);
-    expect(text).toMatch(/kein ERP-Schreibzugriff|no ERP write access/);
-    expect(text).not.toMatch(/unsere Kunden|our customers|Zeit sparen|time saved/i);
-  });
-});
-
-describe('industrial AI-search campaign', () => {
-  const germanPage = getPageByKey('industrial-ai-search-de');
-  const englishPage = getPageByKey('industrial-ai-search-en');
-
-  it('publishes the approved positioning and indexable metadata in both languages', () => {
-    expect(germanPage.path).toBe('/ki-sichtbarkeit-industrie/');
-    expect(germanPage.hero.h1).toBe('KI-Sichtbarkeit für Industrieunternehmen');
-    expect(germanPage.seo.robots).toBe('index,follow');
-    expect(englishPage.path).toBe('/en/ai-search-readiness-industrial-companies/');
-    expect(englishPage.hero.h1).toBe('AI Search Readiness for Industrial Companies');
-    expect(englishPage.seo.robots).toBe('index,follow');
-    expect(germanPage.seo.openGraph.imagePath).toBe('/og-industrial-ai-search-de.png');
-    expect(englishPage.seo.openGraph.imagePath).toBe('/og-industrial-ai-search-en.png');
-    expect(
-      existsSync(new URL('../../public/og-industrial-ai-search-de.png', import.meta.url)),
-    ).toBe(true);
-    expect(
-      existsSync(new URL('../../public/og-industrial-ai-search-en.png', import.meta.url)),
-    ).toBe(true);
-  });
-
-  it('uses the existing contact mechanism and publishes matching FAQ schema content', () => {
-    expect(germanPage.hero.primaryCta?.href).toBe('#contact-form');
-    expect(germanPage.finalCta.action.href).toBe('#contact-form');
-    expect(englishPage.hero.primaryCta?.href).toBe('#contact-form');
-    expect(englishPage.finalCta.action.href).toBe('#contact-form');
-    expect(germanPage.faq?.items).toHaveLength(13);
-    expect(englishPage.faq?.items).toHaveLength(13);
-    expect(germanPage.schemaKinds).toEqual([
-      'Service',
-      'Person',
-      'BreadcrumbList',
-      'FAQPage',
-    ]);
-    expect(englishPage.schemaKinds).toEqual([
-      'Service',
-      'Person',
-      'BreadcrumbList',
-      'FAQPage',
-    ]);
-  });
-
-  it('states the platform limitations and avoids a free-audit or result promise', () => {
-    const germanText = indexableText(germanPage);
-    const englishText = indexableText(englishPage);
-
-    expect(germanText).toContain(
-      'Kein Dienstleister kann eine Nennung, Quelle oder Empfehlung in einem bestimmten KI-System garantieren.',
-    );
-    expect(englishText).toContain(
-      'No service provider can guarantee a mention, citation or recommendation in a specific AI system.',
-    );
-    expect(germanText).toContain('Die Ersteinschätzung ist kein vollständiges kostenloses Audit.');
-    expect(englishText).toContain('The initial assessment is not a complete free audit.');
-  });
-
-  it('connects the Hugo Menz brand with the Stuttgart AI-search service', () => {
-    const germanText = indexableText(germanPage);
-    const englishText = indexableText(englishPage);
-
-    expect(germanText).toContain(
-      'Hugo Menz Automation bietet diesen Audit von Stuttgart aus',
-    );
-    expect(germanText).toContain('Bietet Hugo Menz GEO oder KI-SEO in Stuttgart an?');
-    expect(englishText).toContain(
-      'From Stuttgart, Hugo Menz Automation offers this audit',
-    );
-    expect(englishText).toContain(
-      'Does Hugo Menz offer GEO or AI-search optimization in Stuttgart?',
-    );
+  it('keeps the current role factual and limits design-system work to Angular', () => {
+    for (const lang of ['de', 'en'] as const) {
+      const about = indexableText(getPageByKey(`about-hugo-martin-${lang}` as PageKey));
+      expect(about).toContain('UX Engineer');
+      expect(about).toContain('EPLAN');
+      const angular = indexableText(getPageByKey(`angular-development-${lang}` as PageKey));
+      expect(angular).toContain('Angular');
+      expect(angular).toMatch(/Komponentenbibliothek|component librar/i);
+      expect(angular).not.toMatch(/Figma|UX\/UI.Design|UX.design services|UI.design services/i);
+    }
   });
 });
 
 describe('content trust guardrails', () => {
-  const allContent = PAGE_REGISTRY.map(indexableText).join('\n');
+  const content = PAGE_REGISTRY.map(indexableText).join('\n');
 
-  it('does not publish invented proof, guarantees or result claims', () => {
-    const contentWithoutApprovedGuaranteeQuestion = allContent.replace(
-      'Kann eine Erwähnung in ChatGPT oder Gemini garantiert werden?',
-      '',
-    );
-    const forbiddenClaims = [
-      /\b50\s*%\s+Zeit\s+sparen\b/i,
-      /\b90\s*%\b/i,
-      /\bgarantiert\b/i,
-      /\bunsere Kunden\b/i,
-      /\bführende(?:n|r|s)? Kunden\b/i,
-      /\bMarktführer\b/i,
-      /\bVollautomatisch\b/i,
-      /\bFehlerfrei\b/i,
-      /\b(?:ROI|Return on Investment)\b/i,
-      /\b(?:Kundenreferenz|Kundenlogo|Testimonial|Client logo)\b/i,
-      /\b(?:Genauigkeit|Accuracy|Conversion|Konversion)\s*(?:von|of|:)?\s*\d/i,
-      /\b\d+(?:[.,]\d+)?\s*%\b/i,
-      /\b\d+(?:[.,]\d+)?\s*(?:Stunden?|Tage?)\s+(?:Zeit\s+)?sparen\b/i,
-    ];
-
-    for (const claim of forbiddenClaims) {
-      expect(contentWithoutApprovedGuaranteeQuestion, `forbidden claim ${claim}`).not.toMatch(
-        claim,
-      );
-    }
+  it('removes the previous product marketing from indexable pages', () => {
+    expect(content).not.toMatch(/\bRFQ\b|RFQ-Fit-Check|Industrial AI Visibility|KI-Sichtbarkeit für Industrieunternehmen/i);
+    expect(content).not.toMatch(/Future FrontEnd|UX\/UI.Design|UX.design services|UI.design services/i);
   });
 
-  it('does not publish unconfirmed numeric prices', () => {
-    expect(allContent).not.toMatch(/(?:€|EUR)\s*\d|\d[\d.,]*\s*(?:€|EUR)\b/i);
-    expect(allContent).not.toMatch(/\b\d[\d.,]*\s*Euro\b/i);
+  it('does not invent clients, guarantees, performance figures or prices', () => {
+    const unsupportedClaims = [
+      /\b(?:unsere Kunden|our clients|trusted by|Marktführer|market leader)\b/i,
+      /\b(?:garantiert|guaranteed results|Fehlerfrei|error.free|Vollautomatisch)\b/i,
+      /\b(?:Kundenreferenz|Kundenlogo|Testimonial|client logo)\b/i,
+      /\b\d+(?:[.,]\d+)?\s*%/i,
+      /\b\d+(?:[.,]\d+)?\s*(?:Stunden?|Tage?)\s+(?:Zeit\s+)?sparen\b/i,
+      /(?:€|EUR)\s*\d|\d[\d.,]*\s*(?:€|EUR|Euro)\b/i,
+    ];
+    for (const claim of unsupportedClaims) expect(content, String(claim)).not.toMatch(claim);
   });
 });

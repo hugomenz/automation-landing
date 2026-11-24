@@ -52,204 +52,145 @@ const messageValidator: ValidatorFn = (control: AbstractControl): ValidationErro
   return null;
 };
 
-const RFQ_CONTACT_COPY = {
+const GENERAL_CONTACT_COPY = {
   de: {
-    eyebrow: 'RFQ-Fit-Check',
-    title: 'Technischen Angebotsprozess kurz beschreiben',
+    eyebrow: 'Kontakt mit Hugo Martin',
+    title: 'Wobei brauchen Sie Unterstützung?',
     body:
-      'Beschreiben Sie den heutigen Angebotsprozess, das ungefähre Anfragevolumen und den größten Engpass. Ein Produktbereich, Maschinentyp oder eine Lösungsfamilie hilft bei der Einordnung, schränkt das Angebot aber nicht auf bestimmte Maschinen ein.',
+      'Beschreiben Sie kurz Ihr Vorhaben: eine Angular-Anwendung, GitHub Copilot und Agenten oder einen Ablauf, den Sie automatisieren möchten.',
     confidentiality:
-      'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
+      'Eine kurze Beschreibung genügt. Bitte senden Sie keine Passwörter oder vertraulichen Daten.',
     closeLabel: 'Kontaktformular schließen',
     name: 'Name',
     email: 'E-Mail',
     phone: 'Telefon (optional)',
-    message: 'Heutiger Angebotsprozess und größter Engpass',
+    message: 'Ihr Vorhaben',
     messagePlaceholder:
-      'Hilfreich sind: Produkt- oder Lösungsbereich, Anfragevolumen, heutiger Angebotsprozess, beteiligte Rollen und größter Engpass.',
+      'Was möchten Sie umsetzen oder vereinfachen? Welche Systeme nutzen Sie bereits?',
     nameRequired: 'Bitte geben Sie Ihren Namen ein.',
     emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
     emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
     phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz den Angebotsprozess und den größten Engpass.',
+    messageRequired: 'Bitte beschreiben Sie kurz Ihr Vorhaben.',
     messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
     messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
     errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
-    submit: 'RFQ-Fit-Check anfragen',
+    submit: 'Projekt besprechen',
     sending: 'Wird gesendet …',
     success: 'Danke. Ihre Anfrage wurde gesendet.',
     error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
-    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
+    missingWebhook: 'Das Formular ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.',
     rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
     rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
-    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
+    protection: 'Ihre Angaben helfen mir, Ihre Anfrage zu verstehen und zu beantworten.',
     messageHint: 'Zeichen',
   },
   en: {
-    eyebrow: 'Check pilot fit',
-    title: 'Briefly describe the technical quotation process',
+    eyebrow: 'Contact Hugo Martin',
+    title: 'How can I help?',
     body:
-      'Describe the current quotation process, approximate enquiry volume and main bottleneck. A product area, machine type or solution family helps with context without limiting the service to specific machinery.',
+      'Briefly describe your project: an Angular application, GitHub Copilot and agents, or a process you want to automate.',
     confidentiality:
-      'Please do not send confidential specifications, drawings or customer data in this first contact. Document handling will be agreed separately before any analysis.',
+      'A short description is enough. Please do not send passwords or confidential data.',
     closeLabel: 'Close contact form',
     name: 'Name',
     email: 'Email',
     phone: 'Phone (optional)',
-    message: 'Current quotation process and main bottleneck',
+    message: 'Your project',
     messagePlaceholder:
-      'Helpful context: product or solution area, enquiry volume, current quotation process, roles involved and main bottleneck.',
+      'What would you like to build or simplify? Which systems do you already use?',
     nameRequired: 'Please enter your name.',
     emailRequired: 'Please enter your email.',
     emailInvalid: 'Please enter a valid email address.',
     phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the quotation process and main bottleneck.',
+    messageRequired: 'Please briefly describe your project.',
     messageTooShort: 'At least 20 characters are required.',
     messageTooLong: 'A maximum of 1000 characters is allowed.',
     errorSummary: 'Please correct the following errors:',
-    submit: 'Check pilot fit',
+    submit: 'Discuss your project',
     sending: 'Sending …',
     success: 'Thank you. Your request has been sent.',
     error: 'Sending failed. Please try again.',
-    missingWebhook: 'The form is not configured yet.',
+    missingWebhook: 'The form is currently unavailable. Please try again later.',
     rateMinute: 'You can send at most two messages per minute.',
     rateSession: 'You have reached the message limit for this session.',
-    protection: 'Protected by the existing form controls',
+    protection: 'Your details help me understand and respond to your request.',
     messageHint: 'characters',
+  },
+} as const;
+
+const ANGULAR_CONTACT_COPY = {
+  de: {
+    ...GENERAL_CONTACT_COPY.de,
+    eyebrow: 'Angular-Entwicklung',
+    title: 'Was möchten Sie mit Angular umsetzen?',
+    body:
+      'Geht es um eine Webanwendung, ein internes Tool oder eine bestehende Komponentenbibliothek? Beschreiben Sie die Aufgabe und den aktuellen Stand.',
+    message: 'Angular-Aufgabe',
+    messagePlaceholder:
+      'Welche Anwendung oder Komponenten sind betroffen? Was funktioniert bereits, und wobei benötigen Sie Unterstützung?',
+    messageRequired: 'Bitte beschreiben Sie kurz Ihre Angular-Aufgabe.',
+  },
+  en: {
+    ...GENERAL_CONTACT_COPY.en,
+    eyebrow: 'Angular development',
+    title: 'What would you like to build with Angular?',
+    body:
+      'Tell me about your web application, internal tool or existing component library, and where you need technical support.',
+    message: 'Angular task',
+    messagePlaceholder:
+      'Which application or components are involved? What already works, and where do you need support?',
+    messageRequired: 'Please briefly describe your Angular task.',
+  },
+} as const;
+
+const COPILOT_CONTACT_COPY = {
+  de: {
+    ...GENERAL_CONTACT_COPY.de,
+    eyebrow: 'GitHub Copilot & Agenten',
+    title: 'Welche Entwicklungsaufgabe möchten Sie vereinfachen?',
+    body:
+      'Beschreiben Sie, wie Ihr Team heute arbeitet und wo eigene Skills, Agenten oder automatisierte Abläufe helfen könnten.',
+    message: 'Entwicklungsablauf und Ziel',
+    messagePlaceholder:
+      'Wie nutzen Sie GitHub Copilot bereits? Welche Aufgaben sollen Skills oder Agenten unterstützen?',
+    messageRequired: 'Bitte beschreiben Sie kurz die Entwicklungsaufgabe.',
+  },
+  en: {
+    ...GENERAL_CONTACT_COPY.en,
+    eyebrow: 'GitHub Copilot & agents',
+    title: 'Which development task would you like to simplify?',
+    body:
+      'Describe how your team works today and where custom skills, agents or automated workflows could help.',
+    message: 'Development workflow and goal',
+    messagePlaceholder:
+      'How do you currently use GitHub Copilot? Which tasks should skills or agents support?',
+    messageRequired: 'Please briefly describe the development task.',
   },
 } as const;
 
 const PROCESS_AUTOMATION_CONTACT_COPY = {
   de: {
-    eyebrow: 'Anderen Prozess beschreiben',
-    title: 'Welchen Ablauf möchten Sie automatisieren?',
+    ...GENERAL_CONTACT_COPY.de,
+    eyebrow: 'Prozessautomatisierung',
+    title: 'Welchen Ablauf möchten Sie vereinfachen?',
     body:
-      'Beschreiben Sie kurz den heutigen Ablauf, beteiligte Personen oder Systeme, wiederkehrende Arbeit und den größten Engpass. Ich prüfe, ob sich eine sinnvolle Automatisierung klar abgrenzen lässt.',
-    confidentiality:
-      'Bitte senden Sie im ersten Kontakt keine vertraulichen Dokumente, Zugangsdaten oder personenbezogenen Kundendaten. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
-    closeLabel: 'Kontaktformular schließen',
-    name: 'Name',
-    email: 'E-Mail',
-    phone: 'Telefon (optional)',
-    message: 'Prozess und Engpass',
+      'Beschreiben Sie den heutigen Ablauf, die beteiligten Systeme und wiederkehrende Arbeit. So können wir den Bedarf und einen passenden Projektumfang klären.',
+    message: 'Ablauf und gewünschtes Ergebnis',
     messagePlaceholder:
-      'Hilfreich sind: heutiger Ablauf, beteiligte Systeme, wiederkehrende Schritte, Ausnahmen und gewünschtes Ergebnis.',
-    nameRequired: 'Bitte geben Sie Ihren Namen ein.',
-    emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
-    emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
-    phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz den Prozess und den Engpass.',
-    messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
-    messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
-    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
-    submit: 'Prozess beschreiben',
-    sending: 'Wird gesendet …',
-    success: 'Danke. Ihre Anfrage wurde gesendet.',
-    error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
-    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
-    rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
-    rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
-    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
-    messageHint: 'Zeichen',
+      'Was erledigen Sie heute manuell? Welche Tools nutzen Sie, und was soll sich ändern?',
+    messageRequired: 'Bitte beschreiben Sie kurz den Ablauf.',
   },
   en: {
-    eyebrow: 'Describe another process',
-    title: 'Which workflow would you like to automate?',
+    ...GENERAL_CONTACT_COPY.en,
+    eyebrow: 'Process automation',
+    title: 'Which workflow would you like to simplify?',
     body:
-      'Briefly describe the current workflow, people or systems involved, recurring work and the main bottleneck. I will assess whether a useful automation can be clearly scoped.',
-    confidentiality:
-      'Please do not send confidential documents, credentials or personal customer data in this first contact. Handling of non-public information will be agreed separately before any analysis.',
-    closeLabel: 'Close contact form',
-    name: 'Name',
-    email: 'Email',
-    phone: 'Phone (optional)',
-    message: 'Process and bottleneck',
+      'Briefly describe the current process, tools and repetitive work. This helps us understand the need and define a suitable project scope.',
+    message: 'Workflow and intended outcome',
     messagePlaceholder:
-      'Helpful context: current workflow, systems involved, recurring steps, exceptions and intended outcome.',
-    nameRequired: 'Please enter your name.',
-    emailRequired: 'Please enter your email.',
-    emailInvalid: 'Please enter a valid email address.',
-    phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the process and bottleneck.',
-    messageTooShort: 'At least 20 characters are required.',
-    messageTooLong: 'A maximum of 1000 characters is allowed.',
-    errorSummary: 'Please correct the following errors:',
-    submit: 'Describe the process',
-    sending: 'Sending …',
-    success: 'Thank you. Your request has been sent.',
-    error: 'Sending failed. Please try again.',
-    missingWebhook: 'The form is not configured yet.',
-    rateMinute: 'You can send at most two messages per minute.',
-    rateSession: 'You have reached the message limit for this session.',
-    protection: 'Protected by the existing form controls',
-    messageHint: 'characters',
-  },
-} as const;
-
-const INDUSTRIAL_AI_SEARCH_CONTACT_COPY = {
-  de: {
-    eyebrow: 'KI-Sichtbarkeit prüfen',
-    title: 'Ausgangslage kurz beschreiben',
-    body:
-      'Beschreiben Sie Ihre Website, die wichtigsten Produktgruppen, Zielmärkte und Sprachen. Ich prüfe zunächst, ob sich ein Industrial AI Visibility Audit sinnvoll abgrenzen lässt.',
-    confidentiality:
-      'Bitte senden Sie im ersten Kontakt keine vertraulichen Produktdaten, Kundendokumente oder internen Analysen. Der Umgang mit nicht öffentlichen Informationen wird vor einer Analyse separat vereinbart.',
-    closeLabel: 'Kontaktformular schließen',
-    name: 'Name',
-    email: 'E-Mail',
-    phone: 'Telefon (optional)',
-    message: 'Website, Produktportfolio und Zielmärkte',
-    messagePlaceholder:
-      'Hilfreich sind: Website, wichtige Produktgruppen, Zielmärkte, Sprachen und bekannte Fragen zur KI-Sichtbarkeit.',
-    nameRequired: 'Bitte geben Sie Ihren Namen ein.',
-    emailRequired: 'Bitte geben Sie Ihre E-Mail ein.',
-    emailInvalid: 'Bitte geben Sie eine gültige E-Mail ein.',
-    phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein.',
-    messageRequired: 'Bitte beschreiben Sie kurz die Ausgangslage.',
-    messageTooShort: 'Mindestens 20 Zeichen erforderlich.',
-    messageTooLong: 'Maximal 1000 Zeichen erlaubt.',
-    errorSummary: 'Bitte korrigieren Sie die folgenden Fehler:',
-    submit: 'KI-Sichtbarkeit prüfen lassen',
-    sending: 'Wird gesendet …',
-    success: 'Danke. Ihre Anfrage wurde gesendet.',
-    error: 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.',
-    missingWebhook: 'Das Formular ist noch nicht konfiguriert.',
-    rateMinute: 'Sie können höchstens zwei Nachrichten pro Minute senden.',
-    rateSession: 'Sie haben das Nachrichtenlimit dieser Sitzung erreicht.',
-    protection: 'Geschützt durch die bestehenden Formular-Kontrollen',
-    messageHint: 'Zeichen',
-  },
-  en: {
-    eyebrow: 'Assess AI-search visibility',
-    title: 'Briefly describe the baseline',
-    body:
-      'Describe your website, main product groups, target markets and languages. I will first assess whether an Industrial AI Visibility Audit can be scoped usefully.',
-    confidentiality:
-      'Please do not send confidential product data, customer documents or internal analyses in this first contact. Handling of non-public information will be agreed separately before any assessment.',
-    closeLabel: 'Close contact form',
-    name: 'Name',
-    email: 'Email',
-    phone: 'Phone (optional)',
-    message: 'Website, product portfolio and target markets',
-    messagePlaceholder:
-      'Helpful context: website, main product groups, target markets, languages and known AI-search visibility questions.',
-    nameRequired: 'Please enter your name.',
-    emailRequired: 'Please enter your email.',
-    emailInvalid: 'Please enter a valid email address.',
-    phoneInvalid: 'Please enter a valid phone number.',
-    messageRequired: 'Please briefly describe the baseline.',
-    messageTooShort: 'At least 20 characters are required.',
-    messageTooLong: 'A maximum of 1000 characters is allowed.',
-    errorSummary: 'Please correct the following errors:',
-    submit: 'Assess AI-search visibility',
-    sending: 'Sending …',
-    success: 'Thank you. Your request has been sent.',
-    error: 'Sending failed. Please try again.',
-    missingWebhook: 'The form is not configured yet.',
-    rateMinute: 'You can send at most two messages per minute.',
-    rateSession: 'You have reached the message limit for this session.',
-    protection: 'Protected by the existing form controls',
-    messageHint: 'characters',
+      'What do you do manually today? Which tools do you use, and what would you like to change?',
+    messageRequired: 'Please briefly describe the workflow.',
   },
 } as const;
 
@@ -273,9 +214,10 @@ export class ContactDialogComponent implements OnDestroy {
 
   readonly copy = computed(() => {
     const copyByContext = {
-      rfq: RFQ_CONTACT_COPY,
+      general: GENERAL_CONTACT_COPY,
+      angular: ANGULAR_CONTACT_COPY,
+      copilot: COPILOT_CONTACT_COPY,
       'process-automation': PROCESS_AUTOMATION_CONTACT_COPY,
-      'ai-search': INDUSTRIAL_AI_SEARCH_CONTACT_COPY,
     } as const;
 
     return copyByContext[this.contactDialog.context()][this.pageLocale.language()];

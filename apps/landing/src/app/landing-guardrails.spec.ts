@@ -1,6 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { FOOTER_GROUPS } from './components/site-footer/site-footer.component';
+import { PAGE_REGISTRY } from './content/page.registry';
 
 const angularJson = JSON.parse(
   readFileSync(new URL('../../angular.json', import.meta.url), 'utf8'),
@@ -87,10 +88,8 @@ const footerTemplate = readFileSync(
   'utf8',
 );
 const documentHead = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-const brandMark = readFileSync(
-  new URL('../../public/hugo-menz-mark.svg', import.meta.url),
-  'utf8',
-);
+const brandMarkUrl = new URL('../../public/hugo-martin-mark.svg', import.meta.url);
+const contactService = readFileSync(new URL('./contact-dialog.service.ts', import.meta.url), 'utf8');
 
 function filesBelow(directory: URL): readonly URL[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -124,7 +123,11 @@ describe('Angular architecture guardrails', () => {
     expect(appConfig).toContain('provideClientHydration(withEventReplay())');
     expect(appComponent).toContain('RouterOutlet');
     expect(appTemplate).toContain('<router-outlet />');
-    expect(browserRoutes.match(/^\s*pageRoute\(/gm)).toHaveLength(19);
+    expect(browserRoutes).toContain('PAGE_REGISTRY.map');
+    expect(browserRoutes).toContain('data: { pageKey: page.key }');
+    expect(browserRoutes).toContain('legacyRedirects.map');
+    expect(browserRoutes).toContain("pathMatch: 'full'");
+    expect(browserRoutes).toMatch(/\{\s*path:\s*'\*\*',\s*component:\s*NotFoundComponent\s*\}/);
   });
 
   it('runs without Zone.js and enables zoneless change detection', () => {
@@ -159,7 +162,7 @@ describe('Angular architecture guardrails', () => {
     expect(signalInputComponents.some(({ url }) => url.pathname.includes('content-link'))).toBe(
       true,
     );
-    expect(signalInputComponents.some(({ url }) => url.pathname.includes('rfq-flow'))).toBe(true);
+    expect(signalInputComponents.some(({ url }) => url.pathname.includes('service-flow'))).toBe(true);
   });
 });
 
@@ -192,19 +195,21 @@ describe('interaction and accessibility guardrails', () => {
     expect(sectionIndexTemplate).toContain('(change)="jumpToSection($event)"');
   });
 
-  it('keeps the primary navigation focused on the RFQ offer', () => {
-    expect(headerSource).toContain("id: 'services'");
-    expect(headerSource).toContain("path: '/loesungen/technische-anfragequalifizierung/'");
-    expect(headerSource).toContain("path: '/leistungen/rfq-readiness-workshop/'");
-    expect(headerSource).toContain("path: '/leistungen/interner-rfq-copilot/'");
-    expect(headerSource).toContain("path: '/standorte/stuttgart/'");
-    expect(headerSource).not.toContain("path: '/n8n-beratung-stuttgart/'");
-    expect(headerSource).not.toContain("path: '/ki-sichtbarkeit-industrie/'");
-    expect(headerSource).toContain("cta: 'RFQ-Demo ansehen'");
+  it('keeps service navigation and the mobile menu keyboard accessible', () => {
+    for (const path of [
+      '/leistungen/angular-entwicklung/', '/leistungen/github-copilot/',
+      '/leistungen/prozessautomatisierung/', '/en/angular-development/',
+      '/en/github-copilot/', '/en/process-automation/',
+    ]) expect(headerSource).toContain(path);
+    expect(headerSource).not.toMatch(/RFQ|rfq-fit-check|ki-sichtbarkeit/);
     expect(headerTemplate).toContain('[attr.aria-expanded]');
-    expect(headerTemplate).toContain('class="nav-dropdown"');
-    expect(headerStyles).toContain('.nav-group.is-open .nav-dropdown');
-    expect(headerStyles).not.toMatch(/\.nav-group:(hover|focus-within) \.nav-dropdown/);
+    expect(headerTemplate).toContain('aria-controls="primary-nav"');
+    expect(headerTemplate).toContain('id="primary-nav"');
+    expect(headerTemplate).toContain('aria-current');
+    expect(headerTemplate).toContain('class="skip-link"');
+    expect(headerSource).toContain('document:keydown.escape');
+    expect(headerSource).toContain('nativeElement.focus()');
+    expect(headerStyles).toContain('.nav-toggle');
   });
 
   it('does not frame the global footer around a few machine families', () => {
@@ -212,13 +217,17 @@ describe('interaction and accessibility guardrails', () => {
     expect(footerTemplate).not.toContain('/branchen/');
   });
 
-  it('keeps the global footer focused on RFQ qualification and company trust', () => {
-    expect(footerSource).toContain('/loesungen/technische-anfragequalifizierung/');
-    expect(footerSource).toContain('/leistungen/rfq-readiness-workshop/');
-    expect(footerSource).toContain('/leistungen/interner-rfq-copilot/');
-    expect(footerSource).not.toContain('/n8n-beratung-stuttgart/');
-    expect(footerSource).not.toContain('/ki-sichtbarkeit-industrie/');
-    expect(footerSource).not.toContain('/leistungen/prozessautomatisierung/');
+  it('keeps all footer links on current pages in the matching language', () => {
+    for (const language of ['de', 'en'] as const) {
+      const links = FOOTER_GROUPS[language].flatMap((group) => group.links);
+      expect(links.length).toBeGreaterThan(0);
+      for (const link of links) {
+        const destination = PAGE_REGISTRY.find((page) => page.path === link.href);
+        expect(destination, link.href).toBeDefined();
+        expect(destination?.lang, link.href).toBe(language);
+      }
+    }
+    expect(footerSource).not.toMatch(/RFQ|rfq-fit-check|ki-sichtbarkeit/);
   });
 
   it('keeps the English footer on English destinations', () => {
@@ -229,18 +238,21 @@ describe('interaction and accessibility guardrails', () => {
     expect(englishLinks.map((link) => link.label).join(' ')).not.toMatch(/\(DE\)|German page/);
   });
 
-  it('reuses the accessible M mark in the header, footer and browser tab', () => {
-    expect(headerTemplate).toContain('src="/hugo-menz-mark.svg"');
+  it('reuses the Hugo Martin mark without duplicating accessible link names', () => {
+    expect(existsSync(brandMarkUrl)).toBe(true);
+    const brandMark = readFileSync(brandMarkUrl, 'utf8');
+    expect(brandMark).toMatch(/<svg\b/);
+    expect(brandMark).toContain('viewBox=');
+    expect(headerTemplate).toContain('src="/hugo-martin-mark.svg"');
     expect(headerTemplate).toContain('class="brand-mark"');
-    expect(headerTemplate).not.toContain('brand-dot');
-    expect(footerTemplate).toContain('src="/hugo-menz-mark.svg"');
-    expect(documentHead).toContain('rel="icon" href="/hugo-menz-mark.svg"');
-    expect(brandMark).toContain('d="M15 47V18L32 35L49 18V40"');
-    expect(brandMark).not.toContain('#f2c94c');
+    expect(headerTemplate).toContain('[attr.aria-label]="copy().brandLabel"');
+    expect(footerTemplate).toContain('src="/hugo-martin-mark.svg"');
+    expect(footerTemplate).toContain('<strong>Hugo Martin</strong>');
+    expect(documentHead).toContain('rel="icon" href="/hugo-martin-mark.svg"');
   });
 });
 
-describe('protected contact form guardrails', () => {
+describe('contact form contract and accessibility', () => {
   it('keeps the existing webhook contract and payload fields', () => {
     expect(contactConfig).toContain('hook.eu1.make.com/19yorkt8rpwnxud22wlrmxsdgmi7gxjt');
     expect(contactDialog).toMatch(
@@ -267,5 +279,10 @@ describe('protected contact form guardrails', () => {
     expect(contactDialog).toContain("event.key === 'Escape'");
     expect(contactDialog).toContain("event.key === 'Tab'");
     expect(contactDialog).toContain('trapFocus(event)');
+    expect(contactTemplate).toContain('role="dialog"');
+    expect(contactTemplate).toContain('aria-modal="true"');
+    expect(contactTemplate).toContain('aria-labelledby="contact-dialog-title"');
+    expect(contactService).toContain('previouslyFocusedElement');
+    expect(contactService).toContain('elementToRestore.focus()');
   });
 });

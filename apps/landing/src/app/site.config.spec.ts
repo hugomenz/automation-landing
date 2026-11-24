@@ -15,20 +15,21 @@ describe('siteConfig', () => {
 
   it('keeps factual person and service schema inputs configured', () => {
     expect(siteConfig.name).toBe('Hugo Martin Menz');
-    expect(siteConfig.brandName).toBe('Hugo Menz Automation');
+    expect(siteConfig.brandName).toBe('Hugo Martin');
     expect(siteConfig.founder.jobTitle).toBe('UX Engineer');
     expect(siteConfig.areaServed).toContain('Stuttgart');
-    expect(siteConfig.knowsAbout).toContain('Angebotsprozesse im Maschinenbau');
-    expect(siteConfig.knowsAbout).toContain('Technische Anfragequalifizierung');
-    expect(siteConfig.knowsAbout).toContain('UX Engineering');
-    expect(siteConfig.knowsAbout).toContain('Digitale Prozesse');
-    expect(siteConfig.knowsAbout).not.toContain('Angular');
-    expect(siteConfig.knowsAbout).not.toContain('n8n');
+    expect(siteConfig.knowsAbout).toContain('Angular');
+    expect(siteConfig.knowsAbout).toContain('GitHub Copilot');
+    expect(siteConfig.knowsAbout).toContain('Developer Experience');
+    expect(siteConfig.knowsAbout).toContain('n8n');
+    expect(siteConfig.knowsAbout).toContain('Make');
+    expect(siteConfig.knowsAbout).toContain('Power Automate');
+    expect(siteConfig.knowsAbout.join(' ')).not.toMatch(/RFQ|UX\/UI.Design/i);
   });
 
-  it('uses the RFQ social preview with its declared dimensions', () => {
+  it('uses the services social preview with its declared dimensions', () => {
     expect(siteConfig.socialImage).toEqual({
-      src: '/og-rfq-preview.png',
+      src: '/og-services.png',
       width: 1200,
       height: 630,
     });

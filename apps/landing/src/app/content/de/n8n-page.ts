@@ -1,3 +1,4 @@
+import { contactAction, pageFooter, pageHeader, pageSeo } from '../page.helpers';
 import type { PageDefinition } from '../page.types';
 
 export const N8N_CONSULTING_STUTTGART = {
@@ -5,224 +6,116 @@ export const N8N_CONSULTING_STUTTGART = {
   path: '/n8n-beratung-stuttgart/',
   lang: 'de',
   locale: 'de_DE',
-  seo: {
-    title: 'n8n Beratung für technische Workflows in Stuttgart | Hugo Menz',
-    description:
-      'n8n Workflows in Stuttgart nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
-    canonicalPath: '/n8n-beratung-stuttgart/',
-    robots: 'index,follow',
-    openGraph: {
-      title: 'n8n Beratung für technische Workflows in Stuttgart',
-      description:
-        'n8n Workflows nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
-      type: 'website',
-      locale: 'de_DE',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
-      siteName: 'Hugo Menz Automation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'n8n Beratung für technische Workflows in Stuttgart',
-      description:
-        'n8n Workflows nachvollziehbar planen und mit menschlicher Kontrolle umsetzen.',
-      imagePath: '/og-general-de.png',
-      imageAlt: 'Prozessautomatisierung für technische B2B-Abläufe und Systemintegrationen',
-    },
-  },
+  seo: pageSeo(
+    'de',
+    '/n8n-beratung-stuttgart/',
+    'n8n-Beratung Stuttgart | Workflows & APIs | Hugo Martin',
+    'Persönliche Unterstützung mit n8n in Stuttgart: Workflows aufbauen, APIs verbinden und bestehende Abläufe prüfen. Mit Dokumentation und klarer Übergabe.',
+  ),
+  header: pageHeader('de', '/en/', 'process-automation'),
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'n8n Beratung Stuttgart', path: '/n8n-beratung-stuttgart/' },
+    { label: 'n8n-Beratung Stuttgart', path: '/n8n-beratung-stuttgart/' },
   ],
   hero: {
-    kicker: 'Technologie · n8n · APIs · Stuttgart',
-    h1: 'n8n Beratung für technische Workflows in Stuttgart',
-    lead:
-      'Ich plane und implementiere n8n-Workflows, die zum Prozess, zu den Systemen und zu den verantwortlichen Menschen passen.',
-    primaryCta: {
-      label: 'n8n-Prozess einordnen',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
-      contactContext: 'process-automation',
-    },
-    secondaryCta: {
-      label: 'Weitere Prozessautomatisierungen',
-      href: '/leistungen/prozessautomatisierung/',
-      dataCta: 'services-hero',
-    },
-    trustLine: 'Technologie nach Prozess wählen · Fehlerfälle sichtbar machen · Menschen entscheiden lassen',
+    kicker: 'n8n · Schnittstellen · Stuttgart',
+    h1: 'n8n-Beratung für einen konkreten Arbeitsablauf',
+    lead: 'Ich helfe Ihnen, wiederkehrende Aufgaben mit n8n zu verbinden: Daten aus Formularen übernehmen, Systeme über APIs anbinden oder einen bestehenden Workflow weiterentwickeln.',
+    primaryCta: contactAction('de', 'process-automation'),
+    secondaryCta: { label: 'Mögliche Aufgaben ansehen', href: '#aufgaben' },
+    trustLine: 'Persönlich aus Stuttgart · nebenberuflich · Zusammenarbeit auch remote',
   },
   sections: [
     {
-      id: 'rolle',
-      eyebrow: 'Einordnung',
-      heading: 'n8n als Baustein, nicht als Geschäftsversprechen',
-      paragraphs: [
-        'Ein stabiler Workflow braucht klare Daten, Regeln, Ausnahmen und Verantwortlichkeiten. n8n verbindet Systeme, ersetzt aber weder diese fachliche Grundlage noch die menschliche Freigabe.',
-      ],
-      links: [
-        {
-          label: 'Technische Anfragequalifizierung im Maschinenbau',
-          href: '/loesungen/technische-anfragequalifizierung/',
-        },
-        {
-          label: 'Interner RFQ-Copilot',
-          href: '/leistungen/interner-rfq-copilot/',
-        },
-      ],
-      layout: 'text',
-    },
-    {
-      id: 'leistungen',
-      eyebrow: 'Technische Leistungen',
-      heading: 'Wann n8n sinnvoll sein kann',
-      intro:
-        'n8n ist häufig passend, wenn Prozesse über mehrere Tools laufen, eigene Regeln benötigen und Datenflüsse nachvollziehbar bleiben sollen.',
+      id: 'aufgaben',
+      heading: 'Mit einem überschaubaren Ablauf beginnen',
+      intro: 'Mögliche Aufgaben für ein erstes Projekt:',
       items: [
         {
-          title: 'API-Integrationen und Webhooks',
-          body: 'Tools verbinden, Daten kontrolliert übergeben, Webhook-Trigger einrichten und Fehlerfälle sichtbar machen.',
+          title: 'Formulare und CRM verbinden',
+          body: 'Eingaben prüfen, Daten zuordnen und im vereinbarten Zielsystem anlegen oder aktualisieren. Rückmeldungen und relevante Fehlerfälle gehören zum Ablauf.',
         },
         {
-          title: 'Dokument- und E-Mail-Verarbeitung',
-          body: 'Eingänge klassifizieren, Daten extrahieren und Ergebnisse zur Prüfung vorbereiten.',
+          title: 'Daten über APIs austauschen',
+          body: 'Informationen aus einem bestehenden System abrufen, umwandeln und an ein anderes System übergeben. Wir klären die vorhandenen Schnittstellen und Zugänge.',
         },
         {
-          title: 'CRM- und Systemübergaben',
-          body: 'Geprüfte Informationen an CRM, Tabellen, Datenbanken oder interne Systeme weitergeben.',
-        },
-        {
-          title: 'Benachrichtigungen und Freigaben',
-          body: 'Verantwortliche Personen über offene Punkte, Blockiergründe oder nötige Entscheidungen informieren.',
+          title: 'Einen bestehenden Workflow prüfen',
+          body: 'Den aktuellen Ablauf nachvollziehen, einen konkreten Fehler untersuchen oder einen zusätzlichen Schritt einbauen und dokumentieren.',
         },
       ],
-      layout: 'cards',
+      layout: 'list',
     },
     {
-      id: 'passung',
-      eyebrow: 'Passung',
-      heading: 'Wann etwas anderes besser ist',
+      id: 'vorgehen',
+      heading: 'Vom aktuellen Ablauf zur überprüfbaren Umsetzung',
       items: [
         {
-          title: 'Make für einfache Standardintegrationen',
-          body: 'Wenn eine einfache Standardintegration reicht und Geschwindigkeit wichtiger ist als individuelle Logik, kann Make der kürzere Weg sein.',
+          label: '01',
+          title: 'Aufgabe und Systeme verstehen',
+          body: 'Wir gehen den aktuellen Ablauf durch und bestimmen Auslöser, Eingaben und gewünschtes Ergebnis. Auch Ausnahmen und die spätere Betreuung werden besprochen.',
         },
         {
-          title: 'Direkte API für kleine, stabile Verbindungen',
-          body: 'Wenn zwei Systeme mit klarer Logik verbunden werden, kann eine direkte Integration wartbarer sein.',
+          label: '02',
+          title: 'Workflow umsetzen und gemeinsam prüfen',
+          body: 'Ich baue oder erweitere den vereinbarten Workflow. An passenden Beispielen prüfen wir die Datenübertragung und die zuvor festgelegten Fehlerfälle.',
         },
         {
-          title: 'Internes Tool für Bedienung und Rechte',
-          body: 'Wenn ein Prozess eine eigene Oberfläche, Rechteverwaltung oder langfristige Produktlogik braucht, ist ein kleines internes Tool oft geeigneter.',
-        },
-      ],
-      callout:
-        'Ich empfehle n8n nicht allein deshalb, weil es verfügbar ist. Der Prozess und seine Anforderungen bestimmen die technische Lösung.',
-      layout: 'cards',
-    },
-    {
-      id: 'human-review',
-      eyebrow: 'Kontrolle',
-      heading: 'KI-Automatisierung mit menschlicher Kontrolle',
-      paragraphs: [
-        'KI kann Informationen klassifizieren, Dokumente zusammenfassen, Daten extrahieren oder Entwürfe vorbereiten. Kritische Entscheidungen, technische Machbarkeit, Preise, Margen und Freigaben bleiben bei den zuständigen Menschen.',
-      ],
-      callout:
-        'Wenn Daten, Regeln oder technische Grenzen fehlen, muss der Workflow stoppen und den Fall mit einem nachvollziehbaren Grund eskalieren.',
-      layout: 'text',
-    },
-    {
-      id: 'workflow-pruefung',
-      eyebrow: 'Workflow-Prüfung',
-      heading: 'Bestehende n8n Workflows verbessern',
-      intro:
-        'Wenn ein Workflow bereits läuft, aber fragil, unübersichtlich oder schlecht dokumentiert ist, prüfe ich ihn gezielt und mache konkrete Verbesserungsvorschläge.',
-      items: [
-        {
-          title: 'Technische Prüfung',
-          body: 'Trigger, Credentials, API-Aufrufe, Webhooks, Datenmapping, Fehlerbehandlung und Logging werden sichtbar gemacht.',
-        },
-        {
-          title: 'Wartbarkeit',
-          body: 'Ich prüfe, ob der Workflow verständlich benannt, sauber strukturiert und für spätere Anpassungen dokumentiert ist.',
-        },
-        {
-          title: 'Nächster Schritt',
-          body: 'Sie bekommen eine priorisierte Liste: was sofort repariert werden sollte, was vereinfacht werden kann und was stabil genug ist.',
-        },
-      ],
-      layout: 'cards',
-    },
-    {
-      id: 'ablauf',
-      eyebrow: 'Ablauf',
-      heading: 'Von der Prozess-Idee zum nachvollziehbaren Workflow',
-      items: [
-        {
-          title: 'Prozess verstehen',
-          body: 'Sie zeigen mir Trigger, Datenquellen, Regeln, Ausnahmen und Zielsysteme.',
-        },
-        {
-          title: 'Technischen Weg skizzieren',
-          body: 'Ich zeige, was in n8n sinnvoll ist und wo eine andere Lösung besser wäre.',
-        },
-        {
-          title: 'Umsetzen und testen',
-          body: 'Der Workflow wird mit vereinbarten Testfällen geprüft, einschließlich Fehler- und Eskalationslogik.',
-        },
-        {
+          label: '03',
           title: 'Dokumentieren und übergeben',
-          body: 'Sie erhalten einen dokumentierten Workflow, den Ihr Team nachvollziehen und pflegen kann.',
-        },
-      ],
-      links: [
-        {
-          label: 'Zusammenarbeit in Stuttgart und Baden-Württemberg',
-          href: '/standorte/stuttgart/',
+          body: 'Sie erhalten den Workflow und eine Erklärung seiner Schritte, Voraussetzungen und Grenzen. Wir halten fest, wie er betrieben und bei Bedarf angepasst wird.',
         },
       ],
       ordered: true,
-      layout: 'steps',
+      layout: 'ledger',
+    },
+    {
+      id: 'werkzeugwahl',
+      heading: 'Das Werkzeug muss zu Ihrem Arbeitsablauf passen',
+      paragraphs: [
+        'Wenn Sie bereits n8n verwenden, prüfen wir den vorhandenen Aufbau und die konkrete Aufgabe. Wenn Sie noch kein Werkzeug gewählt haben, berücksichtigen wir Ihre Systeme, Zugänge und die spätere Betreuung.',
+        'Je nach Ausgangslage kommen auch Make, Power Automate oder eine direkte API-Anbindung infrage. Die Entscheidung treffen wir anhand Ihres Ablaufs und des vereinbarten Projektumfangs.',
+      ],
+      links: [{ label: 'Mehr zur Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' }],
+      layout: 'text',
+    },
+    {
+      id: 'zusammenarbeit',
+      heading: 'Direkte Zusammenarbeit mit Hugo Martin',
+      paragraphs: [
+        'Ich bin in Stuttgart und biete technische Dienstleistungen nebenberuflich an. Unsere Zusammenarbeit kann remote erfolgen, mit abgestimmten Terminen und einem gemeinsamen Review.',
+        'Vor dem Start vereinbaren wir Umfang, Kosten, Verfügbarkeit und Übergabe. Wenn Sie nach dem Projekt weitere Unterstützung brauchen, besprechen wir diese gesondert.',
+      ],
+      links: [
+        { label: 'Über meinen technischen Hintergrund', href: '/ueber-hugo-martin/' },
+        { label: 'Weitere Leistungen in Stuttgart', href: '/standorte/stuttgart/' },
+      ],
+      layout: 'text',
     },
   ],
   faq: {
-    id: 'faq',
-    eyebrow: 'Häufige Fragen',
-    heading: 'Fragen zur n8n Beratung in Stuttgart',
+    id: 'fragen',
+    heading: 'Fragen zur n8n-Unterstützung',
     items: [
       {
-        question: 'Bieten Sie n8n Beratung vor Ort in Stuttgart an?',
-        answer:
-          'Ja. Ich arbeite remote und nach Vereinbarung auch im Raum Stuttgart vor Ort, vor allem für Workshops, Prozessaufnahme und Übergabe.',
+        question: 'Können Sie einen vorhandenen n8n-Workflow übernehmen?',
+        answer: 'Ich kann einen bestehenden Ablauf prüfen und eine klar beschriebene Erweiterung oder Fehlerbehebung übernehmen. Zuerst klären wir den Aufbau, die verbundenen Systeme und den gewünschten Umfang.',
       },
       {
-        question: 'Können Sie bestehende n8n Workflows prüfen?',
-        answer:
-          'Ja. Ich prüfe bestehende Workflows auf Wartbarkeit, Fehlerfälle, Dokumentation, Datenqualität und unnötige Komplexität.',
+        question: 'Können auch eigene APIs angebunden werden?',
+        answer: 'Wir prüfen gemeinsam die vorhandene Schnittstelle, ihre Dokumentation und die benötigten Daten. Daraus ergibt sich, wie die Verbindung umgesetzt und geprüft werden kann.',
       },
       {
-        question: 'Wann ist n8n besser als Make?',
-        answer:
-          'n8n passt oft besser, wenn Workflows komplexer werden, eigene Logik brauchen, Daten kontrolliert verarbeitet werden sollen oder Self-Hosting wichtig ist. Make kann schneller sein, wenn eine einfache Standardintegration reicht.',
-      },
-      {
-        question: 'Können n8n Workflows dokumentiert und übergeben werden?',
-        answer:
-          'Ja. Zur Umsetzung gehört eine kurze, verständliche Dokumentation mit Triggern, Datenflüssen, Regeln, Fehlerfällen und Hinweisen für die spätere Pflege.',
+        question: 'Wer betreut den Workflow nach der Übergabe?',
+        answer: 'Das vereinbaren wir vor dem Start. Die Übergabe enthält die besprochene Dokumentation. Weiterentwicklung und laufende Betreuung sind separate Aufgaben, die wir bei Bedarf abstimmen.',
       },
     ],
   },
   finalCta: {
-    eyebrow: 'Nächster Schritt',
-    heading: 'Erst den Prozess prüfen, dann die Technologie wählen',
-    body: 'Beschreiben Sie den technischen Prozess, die beteiligten Systeme, bekannte Regeln und den größten Engpass. Ich prüfe, ob n8n dafür ein sinnvoller Baustein ist.',
-    action: {
-      label: 'n8n-Prozess einordnen',
-      href: '#contact-form',
-      dataCta: 'contact-final',
-      contactContext: 'process-automation',
-    },
-    note: 'n8n ist eine mögliche Implementierungstechnologie, nicht die automatische Entscheidung über Preise oder Machbarkeit.',
+    heading: 'Welchen Ablauf möchten Sie mit n8n verbinden?',
+    body: 'Nennen Sie die beteiligten Tools, den heutigen Ablauf und das gewünschte Ergebnis. Wir prüfen gemeinsam einen sinnvollen ersten Schritt.',
+    action: contactAction('de', 'process-automation'),
   },
+  footer: pageFooter('de'),
   schemaKinds: ['Service', 'BreadcrumbList', 'FAQPage'],
 } as const satisfies PageDefinition;

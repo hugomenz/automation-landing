@@ -43,7 +43,7 @@ import { SnackbarService } from '../../snackbar.service';
       border-radius: 8px;
       font-size: 0.95rem;
       line-height: 1.4;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-soft);
       pointer-events: auto;
       animation: slideIn 0.3s ease-out;
     }

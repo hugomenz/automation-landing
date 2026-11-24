@@ -1,16 +1,25 @@
-# SEO checklist for hugomenz.de
+# SEO and publication checklist for hugomenz.de
 
-Use this checklist after publishing SEO changes.
+## Current offer
 
-- Verify the preferred canonical host is `https://www.hugomenz.de/`.
-- Inspect `https://www.hugomenz.de/` and `https://www.hugomenz.de/n8n-beratung-stuttgart/` in Google Search Console.
-- Submit `https://www.hugomenz.de/sitemap.xml` in Google Search Console.
-- Confirm Google has indexed `/n8n-beratung-stuttgart/`.
-- Create or improve Google Business Profile for Hugo Menz Automation with Stuttgart service area.
-- Add the `/n8n-beratung-stuttgart/` URL to LinkedIn company and personal profiles.
-- Build local citations with consistent name and URL: Stuttgart directories, relevant communities, partner pages, events, and profiles.
-- Track target keywords: `n8n Stuttgart`, `n8n Beratung Stuttgart`, `n8n Consultant Stuttgart`, `Workflow Automation Stuttgart`.
-- Add real testimonials or reviews only when they exist and can be published honestly.
-- Re-run PageSpeed/Lighthouse for mobile usability and accessibility.
-- Test structured data with Google's Rich Results Test or Schema Markup Validator.
-- Refresh FAQ content when real customer questions appear.
+Hugo Martin provides Angular development, GitHub Copilot support and process automation. Public copy must describe actual skills and scoped services. Use professional experience as context; publish customer references and results only when they are verified.
+
+## Before publishing
+
+- Run `npm test`, `npm run build` and `npm run verify:prerender` from `apps/landing`.
+- Confirm all 14 public pages are prerendered with one H1, a unique title and description, and a self-canonical URL.
+- Keep the preferred host `https://www.hugomenz.de/` across metadata, sitemap and structured data.
+- Confirm six translated DE/EN pairs have reciprocal language annotations. Stuttgart and n8n pages have no invented English equivalent.
+- Keep legacy URLs out of the sitemap. Verify their static redirect HTML against `legacy-redirects.json`.
+- Confirm the new share image `/og-services.png`, HM favicon and portrait load.
+- Check that page content, navigation, contact prompts and structured data all describe the services.
+- Keep schema aligned with visible facts. Do not add ratings, client logos, Product schema or price offers without evidence.
+- Check keyboard navigation, focus, contact errors and mobile overflow without submitting a real contact message.
+
+## After publishing
+
+- Check the live German and English homepages, all three service areas, contact and representative old URLs.
+- Confirm the GitHub Pages deployment finished successfully.
+- Inspect the refreshed sitemap in Google Search Console when access is available. Search engine titles and cached social previews may update later than the website.
+
+GitHub Pages serves these legacy redirects as static HTML with a meta refresh, a canonical destination and a visible link. They are not server-side HTTP 301 redirects.

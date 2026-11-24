@@ -1,48 +1,29 @@
-# Hugomenz landing
+# Hugo Martin services website
 
-Aplicación Angular 21 prerenderizada para `hugomenz.de`. Presenta la oferta B2B de cualificación técnica de RFQ para fabricantes de maquinaria y conserva n8n como página tecnológica secundaria.
+Angular 21 application for [hugomenz.de](https://www.hugomenz.de/). The public offer covers Angular development, GitHub Copilot and process automation.
 
-## Arquitectura
+## Content and routes
 
-- Componentes standalone, signals, `OnPush` y change detection zoneless.
-- Angular Router con URLs reales para alemán e inglés.
-- Registro tipado de contenido y metadatos en `src/app/content/`.
-- Prerender estático con `@angular/ssr` y `outputMode: "static"`.
-- Salida publicable en `dist/landing/browser`; producción no necesita servidor.
-- Formulario de contacto protegido con el endpoint y el payload existentes.
+Content is stored in `src/app/content/` and registered in `page.registry.ts`. Each page owns its title, description, canonical path, social metadata, breadcrumbs, body and optional language alternates. German and English versions have reciprocal language links. Only real translations are advertised.
 
-## Rutas prerenderizadas
+`app.routes.ts` derives the live routes from the registry. Previous product and campaign URLs are mapped in `src/app/legacy-redirects.json`. The build writes static redirects with a canonical destination, noindex directive and an accessible link so old bookmarks still lead to the current offer.
 
-- `/`
-- `/loesungen/technische-anfragequalifizierung/`
-- `/leistungen/rfq-readiness-workshop/`
-- `/leistungen/interner-rfq-copilot/`
-- `/branchen/end-of-line/`
-- `/branchen/verpackungsmaschinen/`
-- `/branchen/palettieranlagen/`
-- `/standorte/stuttgart/`
-- `/ueber-hugo-menz/`
-- `/kontakt/`
-- `/n8n-beratung-stuttgart/`
-- `/en/`
+## Contact
 
-## Desarrollo local
+The shared dialog supports general, Angular, Copilot and process automation enquiries. It retains the original delivery endpoint, payload fields, validation, rate limits and keyboard behaviour. Never send a real enquiry as a deployment test.
+
+## Commands
 
 ```bash
 npm ci
-npm start
-```
-
-La aplicación queda disponible en `http://localhost:4200`.
-
-## Validación y build
-
-```bash
 npm test
 npm run build
 npm run verify:prerender
+npm start -- --host 127.0.0.1 --port 4301
 ```
 
-`verify:prerender` inspecciona el HTML generado de todas las rutas y comprueba idioma, title, canonical, H1, contenido principal y que `app-root` no esté vacío.
+The deployed directory is `dist/landing/browser`. No application server is needed in production.
 
-GitHub Actions publica únicamente `dist/landing/browser` en GitHub Pages.
+## Visual review
+
+Review the home, a service page, navigation and contact dialog on desktop and mobile. Check keyboard focus, text contrast, language switching, long German words and horizontal overflow. The shared visual rules live in the root `DESIGN.md`.

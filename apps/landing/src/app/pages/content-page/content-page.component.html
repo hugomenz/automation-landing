@@ -1,13 +1,7 @@
-@if (page.key === 'rfq-demo-de' || page.key === 'rfq-demo-en') {
-  <app-rfq-demo [page]="page" />
-} @else {
 <article
   class="page"
   [class.page-home]="isHome"
-  [class.page-about-hugo-menz]="page.key === 'about-hugo-menz'"
-  [class.page-process-automation]="page.key === 'process-automation'"
-  [class.page-order-entry]="page.key === 'order-entry-automation-de' || page.key === 'order-entry-automation-en'"
-  [class.page-industrial-ai-search-de]="page.key === 'industrial-ai-search-de'"
+  [class.page-about]="page.key === 'about-hugo-martin-de' || page.key === 'about-hugo-martin-en'"
 >
   @if (!isHome) {
     <app-breadcrumbs [items]="page.breadcrumbs" [language]="page.lang" />
@@ -39,7 +33,7 @@
       </div>
 
       @if (page.hero.diagram) {
-        <app-rfq-flow [diagram]="page.hero.diagram" />
+        <app-service-flow [diagram]="page.hero.diagram" />
       } @else if (page.hero.portrait) {
         <figure class="hero-portrait">
           <img
@@ -49,7 +43,7 @@
             [height]="page.hero.portrait.height"
             decoding="async"
           />
-          <figcaption class="mono">Hugo Martin Menz · Stuttgart</figcaption>
+          <figcaption class="mono">Hugo Martin · Stuttgart</figcaption>
         </figure>
       }
     </div>
@@ -129,7 +123,7 @@
 
           @if (section.items) {
             @if (section.ordered) {
-              <ol class="item-grid step-grid" [class.order-ledger]="section.layout === 'ledger'">
+              <ol class="item-grid step-grid order-ledger">
                 @for (item of section.items; track $index) {
                   <li class="item-card">
                     @if (item.label) { <span class="item-label mono">{{ item.label }}</span> }
@@ -212,4 +206,3 @@
     </div>
   </section>
 </article>
-}
