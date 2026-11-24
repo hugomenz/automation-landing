@@ -18,6 +18,14 @@ button {
   transition: text-decoration-color 140ms ease, color 140ms ease;
 }
 
+button.content-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
 .content-link::after {
   content: '→';
   margin-left: 8px;

@@ -1,20 +1,18 @@
-import { ABOUT_HUGO_MENZ, CONTACT, STUTTGART } from './de/company-pages';
-import {
-  INTERNAL_RFQ_COPILOT,
-  RFQ_READINESS_WORKSHOP,
-  TECHNICAL_REQUEST_QUALIFICATION,
-} from './de/core-pages';
+import { ABOUT_HUGO_MARTIN_DE, CONTACT_DE, STUTTGART } from './de/company-pages';
 import { HOME_DE } from './de/home';
-import { INDUSTRIAL_AI_SEARCH_DE } from './de/industrial-ai-search';
-import { END_OF_LINE, PACKAGING_MACHINERY, PALLETISING_SYSTEMS } from './de/industry-pages';
 import { N8N_CONSULTING_STUTTGART } from './de/n8n-page';
-import { PROCESS_AUTOMATION } from './de/process-automation';
-import { ORDER_ENTRY_AUTOMATION_DE } from './de/order-entry';
-import { RFQ_DEMO_DE } from './de/rfq-demo';
+import {
+  ANGULAR_DEVELOPMENT_DE,
+  GITHUB_COPILOT_DE,
+  PROCESS_AUTOMATION_DE,
+} from './de/services';
+import { ABOUT_HUGO_MARTIN_EN, CONTACT_EN } from './en/company-pages';
 import { HOME_EN } from './en/home';
-import { ORDER_ENTRY_AUTOMATION_EN } from './en/order-entry';
-import { INDUSTRIAL_AI_SEARCH_EN } from './en/industrial-ai-search';
-import { RFQ_DEMO_EN } from './en/rfq-demo';
+import {
+  ANGULAR_DEVELOPMENT_EN,
+  GITHUB_COPILOT_EN,
+  PROCESS_AUTOMATION_EN,
+} from './en/services';
 import type {
   ContentLink,
   HreflangAlternate,
@@ -28,34 +26,33 @@ export const SITE_ORIGIN = 'https://www.hugomenz.de' as const;
 const TRANSLATED_PAGE_KEYS: readonly PageKey[] = [
   'home-de',
   'home-en',
-  'rfq-demo-de',
-  'rfq-demo-en',
-  'industrial-ai-search-de',
-  'industrial-ai-search-en',
-  'order-entry-automation-de',
-  'order-entry-automation-en',
+  'angular-development-de',
+  'angular-development-en',
+  'github-copilot-de',
+  'github-copilot-en',
+  'process-automation-de',
+  'process-automation-en',
+  'about-hugo-martin-de',
+  'about-hugo-martin-en',
+  'contact-de',
+  'contact-en',
 ];
 
 export const PAGE_REGISTRY: readonly PageDefinition[] = [
   HOME_DE,
-  RFQ_DEMO_DE,
-  TECHNICAL_REQUEST_QUALIFICATION,
-  RFQ_READINESS_WORKSHOP,
-  INTERNAL_RFQ_COPILOT,
-  PROCESS_AUTOMATION,
-  ORDER_ENTRY_AUTOMATION_DE,
-  END_OF_LINE,
-  PACKAGING_MACHINERY,
-  PALLETISING_SYSTEMS,
+  ANGULAR_DEVELOPMENT_DE,
+  GITHUB_COPILOT_DE,
+  PROCESS_AUTOMATION_DE,
+  ABOUT_HUGO_MARTIN_DE,
+  CONTACT_DE,
   STUTTGART,
-  ABOUT_HUGO_MENZ,
-  CONTACT,
-  HOME_EN,
-  ORDER_ENTRY_AUTOMATION_EN,
-  RFQ_DEMO_EN,
   N8N_CONSULTING_STUTTGART,
-  INDUSTRIAL_AI_SEARCH_DE,
-  INDUSTRIAL_AI_SEARCH_EN,
+  HOME_EN,
+  ANGULAR_DEVELOPMENT_EN,
+  GITHUB_COPILOT_EN,
+  PROCESS_AUTOMATION_EN,
+  ABOUT_HUGO_MARTIN_EN,
+  CONTACT_EN,
 ];
 
 export const PAGE_BY_KEY: ReadonlyMap<PageKey, PageDefinition> = new Map(

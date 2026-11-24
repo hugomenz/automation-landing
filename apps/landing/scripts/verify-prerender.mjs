@@ -6,174 +6,48 @@ const SITE_ORIGIN = 'https://www.hugomenz.de';
 const DIST_ROOT = fileURLToPath(new URL('../dist/landing/browser/', import.meta.url));
 const MINIMUM_MAIN_CHARACTERS = 500;
 const MINIMUM_MAIN_WORDS = 70;
-const HOME_ALTERNATES = [
-  { hreflang: 'de-DE', href: SITE_ORIGIN + '/' },
-  { hreflang: 'en', href: SITE_ORIGIN + '/en/' },
-  { hreflang: 'x-default', href: SITE_ORIGIN + '/' },
-];
-const AI_SEARCH_ALTERNATES = [
-  { hreflang: 'de-DE', href: SITE_ORIGIN + '/ki-sichtbarkeit-industrie/' },
-  {
-    hreflang: 'en',
-    href: SITE_ORIGIN + '/en/ai-search-readiness-industrial-companies/',
-  },
-  { hreflang: 'x-default', href: SITE_ORIGIN + '/ki-sichtbarkeit-industrie/' },
-];
-const RFQ_DEMO_ALTERNATES = [
-  { hreflang: 'de-DE', href: SITE_ORIGIN + '/de/demo/rfq-fit-check/' },
-  { hreflang: 'en', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
-  { hreflang: 'x-default', href: SITE_ORIGIN + '/en/demo/rfq-fit-check/' },
-];
-const ORDER_ENTRY_ALTERNATES = [
-  {
-    hreflang: 'de-DE',
-    href: SITE_ORIGIN + '/leistungen/auftragserfassung-automatisierung/',
-  },
-  { hreflang: 'en', href: SITE_ORIGIN + '/en/order-entry-automation/' },
-  {
-    hreflang: 'x-default',
-    href: SITE_ORIGIN + '/leistungen/auftragserfassung-automatisierung/',
-  },
-];
+const SOCIAL_IMAGE_PATH = '/og-services.png';
+const FAVICON_PATH = '/hugo-martin-mark.svg';
+const sitemap = readFileSync(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
+const legacyRedirects = JSON.parse(
+  readFileSync(new URL('../src/app/legacy-redirects.json', import.meta.url), 'utf8'),
+);
+const pages = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(([, block]) => {
+  const location = /<loc>\s*([^<]+?)\s*<\/loc>/.exec(block)?.[1];
+  if (!location) throw new Error('Sitemap URL is missing its location');
+  const canonical = decodeHtml(location);
+  const url = new URL(canonical);
+  if (url.origin !== SITE_ORIGIN || url.search || url.hash || !url.pathname.endsWith('/')) {
+    throw new Error(`Invalid canonical sitemap URL: ${canonical}`);
+  }
+  const alternates = (block.match(/<xhtml:link\b[^>]*>/g) ?? []).map((tag) => {
+    const entry = attributes(tag);
+    return { hreflang: entry.get('hreflang'), href: entry.get('href') };
+  });
+  return {
+    path: url.pathname,
+    lang: url.pathname.startsWith('/en/') ? 'en' : 'de',
+    canonical,
+    socialImage: SOCIAL_IMAGE_PATH,
+    alternates,
+  };
+});
+if (pages.length === 0) throw new Error('Sitemap contains no public pages');
+const canonicalPaths = new Set(pages.map(({ path }) => path));
+if (canonicalPaths.size !== pages.length) throw new Error('Sitemap contains duplicate paths');
+const seenTitles = new Map();
+const seenDescriptions = new Map();
+const seenHeadings = new Map();
 
-const pages = [
-  {
-    path: '/',
-    lang: 'de',
-    title: 'Angebotsprozess im Maschinenbau automatisieren | Hugo Menz',
-    description:
-      'Technische Kundenanfragen aus E-Mail, PDF und Lastenheft schneller qualifizieren. Für Maschinenbauer, mit freigegebenen Regeln und menschlicher Prüfung.',
-    h1: 'Angebotsprozess im Maschinenbau: technische Anfragen schneller qualifizieren',
-    alternates: HOME_ALTERNATES,
-  },
-  {
-    path: '/de/demo/rfq-fit-check/',
-    lang: 'de',
-    title: 'RFQ-Fit-Check Demo für Maschinenbauer | Hugo Menz',
-    h1: 'So könnte Ihr RFQ-Fit-Check aussehen',
-    alternates: RFQ_DEMO_ALTERNATES,
-  },
-  {
-    path: '/loesungen/technische-anfragequalifizierung/',
-    lang: 'de',
-    title: 'Technische Anfragequalifizierung im Maschinenbau | Hugo Menz',
-    h1: 'Technische Anfragen vor dem Angebot strukturiert qualifizieren',
-  },
-  {
-    path: '/leistungen/rfq-readiness-workshop/',
-    lang: 'de',
-    title: 'RFQ Readiness Workshop für Maschinenbauer | Hugo Menz',
-    h1: 'Ist Ihr Angebotsprozess bereit für kontrollierte Automatisierung?',
-  },
-  {
-    path: '/leistungen/interner-rfq-copilot/',
-    lang: 'de',
-    title: 'Interner RFQ-Copilot für Maschinenbauer | Hugo Menz',
-    h1: 'Interner RFQ-Copilot für technische Angebotsprozesse',
-  },
-  {
-    path: '/leistungen/prozessautomatisierung/',
-    lang: 'de',
-    title: 'Prozessautomatisierung und Systemintegration | Hugo Menz',
-    h1: 'Prozessautomatisierung und Systemintegration für technische und betriebliche B2B-Abläufe',
-    socialImage: '/og-general-de.png',
-  },
-  {
-    path: '/leistungen/auftragserfassung-automatisierung/',
-    lang: 'de',
-    title: 'Auftragserfassung automatisieren: Fallstudie | Hugo Menz',
-    h1: 'Auftragserfassung als kontrollierten Dokumentenprozess vorbereiten',
-    socialImage: '/og-general-de.png',
-    alternates: ORDER_ENTRY_ALTERNATES,
-  },
-  {
-    path: '/branchen/end-of-line/',
-    lang: 'de',
-    title: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren | Hugo Menz',
-    h1: 'Angebotsprozesse für End-of-Line-Anlagen digitalisieren',
-  },
-  {
-    path: '/branchen/verpackungsmaschinen/',
-    lang: 'de',
-    title: 'Technische Anfragequalifizierung für Verpackungsmaschinen | Hugo Menz',
-    h1: 'Technische Anfragequalifizierung für Verpackungsmaschinen',
-  },
-  {
-    path: '/branchen/palettieranlagen/',
-    lang: 'de',
-    title: 'Angebotsqualifizierung für Palettieranlagen | Hugo Menz',
-    h1: 'Angebotsqualifizierung für robotergestützte Palettieranlagen',
-  },
-  {
-    path: '/standorte/stuttgart/',
-    lang: 'de',
-    title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart | Hugo Menz',
-    h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
-  },
-  {
-    path: '/ueber-hugo-menz/',
-    lang: 'de',
-    title: 'Über Hugo Menz | Maschinenbau-Erfahrung für RFQ-Prozesse',
-    h1: 'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
-  },
-  {
-    path: '/kontakt/',
-    lang: 'de',
-    title: 'RFQ-Fit-Check für Maschinenbauer | Kontakt zu Hugo Menz',
-    h1: 'RFQ-Fit-Check für Ihren technischen Angebotsprozess',
-  },
-  {
-    path: '/en/',
-    lang: 'en',
-    title: 'Automate quotation processes for machinery manufacturers | Hugo Menz',
-    h1: 'Turn technical enquiries into a reviewable quotation basis',
-    socialImage: '/og-rfq-preview-en.png',
-    alternates: HOME_ALTERNATES,
-  },
-  {
-    path: '/en/demo/rfq-fit-check/',
-    lang: 'en',
-    title: 'RFQ Fit Check demo for machinery manufacturers | Hugo Menz',
-    h1: 'See what your RFQ Fit Check could look like',
-    socialImage: '/og-rfq-preview-en.png',
-    alternates: RFQ_DEMO_ALTERNATES,
-  },
-  {
-    path: '/en/order-entry-automation/',
-    lang: 'en',
-    title: 'Order Entry Automation case study | Hugo Menz',
-    h1: 'Prepare order entry as a controlled document workflow',
-    socialImage: '/og-general-de.png',
-    alternates: ORDER_ENTRY_ALTERNATES,
-  },
-  {
-    path: '/n8n-beratung-stuttgart/',
-    lang: 'de',
-    title: 'n8n Beratung für technische Workflows in Stuttgart | Hugo Menz',
-    h1: 'n8n Beratung für technische Workflows in Stuttgart',
-    socialImage: '/og-general-de.png',
-  },
-  {
-    path: '/ki-sichtbarkeit-industrie/',
-    lang: 'de',
-    title: 'KI-Sichtbarkeit für Industrieunternehmen | GEO & AI Search | Hugo Menz',
-    h1: 'KI-Sichtbarkeit für Industrieunternehmen',
-    socialImage: '/og-industrial-ai-search-de.png',
-    alternates: AI_SEARCH_ALTERNATES,
-  },
-  {
-    path: '/en/ai-search-readiness-industrial-companies/',
-    lang: 'en',
-    title: 'AI Search Readiness for Industrial Companies | Hugo Menz',
-    h1: 'AI Search Readiness for Industrial Companies',
-    socialImage: '/og-industrial-ai-search-en.png',
-    alternates: AI_SEARCH_ALTERNATES,
-  },
-].map((page) => ({
-  ...page,
-  canonical: new URL(page.path, `${SITE_ORIGIN}/`).toString(),
-  socialImage: page.socialImage ?? '/og-rfq-preview.png',
-}));
+function verifyUnique(label, value, path, seen, errors) {
+  const previous = seen.get(value);
+  if (previous) errors.push(`${label} duplicates ${previous}`);
+  else seen.set(value, path);
+}
+
+function sortedAlternates(alternates) {
+  return alternates.map(({ hreflang, href }) => `${hreflang}:${href}`).sort();
+}
 
 function decodeHtml(value) {
   const namedEntities = {
@@ -281,8 +155,10 @@ function validatePage(page) {
 
   if (titles.length !== 1) {
     errors.push(`expected one <title>, found ${titles.length}`);
-  } else if (titles[0] !== page.title) {
-    errors.push(`title mismatch: expected ${JSON.stringify(page.title)}, found ${JSON.stringify(titles[0])}`);
+  } else if (!titles[0]) {
+    errors.push('title is empty');
+  } else {
+    verifyUnique('title', titles[0], page.path, seenTitles, errors);
   }
 
   if (canonicalLinks.length !== 1) {
@@ -299,12 +175,8 @@ function validatePage(page) {
   if (descriptions.length !== 1 || !singleAttributeValue(descriptions, 'content')?.trim()) {
     errors.push(`expected one non-empty meta description, found ${descriptions.length}`);
   }
-  if (
-    page.description &&
-    singleAttributeValue(descriptions, 'content') !== page.description
-  ) {
-    errors.push('meta description does not match the expected homepage copy');
-  }
+  const description = singleAttributeValue(descriptions, 'content')?.trim();
+  if (description) verifyUnique('description', description, page.path, seenDescriptions, errors);
 
   const renderedAlternates = alternateLinks.map((tag) => {
     const tagAttributes = attributes(tag);
@@ -314,7 +186,7 @@ function validatePage(page) {
     };
   });
   const expectedAlternates = page.alternates ?? [];
-  if (JSON.stringify(renderedAlternates) !== JSON.stringify(expectedAlternates)) {
+  if (JSON.stringify(sortedAlternates(renderedAlternates)) !== JSON.stringify(sortedAlternates(expectedAlternates))) {
     errors.push(
       'hreflang mismatch: expected ' +
         JSON.stringify(expectedAlternates) +
@@ -350,10 +222,27 @@ function validatePage(page) {
     errors.push('expected complete Twitter card metadata');
   }
 
+  const favicon = matchingTags(html, 'link', 'rel', 'icon');
+  if (singleAttributeValue(favicon, 'href') !== FAVICON_PATH || !existsSync(join(DIST_ROOT, FAVICON_PATH.slice(1)))) {
+    errors.push('expected the Hugo Martin favicon and its local asset');
+  }
+  for (const [attribute, name] of [
+    ['property', 'og:title'], ['property', 'og:description'], ['property', 'og:image:alt'],
+    ['name', 'twitter:title'], ['name', 'twitter:description'], ['name', 'twitter:image:alt'],
+  ]) {
+    const tags = matchingTags(html, 'meta', attribute, name);
+    if (!singleAttributeValue(tags, 'content')?.trim()) errors.push(`expected one non-empty ${name} meta tag`);
+  }
+  if (singleAttributeValue(matchingTags(html, 'meta', 'property', 'og:site_name'), 'content') !== 'Hugo Martin') {
+    errors.push('Open Graph site name must be Hugo Martin');
+  }
+
   if (h1s.length !== 1) {
     errors.push(`expected one <h1>, found ${h1s.length}`);
-  } else if (h1s[0] !== page.h1) {
-    errors.push(`H1 mismatch: expected ${JSON.stringify(page.h1)}, found ${JSON.stringify(h1s[0])}`);
+  } else if (!h1s[0]) {
+    errors.push('H1 is empty');
+  } else {
+    verifyUnique('H1', h1s[0], page.path, seenHeadings, errors);
   }
 
   for (const imageTag of imageTags) {
@@ -425,9 +314,9 @@ function validatePage(page) {
       }
 
       const expectedPrimaryType =
-        page.path === '/ueber-hugo-menz/'
+        page.path === '/ueber-hugo-martin/' || page.path === '/en/about/'
           ? 'Person'
-          : page.path === '/kontakt/'
+          : page.path === '/kontakt/' || page.path === '/en/contact/'
             ? 'ContactPage'
             : page.path === '/' || page.path === '/en/'
               ? 'Organization'
@@ -465,6 +354,13 @@ function validatePage(page) {
         .replace(/<template\b[^>]*>[\s\S]*?<\/template>/gi, ' '),
     );
     const wordCount = mainText === '' ? 0 : mainText.split(/\s+/).length;
+    if (/\bRFQ\b|RFQ-Fit-Check|Industrial AI Visibility|KI-Sichtbarkeit für Industrieunternehmen/i.test(mainText)) {
+      errors.push('main content still contains the previous product marketing');
+    }
+    if (/(?:€|EUR)\s*\d|\d[\d.,]*\s*(?:€|EUR|Euro)\b|\b\d+(?:[.,]\d+)?\s*%/i.test(mainText)) {
+      errors.push('main content contains unconfirmed numeric prices or performance figures');
+    }
+
 
     if (
       page.path === '/' &&
@@ -486,6 +382,55 @@ function validatePage(page) {
     }
   }
 
+  for (const link of html.match(/<a\b[^>]*>/gi) ?? []) {
+    const href = attributes(link).get('href');
+    if (!href) continue;
+    let destination;
+    try { destination = new URL(href, page.canonical); }
+    catch { errors.push(`invalid link: ${href}`); continue; }
+    if (destination.origin !== SITE_ORIGIN) continue;
+    if (!canonicalPaths.has(destination.pathname)) {
+      const asset = join(DIST_ROOT, ...destination.pathname.split('/').filter(Boolean));
+      if (!existsSync(asset) || destination.pathname.endsWith('/')) {
+        errors.push(`internal link does not target a current public page or asset: ${href}`);
+      }
+      continue;
+    }
+    if (destination.hash) {
+      const targetFile = pageFile(destination.pathname);
+      const targetHtml = existsSync(targetFile) ? readFileSync(targetFile, 'utf8') : '';
+      const ids = new Set((targetHtml.match(/<[a-z][^>]*>/gi) ?? [])
+        .map((tag) => attributes(tag).get('id')).filter(Boolean));
+      if (!ids.has(decodeURIComponent(destination.hash.slice(1)))) {
+        errors.push(`internal link points to a missing anchor: ${href}`);
+      }
+    }
+  }
+
+  return errors;
+}
+
+function validateRedirect({ from, to }) {
+  const errors = [];
+  if (canonicalPaths.has(from)) errors.push('redirect source conflicts with a canonical page');
+  if (!canonicalPaths.has(to)) errors.push('redirect target is not a canonical page');
+  const file = pageFile(from);
+  if (!existsSync(file)) return [...errors, `missing redirect HTML ${file}`];
+  const html = readFileSync(file, 'utf8');
+  const destination = new URL(to, SITE_ORIGIN).href;
+  if (singleAttributeValue(matchingTags(html, 'link', 'rel', 'canonical'), 'href') !== destination) {
+    errors.push('redirect canonical must point to the destination');
+  }
+  if (singleAttributeValue(matchingTags(html, 'meta', 'name', 'robots'), 'content') !== 'noindex,follow') {
+    errors.push('redirect must use noindex,follow');
+  }
+  const refresh = singleAttributeValue(matchingTags(html, 'meta', 'http-equiv', 'refresh'), 'content');
+  if (refresh !== `0; url=${destination}`) errors.push('redirect must have an immediate meta refresh');
+  if (/<script\b/i.test(html)) errors.push('redirect must work without JavaScript');
+  const links = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)];
+  if (!links.some(([, attrs, text]) => attributes(`<a ${attrs}>`).get('href') === destination && normalizeText(text))) {
+    errors.push('redirect must include an accessible destination link');
+  }
   return errors;
 }
 
@@ -494,9 +439,11 @@ if (!existsSync(DIST_ROOT)) {
   console.error('Run "npm run build" before "npm run verify:prerender".');
   process.exitCode = 1;
 } else {
-  const failures = pages.flatMap((page) =>
-    validatePage(page).map((message) => `${page.path}: ${message}`),
-  );
+  const failures = [
+    ...pages.flatMap((page) => validatePage(page).map((message) => `${page.path}: ${message}`)),
+    ...legacyRedirects.flatMap((redirect) =>
+      validateRedirect(redirect).map((message) => `${redirect.from}: ${message}`)),
+  ];
 
   if (failures.length > 0) {
     console.error(`Prerender verification failed with ${failures.length} error(s):`);
@@ -504,6 +451,6 @@ if (!existsSync(DIST_ROOT)) {
     console.error(`Build root: ${dirname(pageFile('/'))}`);
     process.exitCode = 1;
   } else {
-    console.log(`Verified ${pages.length} prerendered routes in ${DIST_ROOT}`);
+    console.log(`Verified ${pages.length} prerendered routes and ${legacyRedirects.length} legacy redirects in ${DIST_ROOT}`);
   }
 }

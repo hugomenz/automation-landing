@@ -2,6 +2,7 @@
   <nav
     class="section-index"
     [class.is-visible]="visible()"
+    [attr.inert]="visible() ? null : ''"
     [attr.aria-label]="language() === 'de' ? 'Inhaltsverzeichnis' : 'On-page navigation'"
   >
     @for (item of items(); track item.href) {
@@ -17,7 +18,7 @@
     }
   </nav>
 
-  <label class="section-jump" [class.is-visible]="visible()">
+  <label class="section-jump" [class.is-visible]="visible()" [attr.inert]="visible() ? null : ''">
     <span>{{ language() === 'de' ? 'Abschnitt' : 'Section' }}</span>
     <select
       [value]="activeHref()"

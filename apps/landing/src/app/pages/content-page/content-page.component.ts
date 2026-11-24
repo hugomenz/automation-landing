@@ -9,8 +9,7 @@ import { PageKey } from '../../content/page.types';
 import { SeoService } from '../../core/seo.service';
 import { BreadcrumbsComponent } from '../../shared/breadcrumbs/breadcrumbs.component';
 import { ContentLinkComponent } from '../../shared/content-link/content-link.component';
-import { RfqFlowComponent } from '../../shared/rfq-flow/rfq-flow.component';
-import { RfqDemoComponent } from '../rfq-demo/rfq-demo.component';
+import { ServiceFlowComponent } from '../../shared/service-flow/service-flow.component';
 import { siteConfig } from '../../site.config';
 
 @Component({
@@ -19,9 +18,8 @@ import { siteConfig } from '../../site.config';
   imports: [
     BreadcrumbsComponent,
     ContentLinkComponent,
-    RfqFlowComponent,
+    ServiceFlowComponent,
     SectionIndexComponent,
-    RfqDemoComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './content-page.component.html',

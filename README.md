@@ -1,55 +1,42 @@
-# Hugo Menz Automation
+# Hugo Martin
 
-Repositorio de validación y web pública de Hugo Menz. La propuesta principal de
-`hugomenz.de` es la digitalización del proceso técnico de oferta para fabricantes
-de maquinaria: cualificación interna de RFQ para una sola familia de máquinas,
-con fuentes trazables, reglas aprobadas y revisión humana.
+Source for [hugomenz.de](https://www.hugomenz.de/), the personal services website of Hugo Martin.
 
-La solución no se presenta como un wizard público, un CPQ completo ni un sistema
-autónomo de pricing o aprobación técnica. n8n, Make, APIs y webhooks permanecen
-como tecnologías de implementación secundarias.
+The offer has three areas:
 
-## Estructura
+- Angular applications, internal tools and technical work on existing component libraries.
+- GitHub Copilot, custom skills, agents and development workflow automation.
+- Process automation and API integrations with n8n, Make and Power Automate.
 
-| Ruta | Uso |
+Projects start with a specific problem and an agreed scope. The website presents an individual, part-time service offering and factual professional experience.
+
+## Project structure
+
+| Path | Purpose |
 |---|---|
-| `apps/landing/` | Sitio Angular 21 prerenderizado y publicado en GitHub Pages |
-| `brain/` | Investigación y validación histórica de mercado |
-| `docs/` | Referencias, decisiones, contenido y handoff del rebuild SEO |
+| `apps/landing/` | Angular 21 website, prerendered and deployed to GitHub Pages |
+| `DESIGN.md` | Current visual identity and UI rules |
+| `brain/` | Historical research and business validation |
+| `docs/` | Technical notes and historical reference material |
 
-## Arquitectura de la web
+Current public positioning is defined by the typed content registry in `apps/landing/src/app/content/`. Historical research keeps its original context.
 
-- Angular 21.2.17 con componentes standalone, signals, `OnPush` y change
-  detection zoneless.
-- Angular Router con rutas explícitas.
-- Prerender estático mediante `@angular/ssr` y `outputMode: "static"`.
-- Registro tipado único para contenido, metadatos, canonical, hreflang,
-  breadcrumbs y schema.
-- Formulario existente con validaciones, feedback y rate limiting conservados.
-- Sin servidor requerido en producción.
+## Architecture
 
-El artefacto publicable permanece en:
+- Angular 21.2.17, standalone components, signals, OnPush and zoneless change detection.
+- Angular Router with routes derived from the typed page registry.
+- Static prerendering with `@angular/ssr` and `outputMode: "static"`.
+- German and English home, service, about and contact pages.
+- German local pages for Stuttgart and n8n.
+- Shared metadata, canonical URLs, reciprocal language links and structured data.
+- Existing contact delivery, validation, feedback and rate limits.
+- Legacy product URLs redirect to current service pages. The redirect map is in `src/app/legacy-redirects.json`.
 
-```text
-apps/landing/dist/landing/browser
-```
+The production output is `apps/landing/dist/landing/browser`.
 
-## Rutas públicas
+## Development and validation
 
-- `/`
-- `/loesungen/technische-anfragequalifizierung/`
-- `/leistungen/rfq-readiness-workshop/`
-- `/leistungen/interner-rfq-copilot/`
-- `/branchen/end-of-line/`
-- `/branchen/verpackungsmaschinen/`
-- `/branchen/palettieranlagen/`
-- `/standorte/stuttgart/`
-- `/ueber-hugo-menz/`
-- `/kontakt/`
-- `/n8n-beratung-stuttgart/`
-- `/en/`
-
-## Desarrollo y validación
+Use Node.js 22 and run commands from the app directory:
 
 ```bash
 cd apps/landing
@@ -59,6 +46,14 @@ npm run build
 npm run verify:prerender
 ```
 
-`verify:prerender` inspecciona el HTML publicado de cada ruta y comprueba title,
-canonical, H1 y contenido principal. Los workflows de GitHub Actions ejecutan la
-misma validación antes de publicar `dist/landing/browser` en GitHub Pages.
+For local development:
+
+```bash
+npm start -- --host 127.0.0.1 --port 4301
+```
+
+GitHub Actions runs tests, the production build and prerender checks before deploying the main branch to GitHub Pages.
+
+## Identity
+
+The public name is **Hugo Martin**. The design keeps IBM Plex typography and the site's technical layout, using off-white, restrained blue and small warm yellow accents inspired by the Canary Islands. See `DESIGN.md` for tokens and accessibility rules.

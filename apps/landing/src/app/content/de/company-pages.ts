@@ -1,373 +1,164 @@
+import { contactAction, pageFooter, pageHeader, pageSeo, PAGE_PAIRS } from '../page.helpers';
 import type { PageDefinition } from '../page.types';
 
-export const STUTTGART = {
-  key: 'stuttgart',
-  path: '/standorte/stuttgart/',
+export const ABOUT_HUGO_MARTIN_DE = {
+  key: 'about-hugo-martin-de',
+  path: '/ueber-hugo-martin/',
   lang: 'de',
   locale: 'de_DE',
-  seo: {
-    title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart | Hugo Menz',
-    description:
-      'Technische Anfragen, Lastenhefte und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
-    canonicalPath: '/standorte/stuttgart/',
-    robots: 'index,follow',
-    openGraph: {
-      title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
-      description:
-        'Technische Anfragen und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
-      type: 'website',
-      locale: 'de_DE',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Technische Angebotsprozesse für Maschinenbauer in Stuttgart',
-      siteName: 'Hugo Menz Automation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
-      description:
-        'Technische Anfragen und Angebotsprozesse für Maschinenbauer in Stuttgart und Baden-Württemberg strukturiert digitalisieren.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Technische Angebotsprozesse für Maschinenbauer in Stuttgart',
-    },
-  },
+  seo: pageSeo(
+    'de',
+    '/ueber-hugo-martin/',
+    'Über Hugo Martin | Angular, Copilot & Automatisierung',
+    'Mein Weg vom Maschinenbau zur Softwareentwicklung. Ich unterstütze Sie persönlich mit Angular, GitHub Copilot und Prozessautomatisierung aus Stuttgart.',
+    PAGE_PAIRS.about,
+  ),
+  header: pageHeader('de', PAGE_PAIRS.about[1]),
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
-    { label: 'Stuttgart', path: '/standorte/stuttgart/' },
+    { label: 'Über Hugo Martin', path: '/ueber-hugo-martin/' },
   ],
   hero: {
-    kicker: 'Stuttgart · Baden-Württemberg · Remote',
-    h1: 'Angebotsprozess-Automatisierung für Maschinenbauer in Stuttgart',
-    lead:
-      'Von Stuttgart aus unterstütze ich kleine und mittlere Maschinenbauer dabei, technische Anfragen in einem klar abgegrenzten Angebotsprozess zu qualifizieren, unabhängig vom Maschinentyp.',
-    primaryCta: {
-      label: 'RFQ Readiness Workshop ansehen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-hero',
-    },
+    kicker: 'Hugo Martin · Stuttgart',
+    h1: 'Technische Arbeit mit Blick auf den ganzen Ablauf',
+    lead: 'Ich komme aus dem Maschinenbau und arbeite heute in der Softwareentwicklung. Mein Schwerpunkt liegt auf Angular, GitHub Copilot und der Automatisierung wiederkehrender Aufgaben.',
+    primaryCta: contactAction('de'),
     secondaryCta: {
-      label: 'Technische Anfragequalifizierung ansehen',
-      href: '/loesungen/technische-anfragequalifizierung/',
-      dataCta: 'solution-hero',
+      label: 'Mein Profil auf LinkedIn',
+      href: 'https://www.linkedin.com/in/hugomartin-menz/',
+      external: true,
     },
-  },
-  sections: [
-    {
-      id: 'zusammenarbeit',
-      heading: 'Lokale Zusammenarbeit, klarer technischer Umfang',
-      paragraphs: [
-        'Der Einstieg erfolgt nicht mit einer großen Transformationsinitiative. Ich grenze mit Ihnen einen konkreten Angebotsprozess ein, prüfe Daten und Regeln und bewerte, ob ein interner Pilot sinnvoll ist.',
-      ],
-      layout: 'text',
-    },
-    {
-      id: 'zielgruppe',
-      heading: 'Für wen der Ansatz gedacht ist',
-      points: [
-        'kleine und mittlere Maschinenbauer mit wiederkehrender Angebotsarbeit;',
-        'Anlagenbauer und Automatisierer mit klar beschreibbaren Anwendungen;',
-        'technische Vertriebsteams mit hohem Vorbereitungsaufwand;',
-        'Unternehmen mit nutzbaren Modulen, Regeln, Tabellen oder historischen Anfragen;',
-        'Unternehmen, die vor einem größeren CPQ-Projekt klein und kontrolliert beginnen möchten.',
-      ],
-      layout: 'list',
-    },
-    {
-      id: 'arbeitsweise',
-      heading: 'So kann die Zusammenarbeit aussehen',
-      points: [
-        'Vorab-Fit-Check per Videocall.',
-        'Workshop remote oder nach Vereinbarung vor Ort.',
-        'Prüfung historischer Fälle in einer abgesicherten Umgebung.',
-        'Pilot im Schattenbetrieb mit menschlicher Freigabe.',
-        'Direkter Kontakt von der Analyse bis zur möglichen Umsetzung.',
-      ],
-      layout: 'list',
-    },
-    {
-      id: 'region',
-      heading: 'Region',
-      paragraphs: [
-        'Schwerpunkt ist Stuttgart und Baden-Württemberg. Remote-Zusammenarbeit ist innerhalb Deutschlands und DACH möglich. Konkrete Vor-Ort-Termine und Reisekosten werden vorab vereinbart.',
-      ],
-      layout: 'text',
-    },
-  ],
-  finalCta: {
-    eyebrow: 'Nächster Schritt',
-    heading: 'Einen technischen Angebotsprozess regional oder remote prüfen',
-    body:
-      'Der RFQ Readiness Workshop klärt Angebotsprozess, Daten, Regeln und technische Grenzen.',
-    action: {
-      label: 'RFQ Readiness Workshop ansehen',
-      href: '/leistungen/rfq-readiness-workshop/',
-      dataCta: 'readiness-final',
-    },
-  },
-  schemaKinds: ['Service', 'BreadcrumbList'],
-} as const satisfies PageDefinition;
-
-export const ABOUT_HUGO_MENZ = {
-  key: 'about-hugo-menz',
-  path: '/ueber-hugo-menz/',
-  lang: 'de',
-  locale: 'de_DE',
-  seo: {
-    title: 'Über Hugo Menz | Maschinenbau-Erfahrung für RFQ-Prozesse',
-    description:
-      'Hugo Menz verbindet rund acht Jahre im Sondermaschinenbau und in der Industrieautomation mit UX Engineering für prüfbare technische Angebotsprozesse.',
-    canonicalPath: '/ueber-hugo-menz/',
-    robots: 'index,follow',
-    openGraph: {
-      title: 'Über Hugo Menz: Maschinenbau-Erfahrung und UX Engineering',
-      description:
-        'Industrieerfahrung und UX Engineering für prüfbare technische Anfrage- und Angebotsprozesse.',
-      type: 'website',
-      locale: 'de_DE',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
-      siteName: 'Hugo Menz Automation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Über Hugo Menz: Maschinenbau-Erfahrung und UX Engineering',
-      description:
-        'Industrieerfahrung und UX Engineering für prüfbare technische Anfrage- und Angebotsprozesse.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Maschinenbau-Erfahrung und digitale Prozessautomatisierung bei Hugo Menz',
-    },
-  },
-  breadcrumbs: [
-    { label: 'Startseite', path: '/' },
-    { label: 'Über Hugo Menz', path: '/ueber-hugo-menz/' },
-  ],
-  hero: {
-    kicker: 'Maschinenbau · UX Engineering · technische Angebotsprozesse',
-    h1: 'Hugo Menz: Maschinenbau-Erfahrung für prüfbare digitale Angebotsprozesse',
-    lead:
-      'Ich verbinde Erfahrung aus Sondermaschinenbau und Industrieautomation mit UX Engineering, damit technische Anfragen, Regeln, offene Punkte und Freigaben verständlich und prüfbar bleiben.',
-    primaryCta: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'contact-hero',
-      contactContext: 'rfq',
-    },
-    secondaryCta: {
-      label: 'Wie sich beides verbindet',
-      href: '#kombination',
-      dataCta: 'combination-hero',
-    },
+    trustLine: 'Persönlicher Ansprechpartner · nebenberuflich · Deutsch, Englisch und Spanisch',
     portrait: {
       src: '/hugo.jfif',
-      alt: 'Porträt von Hugo Martin Menz',
+      alt: 'Porträt von Hugo Martin',
       width: 400,
       height: 400,
     },
   },
   sections: [
     {
-      id: 'heute',
-      eyebrow: 'Heute',
-      heading: 'UX Engineering für prüfbare digitale Abläufe',
+      id: 'hintergrund',
+      heading: 'Vom Maschinenbau zu Anwendungen und Entwicklungsabläufen',
       paragraphs: [
-        'Heute gestalte ich digitale Produkte und Prozesse so, dass Menschen komplexe technische Informationen verstehen, Quellen und Annahmen prüfen und Freigaben bewusst erteilen können.',
+        'Mein beruflicher Weg begann im Maschinenbau, in der Konstruktion und der technischen Projektarbeit. Dabei habe ich gelernt, Anforderungen zu klären, Abhängigkeiten zu verstehen und technische Entscheidungen nachvollziehbar zu machen.',
+        'Heute arbeite ich bei EPLAN als UX Engineer. Dort beschäftige ich mich mit Angular, gemeinsamen Komponentenbibliotheken, internen Tools und Entwicklungsabläufen. Auch GitHub Copilot mit individuellen Skills, Agents und Automatisierung gehört zu meiner technischen Arbeit.',
       ],
       layout: 'text',
     },
     {
-      id: 'maschinenbau',
-      eyebrow: 'Industrieller Hintergrund',
-      heading: 'Zuvor: rund acht Jahre im Sondermaschinenbau und in der Industrieautomation',
-      paragraphs: [
-        'Vor meinem Wechsel in die Softwareentwicklung und Digitalisierung arbeitete ich an der Konstruktion und Entwicklung kundenspezifischer Maschinen sowie an der technischen Koordination bis zur Umsetzung.',
-      ],
-      points: [
-        'mechanische Konstruktion und technische Dokumentation;',
-        'Stücklisten, Einkauf und Lieferantenkoordination;',
-        'Abstimmung mit Mechanik, Elektrik, Montage und Inbetriebnahme;',
-        'Kommunikation mit Kunden und internen Fachbereichen;',
-        'Projektabwicklung, Änderungen, Risiken und Abhängigkeiten.',
+      id: 'leistungen',
+      heading: 'Wobei ich Sie unterstützen kann',
+      items: [
+        {
+          title: 'Angular',
+          body: 'Anwendungen, interne Tools und Komponentenbibliotheken entwickeln. Bestehende Designsysteme setze ich technisch in Angular um.',
+          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
+        },
+        {
+          title: 'GitHub Copilot und Developer Experience',
+          body: 'Projektwissen, individuelle Skills und Agents sowie abgestimmte Entwicklungsabläufe in Ihrem Repository einrichten.',
+          link: { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+        },
+        {
+          title: 'Prozessautomatisierung',
+          body: 'Wiederkehrende Aufgaben mit n8n, Make, Power Automate und vorhandenen APIs verbinden.',
+          link: { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
+        },
       ],
       layout: 'list',
     },
     {
-      id: 'wechsel',
-      eyebrow: 'Beruflicher Wechsel',
-      heading: 'Von der mechanischen Konstruktion in die Softwareentwicklung',
+      id: 'zusammenarbeit',
+      heading: 'Sie arbeiten direkt mit mir',
       paragraphs: [
-        'Danach wechselte ich in die Softwareentwicklung und Digitalisierung. Heute verbinde ich diesen Hintergrund mit meiner Arbeit als UX Engineer.',
+        'Ich biete diese Leistungen nebenberuflich an. Deshalb planen wir einen klaren Projektumfang und stimmen Verfügbarkeit, Kosten und Termine vor dem Start ab.',
+        'Mir ist wichtig, dass Sie die Lösung weiterverwenden können. Zum vereinbarten Ergebnis gehören verständlicher Code oder nachvollziehbare Workflows sowie die passende Dokumentation und Übergabe.',
+        'Ich bin in Stuttgart und arbeite auch remote. Gespräche und Dokumentation sind auf Deutsch, Englisch oder Spanisch möglich.',
       ],
+      links: [{ label: 'Zusammenarbeit in Stuttgart', href: '/standorte/stuttgart/' }],
       layout: 'text',
-    },
-    {
-      id: 'kombination',
-      eyebrow: 'Verbindung',
-      heading: 'Was diese Kombination im Projekt bringt',
-      paragraphs: [
-        'Ich erkenne technische Abhängigkeiten und operative Grenzen früh und übersetze sie in einen verständlichen digitalen Ablauf.',
-      ],
-      columns: [
-        {
-          heading: 'Technische Einordnung',
-          points: [
-            'Anforderungen, Rollen und Grenzen verstehen.',
-            'Risiken und Ausnahmen früh erkennen.',
-            'Verantwortlichkeiten realistisch abbilden.',
-          ],
-        },
-        {
-          heading: 'Nutzbare Umsetzung',
-          points: [
-            'Informationen auf Entscheidungen reduzieren.',
-            'Schritte und Status verständlich darstellen.',
-            'Sonderfälle an die richtige Person übergeben.',
-          ],
-        },
-      ],
-      links: [
-        {
-          label: 'Technische Anfragequalifizierung im Maschinenbau',
-          href: '/loesungen/technische-anfragequalifizierung/',
-        },
-        {
-          label: 'Kontrollen im internen RFQ-Copiloten',
-          href: '/leistungen/interner-rfq-copilot/',
-        },
-        {
-          label: 'RFQ Readiness Workshop',
-          href: '/leistungen/rfq-readiness-workshop/',
-        },
-      ],
-      layout: 'comparison',
-    },
-    {
-      id: 'probleme',
-      eyebrow: 'Schwerpunkt',
-      heading: 'Welche RFQ-Aufgaben ich verständlicher und prüfbarer mache',
-      items: [
-        {
-          title: 'Technische Anfragen strukturieren',
-          body: 'E-Mails, Lastenhefte, PDFs und Fotos in eine nachvollziehbare Anforderungsakte überführen.',
-        },
-        {
-          title: 'Lücken und Widersprüche sichtbar machen',
-          body: 'Fehlende Pflichtdaten, abweichende Werte, Annahmen und Risiken vor der Kalkulation kennzeichnen.',
-        },
-        {
-          title: 'Freigegebene Regeln kontrolliert anwenden',
-          body: 'Nur dokumentierte Module, Tabellen, Faktoren und Formeln für interne Budgetschritte zulassen.',
-        },
-        {
-          title: 'Menschliche Freigaben unterstützen',
-          body: 'Quellen, Status, offene Entscheidungen und Blockiergründe für Vertrieb und Engineering verständlich darstellen.',
-        },
-      ],
-      layout: 'cards',
     },
   ],
   finalCta: {
-    eyebrow: 'Nächster Schritt',
-    heading: 'RFQ-Fit-Check für einen Angebotsprozess anfragen',
-    body:
-      'Beschreiben Sie Anfragevolumen, beteiligte Rollen und den größten Engpass. Für die erste Einschätzung sind keine vertraulichen Dokumente erforderlich.',
-    action: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'contact-final',
-      contactContext: 'rfq',
-    },
-    note: 'Sie sprechen direkt mit mir.',
+    heading: 'Eine konkrete Aufgabe ist ein guter Anfang',
+    body: 'Beschreiben Sie kurz Ihr Vorhaben und die vorhandenen Systeme. Dann prüfen wir gemeinsam, welcher Umfang sinnvoll ist.',
+    action: contactAction('de'),
   },
+  footer: pageFooter('de'),
   schemaKinds: ['Person', 'BreadcrumbList'],
 } as const satisfies PageDefinition;
 
-export const CONTACT = {
-  key: 'contact',
+export const CONTACT_DE = {
+  key: 'contact-de',
   path: '/kontakt/',
   lang: 'de',
   locale: 'de_DE',
-  seo: {
-    title: 'RFQ-Fit-Check für Maschinenbauer | Kontakt zu Hugo Menz',
-    description:
-      'Besprechen Sie Ihren technischen Angebotsprozess und die Voraussetzungen für einen begrenzten internen RFQ-Pilot.',
-    canonicalPath: '/kontakt/',
-    robots: 'index,follow',
-    openGraph: {
-      title: 'RFQ-Fit-Check für einen technischen Angebotsprozess',
-      description:
-        'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
-      type: 'website',
-      locale: 'de_DE',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Angebotsprozesses',
-      siteName: 'Hugo Menz Automation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'RFQ-Fit-Check für einen technischen Angebotsprozess',
-      description:
-        'Anfragevolumen, Angebotsprozess, beteiligte Rollen und den größten Engpass einordnen.',
-      imagePath: '/og-rfq-preview.png',
-      imageAlt: 'Kontakt zu Hugo Menz für die Prüfung eines technischen Angebotsprozesses',
-    },
-  },
+  seo: pageSeo(
+    'de',
+    '/kontakt/',
+    'Kontakt zu Hugo Martin | Ihr technisches Projekt besprechen',
+    'Sprechen wir über Ihre Aufgabe mit Angular, GitHub Copilot oder Prozessautomatisierung. Persönlicher Kontakt zu Hugo Martin in Stuttgart.',
+    PAGE_PAIRS.contact,
+  ),
+  header: pageHeader('de', PAGE_PAIRS.contact[1]),
   breadcrumbs: [
     { label: 'Startseite', path: '/' },
     { label: 'Kontakt', path: '/kontakt/' },
   ],
   hero: {
-    kicker: 'Kontakt · RFQ-Pilot · Angebotsprozess',
-    h1: 'RFQ-Fit-Check für Ihren technischen Angebotsprozess',
-    lead:
-      'Beschreiben Sie kurz den heutigen Angebotsprozess und, falls relevant, den Produktbereich, Maschinentyp oder die Lösungsfamilie. Nicht vertrauliche Rahmendaten reichen aus.',
-    primaryCta: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'readiness-hero',
-      contactContext: 'rfq',
-    },
+    kicker: 'Kontakt · Projektanfrage',
+    h1: 'Wobei kann ich Sie technisch unterstützen?',
+    lead: 'Ob Angular, GitHub Copilot oder Prozessautomatisierung: Beschreiben Sie die Aufgabe, Ihre vorhandenen Tools und das gewünschte Ergebnis.',
+    primaryCta: contactAction('de', 'general', 'Anfrage schreiben'),
+    trustLine: 'Direkter Kontakt mit Hugo Martin · Stuttgart und remote',
   },
   sections: [
     {
-      id: 'contact-form',
-      heading: 'Diese Angaben helfen bei der ersten Einordnung',
+      id: 'ihre-anfrage',
+      heading: 'Diese Informationen helfen beim Einstieg',
+      intro: 'Eine kurze Beschreibung genügt. Hilfreich sind:',
       points: [
-        'heutiger technischer Angebotsprozess und größter Engpass;',
-        'Produktbereich, Maschinentyp oder Lösungsfamilie, falls relevant;',
-        'ungefähres Anfragevolumen;',
-        'beteiligte Rollen in Vertrieb und Engineering;',
+        'Die Aufgabe und das Ergebnis, das Sie erreichen möchten.',
+        'Die Anwendung, das Repository oder die Tools, mit denen Sie arbeiten.',
+        'Was bereits vorhanden ist und wo Sie Unterstützung brauchen.',
+        'Ein gewünschter Zeitraum und wichtige Rahmenbedingungen.',
       ],
-      paragraphs: [
-        'Bitte senden Sie im ersten Kontakt keine vertraulichen Lastenhefte, Zeichnungen oder Kundendaten. Der Umgang mit Dokumenten wird vor einer Analyse separat vereinbart.',
-      ],
-      layout: 'contact',
+      layout: 'list',
     },
     {
-      id: 'erwartungsmanagement',
-      heading: 'Was im ersten Schritt geprüft wird',
-      paragraphs: [
-        'Der erste Schritt ist keine Produktdemo und keine automatische Kalkulation. Ziel ist zu klären, ob genügend Wiederholbarkeit, Daten und Regeln für einen begrenzten RFQ Readiness Workshop vorhanden sind.',
-      ],
-      links: [
+      id: 'thema',
+      heading: 'Worum geht es in Ihrem Projekt?',
+      items: [
         {
-          label: 'RFQ Readiness Workshop ansehen',
-          href: '/leistungen/rfq-readiness-workshop/',
+          title: 'Angular-Entwicklung',
+          body: 'Anwendungen, Komponentenbibliotheken, interne Tools und API-Anbindungen.',
+          link: contactAction('de', 'angular', 'Angular-Aufgabe besprechen'),
         },
         {
-          label: 'Technische Anfragequalifizierung ansehen',
-          href: '/loesungen/technische-anfragequalifizierung/',
+          title: 'GitHub Copilot',
+          body: 'Skills, Agents, Orchestrierung und automatisierte Entwicklungsabläufe.',
+          link: contactAction('de', 'copilot', 'Copilot-Aufgabe besprechen'),
+        },
+        {
+          title: 'Prozessautomatisierung',
+          body: 'Abläufe zwischen Formularen, E-Mail, CRM und weiteren Systemen verbinden.',
+          link: contactAction('de', 'process-automation', 'Ablauf besprechen'),
         },
       ],
-      layout: 'text',
+      layout: 'list',
     },
     {
-      id: 'alternative-kontaktwege',
-      heading: 'Alternativer Kontaktweg',
+      id: 'naechster-schritt',
+      heading: 'So geht es nach Ihrer Anfrage weiter',
       paragraphs: [
-        'Wenn Sie zunächst ausschließlich öffentlich verfügbare Informationen teilen möchten, können Sie mich auch über mein bestehendes LinkedIn-Profil kontaktieren.',
+        'Ich prüfe Ihre Beschreibung und melde mich, um offene Fragen und die technische Ausgangslage zu klären. Danach können wir einen passenden Projektumfang vereinbaren.',
+        'Ich arbeite nebenberuflich. Verfügbarkeit, Kosten, Termine und die Übergabe stimmen wir vor einer Beauftragung ab.',
       ],
       links: [
+        { label: 'Mehr über meinen Hintergrund', href: '/ueber-hugo-martin/' },
         {
-          label: 'LinkedIn-Profil von Hugo Martin Menz',
+          label: 'Mein LinkedIn-Profil',
           href: 'https://www.linkedin.com/in/hugomartin-menz/',
           external: true,
         },
@@ -375,30 +166,86 @@ export const CONTACT = {
       layout: 'text',
     },
   ],
-  faq: {
-    id: 'faq',
-    eyebrow: 'Häufige Frage',
-    heading: 'Vertrauliche Dokumente im Erstkontakt',
-    items: [
-      {
-        question: 'Können vertrauliche Dokumente im ersten Gespräch hochgeladen werden?',
-        answer:
-          'Nein. Im ersten Kontakt reichen eine grobe Prozessbeschreibung und nicht vertrauliche Rahmendaten. Der Umgang mit Dokumenten und Daten wird vor einer Analyse separat vereinbart.',
-      },
-    ],
-  },
   finalCta: {
-    eyebrow: 'Kontakt',
-    heading: 'Angebotsprozess kurz beschreiben',
-    body:
-      'Nennen Sie ungefähres Anfragevolumen, beteiligte Rollen, heutigen Angebotsprozess und den größten Engpass.',
-    action: {
-      label: 'RFQ-Fit-Check anfragen',
-      href: '#contact-form',
-      dataCta: 'readiness-final',
-      contactContext: 'rfq',
-    },
-    note: 'Keine Datei-Uploads. Bitte senden Sie noch keine vertraulichen Kundendaten.',
+    heading: 'Beschreiben Sie Ihre Aufgabe',
+    body: 'Sie brauchen noch keine fertige Spezifikation. Ein konkretes Problem und etwas Kontext reichen für den ersten Austausch.',
+    action: contactAction('de', 'general', 'Anfrage schreiben'),
   },
-  schemaKinds: ['ContactPage', 'BreadcrumbList', 'FAQPage'],
+  footer: pageFooter('de'),
+  schemaKinds: ['ContactPage', 'BreadcrumbList'],
+} as const satisfies PageDefinition;
+
+export const STUTTGART = {
+  key: 'stuttgart',
+  path: '/standorte/stuttgart/',
+  lang: 'de',
+  locale: 'de_DE',
+  seo: pageSeo(
+    'de',
+    '/standorte/stuttgart/',
+    'Technische Unterstützung in Stuttgart | Hugo Martin',
+    'Hugo Martin in Stuttgart: persönliche Unterstützung bei Angular, GitHub Copilot und Prozessautomatisierung. Klar abgegrenzte Projekte, auch remote.',
+  ),
+  header: pageHeader('de', '/en/'),
+  breadcrumbs: [
+    { label: 'Startseite', path: '/' },
+    { label: 'Stuttgart', path: '/standorte/stuttgart/' },
+  ],
+  hero: {
+    kicker: 'Stuttgart · Baden-Württemberg · remote',
+    h1: 'Angular, Copilot und Automatisierung aus Stuttgart',
+    lead: 'Ich unterstütze kleine Unternehmen und Entwicklungsteams bei konkreten technischen Aufgaben. Sie arbeiten direkt mit mir, mit einem vereinbarten Umfang und einer nachvollziehbaren Übergabe.',
+    primaryCta: contactAction('de'),
+    secondaryCta: { label: 'Über mich', href: '/ueber-hugo-martin/' },
+    trustLine: 'Hugo Martin · persönlich · nebenberuflich',
+  },
+  sections: [
+    {
+      id: 'unterstuetzung',
+      heading: 'Drei Bereiche für Ihr technisches Projekt',
+      items: [
+        {
+          title: 'Angular-Anwendungen und Komponenten',
+          body: 'Eine Anwendung erweitern, ein internes Tool entwickeln oder ein bestehendes Designsystem in einer Angular-Komponentenbibliothek umsetzen.',
+          link: { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
+        },
+        {
+          title: 'Copilot im Entwicklungsalltag',
+          body: 'GitHub Copilot mit Projektwissen, Skills und Agents auf konkrete Aufgaben im Repository abstimmen.',
+          link: { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+        },
+        {
+          title: 'Wiederkehrende Abläufe verbinden',
+          body: 'Formulare, E-Mail, CRM und vorhandene Schnittstellen mit n8n, Make oder Power Automate verbinden.',
+          link: { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
+        },
+      ],
+      layout: 'list',
+    },
+    {
+      id: 'zusammenarbeit',
+      heading: 'In Stuttgart zu Hause, für die Zusammenarbeit flexibel',
+      paragraphs: [
+        'Ich bin in Stuttgart. Die technische Zusammenarbeit kann remote erfolgen, etwa über Ihr Repository, einen gemeinsamen Review und eine dokumentierte Übergabe.',
+        'Auch bei einem lokalen Projekt beginnen wir mit einer konkreten Aufgabe. Wir klären vorhandene Systeme, das gewünschte Ergebnis und wer die Lösung später betreut. Termine und Verfügbarkeit stimmen wir passend zu meiner nebenberuflichen Tätigkeit ab.',
+      ],
+      layout: 'text',
+    },
+    {
+      id: 'n8n',
+      heading: 'Sie möchten einen Ablauf mit n8n umsetzen?',
+      paragraphs: [
+        'Wir können einen bestehenden Workflow prüfen oder einen klar abgegrenzten Ablauf neu aufbauen. Dazu gehören die Schnittstellen, relevante Fehlerfälle und eine verständliche Dokumentation.',
+      ],
+      links: [{ label: 'n8n-Beratung in Stuttgart', href: '/n8n-beratung-stuttgart/' }],
+      layout: 'text',
+    },
+  ],
+  finalCta: {
+    heading: 'Was möchten Sie technisch umsetzen?',
+    body: 'Beschreiben Sie die Aufgabe und Ihre vorhandenen Tools. Wir besprechen, welcher erste Schritt zu Ihrem Projekt passt.',
+    action: contactAction('de'),
+  },
+  footer: pageFooter('de'),
+  schemaKinds: ['Service', 'BreadcrumbList'],
 } as const satisfies PageDefinition;

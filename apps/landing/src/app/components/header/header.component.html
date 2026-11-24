@@ -5,9 +5,9 @@
 <header class="site-header" [class.is-open]="menuOpen()">
   <div class="container header-inner">
     <a class="brand" [href]="copy().homePath" [attr.aria-label]="copy().brandLabel" (click)="closeMenu()">
-      <img class="brand-mark" src="/hugo-menz-mark.svg" alt="" width="34" height="34" />
+      <img class="brand-mark" src="/hugo-martin-mark.svg" alt="" width="36" height="36" />
       <span class="brand-copy">
-        <strong>Hugo Menz<span class="brand-name-suffix"> Automation</span></strong>
+        <strong>Hugo Martin</strong>
         <span>{{ copy().subtitle }}</span>
       </span>
     </a>
@@ -27,41 +27,13 @@
 
     <div class="header-actions" id="primary-nav">
       <nav class="nav-links" [attr.aria-label]="copy().navigationLabel">
-        @for (item of navigation(); track item.label) {
-          @if (item.children) {
-            <div class="nav-group" [class.is-open]="isDropdownOpen(item)">
-              <button
-                type="button"
-                class="nav-group-trigger"
-                [class.is-active]="isActive(item)"
-                [attr.aria-expanded]="isDropdownOpen(item)"
-                [attr.aria-controls]="'nav-dropdown-' + item.id"
-                (click)="toggleDropdown(item)"
-              >
-                <span>{{ item.label }}</span>
-                <span class="nav-group-chevron" aria-hidden="true"></span>
-              </button>
-              <div class="nav-dropdown" [id]="'nav-dropdown-' + item.id">
-                @for (child of item.children; track child.label) {
-                  <a
-                    [href]="child.path"
-                    [attr.lang]="child.lang ?? null"
-                    [class.is-active]="isCurrent(child)"
-                    [attr.aria-current]="isCurrent(child) ? 'page' : null"
-                    (click)="closeMenu()"
-                  >{{ child.label }}</a>
-                }
-              </div>
-            </div>
-          } @else {
-            <a
-              [href]="item.path"
-              [attr.lang]="item.lang ?? null"
-              [class.is-active]="isActive(item)"
-              [attr.aria-current]="isCurrent(item) ? 'page' : null"
-              (click)="closeMenu()"
-            >{{ item.label }}</a>
-          }
+        @for (item of navigation(); track item.pageKey) {
+          <a
+            [href]="item.path"
+            [class.is-active]="pageKey() === item.pageKey"
+            [attr.aria-current]="pageKey() === item.pageKey ? 'page' : null"
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
         }
       </nav>
 
@@ -70,17 +42,13 @@
           class="language-link"
           [href]="languagePath()"
           [attr.aria-label]="copy().languageLabel"
-          hreflang="{{ language() === 'de' ? 'en' : 'de-DE' }}"
+          [attr.hreflang]="language() === 'de' ? 'en' : 'de-DE'"
+          [attr.lang]="language() === 'de' ? 'en' : 'de'"
           (click)="closeMenu()"
         >{{ copy().languageText }}</a>
-        <a
-          class="nav-cta"
-          [href]="copy().ctaPath"
-          data-cta="rfq-demo-header"
-          [class.is-active]="pageKey() === copy().demoKey"
-          [attr.aria-current]="pageKey() === copy().demoKey ? 'page' : null"
-          (click)="closeMenu()"
-        >{{ copy().cta }}</a>
+        <button type="button" class="nav-cta" data-cta="service-contact-header" (click)="openContactForm()">
+          {{ copy().cta }}
+        </button>
       </div>
     </div>
   </div>

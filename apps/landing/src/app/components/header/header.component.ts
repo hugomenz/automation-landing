@@ -9,150 +9,29 @@ import {
   viewChild,
 } from '@angular/core';
 import { ContactDialogService } from '../../contact-dialog.service';
-import type { PageKey } from '../../content/page.types';
+import type { PageKey, PageLanguage, PagePath } from '../../content/page.types';
 import { PageLocaleService } from '../../core/page-locale.service';
 
 interface NavigationItem {
   readonly label: string;
-  readonly path?: string;
-  readonly id?: string;
-  readonly children?: readonly NavigationItem[];
-  readonly lang?: 'de';
-  readonly activeKeys?: readonly PageKey[];
-  readonly currentKeys?: readonly PageKey[];
+  readonly path: PagePath;
+  readonly pageKey: PageKey;
 }
 
-const NAVIGATION: Record<'de' | 'en', readonly NavigationItem[]> = {
+const NAVIGATION: Record<PageLanguage, readonly NavigationItem[]> = {
   de: [
-    {
-      label: 'Leistungen',
-      id: 'services',
-      activeKeys: [
-        'home-de',
-        'rfq-demo-de',
-        'technical-request-qualification',
-        'rfq-readiness-workshop',
-        'internal-rfq-copilot',
-        'process-automation',
-        'n8n-consulting-stuttgart',
-        'industrial-ai-search-de',
-      ],
-      children: [
-        {
-          label: 'RFQ-Fit-Check Demo',
-          path: '/de/demo/rfq-fit-check/',
-          currentKeys: ['rfq-demo-de'],
-        },
-        {
-          label: 'Technische Anfragequalifizierung',
-          path: '/loesungen/technische-anfragequalifizierung/',
-          currentKeys: ['technical-request-qualification'],
-        },
-        {
-          label: 'RFQ Readiness Workshop',
-          path: '/leistungen/rfq-readiness-workshop/',
-          currentKeys: ['rfq-readiness-workshop'],
-        },
-        {
-          label: 'Interner RFQ-Copilot',
-          path: '/leistungen/interner-rfq-copilot/',
-          currentKeys: ['internal-rfq-copilot'],
-        },
-      ],
-    },
-    {
-      label: 'Für wen',
-      path: '/#passung',
-    },
-    {
-      label: 'Vorgehen',
-      path: '/#vorgehen',
-      activeKeys: ['rfq-readiness-workshop'],
-    },
-    {
-      label: 'Mehr',
-      id: 'more',
-      activeKeys: [
-        'about-hugo-menz',
-        'stuttgart',
-        'end-of-line',
-        'packaging-machinery',
-        'palletising-systems',
-        'order-entry-automation-de',
-      ],
-      children: [
-        {
-          label: 'Auftragserfassung (Fallstudie)',
-          path: '/leistungen/auftragserfassung-automatisierung/',
-          currentKeys: ['order-entry-automation-de'],
-        },
-        {
-          label: 'Über Hugo Menz',
-          path: '/ueber-hugo-menz/',
-          currentKeys: ['about-hugo-menz'],
-        },
-        {
-          label: 'Standort Stuttgart',
-          path: '/standorte/stuttgart/',
-          currentKeys: ['stuttgart'],
-        },
-        {
-          label: 'End-of-Line (Beispiel)',
-          path: '/branchen/end-of-line/',
-          currentKeys: ['end-of-line'],
-        },
-        {
-          label: 'Verpackungsmaschinen (Beispiel)',
-          path: '/branchen/verpackungsmaschinen/',
-          currentKeys: ['packaging-machinery'],
-        },
-        {
-          label: 'Palettieranlagen (Beispiel)',
-          path: '/branchen/palettieranlagen/',
-          currentKeys: ['palletising-systems'],
-        },
-      ],
-    },
-    {
-      label: 'Kontakt',
-      path: '/kontakt/',
-      activeKeys: ['contact'],
-      currentKeys: ['contact'],
-    },
+    { label: 'Angular', path: '/leistungen/angular-entwicklung/', pageKey: 'angular-development-de' },
+    { label: 'GitHub Copilot', path: '/leistungen/github-copilot/', pageKey: 'github-copilot-de' },
+    { label: 'Automatisierung', path: '/leistungen/prozessautomatisierung/', pageKey: 'process-automation-de' },
+    { label: 'Über mich', path: '/ueber-hugo-martin/', pageKey: 'about-hugo-martin-de' },
+    { label: 'Kontakt', path: '/kontakt/', pageKey: 'contact-de' },
   ],
   en: [
-    {
-      label: 'Services',
-      id: 'services',
-      activeKeys: ['home-en', 'rfq-demo-en', 'industrial-ai-search-en'],
-      children: [
-        {
-          label: 'RFQ Fit Check demo',
-          path: '/en/demo/rfq-fit-check/',
-          currentKeys: ['rfq-demo-en'],
-        },
-        { label: 'Technical enquiry qualification', path: '/en/#workflow' },
-        { label: 'Internal RFQ copilot', path: '/en/#internal-rfq-copilot' },
-        { label: 'Further process automation', path: '/en/#further-automation' },
-      ],
-    },
-    {
-      label: 'Explore',
-      id: 'explore',
-      activeKeys: ['home-en', 'order-entry-automation-en'],
-      children: [
-        {
-          label: 'Order entry research',
-          path: '/en/order-entry-automation/',
-          currentKeys: ['order-entry-automation-en'],
-        },
-        { label: 'Who it is for', path: '/en/#fit' },
-        { label: 'Controls', path: '/en/#control' },
-        { label: 'Approach', path: '/en/#process' },
-        { label: 'About Hugo', path: '/en/#about' },
-      ],
-    },
-    { label: 'Contact', path: '/en/#contact' },
+    { label: 'Angular', path: '/en/angular-development/', pageKey: 'angular-development-en' },
+    { label: 'GitHub Copilot', path: '/en/github-copilot/', pageKey: 'github-copilot-en' },
+    { label: 'Automation', path: '/en/process-automation/', pageKey: 'process-automation-en' },
+    { label: 'About', path: '/en/about/', pageKey: 'about-hugo-martin-en' },
+    { label: 'Contact', path: '/en/contact/', pageKey: 'contact-en' },
   ],
 };
 
@@ -167,98 +46,73 @@ export class HeaderComponent {
   private readonly pageLocale = inject(PageLocaleService);
   private readonly contactDialog = inject(ContactDialogService);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly navToggle = viewChild<ElementRef<HTMLButtonElement>>('navToggle');
 
   readonly menuOpen = signal(false);
-  readonly openDropdown = signal<string | null>(null);
   readonly language = this.pageLocale.language;
   readonly languagePath = this.pageLocale.languagePath;
   readonly pageKey = this.pageLocale.pageKey;
   readonly navigation = computed(() => NAVIGATION[this.language()]);
-  private readonly navToggle = viewChild<ElementRef<HTMLButtonElement>>('navToggle');
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          subtitle: 'Technische Angebotsprozesse · Maschinenbau',
-          brandLabel: 'Hugo Menz Automation: Startseite',
+          subtitle: 'Angular · Copilot · Automatisierung',
+          brandLabel: 'Hugo Martin: Startseite',
           navigationLabel: 'Hauptnavigation',
           menuLabel: this.menuOpen() ? 'Menü schließen' : 'Menü öffnen',
           languageLabel:
-            this.pageKey() === 'home-de' ||
-            this.pageKey() === 'rfq-demo-de' ||
-            this.pageKey() === 'order-entry-automation-de' ||
-            this.pageKey() === 'industrial-ai-search-de'
-              ? 'English version'
-              : 'English home',
+            this.languagePath() === '/en/' && this.pageKey() !== 'home-de'
+              ? 'English home'
+              : 'English version',
           languageText: 'EN',
           homePath: '/',
-          cta: 'RFQ-Demo ansehen',
-          ctaPath: '/de/demo/rfq-fit-check/',
-          demoKey: 'rfq-demo-de' as const,
+          cta: 'Projekt besprechen',
         }
       : {
-          subtitle: 'Technical quotation processes · Machinery',
-          brandLabel: 'Hugo Menz Automation: English home',
+          subtitle: 'Angular · Copilot · Automation',
+          brandLabel: 'Hugo Martin: English home',
           navigationLabel: 'Primary navigation',
           menuLabel: this.menuOpen() ? 'Close menu' : 'Open menu',
           languageLabel: 'Deutsche Version',
           languageText: 'DE',
           homePath: '/en/',
-          cta: 'View RFQ demo',
-          ctaPath: '/en/demo/rfq-fit-check/',
-          demoKey: 'rfq-demo-en' as const,
+          cta: 'Discuss a project',
         },
   );
 
-  isActive(item: NavigationItem): boolean {
-    const pageKey = this.pageKey();
-    return pageKey !== null && (item.activeKeys?.includes(pageKey) ?? false);
-  }
-
-  isCurrent(item: NavigationItem): boolean {
-    const pageKey = this.pageKey();
-    return pageKey !== null && (item.currentKeys?.includes(pageKey) ?? false);
-  }
-
   toggleMenu(): void {
-    this.menuOpen.update((open) => {
-      if (open) {
-        this.openDropdown.set(null);
-      }
-      return !open;
-    });
+    this.menuOpen.update((open) => !open);
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
-    this.openDropdown.set(null);
-  }
-
-  toggleDropdown(item: NavigationItem): void {
-    if (!item.id) {
-      return;
-    }
-
-    this.openDropdown.update((current) => (current === item.id ? null : item.id ?? null));
-  }
-
-  isDropdownOpen(item: NavigationItem): boolean {
-    return item.id !== undefined && this.openDropdown() === item.id;
   }
 
   openContactForm(): void {
     const restoreFocusTo = this.menuOpen() ? this.navToggle()?.nativeElement : null;
     this.closeMenu();
-    this.contactDialog.open('rfq', restoreFocusTo);
+    this.contactDialog.open('general', restoreFocusTo);
   }
 
   @HostListener('document:keydown.escape')
   closeMenuWithEscape(): void {
-    this.closeMenu();
+    if (this.menuOpen()) {
+      this.closeMenu();
+      this.navToggle()?.nativeElement.focus();
+    }
   }
 
   @HostListener('document:pointerdown', ['$event'])
   closeMenuOutside(event: PointerEvent): void {
     if (!this.host.nativeElement.contains(event.target as Node)) {
+      this.closeMenu();
+    }
+  }
+
+  @HostListener('focusout', ['$event'])
+  closeMenuWhenFocusLeaves(event: FocusEvent): void {
+    const nextTarget = event.relatedTarget as Node | null;
+    if (this.menuOpen() && (!nextTarget || !this.host.nativeElement.contains(nextTarget))) {
       this.closeMenu();
     }
   }

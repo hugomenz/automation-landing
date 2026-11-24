@@ -2,84 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.hugomenz.de/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/de/demo/rfq-fit-check/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
+    <loc>https://www.hugomenz.de/leistungen/angular-entwicklung/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/angular-entwicklung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/angular-development/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/angular-entwicklung/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/loesungen/technische-anfragequalifizierung/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/leistungen/rfq-readiness-workshop/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/leistungen/interner-rfq-copilot/</loc>
+    <loc>https://www.hugomenz.de/leistungen/github-copilot/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/github-copilot/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/github-copilot/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/github-copilot/" />
   </url>
   <url>
     <loc>https://www.hugomenz.de/leistungen/prozessautomatisierung/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/prozessautomatisierung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/process-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/prozessautomatisierung/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/branchen/end-of-line/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/branchen/verpackungsmaschinen/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/branchen/palettieranlagen/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/standorte/stuttgart/</loc>
-  </url>
-  <url>
-    <loc>https://www.hugomenz.de/ueber-hugo-menz/</loc>
+    <loc>https://www.hugomenz.de/ueber-hugo-martin/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ueber-hugo-martin/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ueber-hugo-martin/" />
   </url>
   <url>
     <loc>https://www.hugomenz.de/kontakt/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/kontakt/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/standorte/stuttgart/</loc>
+    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://www.hugomenz.de/n8n-beratung-stuttgart/</loc>
+    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://www.hugomenz.de/en/</loc>
+    <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/en/demo/rfq-fit-check/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/en/demo/rfq-fit-check/" />
+    <loc>https://www.hugomenz.de/en/angular-development/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/angular-entwicklung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/angular-development/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/angular-entwicklung/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/en/order-entry-automation/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/" />
+    <loc>https://www.hugomenz.de/en/github-copilot/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/github-copilot/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/github-copilot/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/github-copilot/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/ki-sichtbarkeit-industrie/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+    <loc>https://www.hugomenz.de/en/process-automation/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/leistungen/prozessautomatisierung/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/process-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/leistungen/prozessautomatisierung/" />
   </url>
   <url>
-    <loc>https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/</loc>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ki-sichtbarkeit-industrie/" />
+    <loc>https://www.hugomenz.de/en/about/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/ueber-hugo-martin/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/ueber-hugo-martin/" />
+  </url>
+  <url>
+    <loc>https://www.hugomenz.de/en/contact/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://www.hugomenz.de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hugomenz.de/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hugomenz.de/kontakt/" />
   </url>
 </urlset>

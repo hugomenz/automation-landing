@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200">
+  <title>Hugo Martin: Angular, GitHub Copilot und Automatisierung</title>
+  <desc>LinkedIn company cover with a clear space on the left for the profile logo.</desc>
+  <rect width="1200" height="200" fill="#f7f8f5"/>
+  <g font-family="IBM Plex Sans, Noto Sans, sans-serif">
+    <text x="350" y="76" font-size="38" font-weight="600" letter-spacing="-0.7" fill="#1d2b36">Hugo Martin</text>
+    <text x="350" y="139" font-size="26" font-weight="500" fill="#245b82">Angular · GitHub Copilot · Automatisierung</text>
+  </g>
+  <text x="1124" y="73" text-anchor="end" font-family="IBM Plex Mono, DejaVu Sans Mono, monospace" font-size="18" fill="#4c5e6a">hugomenz.de</text>
+  <path d="M350 98h774" fill="none" stroke="#d7e1e6" stroke-width="1"/>
+  <path d="M350 167h72" fill="none" stroke="#dcc678" stroke-width="4"/>
+  <path d="M430 167h24" fill="none" stroke="#245b82" stroke-width="4"/>
+</svg>

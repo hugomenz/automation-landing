@@ -1,105 +1,71 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { getCanonicalUrl, PAGE_REGISTRY } from './content/page.registry';
+import { getAbsoluteHreflangAlternates, getCanonicalUrl, PAGE_REGISTRY } from './content/page.registry';
 
 const sitemap = readFileSync(new URL('../../public/sitemap.xml', import.meta.url), 'utf8');
 const robots = readFileSync(new URL('../../public/robots.txt', import.meta.url), 'utf8');
+const urlBlocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
 
 function sitemapLocations(xml: string): readonly string[] {
   return [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map((match) => match[1]);
 }
 
+function alternateLinks(xml: string): readonly string[] {
+  return [...xml.matchAll(/<xhtml:link\b[^>]*>/g)].map(([tag]) => {
+    const hreflang = /hreflang="([^"]+)"/.exec(tag)?.[1];
+    const href = /href="([^"]+)"/.exec(tag)?.[1];
+    expect(tag).toContain('rel="alternate"');
+    expect(hreflang).toBeDefined();
+    expect(href).toBeDefined();
+    return `${hreflang}:${href}`;
+  }).sort();
+}
+
 describe('sitemap and robots', () => {
-  it('publishes exactly the 19 canonical registry URLs once', () => {
+  it('publishes every canonical registry URL exactly once', () => {
     const locations = sitemapLocations(sitemap);
-    const expected = PAGE_REGISTRY.map(getCanonicalUrl);
-
-    expect(locations).toHaveLength(19);
+    expect(locations).toHaveLength(PAGE_REGISTRY.length);
     expect(new Set(locations).size).toBe(locations.length);
-    expect(new Set(locations)).toEqual(new Set(expected));
-  });
-
-  it('contains neither anchors nor speculative future pages', () => {
-    const locations = sitemapLocations(sitemap);
-
+    expect(new Set(locations)).toEqual(new Set(PAGE_REGISTRY.map(getCanonicalUrl)));
     for (const location of locations) {
-      expect(location).not.toContain('#');
-      expect(location).not.toContain('?');
-      expect(location.endsWith('/')).toBe(true);
+      const url = new URL(location);
+      expect(url.origin).toBe('https://www.hugomenz.de');
+      expect(url.hash).toBe('');
+      expect(url.search).toBe('');
+      expect(url.pathname.endsWith('/')).toBe(true);
     }
-
-    expect(sitemap).not.toMatch(/\/wissen\//i);
-    expect(sitemap).not.toMatch(/\/en\/(?:solutions|services|industries|about|contact)\//i);
   });
 
-  it('publishes lastmod only for a known significant content change', () => {
-    const datedUrls = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap((match) => {
-      const block = match[1];
-      const location = sitemapLocations(block)[0];
-      const lastmods = [...block.matchAll(/<lastmod>\s*([^<]+?)\s*<\/lastmod>/g)].map(
-        (lastmod) => lastmod[1],
-      );
-
-      expect(lastmods, 'lastmod count for ' + location).toHaveLength(
-        lastmods.length > 0 ? 1 : 0,
-      );
-      return lastmods.map((lastmod) => ({ location, lastmod }));
-    });
-
-    expect(datedUrls).toEqual([
-      {
-        location: 'https://www.hugomenz.de/',
-        lastmod: '2026-07-22',
-      },
-    ]);
+  it('records the known full-site revision date once on each page', () => {
+    for (const block of urlBlocks) {
+      const lastmods = [...block.matchAll(/<lastmod>\s*([^<]+?)\s*<\/lastmod>/g)]
+        .map((match) => match[1]);
+      expect(lastmods, sitemapLocations(block)[0]).toEqual(['2026-11-24']);
+    }
     expect(sitemap).not.toMatch(/<(?:changefreq|priority)>/i);
   });
 
-  it('keeps reciprocal language annotations on translated URL pairs only', () => {
-    const urlBlocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
-      (match) => match[1],
-    );
-    const blocksWithAlternates = urlBlocks.filter((block) =>
-      /rel=["']alternate["']/i.test(block),
-    );
-
-    expect(blocksWithAlternates).toHaveLength(8);
-    for (const block of blocksWithAlternates) {
-      expect(block).toContain('hreflang="de-DE"');
-      expect(block).toContain('hreflang="en"');
-      expect(block).toContain('hreflang="x-default"');
+  it('matches reciprocal registry alternates for the six translated pairs', () => {
+    const byLocation = new Map(urlBlocks.map((block) => [sitemapLocations(block)[0], block]));
+    expect(urlBlocks.filter((block) => alternateLinks(block).length)).toHaveLength(12);
+    for (const page of PAGE_REGISTRY) {
+      const block = byLocation.get(getCanonicalUrl(page));
+      expect(block, page.key).toBeDefined();
+      const expected = getAbsoluteHreflangAlternates(page)
+        .map(({ hreflang, href }) => `${hreflang}:${href}`).sort();
+      expect(alternateLinks(block!), page.key).toEqual(expected);
     }
-    const blockByLocation = new Map(
-      blocksWithAlternates.map((block) => [sitemapLocations(block)[0], block] as const),
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/')).toContain(
-      'hreflang="en" href="https://www.hugomenz.de/en/"',
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/en/')).toContain(
-      'hreflang="de-DE" href="https://www.hugomenz.de/"',
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/de/demo/rfq-fit-check/')).toContain(
-      'hreflang="en" href="https://www.hugomenz.de/en/demo/rfq-fit-check/"',
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/en/demo/rfq-fit-check/')).toContain(
-      'hreflang="de-DE" href="https://www.hugomenz.de/de/demo/rfq-fit-check/"',
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/')).toContain(
-      'hreflang="en" href="https://www.hugomenz.de/en/order-entry-automation/"',
-    );
-    expect(blockByLocation.get('https://www.hugomenz.de/en/order-entry-automation/')).toContain(
-      'hreflang="de-DE" href="https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/"',
-    );
-    expect(new Set(blocksWithAlternates.map((block) => sitemapLocations(block)[0]))).toEqual(new Set([
-      'https://www.hugomenz.de/',
-      'https://www.hugomenz.de/de/demo/rfq-fit-check/',
-      'https://www.hugomenz.de/en/',
-      'https://www.hugomenz.de/en/demo/rfq-fit-check/',
-      'https://www.hugomenz.de/leistungen/auftragserfassung-automatisierung/',
-      'https://www.hugomenz.de/en/order-entry-automation/',
-      'https://www.hugomenz.de/ki-sichtbarkeit-industrie/',
-      'https://www.hugomenz.de/en/ai-search-readiness-industrial-companies/',
-    ]));
+  });
+
+  it('excludes all legacy redirect sources from the sitemap', () => {
+    const redirects = JSON.parse(
+      readFileSync(new URL('./legacy-redirects.json', import.meta.url), 'utf8'),
+    ) as readonly { from: string; to: string }[];
+    const locations = new Set(sitemapLocations(sitemap));
+    for (const redirect of redirects) {
+      expect(locations.has(new URL(redirect.from, 'https://www.hugomenz.de').href)).toBe(false);
+      expect(locations.has(new URL(redirect.to, 'https://www.hugomenz.de').href)).toBe(true);
+    }
   });
 
   it('advertises the sitemap without blocking the static site', () => {

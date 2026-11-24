@@ -99,7 +99,7 @@ export class SeoService {
 
     if (kinds.has('BreadcrumbList')) graph.push(this.breadcrumbSchema(page, canonical));
     if (kinds.has('Person')) graph.push(this.personSchema());
-    if (kinds.has('Organization')) graph.push(this.organizationSchema());
+    if (kinds.has('Organization')) graph.push(this.organizationSchema(page));
     if (kinds.has('WebSite')) graph.push(this.websiteSchema(page));
     if (kinds.has('Service')) graph.push(this.serviceSchema(page, canonical));
     if (kinds.has('ContactPage')) graph.push(this.contactPageSchema(page, canonical));
@@ -130,7 +130,7 @@ export class SeoService {
       '@type': 'Person',
       '@id': `${siteConfig.baseUrl}#person`,
       name: siteConfig.name,
-      url: resolveAbsoluteUrl('/ueber-hugo-menz/'),
+      url: resolveAbsoluteUrl('/ueber-hugo-martin/'),
       image: resolveAbsoluteUrl(siteConfig.founder.portraitSrc),
       jobTitle: siteConfig.founder.jobTitle,
       sameAs: [siteConfig.social.linkedin],
@@ -138,14 +138,15 @@ export class SeoService {
     };
   }
 
-  private organizationSchema(): JsonLd {
+  private organizationSchema(page: PageDefinition): JsonLd {
     return {
       '@type': 'Organization',
       '@id': `${siteConfig.baseUrl}#organization`,
       name: siteConfig.brandName,
       url: siteConfig.baseUrl,
-      description:
-        'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer.',
+      description: page.lang === 'de'
+        ? 'Technische Unterstützung für Angular, GitHub Copilot und Prozessautomatisierung.'
+        : 'Technical support for Angular, GitHub Copilot and process automation.',
       image: resolveAbsoluteUrl(siteConfig.socialImage.src),
       founder: { '@id': `${siteConfig.baseUrl}#person` },
     };

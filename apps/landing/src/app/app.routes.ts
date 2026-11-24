@@ -1,32 +1,21 @@
 import { Routes } from '@angular/router';
-import { PageKey } from './content/page.types';
+import { PAGE_REGISTRY } from './content/page.registry';
+import legacyRedirects from './legacy-redirects.json';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
-function pageRoute(path: string, pageKey: PageKey) {
-  return { path, component: ContentPageComponent, data: { pageKey } } as const;
-}
+const routePath = (path: string): string => path.replace(/^\/+|\/+$/g, '');
 
 export const routes: Routes = [
-  pageRoute('', 'home-de'),
-  { path: 'demo/rfq-fit-check', redirectTo: '/de/demo/rfq-fit-check', pathMatch: 'full' },
-  pageRoute('de/demo/rfq-fit-check', 'rfq-demo-de'),
-  pageRoute('loesungen/technische-anfragequalifizierung', 'technical-request-qualification'),
-  pageRoute('leistungen/rfq-readiness-workshop', 'rfq-readiness-workshop'),
-  pageRoute('leistungen/interner-rfq-copilot', 'internal-rfq-copilot'),
-  pageRoute('leistungen/prozessautomatisierung', 'process-automation'),
-  pageRoute('leistungen/auftragserfassung-automatisierung', 'order-entry-automation-de'),
-  pageRoute('branchen/end-of-line', 'end-of-line'),
-  pageRoute('branchen/verpackungsmaschinen', 'packaging-machinery'),
-  pageRoute('branchen/palettieranlagen', 'palletising-systems'),
-  pageRoute('standorte/stuttgart', 'stuttgart'),
-  pageRoute('ueber-hugo-menz', 'about-hugo-menz'),
-  pageRoute('kontakt', 'contact'),
-  pageRoute('n8n-beratung-stuttgart', 'n8n-consulting-stuttgart'),
-  pageRoute('ki-sichtbarkeit-industrie', 'industrial-ai-search-de'),
-  pageRoute('en', 'home-en'),
-  pageRoute('en/demo/rfq-fit-check', 'rfq-demo-en'),
-  pageRoute('en/order-entry-automation', 'order-entry-automation-en'),
-  pageRoute('en/ai-search-readiness-industrial-companies', 'industrial-ai-search-en'),
+  ...PAGE_REGISTRY.map((page) => ({
+    path: routePath(page.path),
+    component: ContentPageComponent,
+    data: { pageKey: page.key },
+  })),
+  ...legacyRedirects.map(({ from, to }) => ({
+    path: routePath(from),
+    redirectTo: to,
+    pathMatch: 'full' as const,
+  })),
   { path: '**', component: NotFoundComponent },
 ];

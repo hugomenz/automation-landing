@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && node scripts/generate-redirect-pages.mjs",
     "verify:prerender": "node scripts/verify-prerender.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "vitest run",

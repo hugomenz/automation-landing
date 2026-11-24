@@ -1,78 +1,75 @@
-# Design system — hugomenz.de
+# Design system: Hugo Martin
 
 ## Position and visual idea
 
-The site presents one specialist practice: controlled RFQ automation for machinery manufacturers. Secondary pages may demonstrate the same method in adjacent industrial processes, but must not turn the homepage into a catalogue of unrelated services.
+The site presents Hugo Martin's independent services in three connected areas: Angular development, GitHub Copilot and developer workflows, and process automation. The service pages explain practical work, scope and collaboration. The site must not present a packaged RFQ product or imply that visual UX/UI design is offered.
 
-The visual language is a dark technical work surface: precise typography, restrained rules and small source-like labels. Process diagrams and review states are functional evidence, not decoration.
+Angular work covers applications, internal tools, component libraries and the technical implementation of existing design systems. Copilot work is described through concrete capabilities such as agent configuration, reusable skills, coordinated tasks and development automation. Claims must remain grounded in Hugo's actual experience.
 
-## Allowed colours
+The visual language is a light technical workspace. Keep precise typography, thin rules, structured rows and compact process labels. White, restrained blue and a small warm yellow accent echo the Canary Islands without using a large flag or emblem.
 
-Use the CSS tokens in `apps/landing/src/styles.css`; do not add one-off literals inside components.
+## Colour tokens
 
-- Backgrounds: `--bg` `#0d1117`, `--surface` `#161b22`, `--surface-2` `#1c2230`, `--elevated` `#1c2128`.
-- Rules: `--border` `#30363d`, `--border-muted` `#21262d`.
-- Text: `--text` `#f0f6fc`, `--text-secondary` `#8b949e`, `--text-muted` `#7d8590`.
-- Primary blue: `--accent` `#1677b8`, `--accent-bright` `#72b9ea`, action states from `--accent-action` and `--accent-action-hover`.
-- Review yellow: `--accent-warm` `#f2c94c`; use only for attention, review or a small identity cue.
-- Success and error tokens are reserved for real state, never decoration.
+Use the shared tokens in `apps/landing/src/styles.css`, not one-off component colours.
 
-Do not introduce purple/cyan startup palettes, gradient text or decorative glow. Existing low-opacity background tints may create depth, but may not carry meaning or reduce contrast.
+- Backgrounds: `--bg` `#f7f8f5`, `--surface` `#ffffff`, `--surface-2` `#eef3f5`.
+- Text: `--text` `#1d2b36`, `--text-secondary` `#4c5e6a`, `--text-muted` `#596c78`.
+- Rules: `--border` `#c6d3dc`, `--border-muted` `#d7e1e6`.
+- Blue: `--accent` and `--accent-bright` `#245b82`.
+- Primary actions: `--accent-action` `#163a56`, hover `#0d2c43`, with `--on-accent` white text.
+- Yellow accent: `--accent-warm` `#dcc678`, flat tint `--accent-warm-soft` `#f6f0db`.
+- Use `--accent-warm-text` `#77591b` when coloured text is necessary. Light yellow is decorative and must not carry essential text.
+- Error and success colours are reserved for real form or system states.
+
+Use flat backgrounds. Avoid gradients, glass effects, neon colours, decorative glow and transparent dark surfaces. Rules can be subtle; focus indicators and meaningful control boundaries need sufficient contrast.
 
 ## Typography
 
-- `IBM Plex Sans` is the reading and interface face.
-- `IBM Plex Mono` is for file labels, statuses, rule identifiers and compact process metadata.
-- Headings use the sans family at weight 700 with restrained negative tracking.
-- Body copy stays at 16px or larger on desktop and 15.5px or larger on narrow screens, with a line height around 1.6.
-- Long copy is limited to roughly 65–75 characters per line.
-- Do not add Inter, a second display face, italic-serif heroes or oversized full-sentence display type.
+- IBM Plex Sans is the reading and interface face.
+- IBM Plex Mono is for short process labels, navigation metadata and technical terms.
+- Headings use weight 700 and restrained negative tracking.
+- Body copy is 16px on desktop and at least 15.5px on narrow screens, with a line height around 1.6.
+- Long prose is limited to approximately 65 to 75 characters per line.
+- Avoid a second display face, giant full-sentence headlines, clipping and forced single-line headings.
 
-## Spacing scale
+## Layout and spacing
 
-Base values: `4, 8, 12, 16, 20, 24, 32, 40, 52, 64, 80, 112px`.
+The content width is 1120px, including responsive inline padding. Base spacing values are 4, 8, 12, 16, 20, 24, 32, 40, 52, 64, 80 and 112px.
 
-Use tight spacing inside a semantic group and a visibly larger jump between sections. Do not repeat one spacing value throughout a page.
+Use one H1 and a clear lead. A hero can contain a process diagram or the existing portrait. Keep no more than two hero actions. Service descriptions should use ruled rows with a short title, explanation and a relevant link. Sequential work uses numbered ledger rows.
 
-## Radii and elevation
+Comparisons can use two adjacent columns separated by a rule. Do not turn every section into a repeated card grid. Alternate white and off-white surfaces to separate longer sections.
 
-- Default surface radius: `--radius` (`14px`).
-- Controls and compact elements: `--radius-sm` (`8px`).
-- Full pills are limited to short status or metadata tokens.
-- Prefer a border or spacing hierarchy. Use `--shadow-soft` only for a genuinely elevated surface and never pair every hairline border with a wide shadow.
+Default radius is 10px and control radius is 8px. Prefer borders and spacing over elevation. Reserve the soft shadow for navigation overlays or a genuinely elevated surface.
 
-## Hierarchy and composition
+## Identity and navigation
 
-1. The RFQ homepage and RFQ demo remain the primary conversion path.
-2. A secondary application must be reached from a secondary navigation group and link back to the RFQ method.
-3. Use one clear H1, one lead and at most two hero actions.
-4. Alternate dense explanatory passages with a process-specific structure: flow, ledger, comparison or source list.
-5. Do not repeat identical three-card sections. Prefer ruled rows, definition lists and direct prose.
+- Visible name: Hugo Martin.
+- Header subtitle: Angular · Copilot · Automatisierung, or the English equivalent.
+- Use the HM mark at `/hugo-martin-mark.svg`. The former asset URL remains an alias for compatibility.
+- Header navigation covers Angular, GitHub Copilot, automation, about and contact.
+- The primary header action starts a general project conversation.
+- Language links use the current page's registered alternate. If a German-only page links to the English home, its accessible label must say so.
+- No RFQ demo CTA or old product slogan in shared navigation.
 
 ## Components
 
-- Header and footer: preserve the M mark, brand title, RFQ subtitle and RFQ demo CTA.
-- Flow diagram: use for a real sequence with explicit inputs, checks, human review and output.
-- Process ledger: numbered ruled rows for sequential operational work; avoid card styling.
-- Comparison: one paired surface is acceptable for “system / human” or “implemented / not implemented”.
-- Callout: one left rule and a flat tint for an important boundary.
-- Buttons: rectangular, 8px radius, no oversized icons or decorative motion.
+- The generic service flow presents the sequence supplied by page content. It has no hardcoded implementation statuses or RFQ labels.
+- Process ledgers use numbered rows and remain readable on mobile.
+- Callouts use a small yellow rule and a flat pale tint.
+- FAQ sections use native details and summary with visible keyboard focus.
+- The profile section uses the existing photo and factual biography.
+- Buttons are rectangular with clear labels and 44px minimum touch height.
+- Section navigation is unavailable to keyboard and assistive technology while visually hidden.
 
-## Motion
+## Accessibility and motion
 
-- Motion must communicate navigation, focus, expansion or newly revealed content.
-- Keep transitions between 140–220ms for controls.
-- Scroll reveal is progressive enhancement only; content must remain visible when scripts or motion are unavailable.
-- Respect `prefers-reduced-motion`.
-- No pulsing status dots, marquees, bounce easing, parallax or image scaling on hover.
+Normal text must meet WCAG AA contrast against its intended background. A decorative yellow accent never substitutes for a text label. Focus indicators use a strong blue outline. All navigation is available by keyboard, and closing the mobile menu with Escape returns focus to its trigger.
 
-## Prohibited patterns
+Controls may use 140 to 220ms colour or state transitions. Content remains visible without scroll animation. Respect prefers-reduced-motion. No pulsing dots, marquees, parallax, bounce effects or image zoom on hover.
 
-- Repeated card grids or cards nested inside cards.
-- Decorative gradients, glassmorphism, neon glows or generic floating orbs.
-- Giant icons, icon tiles above every heading or badge-heavy layouts.
-- Repeated eyebrow + oversized headline patterns without information value.
-- Redundant copy, invented outcomes, unsupported savings, customer logos or production claims.
-- Claims that an ERP, CRM or customer system is connected when only an export draft exists.
-- Autonomous-decision language or copy that frames automation as replacing employees.
+## Content boundaries
 
+Do not invent customer results, savings, testimonials, certifications or production claims. Preserve official employment titles while keeping the freelance offer precise. A component library or implementation of an existing design system does not imply an offer of visual design.
+
+Avoid exposing internal implementation states, archived research, old RFQ terminology or debugging labels in the customer journey.

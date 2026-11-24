@@ -1,0 +1,58 @@
+[
+  {
+    "from": "/demo/rfq-fit-check/",
+    "to": "/"
+  },
+  {
+    "from": "/de/demo/rfq-fit-check/",
+    "to": "/"
+  },
+  {
+    "from": "/en/demo/rfq-fit-check/",
+    "to": "/en/"
+  },
+  {
+    "from": "/loesungen/technische-anfragequalifizierung/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/leistungen/rfq-readiness-workshop/",
+    "to": "/kontakt/"
+  },
+  {
+    "from": "/leistungen/interner-rfq-copilot/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/branchen/end-of-line/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/branchen/verpackungsmaschinen/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/branchen/palettieranlagen/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/ueber-hugo-menz/",
+    "to": "/ueber-hugo-martin/"
+  },
+  {
+    "from": "/leistungen/auftragserfassung-automatisierung/",
+    "to": "/leistungen/prozessautomatisierung/"
+  },
+  {
+    "from": "/en/order-entry-automation/",
+    "to": "/en/process-automation/"
+  },
+  {
+    "from": "/ki-sichtbarkeit-industrie/",
+    "to": "/"
+  },
+  {
+    "from": "/en/ai-search-readiness-industrial-companies/",
+    "to": "/en/"
+  }
+]

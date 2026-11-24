@@ -6,24 +6,21 @@ export type PagePath = '/' | `/${string}/`;
 
 export type PageKey =
   | 'home-de'
-  | 'rfq-demo-de'
-  | 'rfq-demo-en'
-  | 'technical-request-qualification'
-  | 'rfq-readiness-workshop'
-  | 'internal-rfq-copilot'
-  | 'process-automation'
-  | 'order-entry-automation-de'
-  | 'order-entry-automation-en'
-  | 'end-of-line'
-  | 'packaging-machinery'
-  | 'palletising-systems'
+  | 'angular-development-de'
+  | 'github-copilot-de'
+  | 'process-automation-de'
+  | 'about-hugo-martin-de'
+  | 'contact-de'
   | 'stuttgart'
-  | 'about-hugo-menz'
-  | 'contact'
-  | 'home-en'
   | 'n8n-consulting-stuttgart'
-  | 'industrial-ai-search-de'
-  | 'industrial-ai-search-en';
+  | 'home-en'
+  | 'angular-development-en'
+  | 'github-copilot-en'
+  | 'process-automation-en'
+  | 'about-hugo-martin-en'
+  | 'contact-en';
+
+export type ContactContext = 'general' | 'angular' | 'copilot' | 'process-automation';
 
 export type SchemaKind =
   | 'BreadcrumbList'
@@ -46,7 +43,7 @@ export interface OpenGraphDefinition {
   readonly locale: PageLocale;
   readonly imagePath: PagePath | `/${string}`;
   readonly imageAlt: string;
-  readonly siteName: 'Hugo Menz Automation';
+  readonly siteName: 'Hugo Martin';
 }
 
 export interface TwitterDefinition {
@@ -72,7 +69,7 @@ export interface ContentLink {
   readonly href: string;
   readonly lang?: PageLanguage;
   readonly dataCta?: string;
-  readonly contactContext?: 'rfq' | 'process-automation' | 'ai-search';
+  readonly contactContext?: ContactContext;
   readonly external?: boolean;
 }
 

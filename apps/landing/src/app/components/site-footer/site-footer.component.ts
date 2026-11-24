@@ -16,41 +16,36 @@ interface FooterGroup {
 export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
   de: [
     {
-      label: 'Lösung und Einstieg',
+      label: 'Leistungen',
       links: [
-        {
-          label: 'Technische Anfragequalifizierung',
-          href: '/loesungen/technische-anfragequalifizierung/',
-        },
-        { label: 'RFQ Readiness Workshop', href: '/leistungen/rfq-readiness-workshop/' },
-        { label: 'Interner RFQ-Copilot', href: '/leistungen/interner-rfq-copilot/' },
+        { label: 'Angular-Entwicklung', href: '/leistungen/angular-entwicklung/' },
+        { label: 'GitHub Copilot', href: '/leistungen/github-copilot/' },
+        { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
       ],
     },
     {
-      label: 'Unternehmen und Kontakt',
+      label: 'Zusammenarbeit',
       links: [
-        { label: 'Über Hugo Menz', href: '/ueber-hugo-menz/' },
-        { label: 'Zusammenarbeit in Stuttgart', href: '/standorte/stuttgart/' },
+        { label: 'Über Hugo Martin', href: '/ueber-hugo-martin/' },
+        { label: 'Standort Stuttgart', href: '/standorte/stuttgart/' },
         { label: 'Kontakt', href: '/kontakt/' },
       ],
     },
   ],
   en: [
     {
-      label: 'Solution',
+      label: 'Services',
       links: [
-        { label: 'Technical enquiry qualification', href: '/en/#workflow' },
-        { label: 'Internal RFQ copilot', href: '/en/#internal-rfq-copilot' },
+        { label: 'Angular development', href: '/en/angular-development/' },
+        { label: 'GitHub Copilot', href: '/en/github-copilot/' },
+        { label: 'Process automation', href: '/en/process-automation/' },
       ],
     },
     {
-      label: 'Explore',
+      label: 'Working together',
       links: [
-        { label: 'Who it is for', href: '/en/#fit' },
-        { label: 'Controls and human review', href: '/en/#control' },
-        { label: 'Approach', href: '/en/#process' },
-        { label: 'About Hugo Menz', href: '/en/#about' },
-        { label: 'Contact', href: '/en/#contact' },
+        { label: 'About Hugo Martin', href: '/en/about/' },
+        { label: 'Contact', href: '/en/contact/' },
       ],
     },
   ],
@@ -72,17 +67,15 @@ export class SiteFooterComponent {
   readonly copy = computed(() =>
     this.language() === 'de'
       ? {
-          description:
-            'Technische Anfragequalifizierung und digitale Angebotsprozesse für Maschinenbauer.',
+          description: 'Angular-Anwendungen, GitHub Copilot und praktische Automatisierung für Unternehmen und Entwicklungsteams.',
           groups: FOOTER_GROUPS.de,
-          companyLabel: 'Hugo Menz Automation',
-          languageLabel: 'English',
+          languageLabel: this.languagePath() === '/en/' && this.pageLocale.pageKey() !== 'home-de'
+            ? 'English home'
+            : 'English',
         }
       : {
-          description:
-            'Technical enquiry qualification and digital quotation processes for machinery manufacturers.',
+          description: 'Angular applications, GitHub Copilot and practical automation for businesses and development teams.',
           groups: FOOTER_GROUPS.en,
-          companyLabel: 'Hugo Menz Automation',
           languageLabel: 'Deutsch',
         },
   );

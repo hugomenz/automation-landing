@@ -1,3 +1,4 @@
+import { contactAction, pageFooter, pageHeader, pageSeo, PAGE_PAIRS, projectDiagram } from '../page.helpers';
 import type { PageDefinition } from '../page.types';
 
 export const HOME_EN = {
@@ -5,338 +6,116 @@ export const HOME_EN = {
   path: '/en/',
   lang: 'en',
   locale: 'en_GB',
-  seo: {
-    title: 'Automate quotation processes for machinery manufacturers | Hugo Menz',
-    description:
-      'Turn technical enquiries, emails, specifications, photos and PDFs into a reviewable quotation basis using approved rules and human review.',
-    canonicalPath: '/en/',
-    robots: 'index,follow',
-    openGraph: {
-      title: 'Automate quotation processes for machinery manufacturers',
-      description:
-        'Turn incomplete technical enquiries into a reviewable quotation basis with open points, approved rules and human review.',
-      type: 'website',
-      locale: 'en_GB',
-      imagePath: '/og-rfq-preview-en.png',
-      imageAlt:
-        'Technical enquiry qualification for machinery manufacturers with approved rules and human review',
-      siteName: 'Hugo Menz Automation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Automate quotation processes for machinery manufacturers',
-      description:
-        'Turn incomplete technical enquiries into a reviewable quotation basis with open points, approved rules and human review.',
-      imagePath: '/og-rfq-preview-en.png',
-      imageAlt:
-        'Technical enquiry qualification for machinery manufacturers with approved rules and human review',
-    },
-    alternates: [
-      { hreflang: 'de-DE', path: '/' },
-      { hreflang: 'en', path: '/en/' },
-      { hreflang: 'x-default', path: '/' },
-    ],
-  },
-  header: {
-    brand: 'Hugo Menz Automation',
-    subtitle: 'Technical quotation processes · Machinery',
-    navigation: [
-      { label: 'Solution', href: '/en/#internal-rfq-copilot' },
-      { label: 'Who it is for', href: '/en/#fit' },
-      { label: 'Approach', href: '/en/#process' },
-      { label: 'About Hugo', href: '/en/#about' },
-      { label: 'Contact', href: '/en/#contact' },
-      { label: 'DE', href: '/', lang: 'de' },
-    ],
-    cta: {
-      label: 'View RFQ demo',
-      href: '/en/demo/rfq-fit-check/',
-      dataCta: 'rfq-demo-header-en',
-    },
-  },
-  breadcrumbs: [
-    { label: 'Home', path: '/en/' },
-    { label: 'English', path: '/en/' },
-  ],
+  seo: pageSeo(
+    'en',
+    '/en/',
+    'Angular, GitHub Copilot & Automation | Hugo Martin',
+    'Hugo Martin in Stuttgart: Angular applications, GitHub Copilot skills and agents, and process automation for small businesses and development teams.',
+    PAGE_PAIRS.home,
+  ),
+  header: pageHeader('en', '/'),
+  breadcrumbs: [{ label: 'Home', path: '/en/' }],
   hero: {
-    kicker: 'Technical quotation processes · Machinery manufacturing · Stuttgart',
-    h1: 'Turn technical enquiries into a reviewable quotation basis',
-    lead:
-      'I help machinery manufacturers turn incomplete enquiries into a reviewable basis for sales and engineering.',
-    primaryCta: {
-      label: 'View RFQ demo',
-      href: '/en/demo/rfq-fit-check/',
-      dataCta: 'rfq-demo-hero-en',
-    },
-    secondaryCta: {
-      label: 'How the internal RFQ copilot works',
-      href: '/en/#internal-rfq-copilot',
-      dataCta: 'copilot-hero',
-    },
-    trustLine: 'Clear quotation process · approved rules · human review',
-    diagram: {
-      fileLabel: 'technical-enquiry.flow',
-      nodes: [
-        { stage: 'Input', label: 'Email · specification · photos' },
-        { stage: 'Structure', label: 'Requirements and sources' },
-        { stage: 'Check', label: 'Gaps · contradictions · risks' },
-        { stage: 'Calculate', label: 'approved rules' },
-        { stage: 'Approve', label: 'Sales engineer' },
-      ],
-      footer: 'no invented prices · no autonomous approval',
-    },
+    kicker: 'Technical services · Stuttgart',
+    h1: 'Build with Angular. Set up Copilot. Automate workflows.',
+    lead: 'I am Hugo Martin. I support small businesses and development teams with web applications, internal tools and automated workflows. I work directly with you, alongside my main role, with a clear project scope.',
+    primaryCta: contactAction('en'),
+    secondaryCta: { label: 'Explore services', href: '/en/#services' },
+    trustLine: 'One point of contact · specific tasks · documented handover',
+    diagram: projectDiagram('en'),
   },
   sections: [
     {
-      id: 'problem',
-      eyebrow: 'Current situation',
-      heading: 'Why the first quotation phase requires so much coordination',
-      intro:
-        'Technical enquiries are often spread across emails, specifications, PDFs, photos and spreadsheets. The details must be brought together before a reliable assessment.',
-      points: [
-        'Relevant product, performance or interface data is missing.',
-        'Documents contain conflicting values or assumptions.',
-        'Sales engineers repeatedly clarify the same basic questions.',
-        'Budget knowledge is held in spreadsheets, rules or individual experience.',
-        'Assumptions and exclusions are lost during handover to engineering.',
-      ],
-      paragraphs: [
-        'The useful first step is traceable preparation for a technical decision, not an automatically generated quotation.',
+      id: 'services',
+      heading: 'Three areas of technical support',
+      intro: 'We start with a specific task in your application, your development work or a recurring business process.',
+      items: [
+        {
+          label: '01',
+          title: 'Angular development',
+          body: 'Build web applications and internal tools, extend existing applications and implement existing design systems as Angular component libraries.',
+          link: { label: 'Explore Angular development', href: '/en/angular-development/' },
+        },
+        {
+          label: '02',
+          title: 'GitHub Copilot and Developer Experience',
+          body: 'Set up custom skills and agents, coordinate tasks between agents and automate recurring development work.',
+          link: { label: 'Explore GitHub Copilot support', href: '/en/github-copilot/' },
+        },
+        {
+          label: '03',
+          title: 'Process automation',
+          body: 'Connect forms, email, CRM and other systems through APIs. Build recurring administrative workflows with n8n, Make or Power Automate.',
+          link: { label: 'Explore process automation', href: '/en/process-automation/' },
+        },
       ],
       layout: 'list',
     },
     {
-      id: 'workflow',
-      eyebrow: 'Process',
-      heading: 'From customer enquiry to human approval',
+      id: 'starting-point',
+      heading: 'A small, clear task is a useful starting point',
+      intro: 'These examples show possible project scopes. Together, we choose the part you need.',
       items: [
         {
-          label: 'Step 1',
-          title: 'Capture the enquiry',
-          body: 'Emails, specifications, PDFs, photos, notes and form data are collected together with their sources.',
+          title: 'An internal form connected to your data',
+          body: 'A team enters data in an Angular application. Fields, validation and the API connection are built around one clear workflow.',
         },
         {
-          label: 'Step 2',
-          title: 'Structure requirements',
-          body: 'Information is mapped to the approved schema for the selected product or solution area.',
+          title: 'A Copilot workflow for your repository',
+          body: 'Project knowledge, recurring steps and review criteria become instructions, skills and agents for a selected development task.',
         },
         {
-          label: 'Step 3',
-          title: 'Review open points',
-          body: 'Missing information, contradictions, assumptions, follow-up questions and risks remain visible.',
-        },
-        {
-          label: 'Step 4',
-          title: 'Prepare a budget basis',
-          body: 'Only approved modules, tables, factors and formulas may contribute internal budget values.',
-        },
-        {
-          label: 'Step 5',
-          title: 'Human review and approval',
-          body: 'A sales engineer reviews the result before it is used in customer communication, costing, engineering or the CRM.',
+          title: 'A workflow between two existing tools',
+          body: 'For example, read form data, update a record and notify the right person. The workflow also covers errors and exceptions.',
         },
       ],
-      ordered: true,
-      layout: 'steps',
-    },
-    {
-      id: 'internal-rfq-copilot',
-      eyebrow: 'Internal RFQ copilot',
-      heading: 'What the internal RFQ copilot prepares',
-      intro:
-        'The copilot works internally and within a clearly defined technical scope. It prepares information for sales and engineering; it does not replace their decision.',
-      items: [
-        {
-          title: 'Structured requirements record',
-          body: 'Requirements, units, sources and status are brought into one shared schema.',
-        },
-        {
-          title: 'Missing information',
-          body: 'Required inputs for the first technical assessment are clearly marked.',
-        },
-        {
-          title: 'Contradictions and risks',
-          body: 'Conflicting values, unconfirmed assumptions and technical blockers remain visible.',
-        },
-        {
-          title: 'Prioritised follow-up questions',
-          body: 'Open points become a focused question list for the customer, sales or engineering.',
-        },
-        {
-          title: 'Rule-based budget basis',
-          body: 'Internal values come only from approved modules, tables, factors and formulas.',
-        },
-        {
-          title: 'Clean handover',
-          body: 'The reviewed result can be passed to sales, engineering, calculation or CRM.',
-        },
-      ],
-      links: [
-        {
-          label: 'Internal RFQ copilot (German service page)',
-          href: '/leistungen/interner-rfq-copilot/',
-          lang: 'de',
-        },
-      ],
-      layout: 'cards',
-    },
-    {
-      id: 'control',
-      eyebrow: 'Limits and control',
-      heading: 'Where rules end and engineering begins',
-      intro:
-        'AI can interpret documents, but it cannot take responsibility for technical feasibility, costs or margin.',
-      columns: [
-        {
-          heading: 'The system may',
-          points: [
-            'extract information and link it to its source;',
-            'map terms into an approved requirements schema;',
-            'flag missing information, contradictions and risks;',
-            'suggest follow-up questions;',
-            'apply deterministic rules and versioned tables.',
-          ],
-        },
-        {
-          heading: 'The system must not',
-          points: [
-            'invent prices, modules or dimensions;',
-            'confirm technical feasibility by itself;',
-            'approve margins, assumptions or risks;',
-            'send a customer response or quotation automatically;',
-            'silently process cases outside the defined scope.',
-          ],
-        },
-      ],
-      callout:
-        'If a rule is missing or a case falls outside the defined technical scope, the system must stop and escalate it for review.',
-      layout: 'comparison',
-    },
-    {
-      id: 'fit',
-      eyebrow: 'Who it is for',
-      heading: 'For small and medium-sized machinery manufacturers',
-      intro:
-        'The approach can fit regardless of the machinery they build when part of the technical quotation process can be described consistently and scoped clearly.',
-      points: [
-        'One product or solution area can be clearly defined.',
-        'Inputs, modules, options or technical limits repeat across enquiries.',
-        'Historical enquiries, checklists, tables or approved rules are usable.',
-        'A responsible expert can review rules and results.',
-        'The enquiry volume justifies structured preparation.',
-      ],
-      callout:
-        'If every project requires completely new trials, simulation or engineering, a rule-based budget basis may not be appropriate.',
       layout: 'list',
     },
     {
-      id: 'process',
-      eyebrow: 'Approach',
-      heading: 'A controlled path to implementation',
-      items: [
-        {
-          label: 'Step 1',
-          title: 'RFQ readiness workshop',
-          body: 'Assess process, volume, data, rules and risks. The outcome can be go, conditional go or no-go.',
-        },
-        {
-          label: 'Step 2',
-          title: 'Historical evaluation',
-          body: 'Use previous enquiries and approved calculations to test the schema, sources, rules and boundaries.',
-        },
-        {
-          label: 'Step 3',
-          title: 'Shadow-mode pilot',
-          body: 'Process new cases alongside the existing workflow without automating customer communication or official calculations.',
-        },
-        {
-          label: 'Step 4',
-          title: 'Limited internal rollout',
-          body: 'Extend internal use only after rules are stable and the reviewed quality is accepted.',
-        },
-      ],
-      ordered: true,
-      layout: 'steps',
-    },
-    {
-      id: 'about',
-      heading: 'UX Engineer with a mechanical engineering background',
+      id: 'working-together',
+      heading: 'Clear scope and direct collaboration',
       paragraphs: [
-        'I currently work as a UX Engineer for digital processes and automation. I design interfaces and workflows that make complex information understandable and reviewable.',
-        'Before moving into software and digitalisation, I spent around eight years in special-purpose machinery and industrial automation. Today I combine that background with UX and digital product work.',
-      ],
-      layout: 'profile',
-    },
-    {
-      id: 'further-automation',
-      eyebrow: 'Further automation',
-      heading: 'Does another technical or operational process consume unnecessary time?',
-      paragraphs: [
-        'In addition to technical quotation processes, I support clearly scoped automation, document workflows and system integrations.',
-      ],
-      links: [
-        {
-          label: 'Further process automation (German page)',
-          href: '/leistungen/prozessautomatisierung/',
-          lang: 'de',
-        },
+        'You describe the task, the tools involved and the result you want. We identify a practical scope and any information needed before development.',
+        'Before starting, we agree on scope, cost and timing. We then build and review one specific part. The handover includes the agreed files or workflows and clear documentation.',
+        'I work independently and offer these services alongside my main job. We agree on availability and any further support for each project.',
       ],
       layout: 'text',
     },
+    {
+      id: 'about-me',
+      heading: 'Hugo Martin. Technical background, practical development.',
+      paragraphs: [
+        'I moved from mechanical engineering into software development. Today, I work as a UX Engineer at EPLAN on a shared Angular component library and tools for developers.',
+        'A main focus is GitHub Copilot: custom skills and agents, coordination between them and automated development workflows. This technical experience also shapes my independent work.',
+      ],
+      links: [{ label: 'More about me', href: '/en/about/' }],
+      layout: 'profile',
+    },
   ],
   faq: {
-    id: 'faq',
-    eyebrow: 'Frequently asked questions',
-    heading: 'Questions about technical enquiry qualification',
+    id: 'questions',
+    heading: 'Before your first project',
     items: [
       {
-        question: 'Who is this suitable for?',
-        answer:
-          'Small and medium-sized machinery manufacturers, regardless of the machinery they build, provided part of the quotation process can be described consistently.',
+        question: 'Do I need a complete specification?',
+        answer: 'A short description is enough for the first contact: what happens today, which tools are involved and what should change? We use that to define a suitable first scope.',
       },
       {
-        question: 'Does a CPQ system need to be in place?',
-        answer:
-          'No. A pilot can start before CPQ and first structure requirements, sources, gaps and approved calculation rules.',
+        question: 'Can you help with an existing system?',
+        answer: 'Yes. A focused feature, an Angular component, a Copilot workflow or one integration can be a useful starting point.',
       },
       {
-        question: 'Can AI set prices?',
-        answer:
-          'No. Prices and budget values may come only from approved tables, modules, factors or formulas. AI may classify information, but it must not invent a price.',
-      },
-      {
-        question: 'Are customers contacted automatically?',
-        answer:
-          'Not in the initial pilot. The system works internally. Questions and results are used only after human review.',
-      },
-      {
-        question: 'When should the process not be automated?',
-        answer:
-          'When volume is too low, projects are barely repeatable, rules cannot be maintained or every first assessment requires new trials and detailed engineering.',
+        question: 'How do we agree on price and availability?',
+        answer: 'Both depend on the task, access requirements and effort. Before you commission the work, I provide a clear proposal for scope, cost and timing. We plan around my part-time availability.',
       },
     ],
   },
   finalCta: {
-    eyebrow: 'Next step',
-    heading: 'Is your quotation process suitable for this approach?',
-    body:
-      'Describe the quotation process, approximate enquiry volume, roles involved and main bottleneck. I will assess whether a clearly scoped review is useful.',
-    action: {
-      label: 'Check pilot fit',
-      href: '#contact-form',
-      dataCta: 'readiness-final',
-      contactContext: 'rfq',
-    },
-    note: 'No autonomous quotation. No invented prices. Human approval remains required.',
+    heading: 'Which task would you like to work on?',
+    body: 'Briefly describe your current workflow, the tools you use and the result you want. We can then discuss a practical next step.',
+    action: contactAction('en'),
+    note: 'A short description is enough for the first contact.',
   },
-  footer: {
-    left: 'Hugo Menz Automation',
-    right: 'Technical enquiry qualification and quotation processes for machinery manufacturers.',
-    secondaryLink: {
-      label: 'Further process automation (German page)',
-      href: '/leistungen/prozessautomatisierung/',
-      lang: 'de',
-    },
-  },
+  footer: pageFooter('en'),
   schemaKinds: ['Person', 'Organization', 'WebSite', 'FAQPage'],
 } as const satisfies PageDefinition;
