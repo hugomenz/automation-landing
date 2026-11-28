@@ -20,7 +20,7 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
       links: [
         { label: 'KI-Agenten & MCP', href: '/leistungen/github-copilot/' },
         { label: 'Prozessautomatisierung', href: '/leistungen/prozessautomatisierung/' },
-        { label: 'Individuelle Web-Anwendungen', href: '/leistungen/angular-entwicklung/' },
+        { label: 'Angular & Design Systems', href: '/leistungen/angular-entwicklung/' },
         { label: 'Alle Leistungen', href: '/leistungen/' },
       ],
     },
@@ -39,7 +39,7 @@ export const FOOTER_GROUPS: Record<PageLanguage, readonly FooterGroup[]> = {
       links: [
         { label: 'AI agents & MCP', href: '/en/github-copilot/' },
         { label: 'Process automation', href: '/en/process-automation/' },
-        { label: 'Custom web applications', href: '/en/angular-development/' },
+        { label: 'Angular & Design Systems', href: '/en/angular-development/' },
         { label: 'All services', href: '/en/services/' },
       ],
     },

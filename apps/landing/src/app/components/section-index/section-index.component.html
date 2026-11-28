@@ -10,7 +10,7 @@
         class="section-index-link"
         [class.is-active]="activeHref() === item.href"
         [attr.aria-current]="activeHref() === item.href ? 'location' : null"
-        [href]="item.href"
+        [href]="sectionHref(item.href)"
       >
         <span class="section-index-line" aria-hidden="true"></span>
         <span class="section-index-label">{{ item.label }}</span>

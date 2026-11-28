@@ -11,6 +11,8 @@ import {
 import { ContactDialogService } from '../../contact-dialog.service';
 import type { PageKey, PageLanguage, PagePath } from '../../content/page.types';
 import { PageLocaleService } from '../../core/page-locale.service';
+import { Router } from '@angular/router';
+import { contentHref } from '../../core/content-href';
 
 interface NavigationItem {
   readonly label: string;
@@ -22,14 +24,14 @@ const NAVIGATION: Record<PageLanguage, readonly NavigationItem[]> = {
   de: [
     { label: 'KI-Agenten & MCP', path: '/leistungen/github-copilot/', pageKey: 'github-copilot-de' },
     { label: 'Automatisierung', path: '/leistungen/prozessautomatisierung/', pageKey: 'process-automation-de' },
-    { label: 'Web-Apps', path: '/leistungen/angular-entwicklung/', pageKey: 'angular-development-de' },
+    { label: 'Angular & Design Systems', path: '/leistungen/angular-entwicklung/', pageKey: 'angular-development-de' },
     { label: 'Über mich', path: '/ueber-hugo-martin/', pageKey: 'about-hugo-martin-de' },
     { label: 'Kontakt', path: '/kontakt/', pageKey: 'contact-de' },
   ],
   en: [
     { label: 'AI agents & MCP', path: '/en/github-copilot/', pageKey: 'github-copilot-en' },
     { label: 'Automation', path: '/en/process-automation/', pageKey: 'process-automation-en' },
-    { label: 'Web apps', path: '/en/angular-development/', pageKey: 'angular-development-en' },
+    { label: 'Angular & Design Systems', path: '/en/angular-development/', pageKey: 'angular-development-en' },
     { label: 'About', path: '/en/about/', pageKey: 'about-hugo-martin-en' },
     { label: 'Contact', path: '/en/contact/', pageKey: 'contact-en' },
   ],
@@ -43,6 +45,8 @@ const NAVIGATION: Record<PageLanguage, readonly NavigationItem[]> = {
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  private readonly router = inject(Router);
+  get skipHref(): string { return contentHref('#content', this.router.url); }
   private readonly pageLocale = inject(PageLocaleService);
   private readonly contactDialog = inject(ContactDialogService);
   private readonly host = inject(ElementRef<HTMLElement>);

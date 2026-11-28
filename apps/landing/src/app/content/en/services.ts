@@ -9,8 +9,8 @@ export const ANGULAR_DEVELOPMENT_EN = {
   seo: pageSeo(
     'en',
     '/en/angular-development/',
-    'Custom Web Applications with Angular | Hugo Martin',
-    'Technical support for Angular applications, internal tools and implementing existing design systems as component libraries. Hugo Martin, based in Stuttgart.',
+    'Angular & Design Systems Engineering | Hugo Martin',
+    'Angular frontend engineering for design systems, component APIs, accessibility, documentation and tests. Hugo Martin, Stuttgart and remote.',
     PAGE_PAIRS.angular,
   ),
   header: pageHeader('en', PAGE_PAIRS.angular[0], 'angular'),
@@ -20,13 +20,19 @@ export const ANGULAR_DEVELOPMENT_EN = {
   ],
   hero: {
     kicker: 'Angular · TypeScript · Component libraries',
-    h1: 'Custom web applications and internal tools with Angular',
-    lead: 'I develop Angular applications, internal tools and reusable components. I implement existing design guidelines and design systems in Angular.',
+    h1: 'Angular and design systems for development teams',
+    lead: 'My focus is Angular, design systems and reusable UI components. I develop component APIs, states, documentation and tests, and help teams integrate them into existing applications.',
     primaryCta: contactAction('en', 'angular'),
     secondaryCta: { label: 'Explore possible tasks', href: '#tasks' },
     trustLine: 'Technical implementation · extend existing systems · clear scope',
   },
   sections: [
+    {
+      id: 'evidence', heading: 'Inspect original code and examples',
+      paragraphs: ['My professional experience includes developing and maintaining a shared Angular component library. Menz UI is an independent open-source project with original components, documentation and tests. It contains no internal company code.'],
+      links: [{ label: 'Menz UI: Angular components and documentation on GitHub', href: 'https://github.com/hugomenz/menz-design-system', external: true }],
+      callout: 'Built and testable. AI examples use a Mocked adapter with synthetic data.', layout: 'text',
+    },
     {
       id: 'tasks',
       heading: 'Support for a specific part of your application',
@@ -48,7 +54,7 @@ export const ANGULAR_DEVELOPMENT_EN = {
     },
     {
       id: 'design-systems',
-      heading: 'Make an existing design system usable in Angular',
+      heading: 'Turn design systems into maintainable Angular component libraries',
       paragraphs: [
         'Your design system or existing component library provides the design guidelines. My work is the technical implementation: component structure, TypeScript interfaces, states and behaviour in Angular.',
         'This also includes how other developers use the components. Clear examples, documented properties and consistent behaviour are part of the agreed implementation.',
@@ -56,7 +62,7 @@ export const ANGULAR_DEVELOPMENT_EN = {
       points: [
         'Understand the existing guidelines and use cases together.',
         'Build components with clear inputs and events.',
-        'Cover relevant states and agreed test cases.',
+        'Cover keyboard interaction, accessibility, failure states and agreed test cases.',
         'Document usage and technical decisions.',
       ],
       layout: 'text',
@@ -271,6 +277,14 @@ export const PROCESS_AUTOMATION_EN = {
     trustLine: 'Connect existing tools · define exceptions · document the handover',
   },
   sections: [
+    {
+      id: 'lab',
+      heading: 'Inspect the automation examples',
+      paragraphs: ['The public lab lets you explore synthetic workflows and documented failure paths. These examples are independent engineering evidence, not customer projects.'],
+      links: [{ label: 'Automation Lab: demos and engineering evidence', href: 'https://hugomenz.github.io/automation-portfolio/', external: true }],
+      callout: 'Built and testable. Each example states its own integration status.',
+      layout: 'text',
+    },
     {
       id: 'workflows',
       heading: 'Possible tasks for a first automation project',
