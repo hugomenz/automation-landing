@@ -44,9 +44,9 @@ export const HOME_EN = {
         },
         {
           label: '03',
-          title: 'Custom web applications',
+          title: 'Angular & Design Systems',
           body: 'Build web apps and internal tools with Angular, extend existing applications and implement existing design systems as component libraries.',
-          link: { label: 'Explore web applications', href: '/en/angular-development/' },
+          link: { label: 'Explore Angular & Design Systems', href: '/en/angular-development/' },
         },
         {
           label: '04',

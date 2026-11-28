@@ -9,6 +9,8 @@ export class ContactFormRateLimiterService {
   private readonly rateWindowMs = 60_000;
   private readonly maxPerMinute = 2;
   private readonly maxPerSession = 2;
+  private memoryTimestamps: number[] = [];
+  private memorySessionCount = 0;
 
   canSubmit(): { allowed: boolean; reason?: RateLimitReason } {
     const now = Date.now();
@@ -30,25 +32,38 @@ export class ContactFormRateLimiterService {
   recordSubmission(): void {
     const timestamps = this.getTimestamps();
     timestamps.push(Date.now());
-    sessionStorage.setItem(this.rateLimitKey, JSON.stringify(timestamps));
-    sessionStorage.setItem(this.sessionLimitKey, String(this.getSessionCount() + 1));
+    const count = this.getSessionCount() + 1;
+    this.memoryTimestamps = timestamps;
+    this.memorySessionCount = count;
+    // Storage is optional UX state. A successful HTTP response must remain successful.
+    try {
+      sessionStorage.setItem(this.rateLimitKey, JSON.stringify(timestamps));
+      sessionStorage.setItem(this.sessionLimitKey, String(count));
+    } catch {
+      // Keep the in-memory limit for this page when storage is unavailable.
+    }
   }
 
   private getTimestamps(): number[] {
     try {
       const stored = sessionStorage.getItem(this.rateLimitKey);
-      return stored ? (JSON.parse(stored) as number[]) : [];
+      const parsed: unknown = stored ? JSON.parse(stored) : [];
+      const timestamps = Array.isArray(parsed)
+        ? parsed.filter((value): value is number => typeof value === 'number' && Number.isFinite(value))
+        : [];
+      return this.memoryTimestamps.length >= timestamps.length ? [...this.memoryTimestamps] : timestamps;
     } catch {
-      return [];
+      return [...this.memoryTimestamps];
     }
   }
 
   private getSessionCount(): number {
     try {
       const stored = sessionStorage.getItem(this.sessionLimitKey);
-      return stored ? Number.parseInt(stored, 10) : 0;
+      const count = stored ? Number(stored) : 0;
+      return Math.max(this.memorySessionCount, Number.isInteger(count) && count >= 0 ? count : 0);
     } catch {
-      return 0;
+      return this.memorySessionCount;
     }
   }
 }

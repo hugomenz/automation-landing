@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { ContactDialogService } from '../../contact-dialog.service';
 import { ContentLink } from '../../content/page.types';
+import { Router } from '@angular/router';
+import { contentHref } from '../../core/content-href';
 
 @Component({
   selector: 'app-content-link',
@@ -11,6 +13,7 @@ import { ContentLink } from '../../content/page.types';
 })
 export class ContentLinkComponent {
   private readonly contactDialog = inject(ContactDialogService);
+  private readonly router = inject(Router);
 
   readonly link = input.required<ContentLink>();
   readonly variant = input<'primary' | 'secondary' | 'text'>('text');
@@ -18,6 +21,7 @@ export class ContentLinkComponent {
     this.variant() === 'text' ? 'content-link' : `btn btn-${this.variant()}`,
   );
   readonly opensDialog = computed(() => this.link().href === '#contact-form');
+  readonly href = computed(() => contentHref(this.link().href, this.router.url));
 
   openContactForm(): void {
     this.contactDialog.open(this.link().contactContext ?? 'general');

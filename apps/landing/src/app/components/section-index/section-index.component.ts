@@ -10,6 +10,8 @@ import {
   signal,
 } from '@angular/core';
 import type { PageLanguage } from '../../content/page.types';
+import { Router } from '@angular/router';
+import { contentHref } from '../../core/content-href';
 
 export interface SectionNavigationItem {
   readonly href: `#${string}`;
@@ -24,6 +26,8 @@ export interface SectionNavigationItem {
   styleUrl: './section-index.component.css',
 })
 export class SectionIndexComponent implements AfterViewInit, OnDestroy {
+  private readonly router = inject(Router);
+  sectionHref(href: string): string { return contentHref(href, this.router.url); }
   private readonly document = inject(DOCUMENT);
 
   readonly items = input.required<readonly SectionNavigationItem[]>();

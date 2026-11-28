@@ -44,9 +44,9 @@ export const HOME_DE = {
         },
         {
           label: '03',
-          title: 'Individuelle Web-Anwendungen',
+          title: 'Angular & Design Systems',
           body: 'Web-Apps und interne Tools mit Angular entwickeln, bestehende Anwendungen erweitern und vorhandene Designsysteme technisch als Komponentenbibliothek umsetzen.',
-          link: { label: 'Web-Anwendungen ansehen', href: '/leistungen/angular-entwicklung/' },
+          link: { label: 'Angular & Design Systems ansehen', href: '/leistungen/angular-entwicklung/' },
         },
         {
           label: '04',

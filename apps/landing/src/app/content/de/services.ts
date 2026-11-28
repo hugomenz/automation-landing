@@ -9,8 +9,8 @@ export const ANGULAR_DEVELOPMENT_DE = {
   seo: pageSeo(
     'de',
     '/leistungen/angular-entwicklung/',
-    'Individuelle Web-Anwendungen mit Angular | Hugo Martin',
-    'Technische Unterstützung für Angular-Anwendungen, interne Tools und die Umsetzung bestehender Designsysteme als Komponentenbibliothek. Hugo Martin, Stuttgart.',
+    'Angular-Entwicklung & Design Systems | Hugo Martin',
+    'Angular Frontend Engineering für Design Systems, Komponenten-APIs, Accessibility, Dokumentation und Tests. Hugo Martin, Stuttgart und remote.',
     PAGE_PAIRS.angular,
   ),
   header: pageHeader('de', PAGE_PAIRS.angular[1], 'angular'),
@@ -20,13 +20,19 @@ export const ANGULAR_DEVELOPMENT_DE = {
   ],
   hero: {
     kicker: 'Angular · TypeScript · Komponentenbibliotheken',
-    h1: 'Individuelle Web-Anwendungen und interne Tools mit Angular',
-    lead: 'Ich entwickle Angular-Anwendungen, interne Tools und wiederverwendbare Komponenten. Bestehende Gestaltungsvorgaben und Designsysteme setze ich technisch in Angular um.',
+    h1: 'Angular und Design Systems für Entwicklungsteams',
+    lead: 'Mein Schwerpunkt sind Angular, Design Systems und wiederverwendbare UI-Komponenten. Ich entwickle Komponenten-APIs, Zustände, Dokumentation und Tests und unterstütze Teams bei der Integration in bestehende Anwendungen.',
     primaryCta: contactAction('de', 'angular'),
     secondaryCta: { label: 'Mögliche Aufgaben', href: '#aufgaben' },
     trustLine: 'Technische Umsetzung · bestehende Systeme erweitern · klarer Umfang',
   },
   sections: [
+    {
+      id: 'belege', heading: 'Eigenen Code und Beispiele prüfen',
+      paragraphs: ['Meine berufliche Erfahrung umfasst die Entwicklung und Pflege einer gemeinsamen Angular-Komponentenbibliothek. Menz UI ist ein davon unabhängiges Open-Source-Projekt mit eigenen Komponenten, Dokumentation und Tests. Es enthält keinen internen Unternehmenscode.'],
+      links: [{ label: 'Menz UI: Angular-Komponenten und Dokumentation auf GitHub', href: 'https://github.com/hugomenz/menz-design-system', external: true }],
+      callout: 'Built and testable. Die KI-Beispiele verwenden einen Mocked adapter mit synthetischen Daten.', layout: 'text',
+    },
     {
       id: 'aufgaben',
       heading: 'Unterstützung an einer konkreten Stelle Ihrer Anwendung',
@@ -48,7 +54,7 @@ export const ANGULAR_DEVELOPMENT_DE = {
     },
     {
       id: 'designsysteme',
-      heading: 'Ein bestehendes Designsystem in Angular nutzbar machen',
+      heading: 'Design Systems als verlässliche Angular-Komponentenbibliothek',
       paragraphs: [
         'Ihr Designsystem oder Ihre vorhandene Komponentenbibliothek liefert die Gestaltungsvorgaben. Mein Beitrag ist die technische Umsetzung: Komponentenstruktur, TypeScript-Schnittstellen, Zustände und Verhalten in Angular.',
         'Dabei geht es auch darum, wie andere Entwickler die Komponenten einsetzen. Verständliche Beispiele, dokumentierte Eigenschaften und ein konsistentes Verhalten gehören zur vereinbarten Umsetzung.',
@@ -56,7 +62,7 @@ export const ANGULAR_DEVELOPMENT_DE = {
       points: [
         'Vorhandene Vorgaben und Anwendungsfälle gemeinsam klären.',
         'Komponenten mit klaren Eingaben und Ereignissen umsetzen.',
-        'Relevante Zustände und vereinbarte Prüffälle abdecken.',
+        'Tastaturbedienung, Accessibility, Fehlerfälle und vereinbarte Prüffälle abdecken.',
         'Verwendung und technische Entscheidungen dokumentieren.',
       ],
       layout: 'text',
@@ -271,6 +277,14 @@ export const PROCESS_AUTOMATION_DE = {
     trustLine: 'Vorhandene Tools verbinden · Ausnahmen klären · nachvollziehbar übergeben',
   },
   sections: [
+    {
+      id: 'labor',
+      heading: 'Automatisierungsbeispiele selbst prüfen',
+      paragraphs: ['Im öffentlichen Labor können Sie synthetische Abläufe und dokumentierte Fehlerfälle untersuchen. Die Beispiele sind eigene technische Nachweise und keine Kundenprojekte.'],
+      links: [{ label: 'Automation Lab: Demos und technische Nachweise', href: 'https://hugomenz.github.io/automation-portfolio/', external: true }],
+      callout: 'Built and testable. Der jeweilige Integrationsstatus steht direkt beim Beispiel.',
+      layout: 'text',
+    },
     {
       id: 'ablaeufe',
       heading: 'Mögliche Aufgaben für eine erste Automatisierung',

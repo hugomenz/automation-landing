@@ -92,7 +92,7 @@ export function pageHeader(
         navigation: [
           { label: 'KI-Agenten & MCP', href: PAGE_PAIRS.copilot[0] },
           { label: 'Automatisierung', href: PAGE_PAIRS.automation[0] },
-          { label: 'Web-Apps', href: PAGE_PAIRS.angular[0] },
+          { label: 'Angular & Design Systems', href: PAGE_PAIRS.angular[0] },
           { label: 'Über mich', href: PAGE_PAIRS.about[0] },
           { label: 'EN', href: alternatePath, lang: 'en' },
         ],
@@ -104,7 +104,7 @@ export function pageHeader(
         navigation: [
           { label: 'AI agents & MCP', href: PAGE_PAIRS.copilot[1] },
           { label: 'Automation', href: PAGE_PAIRS.automation[1] },
-          { label: 'Web apps', href: PAGE_PAIRS.angular[1] },
+          { label: 'Angular & Design Systems', href: PAGE_PAIRS.angular[1] },
           { label: 'About me', href: PAGE_PAIRS.about[1] },
           { label: 'DE', href: alternatePath, lang: 'de' },
         ],
